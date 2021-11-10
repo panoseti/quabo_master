@@ -61,6 +61,7 @@
 #include "flash.h"
 #include "EthCore_Configuration.h"
 #include "packet_header.h"
+#include "hs_ph.h"
 #include "netif/etharp.h"
 /////////////////////////// HARDWARE INSTANCES  ////////////////////////////////////////
 //The SPI interface
@@ -360,6 +361,8 @@ EthPacketHeader_Keys ethpacketheader_key={
 		556,									//total_len
 		536,									//length
 };
+u8 remap_w[256],remap_r[256];
+u16 bl_w[256], bl_r[256];
 //u8 wegetdata = 0;
 int main()
 {
