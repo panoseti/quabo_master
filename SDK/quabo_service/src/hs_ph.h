@@ -19,6 +19,7 @@
 #define AXI_BL_DATA_REG			12
 #define AXI_BL_ENA_BIT			0
 #define AXI_BL_WEA_BIT			1
+#define AXI_BL_ENABLE_BIT		2
 #define AXI_BL_ADDR_BIT			8
 #define AXI_BL_DATA_IN_BIT		16
 //ph remapping related registers and bits
@@ -38,6 +39,7 @@ char Cache_Mode(char mode);
 char Cache_Read(char sel, unsigned short *cache);
 // These are used to write/read data to/from the remap RAM
 char Remap_Init(unsigned char *remap);
+char Remap_Reorder(unsigned char *remap);
 char Remap_Write(unsigned char *remap);
 char Remap_Read(unsigned char *remap);
 char Remap_Check(unsigned char *remap_w, unsigned char *remap_r);

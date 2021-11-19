@@ -17,8 +17,7 @@
 //			         1-Cache mode. Microblaze core will read data from the cache ram. RT part will stop working.
 char Cache_Mode(char mode){
 	unsigned int tmp;
-	tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_CACHE_CFG_REG);
-	tmp = tmp | (mode<<AXI_CACHE_READ_BIT);
+	tmp = (mode<<AXI_CACHE_READ_BIT);
 	Xil_Out32(AXI_HS_PH_ADDR + AXI_CACHE_CFG_REG,tmp);
 	return 0;
 }
@@ -32,14 +31,14 @@ char Cache_Read(char sel, unsigned short *cache){
 	Cache_Mode(1);
 	unsigned int tmp;
 	tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_CACHE_CFG_REG);
-	tmp = tmp | (sel << AXI_CACHE_SEL_BIT);
+	tmp = tmp + (sel << AXI_CACHE_SEL_BIT);
 	Xil_Out32(AXI_HS_PH_ADDR + AXI_CACHE_CFG_REG, tmp);
 	unsigned char i = 0;
 	//write an address, and then read a data from cache RAM
 	for(i=0;i<255;i++)
 	{
 		tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_CACHE_CFG_REG);
-		tmp = tmp | (i << AXI_CACHE_RADDR_BIT);
+		tmp = tmp + (i << AXI_CACHE_RADDR_BIT);
 		Xil_Out32(AXI_HS_PH_ADDR + AXI_CACHE_CFG_REG, tmp);
 		*(cache+i) = Xil_In32(AXI_HS_PH_ADDR + AXI_CACHE_DATA_REG);
 	}
@@ -54,20 +53,21 @@ char Cache_Read(char sel, unsigned short *cache){
 char BL_Write(unsigned short *bl){
 	unsigned int tmp;
 	// enable writing first
-	tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG);
-	tmp = tmp | (1<<AXI_BL_WEA_BIT) | (1<<AXI_BL_ENA_BIT);
+	tmp = 0;
+	tmp = (1<<AXI_BL_WEA_BIT) | (1<<AXI_BL_ENA_BIT);
 	Xil_Out32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG, tmp);
 	// write the remap data to remap RAM
 	unsigned char i;
+	unsigned d;
 	for(i=0;i<255;i++)
 	{
-		tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG);
-		tmp = tmp | (i<<AXI_BL_ADDR_BIT) | (*(bl + i)<<AXI_BL_DATA_IN_BIT);
-		Xil_Out32(AXI_HS_PH_ADDR + AXI_BL_DATA_REG, tmp);
+		d = 65536 - *(bl+i); // this is the Complement of bl data.
+		tmp = (i<<AXI_BL_ADDR_BIT) | (d<<AXI_BL_DATA_IN_BIT) | (1<<AXI_BL_WEA_BIT) | (1<<AXI_BL_ENA_BIT);
+		Xil_Out32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG, tmp);
 	}
 	// disable writing
-	tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG);
-	tmp = tmp | (0<<AXI_BL_WEA_BIT) | (0<<AXI_BL_ENA_BIT);
+	tmp = (1<<AXI_BL_ENABLE_BIT);
+	Xil_Out32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG, tmp);
 	return 0;
 }
 
@@ -77,21 +77,19 @@ char BL_Write(unsigned short *bl){
 char BL_Read(unsigned short *bl){
 	unsigned int tmp;
 	// enable reading first
-	tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG);
-	tmp = tmp | (0<<AXI_BL_WEA_BIT) | (1<<AXI_BL_ENA_BIT);
+	tmp = (0<<AXI_BL_WEA_BIT) | (1<<AXI_BL_ENA_BIT);
 	Xil_Out32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG, tmp);
 	// read bl data from bl RAM
 	unsigned char i;
 	for(i=0;i<255;i++)
 	{
-		tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG);
-		tmp = tmp | (i<<AXI_BL_ADDR_BIT);
-		Xil_Out32(AXI_HS_PH_ADDR + AXI_BL_DATA_REG, tmp);
-		*(bl + i) = Xil_In32(AXI_HS_PH_ADDR + AXI_BL_DATA_REG);
+		tmp = (i<<AXI_BL_ADDR_BIT) | (0<<AXI_BL_WEA_BIT) | (1<<AXI_BL_ENA_BIT);
+		Xil_Out32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG, tmp);
+		*(bl + i) = 65536 - Xil_In32(AXI_HS_PH_ADDR + AXI_BL_DATA_REG);
 	}
 	// disable writing
-	tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG);
-	tmp = tmp | (0<<AXI_BL_WEA_BIT) | (0<<AXI_BL_ENA_BIT);
+	tmp = (1<<AXI_BL_ENABLE_BIT);
+	Xil_Out32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG, tmp);
 	return 0;
 }
 
@@ -119,26 +117,48 @@ char Remap_Init(unsigned char *remap){
 	return 0;
 }
 
+//Remap_Reorder()
+//Description: It's used for reordering the remap data.
+//			   The original remap data order is for microblaze code, which is different from FPGA implementation.
+//paramter: remap--it's used for storing the remap data.
+char Remap_Reorder(unsigned char *remap)
+{
+	unsigned char tmp[4];
+	unsigned char i = 0;
+	for(i=0;i<64;i++)
+	{
+		tmp[2] = *(remap+i*4+0);
+		tmp[3] = *(remap+i*4+1);
+		tmp[0] = *(remap+i*4+2);
+		tmp[1] = *(remap+i*4+3);
+		*(remap+i*4+0) = tmp[0];
+		*(remap+i*4+1) = tmp[1];
+		*(remap+i*4+2) = tmp[2];
+		*(remap+i*4+3) = tmp[3];
+	}
+	return 0;
+}
+
 //Remap_Write()
 //Description: It's used for write remap data to remap RAM.
 //parameter: remap--it stores the remap data.
 char Remap_Write(unsigned char *remap){
 	unsigned int tmp;
 	// enable writing first
-	tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG);
-	tmp = tmp | (1<<AXI_REMAP_WEA_BIT) | (1<<AXI_REMAP_ENA_BIT);
+	//tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG);
+	tmp = 0;
+	tmp = (1<<AXI_REMAP_WEA_BIT) | (1<<AXI_REMAP_ENA_BIT);
 	Xil_Out32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG, tmp);
 	// write the remap data to remap RAM
 	unsigned char i;
 	for(i=0;i<255;i++)
 	{
-		tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG);
-		tmp = tmp | (i<<AXI_REMAP_ADDR_BIT) | (*(remap + i)<<AXI_REMAP_DATA_IN_BIT);
-		Xil_Out32(AXI_HS_PH_ADDR + AXI_REMAP_DATA_REG, tmp);
+		tmp = (1<<AXI_REMAP_WEA_BIT) | (1<<AXI_REMAP_ENA_BIT) | (i<<AXI_REMAP_ADDR_BIT) | (*(remap + i)<<AXI_REMAP_DATA_IN_BIT);
+		Xil_Out32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG, tmp);
 	}
 	// disable writing
-	tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG);
-	tmp = tmp | (0<<AXI_REMAP_WEA_BIT) | (0<<AXI_REMAP_ENA_BIT);
+	tmp = 0;
+	Xil_Out32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG, tmp);
 	return 0;
 }
 
@@ -148,21 +168,20 @@ char Remap_Write(unsigned char *remap){
 char Remap_Read(unsigned char *remap){
 	unsigned int tmp;
 	// enable reading first
-	tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG);
-	tmp = tmp | (0<<AXI_REMAP_WEA_BIT) | (1<<AXI_REMAP_ENA_BIT);
+	//tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG);
+	tmp = (0<<AXI_REMAP_WEA_BIT) | (1<<AXI_REMAP_ENA_BIT);
 	Xil_Out32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG, tmp);
 	// read remap data from remap RAM
 	unsigned char i;
 	for(i=0;i<255;i++)
 	{
-		tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG);
-		tmp = tmp | (i<<AXI_REMAP_ADDR_BIT);
-		Xil_Out32(AXI_HS_PH_ADDR + AXI_REMAP_DATA_REG, tmp);
+		tmp = (i<<AXI_REMAP_ADDR_BIT) | (0<<AXI_REMAP_WEA_BIT) | (1<<AXI_REMAP_ENA_BIT);
+		Xil_Out32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG, tmp);
 		*(remap + i) = Xil_In32(AXI_HS_PH_ADDR + AXI_REMAP_DATA_REG);
 	}
 	// disable writing
-	tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG);
-	tmp = tmp | (0<<AXI_REMAP_WEA_BIT) | (0<<AXI_REMAP_ENA_BIT);
+	tmp = 0;
+	Xil_Out32(AXI_HS_PH_ADDR + AXI_REMAP_CFG_REG, tmp);
 	return 0;
 }
 

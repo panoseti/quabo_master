@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="tmp =" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="tmp ="/>
+			<item value="remap_array"/>
+			<item value="PH_Fifo"/>
+			<item value="ph_fifo"/>
 			<item value="ACQ_MODE_HS_IM"/>
 			<item value="UpdateGPIO"/>
 			<item value="led_flasher_sel"/>
 			<item value="recv_callback"/>
-			<item value="void UpdateGPIO"/>
-			<item value="REMAP_FOR_BGA"/>
-			<item value="FWID_1"/>
-			<item value="gpio_mech"/>
 		</list>
 		<list key="replacehistory">
 		</list>

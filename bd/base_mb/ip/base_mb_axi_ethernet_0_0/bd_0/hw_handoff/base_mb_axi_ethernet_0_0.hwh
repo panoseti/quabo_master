@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov  4 22:15:46 2021" VIVADOVERSION="2018.3.1_AR71948">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 11 20:44:01 2021" VIVADOVERSION="2018.3.1_AR71948">
 
   <SYSTEMINFO ARCH="kintex7" DEVICE="7k160t" NAME="bd_0b46" PACKAGE="fbg676" SPEEDGRADE="-1"/>
 
@@ -227,6 +227,26 @@
         <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_WVALID"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="I" NAME="sfp_rxn" SIGIS="undef" SIGNAME="pcs_pma_rxn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="pcs_pma" PORT="rxn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="sfp_rxp" SIGIS="undef" SIGNAME="pcs_pma_rxp">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="pcs_pma" PORT="rxp"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="sfp_txn" SIGIS="undef" SIGNAME="pcs_pma_txn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="pcs_pma" PORT="txn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="sfp_txp" SIGIS="undef" SIGNAME="pcs_pma_txp">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="pcs_pma" PORT="txp"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="O" LEFT="31" NAME="m_axis_rxs_tdata" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_AXI_STR_RXS_DATA">
       <CONNECTIONS>
         <CONNECTION INSTANCE="eth_buf" PORT="AXI_STR_RXS_DATA"/>
@@ -250,26 +270,6 @@
     <PORT DIR="O" NAME="m_axis_rxs_tvalid" SIGIS="undef" SIGNAME="eth_buf_AXI_STR_RXS_VALID">
       <CONNECTIONS>
         <CONNECTION INSTANCE="eth_buf" PORT="AXI_STR_RXS_VALID"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="sfp_rxn" SIGIS="undef" SIGNAME="pcs_pma_rxn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="pcs_pma" PORT="rxn"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="sfp_rxp" SIGIS="undef" SIGNAME="pcs_pma_rxp">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="pcs_pma" PORT="rxp"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="sfp_txn" SIGIS="undef" SIGNAME="pcs_pma_txn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="pcs_pma" PORT="txn"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="sfp_txp" SIGIS="undef" SIGNAME="pcs_pma_txp">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="pcs_pma" PORT="txp"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="31" NAME="m_axis_rxd_tdata" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_AXI_STR_RXD_DATA">

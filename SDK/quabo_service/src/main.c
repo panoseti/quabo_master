@@ -127,6 +127,9 @@ and slv_reg1 is the par_data_out (readback from the MAROCs)
 #define ACQ_MODE_IM_8BIT	0x06
 #define ACQ_MODE_HS_IM_8BIT	0x07
 
+#define AXI_HS_IM_RAM_ADDR	0x44A80000
+#define AXI_HS_PH_RAM_ADDR	0x44A50000
+
 #define ADC_LATENCY_SKIP_VAL 10
  /* The interface to the maroc_dc module
 wire [2:0] adc_clk_phase_sel =  slave_reg8[13:11];
@@ -361,6 +364,19 @@ EthPacketHeader_Keys ethpacketheader_key={
 		556,									//total_len
 		536,									//length
 };
+
+EthPacketHeader_Keys ethpacketheader_hsph={
+		{0x54, 0xee, 0x75, 0x56, 0xb3, 0xc5},	//dst mac
+		{0x00, 0x0a, 0x35, 0x00, 0x01, 0x03},	//src mac
+		{192, 168, 3, 251},						//src ip
+		{192, 168, 1, 100},						//dst ip
+		49153,									//src port
+		60001,									//dst port
+		{0xfb, 0x03, 0x00, 0x00},				//board_loc
+		0x01,									//acqmode
+		556,									//total_len
+		536,									//length
+};
 u8 remap_w[256],remap_r[256];
 u16 bl_w[256], bl_r[256];
 //u8 wegetdata = 0;
@@ -369,7 +385,8 @@ int main()
 #ifdef GOLD_COPY
 	xil_printf("*************Quabo GOLD Firmware*************\n\r");
 #else
-	xil_printf("*************Quabo Firmware*************\n\r");
+	//xil_printf("*************Quabo Firmware*************\n\r");
+	xil_printf("*************HS-PH Test Firmware*************\n\r");
 #endif
  	volatile int delay;
  	//initialize baseline array to zero.  We'll fill it when commanded, after setting up the MAROCs
@@ -419,10 +436,11 @@ int main()
 		 UpdateGPIO();
 		 //Set the HVs to 0.  Need to do this to make the VREF input of the AD5686 behave properly
 		 //Set_HV(HV_settings);
-
+		 /***********we implemented ph mode in FPGA*************/
 		 //The PulseHeight mode FIFO
-		 XLlFifo_Config *Config;
+		 //XLlFifo_Config *Config;
 		 /* Initialize the Device Configuration Interface driver */
+		 /*
 		 Config = XLlFfio_LookupConfig(XPAR_AXI_FIFO_MM_S_PH_DEVICE_ID);
 		 if (!Config) {
 			xil_printf("No config found for %d\r\n", XPAR_AXI_FIFO_MM_S_PH_DEVICE_ID);
@@ -433,12 +451,14 @@ int main()
 			xil_printf("Initialization failed\n\r");
 			return Status;
 		}
+		*/
 #ifdef PH_REMAP
 		//Need to define a map array.
 #ifdef USE_SIMPLE_INIT
 #ifdef REMAP_FOR_BGA
 		//Not sure why this is a u16 array, rather than u8
-		u16 remap_array [256] = {
+		//u16 remap_array [256] = {
+		u8 remap_array [256] = {
                 24,     23,     240,    136,        8,      7,      241,        137,        9,      21,     225,        168,        25,     5,      224,    169,
                 26,     4,      208,    185,        10,     20,     209,        184,        11,     19,     193,        200,        27,     3,      192,    201,
                 28,     18,     176,    216,        12,     2,      177,        217,        13,     17,     161,        232,        29,     16,     160,    248,
@@ -457,7 +477,8 @@ int main()
                 110,    96,     151,    255,        126,    112,    150,        254,        127,    98,     134,        223,        111,    113,    135,    238
         };
 #else
-		u16 remap_array [256] = {
+		//u16 remap_array [256] = {
+		u8 remap_array [256] = {
 				24, 	96, 	240, 	255, 	8, 		112,	241,	254,	9,		113,	225,	238,	25,		97,		224,	239,
 				26,		98,		208,	223,	10,		114,	209,	222,	11,		115,	193,	206,	27,		99,		192,	207,
 				28,		100,	176,	191,	12,		116,	177,	190,	13,		117,	161,	174,	29,		101,	160,	175,
@@ -482,21 +503,22 @@ int main()
 		//for (Status = 0; Status<256; Status++) remap_array[Status] = Status;
 #endif
 #endif
-		//use MB for IM_fifo intialization
-		IMFIFO_MB_CTRL();
-		 //The Image mode FIFO
-		 /* Initialize the Device Configuration Interface driver */
-		/* Config = XLlFfio_LookupConfig(XPAR_AXI_FIFO_MM_S_IM_DEVICE_ID);
-		 if (!Config) {
-			xil_printf("No config found for %d\r\n", XPAR_AXI_FIFO_MM_S_IM_DEVICE_ID);
-			return XST_FAILURE;
-		 }
-		Status = XLlFifo_CfgInitialize(&IM_Fifo, Config, Config->BaseAddress);
-		if (Status != XST_SUCCESS) {
-			xil_printf("Initialization failed\n\r");
-			return Status;
-		}
-		 */
+	/*******************************************************/
+	// now, we need to put remap_array to remap RAM first.
+	u8 remap_array_r[256];
+	//Remap_Init(test_w);
+	//when PH mode is implemented in FPGA, the order of remap table is different.
+	Remap_Reorder(remap_array);
+	Remap_Write(remap_array);
+	Remap_Read(remap_array_r);
+	char remap_check=0;
+	remap_check = Remap_Check(remap_array,remap_array_r);
+	if(remap_check < 0)
+		xil_printf("Remap check result: Incorrect!\n\r");
+	else
+		xil_printf("Remap check result: Correct!\n\r");
+	//use MB for IM_fifo intialization
+	IMFIFO_MB_CTRL(AXI_HS_IM_RAM_ADDR);
 	UpdateGPIO();
 
 	struct ip4_addr ipaddr, netmask, gw;
@@ -559,11 +581,13 @@ int main()
 	for (delay = 0; delay < 65535; delay++);
 	/* the mac address of the board. this should be unique per board */
 	unsigned char flash_uid[8];
+	/*
 	gpio_sel_mb();
 	flash_read_uid(flash_uid);
 	gpio_sel_wr();
-	//unsigned char mac_ethernet_address[] ={ 0x00, 0x0a, 0x35, 0x00, 0x01, 0x03 };
-	unsigned char mac_ethernet_address[6] ={0x00,flash_uid[5],flash_uid[4],flash_uid[3],flash_uid[2],flash_uid[1]};
+	*/
+	unsigned char mac_ethernet_address[] ={ 0x00, 0x0a, 0x35, 0x00, 0x01, 0x03 };
+	//unsigned char mac_ethernet_address[6] ={0x00,flash_uid[5],flash_uid[4],flash_uid[3],flash_uid[2],flash_uid[1]};
 	xil_printf("mac_address = %x %x %x %x %x %x\r\n",mac_ethernet_address[0],mac_ethernet_address[1],mac_ethernet_address[2],
 			                                         mac_ethernet_address[3],mac_ethernet_address[4],mac_ethernet_address[5]);
   	/* Add network interface to the netif_list, and set it as default */
@@ -679,6 +703,7 @@ int main()
 				SendHouseKeeping();
 			}
 		}
+	//configure udp header for HS-IM packets
 	//configure udp header ram in fpga
 	ethpacketheader_key.board_loc[0] = (board_location & 0xff);
 	ethpacketheader_key.board_loc[1] = (board_location>>8);
@@ -704,11 +729,26 @@ int main()
 												  ethpacketheader_key.dst_mac[3],
 												  ethpacketheader_key.dst_mac[4],
 												  ethpacketheader_key.dst_mac[5]);
-	tmp = Panoseti_EthPacketHeader_Init(&ethpacketheader_key);
+
+	tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR,&ethpacketheader_key);
 	if(tmp == 0)
-			xil_printf("udp header is configured successfully!\r\n");
+			xil_printf("udp header for HS-IM is configured successfully!\r\n");
 	else
 			xil_printf("fail to configure udp header!\r\n");
+
+	//configure udp header for HS-PH packets
+	ethpacketheader_hsph.board_loc[0] = (board_location & 0xff);
+	ethpacketheader_hsph.board_loc[1] = (board_location>>8);
+	ethpacketheader_hsph.src_ip[2] = (board_location>>8);
+	ethpacketheader_hsph.src_ip[3] = (board_location & 0xff);
+	memcpy(ethpacketheader_hsph.src_mac, mac_ethernet_address, 6);
+	memcpy(ethpacketheader_hsph.dst_mac, dst_mac_ptr->addr, 6);
+
+	tmp = Panoseti_EthPacketHeader_Init(AXI_HS_PH_RAM_ADDR,&ethpacketheader_hsph);
+		if(tmp == 0)
+				xil_printf("udp header for HS-PH is configured successfully!\r\n");
+		else
+				xil_printf("fail to configure udp header!\r\n");
 
 	//Set the HVs to 0.  Need to do this to make the VREF input of the AD5686 behave properly
 	Set_HV(HV_settings);
@@ -728,262 +768,48 @@ int main()
 	xil_printf("Ready to go!\r\n");
 	while (1)
 	{
-			xemacif_input(echo_netif);
-			if (TcpFastTmrFlag)
-				{
-					//This gets called about every 250ms
-					TcpFastTmrFlag = 0;
-					elapsed_time++;
-					if (elapsed_time & 0x01)  //convert every other time
-					{
-						u16 val = GetHouseKeeping();
-						//Since we read the data from channel n-1 when we write address n, must compensate here
-						s8 array_addr = hkadc_channel - 1;
-						if (array_addr == -1) array_addr = 15;
-						if (val != -1) hkadc_array[array_addr] = val;
-						hkadc_channel++;
-						if (hkadc_channel == 16) hkadc_channel = 0;
-						GetTMP125();
-						//we get shutter status here, and the status will be sent out in HK packets
-						Get_shutter_status();
-					}
-					if ((elapsed_time & 0xf) == 0) //every sixteen ticks, about every 4 sec
-					{
-						hk_timer++;
-						if ((hk_interval != 0) && (hk_timer == hk_interval))
-						{
-							hk_timer = 0;
-							SendHouseKeeping();
-							//xil_printf("do we get PH data?: %d\r\n", wegetdata);
-							//wegetdata = 0;
-						}
-					}
-				}
-			//Check the PH_FIFO if in PH mode and a packet has come in
-
-			if (((acq_mode & 0xf) == ACQ_MODE_PH) && (XLlFifo_iRxOccupancy(&PH_Fifo)))
+		xemacif_input(echo_netif);
+		if (TcpFastTmrFlag)
+		{
+			//This gets called about every 250ms
+			TcpFastTmrFlag = 0;
+			elapsed_time++;
+			if (elapsed_time & 0x01)  //convert every other time
 			{
-				//Check the fifo occupancy.  There should be 4*stop_channel words in the FIFO,
-				// since each word contains two samples, there are 4 chips, and we get 2 samples per channel
-				static u32 ReceiveLength;
-				int i;
-				u32 RxWord0, RxWord1;
-				//GetLen returns num bytes; convert to num u32s
-				ReceiveLength = (XLlFifo_iRxGetLen(&PH_Fifo))/4;
-				//in PH_MODE, we get the elapsed time, in IM we don't. So one extra word in PH mode
-				u32 expected_length =(stop_channel<<2) + 1;
-				if ((ReceiveLength>0) && (ReceiveLength != expected_length))
-					{
-						//Wrong packet length, need to read them out and dump them
-						xil_printf("Received %d words, SB %d\n", ReceiveLength, expected_length);
-						for ( i=0; i < ReceiveLength; i++)
-							RxWord0 = XLlFifo_RxGetWord(&PH_Fifo);
-					}
-				if (ReceiveLength == expected_length)
-				{
-					struct pbuf *sci_pbuf;
-					sci_pbuf = pbuf_alloc(PBUF_TRANSPORT, SCI_BUF_SIZE, PBUF_RAM);
-					if (!sci_pbuf) {
-						xil_printf("error allocating pbuf to send\r\n");
-						return -1;
-					}
-					char * sci_payload_ptr = sci_pbuf->payload;
-					*(sci_payload_ptr) = acq_mode;
-					*(sci_payload_ptr+1) = 0x0;
-					*(u16*)(sci_payload_ptr+2) = packet_number++;
-					*(u16*)(sci_payload_ptr+4) = board_location;
-					*(u16*)(sci_payload_ptr+14) = (u16)ReceiveLength;
-					//We'll use this to look up the baseline value, for subtraction
-					u16 bl_array_index = 0;
-					s16 temp0;
-					s16 temp1;
-					//as the values come in we'll remap them; use this index into the remap array
-					u16 remap_index = 0;
-					//There are two u32s per time sample; so ReceiveLength/2 is the number of samples
-				for ( i=0; i < (ReceiveLength/2); i++)
-				{
-					//RxWord0 = 0;
-					//RxWord1 = 0;
-					//Read two u32s for each sample
-					RxWord1 = XLlFifo_RxGetWord(&PH_Fifo);
-					RxWord0 = XLlFifo_RxGetWord(&PH_Fifo);
-					RxWord1 &= 0x0fff0fff;
-					RxWord0 &= 0x0fff0fff;
-					//We will skip a number of words at the beginning of the record,
-					//  due to the ADC latency
-
-					if (i>=ADC_LATENCY_SKIP_VAL)
-					{
-						//We will only send every other value, since there are two per channel
-						//If ADC_LATENCY_SKIP_VAL is even, we send the even ones, etc
-						if ((i - ADC_LATENCY_SKIP_VAL) & 0x01)
-						{
-#ifdef SUB_BL
-							//Turn off BL subtract by setting bit 4 of acq_mode (so acq_mode = 0x11)
-							if ((acq_mode & 0x10) == 0)
-							{
-							temp0 = (RxWord0 & 0xfff) - ph_baseline_array[bl_array_index++];
-							if (temp0 < 0) temp0 = 0;
-							temp1 = (RxWord0 >> 16) - ph_baseline_array[bl_array_index++];
-							if (temp1 < 0) temp1 = 0;
-							RxWord0 = temp1<<16 | temp0;
-
-							temp0 = (RxWord1 & 0xfff) - ph_baseline_array[bl_array_index++];
-							if (temp0 < 0) temp0 = 0;
-							temp1 = (RxWord1 >> 16) - ph_baseline_array[bl_array_index++];
-							if (temp1 < 0) temp1 = 0;
-							RxWord1 = temp1<<16 | temp0;
-							}
-#endif
-
-#ifndef PH_REMAP
-
-								memcpy(sci_payload_ptr + 16 + 4*((i - ADC_LATENCY_SKIP_VAL) & 0xffe), (u8*)&RxWord0,4);
-								memcpy(sci_payload_ptr + 20 + 4*((i - ADC_LATENCY_SKIP_VAL) & 0xffe), (u8*)&RxWord1,4);
-							}
-#else
-
-							//Each sample point has 4 12b values, 8 bytes.  We'll load them up with 8 single-byte transfers
-							*(sci_payload_ptr + 16 + 2*(remap_array[remap_index])) = RxWord0;
-							*(sci_payload_ptr + 17 + 2*(remap_array[remap_index++])) = RxWord0>>8;
-							*(sci_payload_ptr + 16 + 2*(remap_array[remap_index])) = RxWord0>>16;
-							*(sci_payload_ptr + 17 + 2*(remap_array[remap_index++])) = RxWord0>>24;
-							*(sci_payload_ptr + 16 + 2*(remap_array[remap_index])) = RxWord1;
-							*(sci_payload_ptr + 17 + 2*(remap_array[remap_index++])) = RxWord1>>8;
-							*(sci_payload_ptr + 16 + 2*(remap_array[remap_index])) = RxWord1>>16;
-							*(sci_payload_ptr + 17 + 2*(remap_array[remap_index++])) = RxWord1>>24;
-						}
-
-#endif
-						}
-					}
-				//Last one is ET
-				RxWord0 = XLlFifo_RxGetWord(&PH_Fifo);
-				memcpy(sci_payload_ptr + 10, (u8*)&RxWord0,4);
-				err_t err = udp_send(sci_pcb, sci_pbuf);
-				if (err != ERR_OK) {
-					xil_printf("Error on command udp_send: %d\r\n", err);
-					pbuf_free(sci_pbuf);
-					return -2;
-				}
-				pbuf_free(sci_pbuf);
-
+				u16 val = GetHouseKeeping();
+				//Since we read the data from channel n-1 when we write address n, must compensate here
+				s8 array_addr = hkadc_channel - 1;
+				if (array_addr == -1) array_addr = 15;
+				if (val != -1) hkadc_array[array_addr] = val;
+				hkadc_channel++;
+				if (hkadc_channel == 16) hkadc_channel = 0;
+				GetTMP125();
+				//we get shutter status here, and the status will be sent out in HK packets
+				Get_shutter_status();
 			}
-			}
-			else if ((acq_mode & 0xf) == ACQ_MODE_IM)
+			if ((elapsed_time & 0xf) == 0) //every sixteen ticks, about every 4 sec
 			{
+				hk_timer++;
+				if ((hk_interval != 0) && (hk_timer == hk_interval))
+				{
+					hk_timer = 0;
+					SendHouseKeeping();
+				}
+			}
+		}
+		//Check the PH_FIFO if in PH mode and a packet has come in
+		//if (((acq_mode & 0xf) == ACQ_MODE_PH) && (XLlFifo_iRxOccupancy(&PH_Fifo)))
+		if ((acq_mode & 0xf) == ACQ_MODE_PH)
+		{//code1
+			//it's going to be implemented in FPGA
+		}
+		else if ((acq_mode & 0xf) == ACQ_MODE_IM)
+		{
 				//It's implemented in FPGA
-			}
-			else if(((acq_mode & 0xf) == ACQ_MODE_HS_IM) || ((acq_mode & 0xf) == ACQ_MODE_HS_IM_8BIT))		//High Speed IM
-			{
-				if(XLlFifo_iRxOccupancy(&PH_Fifo))
-				{
-					//wegetdata = 1;
-					static u32 ReceiveLength;
-					int i;
-					u32 RxWord0, RxWord1;
-					//GetLen returns num bytes; convert to num u32s
-					ReceiveLength = (XLlFifo_iRxGetLen(&PH_Fifo))/4;
-					//in PH_MODE, we get the elapsed time, in IM we don't. So one extra word in PH mode
-					u32 expected_length =(stop_channel<<2) + 1;
-					if ((ReceiveLength>0) && (ReceiveLength != expected_length))
-					{
-					//Wrong packet length, need to read them out and dump them
-					xil_printf("Received %d words, SB %d\n", ReceiveLength, expected_length);
-					for ( i=0; i < ReceiveLength; i++)
-						RxWord0 = XLlFifo_RxGetWord(&PH_Fifo);
-					}
-					if (ReceiveLength == expected_length)
-					{
-						struct pbuf *sci_pbuf;
-						sci_pbuf = pbuf_alloc(PBUF_TRANSPORT, SCI_BUF_SIZE, PBUF_RAM);
-						if (!sci_pbuf)
-						{
-							xil_printf("error allocating pbuf to send\r\n");
-							return -1;
-						}
-						char * sci_payload_ptr = sci_pbuf->payload;
-						//*(sci_payload_ptr) = acq_mode;
-						*(sci_payload_ptr) = 0x01; 	//we want PH packets have 0x01
-						*(sci_payload_ptr+1) = 0x0;
-						*(u16*)(sci_payload_ptr+2) = packet_number++;
-						*(u16*)(sci_payload_ptr+4) = board_location;
-						*(u16*)(sci_payload_ptr+14) = (u16)ReceiveLength;
-						//We'll use this to look up the baseline value, for subtraction
-						u16 bl_array_index = 0;
-						s16 temp0;
-						s16 temp1;
-						//as the values come in we'll remap them; use this index into the remap array
-						u16 remap_index = 0;
-						//There are two u32s per time sample; so ReceiveLength/2 is the number of samples
-						for ( i=0; i < (ReceiveLength/2); i++)
-						{
-						//RxWord0 = 0;
-						//RxWord1 = 0;
-						//Read two u32s for each sample
-							RxWord1 = XLlFifo_RxGetWord(&PH_Fifo);
-							RxWord0 = XLlFifo_RxGetWord(&PH_Fifo);
-							RxWord1 &= 0x0fff0fff;
-							RxWord0 &= 0x0fff0fff;
-							//We will skip a number of words at the beginning of the record,
-							//  due to the ADC latency
-
-							if (i>=ADC_LATENCY_SKIP_VAL)
-							{
-							//We will only send every other value, since there are two per channel
-							//If ADC_LATENCY_SKIP_VAL is even, we send the even ones, etc
-								if ((i - ADC_LATENCY_SKIP_VAL) & 0x01)
-								{
-#ifdef SUB_BL
-								//Turn off BL subtract by setting bit 4 of acq_mode (so acq_mode = 0x11)
-									if ((acq_mode & 0x10) == 0)
-									{
-										temp0 = (RxWord0 & 0xfff) - ph_baseline_array[bl_array_index++];
-										if (temp0 < 0) temp0 = 0;
-										temp1 = (RxWord0 >> 16) - ph_baseline_array[bl_array_index++];
-										if (temp1 < 0) temp1 = 0;
-										RxWord0 = temp1<<16 | temp0;
-
-										temp0 = (RxWord1 & 0xfff) - ph_baseline_array[bl_array_index++];
-										if (temp0 < 0) temp0 = 0;
-										temp1 = (RxWord1 >> 16) - ph_baseline_array[bl_array_index++];
-										if (temp1 < 0) temp1 = 0;
-										RxWord1 = temp1<<16 | temp0;
-									}
-#endif
-
-#ifndef PH_REMAP
-
-									memcpy(sci_payload_ptr + 16 + 4*((i - ADC_LATENCY_SKIP_VAL) & 0xffe), (u8*)&RxWord0,4);
-									memcpy(sci_payload_ptr + 20 + 4*((i - ADC_LATENCY_SKIP_VAL) & 0xffe), (u8*)&RxWord1,4);
-								}
-#else
-								//Each sample point has 4 12b values, 8 bytes.  We'll load them up with 8 single-byte transfers
-								*(sci_payload_ptr + 16 + 2*(remap_array[remap_index])) = RxWord0;
-								*(sci_payload_ptr + 17 + 2*(remap_array[remap_index++])) = RxWord0>>8;
-								*(sci_payload_ptr + 16 + 2*(remap_array[remap_index])) = RxWord0>>16;
-								*(sci_payload_ptr + 17 + 2*(remap_array[remap_index++])) = RxWord0>>24;
-								*(sci_payload_ptr + 16 + 2*(remap_array[remap_index])) = RxWord1;
-								*(sci_payload_ptr + 17 + 2*(remap_array[remap_index++])) = RxWord1>>8;
-								*(sci_payload_ptr + 16 + 2*(remap_array[remap_index])) = RxWord1>>16;
-								*(sci_payload_ptr + 17 + 2*(remap_array[remap_index++])) = RxWord1>>24;
-								}
-#endif
-							}
-						}
-					//Last one is ET
-					RxWord0 = XLlFifo_RxGetWord(&PH_Fifo);
-					memcpy(sci_payload_ptr + 10, (u8*)&RxWord0,4);
-					err_t err = udp_send(sci_pcb, sci_pbuf);
-					if (err != ERR_OK)
-					{
-						xil_printf("Error on command udp_send: %d\r\n", err);
-						pbuf_free(sci_pbuf);
-						return -2;
-					}
-					pbuf_free(sci_pbuf);
-				}
-			}
+		}
+		else if(((acq_mode & 0xf) == ACQ_MODE_HS_IM) || ((acq_mode & 0xf) == ACQ_MODE_HS_IM_8BIT))		//High Speed IM
+		{//code2
+			//it's going to be implemented in FPGA
 		}
 		else if ((acq_mode & 0xf) == ACQ_MODE_IM_8BIT)
 		{
@@ -992,14 +818,12 @@ int main()
 	}
 	/* never reached */
 	cleanup_platform();
-
 	return 0;
 }
 
 
 void
-recv_callback(void *arg, struct udp_pcb *tpcb,
-                               struct pbuf *p, struct ip4_addr *addr, u16_t port)
+recv_callback(void *arg, struct udp_pcb *tpcb,struct pbuf *p, struct ip4_addr *addr, u16_t port)
 {
 		xil_printf("Got one, packet number %d\n\r", recvd_pkt_number);
 		//MicroBlaze is Little-Endian
@@ -1256,17 +1080,6 @@ void Set_HV(u16* data_ptr)
 		UpdateGPIO();
 		//wait for it to be cleared
 		while (SPI_flag);
-
-		/*SendBuf[0] = 0x30 | (1<<ii);
-		SendBuf[1] = (u8)(value >> 8);
-		SendBuf[2] = value & 0xff;
-
-		XSpi_SetSlaveSelect(&Spi, HV_DAC_SPI_MASK);
-		XSpi_Transfer(&Spi, SendBuf, NULL, 3);
-		XSpi_SetSlaveSelect(&Spi, 0xff);
-		//TODO- figure out how to check when Spi is ready rather than just waiting
-		for (delay = 0; delay < 300; delay++);
-		*/
 	}
 
 
@@ -1342,69 +1155,115 @@ void Set_Acquisition(u16* dataptr)
 	//Reset the FIFO
 	if (acq_mode == ACQ_MODE_PH)
 	{
-		IMFIFO_MB_CTRL();
-		XLlFifo_RxReset(&PH_Fifo);
+		IMFIFO_MB_CTRL(AXI_HS_IM_RAM_ADDR);
+		//XLlFifo_RxReset(&PH_Fifo);
+
+		//configure HS-PH
+		//set acq_mode first
+		char tmp = -1;
+		SET_ACQ_MODE(AXI_HS_PH_RAM_ADDR, acq_mode);
+		ethpacketheader_hsph.acqmode = acq_mode;
+		ethpacketheader_hsph.total_len = 556;
+		ethpacketheader_hsph.length = 536;
+		//udp checksum part should be changed
+		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_PH_RAM_ADDR, &ethpacketheader_hsph);
+		IMFIFO_MB_CTRL(AXI_HS_PH_RAM_ADDR);
+		xil_printf("High Speed PH MODE: %d\r\n", tmp);
+		Panoseti_IMFIFO_Reset(AXI_HS_PH_RAM_ADDR);
+		IMFIFO_FPGA_CTRL_16BIT(AXI_HS_PH_RAM_ADDR);
 	}
 	else if(acq_mode == ACQ_MODE_IM)
 	{
 		//set acq_mode first
-		SET_ACQ_MODE(acq_mode);
+		char tmp = -1;
+		SET_ACQ_MODE(AXI_HS_IM_RAM_ADDR, acq_mode);
 		ethpacketheader_key.acqmode = acq_mode;
 		ethpacketheader_key.total_len = 556;
 		ethpacketheader_key.length = 536;
 		//udp checksum part should be changed
-		Panoseti_EthPacketHeader_Init(&ethpacketheader_key);
-		IMFIFO_MB_CTRL();
-		xil_printf("16-BIT IM MODE\r\n");
-		Panoseti_IMFIFO_Reset();
-		IMFIFO_FPGA_CTRL_16BIT();
+		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR, &ethpacketheader_key);
+		IMFIFO_MB_CTRL(AXI_HS_IM_RAM_ADDR);
+		xil_printf("16-BIT IM MODE: %d\r\n",tmp);
+		Panoseti_IMFIFO_Reset(AXI_HS_IM_RAM_ADDR);
+		IMFIFO_FPGA_CTRL_16BIT(AXI_HS_IM_RAM_ADDR);
 	}
 	else if(acq_mode == ACQ_MODE_HS_IM)
 	{
+		char tmp = -1;
+		//configure 16 bit HS-IM
 		//set acq_mode first
-		SET_ACQ_MODE(acq_mode);
+		SET_ACQ_MODE(AXI_HS_IM_RAM_ADDR, acq_mode);
 		ethpacketheader_key.acqmode = acq_mode;
 		ethpacketheader_key.total_len = 556;
 		ethpacketheader_key.length = 536;
 		//udp checksum part should be changed
-		Panoseti_EthPacketHeader_Init(&ethpacketheader_key);
+		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR, &ethpacketheader_key);
 		//we use MB to initialize IM_FIFO, then switch to fpga for getting data at high speed
-		IMFIFO_MB_CTRL();
-		XLlFifo_RxReset(&PH_Fifo);
-		xil_printf("high speed 16BIT-IM mode\r\n");
-		Panoseti_IMFIFO_Reset();
-		IMFIFO_FPGA_CTRL_16BIT();
+		IMFIFO_MB_CTRL(AXI_HS_IM_RAM_ADDR);
+		//XLlFifo_RxReset(&PH_Fifo);
+		xil_printf("High Speed 16BIT-IM mode: %d\r\n", tmp);
+		Panoseti_IMFIFO_Reset(AXI_HS_IM_RAM_ADDR);
+		IMFIFO_FPGA_CTRL_16BIT(AXI_HS_IM_RAM_ADDR);
+
+		//configure HS-PH
+		//set acq_mode first
+		SET_ACQ_MODE(AXI_HS_PH_RAM_ADDR, ACQ_MODE_PH);
+		ethpacketheader_hsph.acqmode = ACQ_MODE_PH;
+		ethpacketheader_hsph.total_len = 556;
+		ethpacketheader_hsph.length = 536;
+		//udp checksum part should be changed
+		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_PH_RAM_ADDR, &ethpacketheader_hsph);
+		IMFIFO_MB_CTRL(AXI_HS_PH_RAM_ADDR);
+		xil_printf("High Speed PH MODE: %d \r\n", tmp);
+		Panoseti_IMFIFO_Reset(AXI_HS_PH_RAM_ADDR);
+		IMFIFO_FPGA_CTRL_16BIT(AXI_HS_PH_RAM_ADDR);
 	}
 	else if(acq_mode == ACQ_MODE_IM_8BIT)
 	{
-		SET_ACQ_MODE(acq_mode);
+		char tmp = -1;
+		SET_ACQ_MODE(AXI_HS_IM_RAM_ADDR, acq_mode);
 		ethpacketheader_key.acqmode = acq_mode;
 		ethpacketheader_key.total_len = 300;
 		ethpacketheader_key.length = 280;
 		//udp checksum part should be changed
-		Panoseti_EthPacketHeader_Init(&ethpacketheader_key);
+		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR, &ethpacketheader_key);
 		//we use MB to initialize IM_FIFO, then switch to fpga for getting data at high speed
-		IMFIFO_MB_CTRL();
-		XLlFifo_RxReset(&PH_Fifo);
-		xil_printf("8-BIT IM MODE\r\n");
-		Panoseti_IMFIFO_Reset();
-		IMFIFO_FPGA_CTRL_8BIT();
+		IMFIFO_MB_CTRL(AXI_HS_IM_RAM_ADDR);
+		//XLlFifo_RxReset(&PH_Fifo);
+		xil_printf("8-BIT IM MODE: %d\r\n", tmp);
+		Panoseti_IMFIFO_Reset(AXI_HS_IM_RAM_ADDR);
+		IMFIFO_FPGA_CTRL_8BIT(AXI_HS_IM_RAM_ADDR);
 	}
 	else if(acq_mode == ACQ_MODE_HS_IM_8BIT)
 		{
+			char tmp  =-1;
+			//configure 8bit HS-IM
 			//set acq_mode first
-			SET_ACQ_MODE(acq_mode);
+			SET_ACQ_MODE(AXI_HS_IM_RAM_ADDR, acq_mode);
 			ethpacketheader_key.acqmode = acq_mode;
 			ethpacketheader_key.total_len = 300;
 			ethpacketheader_key.length = 280;
 			//udp checksum part should be changed
-			Panoseti_EthPacketHeader_Init(&ethpacketheader_key);
+			tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR, &ethpacketheader_key);
 			//we use MB to initialize IM_FIFO, then switch to fpga for getting data at high speed
-			IMFIFO_MB_CTRL();
-			XLlFifo_RxReset(&PH_Fifo);
-			xil_printf("high speed 8-BIT IM mode\r\n");
-			Panoseti_IMFIFO_Reset();
-			IMFIFO_FPGA_CTRL_8BIT();
+			IMFIFO_MB_CTRL(AXI_HS_IM_RAM_ADDR);
+			//XLlFifo_RxReset(&PH_Fifo);
+			xil_printf("High speed 8-BIT IM mode: %d\r\n", tmp);
+			Panoseti_IMFIFO_Reset(AXI_HS_IM_RAM_ADDR);
+			IMFIFO_FPGA_CTRL_8BIT(AXI_HS_IM_RAM_ADDR);
+
+			//configure HS-PH
+			//set acq_mode first
+			SET_ACQ_MODE(AXI_HS_PH_RAM_ADDR, ACQ_MODE_PH);
+			ethpacketheader_hsph.acqmode = ACQ_MODE_PH;
+			ethpacketheader_hsph.total_len = 556;
+			ethpacketheader_hsph.length = 536;
+			//udp checksum part should be changed
+			tmp = Panoseti_EthPacketHeader_Init(AXI_HS_PH_RAM_ADDR, &ethpacketheader_hsph);
+			IMFIFO_MB_CTRL(AXI_HS_PH_RAM_ADDR);
+			xil_printf("High Speed PH MODE: %d\r\n", tmp);
+			Panoseti_IMFIFO_Reset(AXI_HS_PH_RAM_ADDR);
+			IMFIFO_FPGA_CTRL_16BIT(AXI_HS_PH_RAM_ADDR);
 		}
 	//Wait for reset to complete
 	for (delay = 0; delay < 1000; delay++);
@@ -1502,26 +1361,6 @@ int GetHouseKeeping(void)
 	if ((SPI_RxBuf[0] & 0x20) == 0) return 0;
 	//Return a 16-bit result
 	return ((SPI_RxBuf[0] & 0xf)<<12) + (SPI_RxBuf[1]<<4) + (SPI_RxBuf[2]>>4);
-
-	/*
-	u8 SendBuf[3] = {0,0,0};
-	u8 RxBuf[3] = {2,2,2};
-	volatile u32 delay;
-	//Need to rotate addr right, and put LSbit in MSbit due to funny mapping of ADC
-	u8 adc_addr = ((hkadc_channel & 0x01)<<3) | (hkadc_channel>>1);
-	//Set bits 7:5 = 101, bit 4 = 1 (for single-ended)
-	SendBuf[0] = 0xb0 | adc_addr;
-	XSpi_SetSlaveSelect(&Spi, HKADC_SPI_MASK);
-	Status = XSpi_Transfer(&Spi, SendBuf, RxBuf, 3);
-	//TODO- figure out how to check when Spi is ready rather than just waiting
-	for (delay = 0; delay < 30000; delay++);
-	XSpi_SetSlaveSelect(&Spi, 0xff);
-	//Check for out of range:
-	if ((RxBuf[0] & 0x30) == 0x30) return 0xffff;
-	if ((RxBuf[0] & 0x20) == 0) return 0;
-	//Return a 16-bit result
-	return ((RxBuf[0] & 0xf)<<12) + (RxBuf[1]<<4) + (RxBuf[2]>>4);
-	*/
 }
 
 //Update the GPIO that controls the stim, hv_enable, etc
@@ -1550,19 +1389,6 @@ void GetTMP125(void)
 	//wait for it to be cleared
 	while (SPI_flag);
 	tmp125_val = (SPI_RxBuf[1]>>5) + (SPI_RxBuf[0]<<3);
-
-	/*
-	u8 SendBuf[2] = {0,0};
-	u8 RxBuf[2] = {0,0};
-	volatile u32 delay;
-	XSpi_SetSlaveSelect(&Spi, TMP125_SPI_MASK);
-	Status = XSpi_Transfer(&Spi, SendBuf, RxBuf, 2);
-	//TODO- figure out how to check when Spi is ready rather than just waiting
-	for (delay = 0; delay < 30000; delay++);
-	XSpi_SetSlaveSelect(&Spi, 0xff);
-	tmp125_val = (RxBuf[1]>>5) + (RxBuf[0]<<3);
-	return;
-	*/
 }
 
 void Get_shutter_status(void)
@@ -1705,66 +1531,80 @@ int PH_BL_Init(s16 * ph_baseline_array)
 	//Iterate 9 times and throw away the first one (because it was
 	//  hanging around in the CC FIFO) to get an average of 8
 	u8 loopcount;
-	for (loopcount = 0; loopcount < 9; loopcount++)
+	u16 ph_cache[256];
+	//for (loopcount = 0; loopcount < 9; loopcount++)
+	for (loopcount = 0; loopcount < 8; loopcount++)
 	{
-	Xil_Out32(MAROC_DC + 32, (reg8val & 0xfffff9ff) | 0x200); //set acq_mode to 01
-	//Set stop channel to max
-	Xil_Out32(MAROC_DC + 36, (reg9val & 0x80ffffff) | (MAX_STOP_CHANNEL<<24));
-	//Clear the PH_Fifo and wait for it to be empty
-	//XLlFifo_RxReset(&PH_Fifo);
-	while (!XLlFifo_IsRxEmpty(&PH_Fifo))XLlFifo_RxReset(&PH_Fifo);
-	//Pulse the sw_trig
-	Xil_Out32(MAROC_DC + 32, (reg8val & 0xfffff9ff) | 0x8200);
-	Xil_Out32(MAROC_DC + 32, (reg8val & 0xffff79ff) | 0x200);
-	//Wait for FIFO to fill
-	for (delay = 0; delay < 10000; delay++);
-	//We'll average 8 baselines
-	//GetLen returns num bytes; convert to num u32s
-	ReceiveLength = (XLlFifo_iRxGetLen(&PH_Fifo))/4;
-	if (ReceiveLength == 0)
-		{
-			xil_printf("no data returned in BL routine");
-			return -1;
-		}
-	u32 expected_length =(MAX_STOP_CHANNEL<<2) + 1;
-	if ((ReceiveLength>0) && (ReceiveLength != expected_length))
-		{
-			//Wrong packet length, need to read them out and dump them
-			xil_printf("Received %d words in BL routine, SB %d\n", ReceiveLength, expected_length);
-			for (i=0; i< ReceiveLength; i++)
-				RxWord0 = XLlFifo_RxGetWord(&PH_Fifo);
-			return -1;
-		}
-
-	u16 bl_array_index=0;
-	//There are two u32s per time sample; so ReceiveLength/2 is the number of samples
-	for (i=0; i < (ReceiveLength/2); i++)
-		{
-			//Read two u32s for each sample
-			RxWord1 = XLlFifo_RxGetWord(&PH_Fifo) & 0x0fff0fff;
-			RxWord0 = XLlFifo_RxGetWord(&PH_Fifo) & 0x0fff0fff;
-			//We will skip a number of words at the beginning of the record,
-			//  due to the ADC latency
-	//Set this so that the values sent out don't go to 0
-	#define RESIDUAL_BL 10
-			if ((i>=ADC_LATENCY_SKIP_VAL) && (loopcount > 0))
-			//We will only send every other value, since there are two per channel
-			//If ADC_LATENCY_SKIP_VAL is even, we send the even ones, etc
-			if ((i - ADC_LATENCY_SKIP_VAL) & 0x01)
+		Xil_Out32(MAROC_DC + 32, (reg8val & 0xfffff9ff) | 0x200); //set acq_mode to 01
+		//Set stop channel to max
+		Xil_Out32(MAROC_DC + 36, (reg9val & 0x80ffffff) | (MAX_STOP_CHANNEL<<24));
+		//Clear the PH_Fifo and wait for it to be empty
+		//XLlFifo_RxReset(&PH_Fifo);
+		//while (!XLlFifo_IsRxEmpty(&PH_Fifo))XLlFifo_RxReset(&PH_Fifo);
+		//Pulse the sw_trig
+		Xil_Out32(MAROC_DC + 32, (reg8val & 0xfffff9ff) | 0x8200);
+		Xil_Out32(MAROC_DC + 32, (reg8val & 0xffff79ff) | 0x200);
+		//Wait for FIFO to fill
+		for (delay = 0; delay < 10000; delay++);
+		//We'll average 8 baselines
+		//GetLen returns num bytes; convert to num u32s
+		/***************It's implemented in FPGA********************************/
+		/*
+		ReceiveLength = (XLlFifo_iRxGetLen(&PH_Fifo))/4;
+		if (ReceiveLength == 0)
 			{
-				ph_baseline_array[bl_array_index++] += (RxWord0 & 0xfff) - RESIDUAL_BL;
-				ph_baseline_array[bl_array_index++] += (RxWord0>>16)  - RESIDUAL_BL;
-				ph_baseline_array[bl_array_index++] += (RxWord1 & 0xfff) - RESIDUAL_BL;
-				ph_baseline_array[bl_array_index++] += (RxWord1>>16)  - RESIDUAL_BL;
+				xil_printf("no data returned in BL routine");
+				return -1;
 			}
-			//Protect against a too-long ReceiveLength writing data outside the array
-			if (bl_array_index>255)break;
+		u32 expected_length =(MAX_STOP_CHANNEL<<2) + 1;
+		if ((ReceiveLength>0) && (ReceiveLength != expected_length))
+			{
+				//Wrong packet length, need to read them out and dump them
+				xil_printf("Received %d words in BL routine, SB %d\n", ReceiveLength, expected_length);
+				for (i=0; i< ReceiveLength; i++)
+					RxWord0 = XLlFifo_RxGetWord(&PH_Fifo);
+				return -1;
+			}
+		u16 bl_array_index=0;
+		for (i=0; i < (ReceiveLength/2); i++)
+			{
+				RxWord1 = XLlFifo_RxGetWord(&PH_Fifo) & 0x0fff0fff;
+				RxWord0 = XLlFifo_RxGetWord(&PH_Fifo) & 0x0fff0fff;
+		#define RESIDUAL_BL 10
+				if ((i>=ADC_LATENCY_SKIP_VAL) && (loopcount > 0))
+				if ((i - ADC_LATENCY_SKIP_VAL) & 0x01)
+				{
+					ph_baseline_array[bl_array_index++] += (RxWord0 & 0xfff) - RESIDUAL_BL;
+					ph_baseline_array[bl_array_index++] += (RxWord0>>16)  - RESIDUAL_BL;
+					ph_baseline_array[bl_array_index++] += (RxWord1 & 0xfff) - RESIDUAL_BL;
+					ph_baseline_array[bl_array_index++] += (RxWord1>>16)  - RESIDUAL_BL;
+				}
+				if (bl_array_index>255)break;
+			}
+		RxWord1 = XLlFifo_RxGetWord(&PH_Fifo);
+		*/
+		/**********************************************************************/
+		u8 bl_array_index=0;
+		Cache_Read(0,ph_cache);
+		for(bl_array_index=0;bl_array_index<255;bl_array_index++)
+		{
+		#define RESIDUAL_BL 10
+			ph_baseline_array[bl_array_index] += ph_cache[bl_array_index] - RESIDUAL_BL;
 		}
-	//read and ignore one more (Elapsed Time)
-	RxWord1 = XLlFifo_RxGetWord(&PH_Fifo);
 	}
-
 	for (i = 0; i<256; i++) ph_baseline_array[i] = ph_baseline_array[i]>>3;
+	BL_Write(ph_baseline_array);
+	u16 bl_data_r[256];
+	BL_Read(bl_data_r);
+	char bl_state;
+	bl_state = BL_Check(ph_baseline_array, bl_data_r);
+	if(bl_state < 0)
+	{
+		xil_printf("BL data check result: Incorrect!\n\r");
+		return bl_state;
+	}
+	else
+		xil_printf("BL data check result: Correct!\n\r");
 #ifdef VERBOSE
 	for (i = 0; i<64; i++)
 	{
@@ -1783,7 +1623,7 @@ int PH_BL_Init(s16 * ph_baseline_array)
 
 	//Clear the PH_Fifo and wait for it to be empty
 	//XLlFifo_RxReset(&PH_Fifo);
-	while (!XLlFifo_IsRxEmpty(&PH_Fifo))XLlFifo_RxReset(&PH_Fifo);
+	//while (!XLlFifo_IsRxEmpty(&PH_Fifo))XLlFifo_RxReset(&PH_Fifo);
 
 
 	//Now send back the bl_array data
@@ -2092,35 +1932,9 @@ void InitXADC(void)
 							XSM_SEQ_CH_VCCINT);
 		XSysMon_SetAdcClkDivisor(&SysMonInst, 32);
 		XSysMon_SetSequencerMode(&SysMonInst, XSM_SEQ_MODE_CONTINPASS);
-/*		volatile int delay;
-		while(1)
-		{
-		u16 value = XSysMon_GetAdcData(&SysMonInst, XSM_CH_TEMP);
-		xil_printf("Temp %d ", value);
-		value = XSysMon_GetAdcData(&SysMonInst, XSM_CH_VCCAUX);
-		xil_printf("Temp %d ", value);
-		value = XSysMon_GetAdcData(&SysMonInst, XSM_CH_VCCINT);
-		xil_printf("Temp %d \n", value);
-		for (delay=0;delay<1000000;delay++);
-		}
-*/
-
-
 }
 
-/*
-	//Test the two WR DACs
-	while (1)
-	{
-	u16 dacval;
-	for (dacval=0;dacval<60000;dacval+=1000)
-		Set_WRDAC(1, dacval);
-	for (delay = 0; delay < 1000000; delay++);
-	for (dacval=0;dacval<60000;dacval+=1000)
-		Set_WRDAC(0, dacval);
-	for (delay = 0; delay < 1000000; delay++);
-	}
-*/
+
 void waitabit(u8 val)
 {
 	u8 time_now;

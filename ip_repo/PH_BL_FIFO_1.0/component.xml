@@ -3,7 +3,7 @@
   <spirit:vendor>user.org</spirit:vendor>
   <spirit:library>user</spirit:library>
   <spirit:name>PH_BL_FIFO</spirit:name>
-  <spirit:version>1.0</spirit:version>
+  <spirit:version>1.4</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
       <spirit:name>S00_AXI</spirit:name>
@@ -354,7 +354,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>00f622a6</spirit:value>
+            <spirit:value>c5dfb987</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -376,7 +376,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>00f622a6</spirit:value>
+            <spirit:value>c5dfb987</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -911,7 +911,7 @@
       <spirit:file>
         <spirit:name>hdl/PH_BL_FIFO_v1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_d578e9b9</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_d79a42ea</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1024,7 +1024,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>xgui/PH_BL_FIFO_v1_0.tcl</spirit:name>
+        <spirit:name>xgui/PH_BL_FIFO_v1_4.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
         <spirit:userFileType>CHECKSUM_fd592ead</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
@@ -1103,9 +1103,15 @@
       <xilinx:taxonomies>
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>PH_BL_FIFO_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>12</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-11-05T05:14:16Z</xilinx:coreCreationDateTime>
+      <xilinx:displayName>PH_BL_FIFO_v1.4</xilinx:displayName>
+      <xilinx:coreRevision>1</xilinx:coreRevision>
+      <xilinx:upgrades>
+        <xilinx:canUpgradeFrom>user.org:user:PH_BL_FIFO:1.0</xilinx:canUpgradeFrom>
+        <xilinx:canUpgradeFrom>user.org:user:PH_BL_FIFO:1.1</xilinx:canUpgradeFrom>
+        <xilinx:canUpgradeFrom>user.org:user:PH_BL_FIFO:1.2</xilinx:canUpgradeFrom>
+        <xilinx:canUpgradeFrom>user.org:user:PH_BL_FIFO:1.3</xilinx:canUpgradeFrom>
+      </xilinx:upgrades>
+      <xilinx:coreCreationDateTime>2021-11-12T19:57:47Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@3330596f_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@7a8ee4a4_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
@@ -1562,13 +1568,162 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@2bc402c5_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@b929253_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@2629ab72_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4f113952_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@68c37e90_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4df0293_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@265e302b_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31ec03_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1dee8e6e_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@68db40f_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78d638d1_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26694a5b_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d1c1650_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18a6ab56_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@28e78b8a_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@57ab02f0_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d263ea0_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@39315920_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@762e329a_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@e676134_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@43d79ec0_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@32bd55ec_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4da18a13_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31371e7a_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7d90bfd1_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@575cd56_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48d18884_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4e0c2fd5_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ae97f4a_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@467cfee2_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@29d2bb38_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7fdfc998_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ee1a4b6_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@16ce000d_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b579796_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13477422_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4dcc28f_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@27e30d87_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@485d2dc7_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58cec344_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18546af8_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@53d62c5d_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@328e35fb_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37d06af5_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e072cec_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f5905de_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5aaa225d_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@de3dd67_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@39053e47_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7fa3ae18_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54b84508_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6ae8b5b0_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@30d55ffa_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4b75b17_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73820b1c_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4794ee77_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3620a47b_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50252252_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71360a5f_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@282082bb_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@15753ddf_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@f0ffe4a_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@32aca920_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c277a92_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e218040_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@77173023_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ff3d4b_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@780769a4_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c9f113b_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6de4ba07_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31d1cd3e_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b06a58_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a8f148f_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c04a17b_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d49f8e6_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@408c6997_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@30043df2_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5176d850_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6bf85af0_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@dc74971_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@30a9ba3b_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e0589d7_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37e5cc58_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d7629f4_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7d427f82_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21092cd0_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@40ed919c_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f69c682_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f626b06_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d1fa1a5_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3892b31_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@46def97b_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11d61b9b_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75bf3fef_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c4e260c_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4cb4084f_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5208a654_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75041777_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4634a307_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@724f35d8_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@16cb6a3a_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c943399_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6c127e23_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@53f6dac2_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56998f1e_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4cc5de3a_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@dc87d9_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@63854ad5_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2bf7a33f_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4385c67d_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35729022_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ad18db4_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48aae34f_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1684b36_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@719ff9e4_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6f6ba538_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@b1a8c9a_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@34d168e2_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5bb5db9c_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4189269e_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@789c0fa2_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ca751ae_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b8a3969_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@76ec6b66_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b23fb8d_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2eaa3300_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a7c47e1_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7dca2574_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2fd63b61_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@63ac1e13_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d946b6e_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ef1ef20_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4e7365e2_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2122075a_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6f0e750b_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6359bae5_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61453bc4_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@70111c0a_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@375521ca_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5006e74c_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2996e34c_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4641dd7e_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a8b9f63_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@93f3faf_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@68ac10f3_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@11f135fd_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ce663ea_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@124c45be_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6447e3ad_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7eae1271_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75b67e99_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@41cbb312_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.3.1_AR71948</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="0c17216c"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="9fcaf1ca"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="4c0a4a3b"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="56576922"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="2e811c89"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="f3225df9"/>
