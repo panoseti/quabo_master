@@ -388,7 +388,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>PHASE</spirit:name>
-          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.PHASE">0.000</spirit:value>
+          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.PHASE">0.0</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -397,7 +397,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.CLK_DOMAIN"/>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI.CLK_DOMAIN">base_mb_clk_wiz_1_0_clk_100</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -517,7 +517,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>PHASE</spirit:name>
-          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI_CLK.PHASE">0.000</spirit:value>
+          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI_CLK.PHASE">0.0</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -526,7 +526,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI_CLK.CLK_DOMAIN"/>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.S00_AXI_CLK.CLK_DOMAIN">base_mb_clk_wiz_1_0_clk_100</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -690,11 +690,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 12 20:02:04 UTC 2021</spirit:value>
+            <spirit:value>Mon Nov 22 21:01:45 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:ab86124b</spirit:value>
+            <spirit:value>9:a9ec02b7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -710,11 +710,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 12 20:02:04 UTC 2021</spirit:value>
+            <spirit:value>Mon Nov 22 21:01:45 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:ab86124b</spirit:value>
+            <spirit:value>9:a9ec02b7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -730,11 +730,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 12 20:02:04 UTC 2021</spirit:value>
+            <spirit:value>Mon Nov 22 21:01:45 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:714007cb</spirit:value>
+            <spirit:value>9:80e65ffe</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -750,11 +750,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Nov 12 20:02:04 UTC 2021</spirit:value>
+            <spirit:value>Mon Nov 22 21:01:45 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:714007cb</spirit:value>
+            <spirit:value>9:80e65ffe</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1233,19 +1233,19 @@
         <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/b592/hdl/PH_BL.v</spirit:name>
+        <spirit:name>../../ipshared/9f0d/hdl/PH_BL.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/b592/hdl/PH_BL_FIFO_v1_0_S00_AXI.v</spirit:name>
+        <spirit:name>../../ipshared/9f0d/hdl/PH_BL_FIFO_v1_0_S00_AXI.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/b592/src/PH_Cache.v</spirit:name>
+        <spirit:name>../../ipshared/9f0d/src/PH_Cache.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/b592/hdl/PH_BL_FIFO_v1_0.v</spirit:name>
+        <spirit:name>../../ipshared/9f0d/hdl/PH_BL_FIFO_v1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1276,19 +1276,19 @@
         <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/b592/hdl/PH_BL.v</spirit:name>
+        <spirit:name>../../ipshared/9f0d/hdl/PH_BL.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/b592/hdl/PH_BL_FIFO_v1_0_S00_AXI.v</spirit:name>
+        <spirit:name>../../ipshared/9f0d/hdl/PH_BL_FIFO_v1_0_S00_AXI.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/b592/src/PH_Cache.v</spirit:name>
+        <spirit:name>../../ipshared/9f0d/src/PH_Cache.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/b592/hdl/PH_BL_FIFO_v1_0.v</spirit:name>
+        <spirit:name>../../ipshared/9f0d/hdl/PH_BL_FIFO_v1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1360,7 +1360,7 @@
   </spirit:parameters>
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
-      <xilinx:displayName>PH_BL_FIFO_v1.4</xilinx:displayName>
+      <xilinx:displayName>PH_BL_FIFO_v1.5</xilinx:displayName>
       <xilinx:xpmLibraries>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
@@ -1971,13 +1971,29 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@7eae1271_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@75b67e99_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@41cbb312_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3fa7f480_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@490c77ca_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1780f26c_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@77b0c1dd_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5df4b761_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@306b9173_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@40ffd157_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2c584372_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@8511918_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75fe7a12_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@183d9c9f_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e345691_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6865692e_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@32f8c03c_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/ip_repo/PH_BL_FIFO_1.0</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.ADDR_WIDTH" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.ARUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.AWUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.BUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.DATA_WIDTH" xilinx:valueSource="auto" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.FREQ_HZ" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_BRESP" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_BURST" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.HAS_CACHE" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
@@ -1991,17 +2007,21 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.MAX_BURST_LENGTH" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.NUM_READ_OUTSTANDING" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.NUM_WRITE_OUTSTANDING" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.PHASE" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.PROTOCOL" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.READ_WRITE_MODE" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.RUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI.WUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_CLK.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_CLK.FREQ_HZ" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXI_CLK.PHASE" xilinx:valuePermission="bd"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.3.1_AR71948</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="0c17216c"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="4c0a4a3b"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="36c32470"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="56576922"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="2e811c89"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="f3225df9"/>

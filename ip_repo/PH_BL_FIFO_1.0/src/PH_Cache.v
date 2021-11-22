@@ -46,13 +46,11 @@ wire [31:0] ph_data;
 assign ph_valid = axi_str_rxd_tvalid;
 assign ph_last = axi_str_rxd_tlast;
 assign ph_data = axi_str_rxd_tdata;
+assign axi_str_rxd_tready = 1; //always ready to receive data!
 
-//when microbalze core is reading data from ph_cache, PH_BL shouldn't be able to get ph data from ph_cache
-assign ph_cache_valid = ~axi_cache_read & ph_valid;
-
-reg ph_valid_d1;
-reg ph_last_d1;
-reg [31:0] ph_data_d1;
+reg ph_valid_d1, ph_valid_d2, ph_valid_d3;
+reg ph_last_d1, ph_last_d2, ph_last_d3;
+reg [31:0] ph_data_d1, ph_data_d2, ph_data_d3;
 always @(posedge clk)
 begin
     if(rst)
@@ -60,28 +58,46 @@ begin
             ph_valid_d1 <= 0;
             ph_last_d1  <= 0;
             ph_data_d1  <= 0;
+            
+            ph_valid_d2 <= 0;
+            ph_last_d2  <= 0;
+            ph_data_d2  <= 0;
+            
+            ph_last_d3  <= 0;
+            ph_data_d3  <= 0;
+            ph_data_d3  <= 0;
         end
     else
         begin
             ph_valid_d1 <= ph_valid;
             ph_last_d1  <= ph_last;
             ph_data_d1  <= ph_data;
+            
+            ph_valid_d2 <= ph_valid_d1;
+            ph_last_d2  <= ph_last_d1;
+            ph_data_d2  <= ph_data_d1;
+            
+            ph_valid_d3 <= ph_valid_d2;
+            ph_last_d3  <= ph_last_d2;
+            ph_data_d3  <= ph_data_d2;
         end
 end
 
-parameter integer ADC_LANTENCE_VAL = 20;
-parameter [5:0] IDLE            = 6'b000000,
-                ADC_LATENCE     = 6'b000001,
-                PRE_PH_DATA     = 6'b000010,
-                GET_PH_DATA     = 6'b000100,
-                GET_PH_LAST     = 6'b001000,
-                GET_TIME_INFO   = 6'b010000,
-                AXI_CTL         = 6'b100000;
-                
-reg [5:0] ph_state;
-reg [5:0] next_state;
+//when microbalze core is reading data from ph_cache, PH_BL shouldn't be able to get ph data from ph_cache
+assign ph_cache_valid = ~axi_cache_read & ph_valid_d3;
 
-reg [8:0]ph_cnt; //This is a counter for ph_data
+parameter integer ADC_LATENCE_VAL = 20;
+parameter [3:0] IDLE            = 4'b0000,
+                ADC_LATENCE     = 4'b0001,
+                GET_PH_DATA     = 4'b0010,
+                GET_TIME_INFO   = 4'b0100,
+                AXI_CTL         = 4'b1000;
+                
+reg [3:0] ph_state;
+reg [3:0] next_state;
+
+reg [5:0]ph_cnt; //This is a counter for ph_data
+reg [1:0] ph_data_index;
 reg ph_cache0_ena;
 reg ph_cache0_wea;
 reg [7:0] ph_cache0_addr;
@@ -97,7 +113,7 @@ begin
         ph_state <= next_state;
 end
 
-always @(ph_state or ph_valid or ph_cnt or ph_cache0_addr or ph_cache1_addr)
+always @(ph_state or ph_valid or ph_valid_d1 or ph_cnt or ph_cache0_addr or ph_cache1_addr or axi_cache_read or ph_last_d2)
 begin
     if(rst)
         next_state <= IDLE;
@@ -108,36 +124,31 @@ begin
                     begin
                         if(axi_cache_read == 1)
                             next_state = AXI_CTL;
-                        else if((ph_valid == 1) && (ph_valid == 0)) // valid signal is the trigger for the state machine
+                        else if((ph_valid == 1) && (ph_valid_d1 == 0)) // valid signal is the trigger for the state machine
                             next_state = ADC_LATENCE;
                         else
                             next_state = IDLE;
                      end
                 ADC_LATENCE:
                     begin
-                        if(ph_cnt == ADC_LANTENCE_VAL - 5)
-                            next_state = PRE_PH_DATA;
+                        if(ph_cnt == ADC_LATENCE_VAL - 1)
+                            next_state = GET_PH_DATA;
                         else
                             next_state = ADC_LATENCE;
                     end
-                PRE_PH_DATA:
-                    begin
-                        next_state = GET_PH_DATA;
-                    end
                 GET_PH_DATA:
                     begin
-                        if((ph_cache0_addr == 253) || (ph_cache0_addr == 253)) 
-                            next_state = GET_PH_LAST;
+                        if((ph_cache0_addr == 127) || (ph_cache1_addr == 127)) 
+                            next_state = GET_TIME_INFO;
                         else
                             next_state = GET_PH_DATA;
                     end
-                GET_PH_LAST:
-                    begin
-                        next_state = GET_TIME_INFO;
-                    end
                 GET_TIME_INFO:
                     begin
-                        next_state = IDLE;
+                        if(ph_last_d2)
+                            next_state = IDLE;
+                        else
+                            next_state = GET_TIME_INFO;
                     end
                 AXI_CTL:
                     begin
@@ -157,6 +168,7 @@ begin
     if(rst)
         begin
             ph_cnt          <= 0;
+            ph_data_index   <= 0;
             ph_cache0_ena   <= 0;
             ph_cache0_wea   <= 0;
             ph_cache0_addr  <= 0;
@@ -171,6 +183,7 @@ begin
                 IDLE:
                     begin
                         ph_cnt          <= 0;
+                        ph_data_index   <= 0;
                         ph_cache0_ena   <= 0;
                         ph_cache0_wea   <= 0;
                         ph_cache0_addr  <= 0;
@@ -179,91 +192,58 @@ begin
                         ph_cache1_addr  <= 0;
                         ph_cache_sel    <= ph_cache_sel;
                     end
-                ADC_LANTENCE_VAL:
+                ADC_LATENCE:
                     begin
-                        ph_cnt          <= ph_cnt + 1;
-                        ph_cache0_ena   <= 0;
-                        ph_cache0_wea   <= 0;
-                        ph_cache0_addr  <= 0;
-                        ph_cache1_ena   <= 0;
-                        ph_cache1_wea   <= 0;
-                        ph_cache1_addr  <= 0;
-                        ph_cache_sel    <= ~ph_cache_sel;
-                    end
-                PRE_PH_DATA:
-                    begin
-                        ph_cnt          <= 1;           //It looks weird here, but it's correct. THis is from the timing diagram.
-                        if(ph_cache_sel == 1)
-                            begin
-                                ph_cache0_ena   <= 1;
-                                ph_cache1_ena   <= 0;
-                            end
+                        if(ph_valid_d1 == 1)
+                            ph_cnt      <= ph_cnt + 1;
                         else
-                            begin
-                                ph_cache0_ena   <= 0;
-                                ph_cache1_ena   <= 1;
-                            end
+                            ph_cnt      <= ph_cnt;
+                        ph_data_index   <= 0;
+                        ph_cache0_ena   <= 0;
+                        ph_cache0_wea   <= 0;
                         ph_cache0_addr  <= 0;
+                        ph_cache1_ena   <= 0;
+                        ph_cache1_wea   <= 0;
                         ph_cache1_addr  <= 0;
-                        ph_cache0_wea   <= 1;           //1 = W; 0 = R.
-                        ph_cache1_wea   <= 1;
-                        ph_cache_sel    <= ph_cache_sel;
+                        if(ph_cnt == ADC_LATENCE_VAL - 1)
+                            ph_cache_sel    <= ~ph_cache_sel;
+                        else
+                            ph_cache_sel    <= ph_cache_sel;
                     end
                 GET_PH_DATA:
                     begin
-                        ph_cnt          <= ph_cnt + 1;
+                        ph_cnt  <= 0;
+                        if(ph_valid_d1 ==1)
+                            ph_data_index   <= ph_data_index + 1;
+                        else
+                            ph_data_index   <= 0;
                         if(ph_cache_sel == 1)
                             begin
-                                ph_cache0_ena   <= ~ph_cnt[1];
+                                ph_cache0_ena   <= ~ph_data_index[1] & ph_valid_d1;
                                 ph_cache1_ena   <= 0;
                             end
                         else
                             begin
                                 ph_cache0_ena   <= 0;
-                                ph_cache1_ena   <= ~ph_cnt[1];
+                                ph_cache1_ena   <= ~ph_data_index[1] & ph_valid_d1;
                             end
                         if(ph_cache0_ena == 1)
                              ph_cache0_addr     <= ph_cache0_addr + 1;
                         else
-                             ph_cache0_addr     <= 0;
+                             ph_cache0_addr     <= ph_cache0_addr;
                         if(ph_cache1_ena == 1)
                              ph_cache1_addr     <= ph_cache1_addr + 1;
                         else
-                             ph_cache1_addr     <= 0;
+                             ph_cache1_addr     <= ph_cache1_addr;
                         ph_cache0_wea   <= 1;           //1 = W; 0 = R.
                         ph_cache1_wea   <= 1;
                         ph_cache_sel    <= ph_cache_sel;
-                        
-                    end
-                 GET_PH_LAST:
-                    begin
-                        ph_cnt          <= ph_cnt + 1;
-                        if(ph_cache_sel == 1)
-                            begin
-                                ph_cache0_ena   <= ~ph_cnt[1];
-                                ph_cache1_ena   <= 0;
-                            end
-                        else
-                            begin
-                                ph_cache0_ena   <= 0;
-                                ph_cache1_ena   <= ~ph_cnt[1];
-                            end
-                        if(ph_cache0_ena == 1)
-                             ph_cache0_addr     <= ph_cache0_addr + 1;
-                        else
-                             ph_cache0_addr     <= 0;
-                        if(ph_cache1_ena == 1)
-                             ph_cache1_addr     <= ph_cache1_addr + 1;
-                        else
-                             ph_cache1_addr     <= 0;
-                        ph_cache0_wea   <= 1;           //1 = W; 0 = R.
-                        ph_cache1_wea   <= 1;
-                        ph_cache_sel    <= ~ph_cache_sel; //this is the only difference between GET_PH_DATA and GET_PH_LAST
                         
                     end
                  GET_TIME_INFO:// this time info is not useful here, so we just get it from fifo, and throw it.
                     begin
                         ph_cnt          <= 0;
+                        ph_data_index   <= 0;
                         ph_cache0_ena   <= 0;
                         ph_cache0_wea   <= 0;
                         ph_cache0_addr  <= 0;
@@ -275,6 +255,7 @@ begin
                  AXI_CTL:
                     begin
                         ph_cnt          <= 0;
+                        ph_data_index   <= 0;
                         ph_cache_sel    <= ph_cache_sel;
                         ph_cache0_ena   <= 1;           // Both of the BRAMs are enable for reading, axi_cache_sel will be used for the selection of output data
                         ph_cache1_ena   <= 1;
@@ -286,6 +267,7 @@ begin
                  default:
                     begin
                         ph_cnt          <= 0;
+                        ph_data_index   <= 0;
                         ph_cache0_ena   <= 0;
                         ph_cache0_wea   <= 0;
                         ph_cache0_addr  <= 0;
@@ -306,7 +288,7 @@ ph_bram ph_cache0 (
   .ena(ph_cache0_ena),              // input wire ena
   .wea(ph_cache0_wea),              // input wire [0 : 0] wea
   .addra(ph_cache0_addr),           // input wire [7 : 0] addra
-  .dina(ph_data_d1),                // input wire [15 : 0] dina
+  .dina(ph_data_d2),                // input wire [15 : 0] dina
   .douta(axi_cache0_data),          // output wire [15 : 0] douta
   .clkb(clk),                       // input wire clkb
   .rstb(rst),                       // input wire rstb
@@ -324,7 +306,7 @@ ph_bram ph_cache1 (
   .ena(ph_cache1_ena),              // input wire ena
   .wea(ph_cache1_wea),              // input wire [0 : 0] wea
   .addra(ph_cache1_addr),           // input wire [7 : 0] addra
-  .dina(ph_data_d1),                // input wire [15 : 0] dina
+  .dina(ph_data_d2),                // input wire [15 : 0] dina
   .douta(axi_cache1_data),          // output wire [15 : 0] douta
   .clkb(clk),                       // input wire clkb
   .rstb(rst),                       // input wire rstb
@@ -340,3 +322,4 @@ assign ph_cache_data = (ph_cache_sel)?ph_cache1_data:ph_cache0_data;
 assign axi_cache_data = (axi_cache_sel)?axi_cache1_data:axi_cache0_data;
 
 endmodule
+

@@ -30,15 +30,13 @@ char Cache_Read(char sel, unsigned short *cache){
 	//set to Cache mode first.
 	Cache_Mode(1);
 	unsigned int tmp;
-	tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_CACHE_CFG_REG);
-	tmp = tmp + (sel << AXI_CACHE_SEL_BIT);
+	tmp =  (sel << AXI_CACHE_SEL_BIT) | (1<<AXI_CACHE_READ_BIT);
 	Xil_Out32(AXI_HS_PH_ADDR + AXI_CACHE_CFG_REG, tmp);
 	unsigned char i = 0;
 	//write an address, and then read a data from cache RAM
 	for(i=0;i<255;i++)
 	{
-		tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_CACHE_CFG_REG);
-		tmp = tmp + (i << AXI_CACHE_RADDR_BIT);
+		tmp = (sel << AXI_CACHE_SEL_BIT) | (1<<AXI_CACHE_READ_BIT) | (i << AXI_CACHE_RADDR_BIT);
 		Xil_Out32(AXI_HS_PH_ADDR + AXI_CACHE_CFG_REG, tmp);
 		*(cache+i) = Xil_In32(AXI_HS_PH_ADDR + AXI_CACHE_DATA_REG);
 	}

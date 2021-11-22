@@ -386,7 +386,7 @@ int main()
 	xil_printf("*************Quabo GOLD Firmware*************\n\r");
 #else
 	//xil_printf("*************Quabo Firmware*************\n\r");
-	xil_printf("*************HS-PH Test Firmware*************\n\r");
+	xil_printf("*************HS-PH Test Firmware V1.0*************\n\r");
 #endif
  	volatile int delay;
  	//initialize baseline array to zero.  We'll fill it when commanded, after setting up the MAROCs
