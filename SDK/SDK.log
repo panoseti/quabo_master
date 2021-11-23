@@ -8105,3 +8105,15 @@ Reason: ERROR: [Common 17-39] 'hsi::open_hw_design' failed due to earlier errors
 10:56:42 INFO  : Successfully done setting XSCT server connection channel  
 10:56:43 INFO  : Successfully done setting SDK workspace  
 10:56:43 INFO  : Processing command line option -hwspec /media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/panoseti_firmware/SDK/base_mb_wrapper.hdf.
+20:15:59 INFO  : Registering command handlers for SDK TCF services
+20:16:00 INFO  : Launching XSCT server: xsct -n -interactive /media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/SDK/temp_xsdb_launch_script.tcl
+20:16:02 INFO  : XSCT server has started successfully.
+20:16:02 INFO  : Successfully done setting XSCT server connection channel  
+20:16:02 INFO  : Successfully done setting SDK workspace  
+20:16:02 INFO  : Processing command line option -hwspec /media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/SDK/base_mb_wrapper.hdf.
+20:17:38 INFO  : Registering command handlers for SDK TCF services
+20:17:39 INFO  : Launching XSCT server: xsct -n -interactive /media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/SDK/temp_xsdb_launch_script.tcl
+20:17:41 INFO  : XSCT server has started successfully.
+20:17:41 INFO  : Successfully done setting XSCT server connection channel  
+20:17:41 INFO  : Successfully done setting SDK workspace  
+20:17:41 INFO  : Processing command line option -hwspec /media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0200/quabo_master/SDK/base_mb_wrapper.hdf.

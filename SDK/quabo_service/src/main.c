@@ -75,7 +75,7 @@ XSpi_Config *ConfigPtr;	/* Pointer to Configuration data */
 #define VCO2_DAC_SPI_MASK 0x20  //For WR VCXO
 
 //The PulseHeight mode FIFO
-XLlFifo PH_Fifo;
+//XLlFifo PH_Fifo;
 //The Image mode FIFO
 //XLlFifo IM_Fifo;
 //A pointer to one or the other

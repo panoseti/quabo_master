@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="tmp =" key="selection"/>
+		<item value="Set_MAROC_registers" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Set_MAROC_registers"/>
+			<item value="Set"/>
+			<item value="PH_Fifo"/>
 			<item value="tmp ="/>
 			<item value="remap_array"/>
-			<item value="PH_Fifo"/>
 			<item value="ph_fifo"/>
 			<item value="ACQ_MODE_HS_IM"/>
 			<item value="UpdateGPIO"/>
-			<item value="led_flasher_sel"/>
-			<item value="recv_callback"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -24,7 +24,7 @@
 		<item value="312" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="448" key="DIALOG_HEIGHT"/>
-		<item value="881" key="DIALOG_X_ORIGIN"/>
-		<item value="379" key="DIALOG_Y_ORIGIN"/>
+		<item value="1353" key="DIALOG_X_ORIGIN"/>
+		<item value="392" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
