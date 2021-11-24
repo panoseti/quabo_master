@@ -220,3 +220,22 @@ launch_runs impl_1 -to_step write_bitstream -jobs 6
 wait_on_run impl_1
 ipx::edit_ip_in_project -upgrade true -name PH_BL_FIFO_v1_8_project -directory /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.tmp/PH_BL_FIFO_v1_8_project /media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0/component.xml
 update_compile_order -fileset sources_1
+current_project quabo_V0200
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1

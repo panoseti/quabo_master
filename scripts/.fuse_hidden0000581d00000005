@@ -4964,3 +4964,275 @@ selectCodeEditor("PH_Cache.v", 3, 409); // cl (w, cp)
 selectCodeEditor("PH_Cache.v", 26, 181); // cl (w, cp)
 // [GUI Memory]: 309 MB (+2881kb) [13:07:00]
 // HMemoryUtils.trashcanNow. Engine heap size: 3,525 MB. GUI used memory: 205 MB. Current time: 11/24/21, 10:45:48 AM PST
+// Elapsed time: 1386 seconds
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "PH_BL.v", 2); // k (j, cp)
+// Elapsed time: 16 seconds
+selectCodeEditor("PH_BL.v", 105, 483); // cl (w, cp)
+selectCodeEditor("PH_BL.v", 105, 483, false, false, false, false, true); // cl (w, cp) - Double Click
+selectCodeEditor("PH_BL.v", 123, 463); // cl (w, cp)
+selectCodeEditor("PH_BL.v", 123, 463, false, false, false, false, true); // cl (w, cp) - Double Click
+// Elapsed time: 25 seconds
+selectCodeEditor("PH_BL.v", 116, 417); // cl (w, cp)
+selectCodeEditor("PH_BL.v", 116, 416, false, false, false, false, true); // cl (w, cp) - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, PH_BL_FIFO_v1_0 (PH_BL_FIFO_v1_0.v), ph_bl0 : PH_BL (PH_BL.v), phfifo0 : phfifo (phfifo.xci)]", 7, false); // B (D, cp)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, PH_BL_FIFO_v1_0 (PH_BL_FIFO_v1_0.v), ph_bl0 : PH_BL (PH_BL.v), phfifo0 : phfifo (phfifo.xci)]", 7, false, false, false, false, false, true); // B (D, cp) - Double Click
+// Run Command: PAResourceCommand.PACommandNames_RECUSTOMIZE_CORE
+// r (cp): Re-customize IP: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1520 ms.
+selectTab(PAResourceEtoH.HACGCTabbedPane_TABBED_PANE, (HResource) null, "Native Ports", 1); // bg (C, r)
+dismissDialog("Re-customize IP"); // r (cp)
+// Elapsed time: 11 seconds
+selectCodeEditor("PH_BL.v", 244, 260); // cl (w, cp)
+selectCodeEditor("PH_BL.v", 244, 260, false, false, false, false, true); // cl (w, cp) - Double Click
+// Elapsed time: 89 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // X (q, cp)
+selectMenu(PAResourceItoN.MainMenuMgr_PROJECT, "Project"); // ac (cp)
+selectMenu(PAResourceItoN.MainMenuMgr_CHECKPOINT, "Checkpoint"); // ac (cp)
+selectMenu(PAResourceItoN.MainMenuMgr_IP, "IP"); // ac (cp)
+selectMenu(PAResourceItoN.MainMenuMgr_TEXT_EDITOR, "Text Editor"); // ac (cp)
+selectMenu(PAResourceItoN.MainMenuMgr_EXPORT, "Export"); // ac (cp)
+selectMenuItem(PAResourceCommand.PACommandNames_LAUNCH_HARDWARE, "Launch SDK"); // af (cp)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // X (q, cp)
+// Run Command: PAResourceCommand.PACommandNames_LAUNCH_HARDWARE
+// aa (cp): Launch SDK: addNotify
+selectComboBox(PAResourceItoN.NewLaunchHardwareDialog_LOCATION_OF_HARDWARE_DESCRIPTION_FILE, "Choose Location...", 1); // e (Q, aa)
+setFolderChooser("/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/SDK");
+selectComboBox(PAResourceItoN.NewLaunchHardwareDialog_WORKSPACE, "Choose Location...", 1); // e (Q, aa)
+setFolderChooser("/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/SDK");
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aa)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aa)
+selectButton("PAResourceItoN.NewLaunchHardwareDialog_EXPORTED_FILE_FOR_THIS_MODULE_OK", "OK"); // JButton (C, J)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aa)
+selectButton("PAResourceItoN.NewLaunchHardwareDialog_EXPORTED_FILE_FOR_THIS_MODULE_OK", "OK"); // JButton (C, J)
+selectComboBox(PAResourceItoN.NewLaunchHardwareDialog_LOCATION_OF_HARDWARE_DESCRIPTION_FILE, "Choose Location...", 2); // e (Q, aa)
+setFolderChooser("/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/SDK");
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aa)
+selectButton("PAResourceItoN.NewLaunchHardwareDialog_EXPORTED_FILE_FOR_THIS_MODULE_OK", "OK"); // JButton (C, J)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (aa)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (aa)
+// 'o' command handler elapsed time: 36 seconds
+dismissDialog("Launch SDK"); // aa (cp)
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // X (q, cp)
+selectMenu(PAResourceItoN.MainMenuMgr_PROJECT, "Project"); // ac (cp)
+selectMenu(PAResourceItoN.MainMenuMgr_CHECKPOINT, "Checkpoint"); // ac (cp)
+selectMenu(PAResourceItoN.MainMenuMgr_IP, "IP"); // ac (cp)
+selectMenu(PAResourceItoN.MainMenuMgr_TEXT_EDITOR, "Text Editor"); // ac (cp)
+selectMenu(PAResourceItoN.MainMenuMgr_EXPORT, "Export"); // ac (cp)
+selectMenuItem(PAResourceCommand.PACommandNames_LAUNCH_HARDWARE, "Launch SDK"); // af (cp)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // X (q, cp)
+// Run Command: PAResourceCommand.PACommandNames_LAUNCH_HARDWARE
+// aa (cp): Launch SDK: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aa)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aa)
+selectButton("PAResourceItoN.NewLaunchHardwareDialog_EXPORTED_FILE_FOR_THIS_MODULE_OK", "OK"); // JButton (C, J)
+selectComboBox(PAResourceItoN.NewLaunchHardwareDialog_WORKSPACE, "<Local to Project>", 1); // e (Q, aa)
+selectComboBox(PAResourceItoN.NewLaunchHardwareDialog_WORKSPACE, "Choose Location...", 2); // e (Q, aa)
+setFolderChooser("/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/SDK");
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aa)
+selectButton("PAResourceItoN.NewLaunchHardwareDialog_EXPORTED_FILE_FOR_THIS_MODULE_OK", "OK"); // JButton (C, J)
+selectComboBox(PAResourceItoN.NewLaunchHardwareDialog_LOCATION_OF_HARDWARE_DESCRIPTION_FILE, "<Local to Project>", 1); // e (Q, aa)
+selectComboBox(PAResourceItoN.NewLaunchHardwareDialog_LOCATION_OF_HARDWARE_DESCRIPTION_FILE, "Choose Location...", 2); // e (Q, aa)
+// Elapsed time: 13 seconds
+setFolderChooser("/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/SDK");
+// Elapsed time: 11 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aa)
+selectButton("PAResourceItoN.NewLaunchHardwareDialog_EXPORTED_FILE_FOR_THIS_MODULE_OK", "OK"); // JButton (C, J)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (aa)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (aa)
+// 'o' command handler elapsed time: 61 seconds
+dismissDialog("Launch SDK"); // aa (cp)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,568 MB. GUI used memory: 218 MB. Current time: 11/24/21, 11:15:48 AM PST
+// HMemoryUtils.trashcanNow. Engine heap size: 3,568 MB. GUI used memory: 218 MB. Current time: 11/24/21, 11:45:48 AM PST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 2850 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 31, false); // u (Q, cp)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// f (cp): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// 'cw' command handler elapsed time: 6 seconds
+dismissDialog("Launch Runs"); // f (cp)
+// Tcl Message: current_project quabo_V0200 
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run impl_1 -prev_step  
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 6 
+// Tcl Message: [Wed Nov 24 11:48:47 2021] Launched impl_1... Run output will be captured here: /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.runs/impl_1/runme.log 
+// TclEventType: RUN_COMPLETED
+// ah (cp): Bitstream Generation Completed: addNotify
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 571 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+dismissDialog("Bitstream Generation Completed"); // ah (cp)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 31, false); // u (Q, cp)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// f (cp): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+dismissDialog("Launch Runs"); // f (cp)
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run impl_1 -prev_step  
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 6 
+// Tcl Message: [Wed Nov 24 11:58:21 2021] Launched impl_1... Run output will be captured here: /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.runs/impl_1/runme.log 
+// TclEventType: RUN_COMPLETED
+// ah (cp): Bitstream Generation Completed: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 3,664 MB. GUI used memory: 224 MB. Current time: 11/24/21, 12:15:48 PM PST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 1352 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+dismissDialog("Bitstream Generation Completed"); // ah (cp)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 31, false); // u (Q, cp)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// f (cp): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// TclEventType: RUN_MODIFY
+dismissDialog("Launch Runs"); // f (cp)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run impl_1 -prev_step  
+// bx (cp):  Generate Bitstream : addNotify
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 6 
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Wed Nov 24 12:20:58 2021] Launched impl_1... Run output will be captured here: /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bx (cp)
+// TclEventType: RUN_COMPLETED
+// ah (cp): Bitstream Generation Completed: addNotify
+// Elapsed time: 71 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+dismissDialog("Bitstream Generation Completed"); // ah (cp)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,696 MB. GUI used memory: 221 MB. Current time: 11/24/21, 12:45:48 PM PST
+// HMemoryUtils.trashcanNow. Engine heap size: 3,696 MB. GUI used memory: 221 MB. Current time: 11/24/21, 1:15:48 PM PST
+// HMemoryUtils.trashcanNow. Engine heap size: 3,696 MB. GUI used memory: 221 MB. Current time: 11/24/21, 1:45:48 PM PST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 5118 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 31, false); // u (Q, cp)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// f (cp): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// TclEventType: RUN_MODIFY
+dismissDialog("Launch Runs"); // f (cp)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run impl_1 -prev_step  
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 6 
+// Tcl Message: [Wed Nov 24 13:47:31 2021] Launched impl_1... Run output will be captured here: /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.runs/impl_1/runme.log 
+// bx (cp):  Generate Bitstream : addNotify
+dismissDialog("Generate Bitstream"); // bx (cp)
+// TclEventType: RUN_COMPLETED
+// ah (cp): Bitstream Generation Completed: addNotify
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,728 MB. GUI used memory: 224 MB. Current time: 11/24/21, 2:15:48 PM PST
+// HMemoryUtils.trashcanNow. Engine heap size: 3,728 MB. GUI used memory: 223 MB. Current time: 11/24/21, 2:45:48 PM PST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 221ms to process. Increasing delay to 2000 ms.
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 4125 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+dismissDialog("Bitstream Generation Completed"); // ah (cp)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 31, false); // u (Q, cp)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// f (cp): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 102 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// 'cw' command handler elapsed time: 104 seconds
+// TclEventType: RUN_MODIFY
+dismissDialog("Launch Runs"); // f (cp)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run impl_1 -prev_step  
+// bx (cp):  Generate Bitstream : addNotify
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 6 
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Wed Nov 24 14:58:09 2021] Launched impl_1... Run output will be captured here: /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.runs/impl_1/runme.log 
+// Tcl Message: launch_runs: Time (s): cpu = 00:00:30 ; elapsed = 00:00:06 . Memory (MB): peak = 9577.840 ; gain = 0.000 ; free physical = 1757 ; free virtual = 27347 
+dismissDialog("Generate Bitstream"); // bx (cp)
+// TclEventType: RUN_COMPLETED
+// ah (cp): Bitstream Generation Completed: addNotify
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 595 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+dismissDialog("Bitstream Generation Completed"); // ah (cp)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 31, false); // u (Q, cp)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// f (cp): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+dismissDialog("Launch Runs"); // f (cp)
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run impl_1 -prev_step  
+// TclEventType: RUN_LAUNCH
+// bx (cp):  Generate Bitstream : addNotify
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 6 
+// Tcl Message: [Wed Nov 24 15:08:07 2021] Launched impl_1... Run output will be captured here: /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // bx (cp)
+// TclEventType: RUN_COMPLETED
+// ah (cp): Bitstream Generation Completed: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 3,840 MB. GUI used memory: 226 MB. Current time: 11/24/21, 3:15:49 PM PST

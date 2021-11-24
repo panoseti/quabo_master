@@ -386,7 +386,7 @@ int main()
 	xil_printf("*************Quabo GOLD Firmware*************\n\r");
 #else
 	//xil_printf("*************Quabo Firmware*************\n\r");
-	xil_printf("*************HS-PH Test Firmware V1.0*************\n\r");
+	xil_printf("*************HS-PH Test Firmware V1.2*************\n\r");
 #endif
  	volatile int delay;
  	//initialize baseline array to zero.  We'll fill it when commanded, after setting up the MAROCs
@@ -653,10 +653,11 @@ int main()
 		xil_printf("error on udp_bind: %x\n\r", err);
 	}
 	/* connect to PC command/housekeeping port*/
+	/*
 	err = udp_connect(cmd_pcb, &host_ipaddr, UDP_CMD_PORT);
 	if (err != ERR_OK)
 		xil_printf("error on udp_connect: %x\n\r", err);
-
+	*/
 	//register the receive data callback
 	udp_recv(cmd_pcb, recv_callback, NULL);
 
@@ -692,6 +693,7 @@ int main()
 	//This is for getting dst mac address
 	//when we send out something out first time, MB will send arp packets,
 	//then it will receive arp response, and xemacif_input will deal with the arp response
+
 	SendHouseKeeping();
 	while(tmp < 0)
 		{
@@ -703,6 +705,7 @@ int main()
 				SendHouseKeeping();
 			}
 		}
+
 	//configure udp header for HS-IM packets
 	//configure udp header ram in fpga
 	ethpacketheader_key.board_loc[0] = (board_location & 0xff);
@@ -825,6 +828,17 @@ int main()
 void
 recv_callback(void *arg, struct udp_pcb *tpcb,struct pbuf *p, struct ip4_addr *addr, u16_t port)
 {
+		/************************************************************/
+		//We need to connect the socket to the remote ip here.
+		err_t err;
+		print_ip("remote_ip:",addr);
+		//err = udp_connect(cmd_pcb, addr, UDP_CMD_PORT);
+		//if (err != ERR_OK)
+			//xil_printf("error on udp_connect: %x\n\r", err);
+		err = udp_connect(hk_pcb, addr, UDP_HK_PORT);
+		if (err != ERR_OK)
+			xil_printf("error on udp_connect: %x\n\r", err);
+		/************************************************************/
 		xil_printf("Got one, packet number %d\n\r", recvd_pkt_number);
 		//MicroBlaze is Little-Endian
 		recvd_pkt_number++;
@@ -936,7 +950,8 @@ recv_callback(void *arg, struct udp_pcb *tpcb,struct pbuf *p, struct ip4_addr *a
 				char * hk_payload_ptr = hk_pbuf->payload;
 				memcpy(hk_payload_ptr, (char*)bptr, cmd_len);
 			}
-			err_t err = udp_send(cmd_pcb, hk_pbuf);
+			//err_t err = udp_send(cmd_pcb, hk_pbuf);
+			err_t err = udp_sendto(cmd_pcb, hk_pbuf, addr, port);
 			if (err != ERR_OK) {
 				xil_printf("Error on command udp_send: %d\r\n", err);
 				pbuf_free(hk_pbuf);

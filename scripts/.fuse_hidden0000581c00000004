@@ -2239,3 +2239,29 @@ WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Ver
 WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0/src/PH_Cache.v:]
 WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/PH_BL_FIFO_1.0/hdl/PH_BL_FIFO_v1_0.v:]
 update_compile_order -fileset sources_1
+current_project quabo_V0200
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Wed Nov 24 11:48:47 2021] Launched impl_1...
+Run output will be captured here: /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.runs/impl_1/runme.log
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Wed Nov 24 11:58:21 2021] Launched impl_1...
+Run output will be captured here: /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.runs/impl_1/runme.log
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Wed Nov 24 12:20:58 2021] Launched impl_1...
+Run output will be captured here: /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.runs/impl_1/runme.log
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Wed Nov 24 13:47:31 2021] Launched impl_1...
+Run output will be captured here: /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.runs/impl_1/runme.log
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Wed Nov 24 14:58:09 2021] Launched impl_1...
+Run output will be captured here: /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:30 ; elapsed = 00:00:06 . Memory (MB): peak = 9577.840 ; gain = 0.000 ; free physical = 1757 ; free virtual = 27347
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Wed Nov 24 15:08:07 2021] Launched impl_1...
+Run output will be captured here: /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.runs/impl_1/runme.log
