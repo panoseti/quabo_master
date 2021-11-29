@@ -380,6 +380,8 @@ EthPacketHeader_Keys ethpacketheader_hsph={
 u8 remap_w[256],remap_r[256];
 u16 bl_w[256], bl_r[256];
 //u8 wegetdata = 0;
+struct ip4_addr host_ipaddr;
+u16_t host_cmdport = UDP_CMD_PORT;
 int main()
 {
 #ifdef GOLD_COPY
@@ -522,7 +524,7 @@ int main()
 	UpdateGPIO();
 
 	struct ip4_addr ipaddr, netmask, gw;
-	struct ip4_addr host_ipaddr;
+	//struct ip4_addr host_ipaddr;
 
 	xil_printf("PANOSETI Quadrant board UDP\n\r");
 
@@ -831,10 +833,10 @@ recv_callback(void *arg, struct udp_pcb *tpcb,struct pbuf *p, struct ip4_addr *a
 		/************************************************************/
 		//We need to connect the socket to the remote ip here.
 		err_t err;
-		print_ip("remote_ip:",addr);
-		//err = udp_connect(cmd_pcb, addr, UDP_CMD_PORT);
-		//if (err != ERR_OK)
-			//xil_printf("error on udp_connect: %x\n\r", err);
+		//print_ip("remote_ip:",addr);
+		host_ipaddr = *addr;
+		host_cmdport = port;
+		print_ip("remote_ip:",&host_ipaddr);
 		err = udp_connect(hk_pcb, addr, UDP_HK_PORT);
 		if (err != ERR_OK)
 			xil_printf("error on udp_connect: %x\n\r", err);
@@ -951,7 +953,7 @@ recv_callback(void *arg, struct udp_pcb *tpcb,struct pbuf *p, struct ip4_addr *a
 				memcpy(hk_payload_ptr, (char*)bptr, cmd_len);
 			}
 			//err_t err = udp_send(cmd_pcb, hk_pbuf);
-			err_t err = udp_sendto(cmd_pcb, hk_pbuf, addr, port);
+			err_t err = udp_sendto(cmd_pcb, hk_pbuf, &host_ipaddr, host_cmdport);
 			if (err != ERR_OK) {
 				xil_printf("Error on command udp_send: %d\r\n", err);
 				pbuf_free(hk_pbuf);
@@ -1654,7 +1656,8 @@ int PH_BL_Init(s16 * ph_baseline_array)
 		*hk_payload_ptr = 0x07;
 		memcpy(hk_payload_ptr+4, (char*)ph_baseline_array, 512);
 	}
-	err_t err = udp_send(cmd_pcb, hk_pbuf);
+	//err_t err = udp_send(cmd_pcb, hk_pbuf);
+	err_t err = udp_sendto(cmd_pcb, hk_pbuf, &host_ipaddr, host_cmdport);
 	if (err != ERR_OK) {
 		xil_printf("Error on command udp_send: %d\r\n", err);
 		pbuf_free(hk_pbuf);

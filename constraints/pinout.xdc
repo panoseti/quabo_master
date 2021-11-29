@@ -889,3 +889,4 @@ set_property PACKAGE_PIN V13 [get_ports {PCBrev_n[0]}]
 set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 1 [current_design]
 
 
+
