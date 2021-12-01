@@ -1606,10 +1606,14 @@ int PH_BL_Init(s16 * ph_baseline_array)
 		for(bl_array_index=0;bl_array_index<255;bl_array_index++)
 		{
 		#define RESIDUAL_BL 10
-			ph_baseline_array[bl_array_index] += ph_cache[bl_array_index] - RESIDUAL_BL;
+			ph_baseline_array[bl_array_index] += (ph_cache[bl_array_index] & 0xfff) - RESIDUAL_BL;
 		}
 	}
-	for (i = 0; i<256; i++) ph_baseline_array[i] = ph_baseline_array[i]>>3;
+	for (i = 0; i<256; i++)
+	{
+		ph_baseline_array[i] = ph_baseline_array[i]>>3;
+		//xil_printf("i=%d, d=%x\r\n",i,ph_baseline_array[i]);
+	}
 	BL_Write(ph_baseline_array);
 	u16 bl_data_r[256];
 	BL_Read(bl_data_r);
