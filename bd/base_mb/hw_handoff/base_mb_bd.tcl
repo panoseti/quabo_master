@@ -65,7 +65,7 @@ set run_remote_bd_flow 1
 if { $run_remote_bd_flow == 1 } {
   # Set the reference directory for source file relative paths (by default 
   # the value is script directory path)
-  set origin_dir ./bd
+  set origin_dir ./quabo_master/bd
 
   # Use origin directory path location variable, if specified in the tcl shell
   if { [info exists ::origin_dir_loc] } {
@@ -533,7 +533,7 @@ proc create_root_design { parentCell } {
    }
   
   # Create instance: PH_BL_FIFO_0, and set properties
-  set PH_BL_FIFO_0 [ create_bd_cell -type ip -vlnv user.org:user:PH_BL_FIFO:2.0 PH_BL_FIFO_0 ]
+  set PH_BL_FIFO_0 [ create_bd_cell -type ip -vlnv user.org:user:PH_BL_FIFO:2.1 PH_BL_FIFO_0 ]
 
   # Create instance: PPS_IO_0, and set properties
   set block_name PPS_IO
