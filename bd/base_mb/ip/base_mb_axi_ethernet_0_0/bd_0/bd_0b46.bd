@@ -1129,16 +1129,16 @@
           "eth_buf/S_AXI"
         ]
       },
-      "s_axis_txd_1": {
-        "interface_ports": [
-          "s_axis_txd",
-          "eth_buf/AXI_STR_TXD"
-        ]
-      },
       "pcs_pma_sfp": {
         "interface_ports": [
           "sfp",
           "pcs_pma/sfp"
+        ]
+      },
+      "s_axis_txd_1": {
+        "interface_ports": [
+          "s_axis_txd",
+          "eth_buf/AXI_STR_TXD"
         ]
       },
       "s_axis_txc_1": {

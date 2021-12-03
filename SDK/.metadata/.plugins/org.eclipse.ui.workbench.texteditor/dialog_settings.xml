@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="shutter_light_sensor_status" key="selection"/>
+		<item value="0" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="0"/>
 			<item value="shutter_light_sensor_status"/>
 			<item value="GPIO_MECH"/>
 			<item value="Set_MAROC_registers"/>
@@ -15,7 +16,6 @@
 			<item value="PH_Fifo"/>
 			<item value="tmp ="/>
 			<item value="remap_array"/>
-			<item value="ph_fifo"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -23,7 +23,7 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="312" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="450" key="DIALOG_HEIGHT"/>
+		<item value="452" key="DIALOG_HEIGHT"/>
 		<item value="1353" key="DIALOG_X_ORIGIN"/>
 		<item value="392" key="DIALOG_Y_ORIGIN"/>
 	</section>
