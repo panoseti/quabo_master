@@ -47,7 +47,7 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: user.org:user:PH_BL_FIFO:2.8
+// IP VLNV: user.org:user:PH_BL_FIFO:2.9
 // IP Revision: 1
 
 (* X_CORE_INFO = "PH_BL_FIFO_v1_0,Vivado 2018.3.1_AR71948" *)

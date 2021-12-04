@@ -518,12 +518,12 @@ int main()
 	//Remap_Init(test_w);
 	//when PH mode is implemented in FPGA, the order of remap table is different.
 	Remap_Reorder(remap_array);
-	Remap_Write(remap_array);
-	//Remap_Write(test_data);
+	//Remap_Write(remap_array);
+	Remap_Write(test_data);
 	Remap_Read(remap_array_r);
 	char remap_check=0;
-	remap_check = Remap_Check(remap_array,remap_array_r);
-	//remap_check = Remap_Check(test_data,remap_array_r);
+	//remap_check = Remap_Check(remap_array,remap_array_r);
+	remap_check = Remap_Check(test_data,remap_array_r);
 	if(remap_check < 0)
 		xil_printf("Remap check result: Incorrect!\n\r");
 	else

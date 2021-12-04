@@ -533,7 +533,7 @@ proc create_root_design { parentCell } {
    }
   
   # Create instance: PH_BL_FIFO_0, and set properties
-  set PH_BL_FIFO_0 [ create_bd_cell -type ip -vlnv user.org:user:PH_BL_FIFO:2.8 PH_BL_FIFO_0 ]
+  set PH_BL_FIFO_0 [ create_bd_cell -type ip -vlnv user.org:user:PH_BL_FIFO:2.9 PH_BL_FIFO_0 ]
 
   # Create instance: PPS_IO_0, and set properties
   set block_name PPS_IO
