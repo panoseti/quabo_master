@@ -900,3 +900,67 @@ set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 1 [current_design]
 
 connect_debug_port u_ila_0/probe1 [get_nets [list {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[0]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[1]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[2]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[3]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[4]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[5]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[6]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[7]}]]
 
+
+
+create_debug_core u_ila_0 ila
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list base_mb_i/clk_wiz_1/inst/clk_100]]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+set_property port_width 24 [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[0]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[1]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[2]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[3]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[4]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[5]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[6]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[7]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[8]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[9]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[10]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[11]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[16]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[17]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[18]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[19]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[20]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[21]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[22]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[23]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[24]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[25]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[26]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[27]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+set_property port_width 16 [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {base_mb_i/PH_BL_FIFO_0/rdata_to_user[0]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[1]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[2]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[3]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[4]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[5]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[6]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[7]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[8]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[9]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[10]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[11]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[12]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[13]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[14]} {base_mb_i/PH_BL_FIFO_0/rdata_to_user[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+set_property port_width 8 [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/addrb[0]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/addrb[1]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/addrb[2]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/addrb[3]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/addrb[4]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/addrb[5]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/addrb[6]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/addrb[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+set_property port_width 8 [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/doutb[0]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/doutb[1]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/doutb[2]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/doutb[3]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/doutb[4]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/doutb[5]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/doutb[6]} {base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/doutb[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+set_property port_width 16 [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[0]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[1]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[2]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[3]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[4]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[5]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[6]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[7]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[8]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[9]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[10]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[11]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[12]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[13]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[14]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0_data[15]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+set_property port_width 8 [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0/addrb[0]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0/addrb[1]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0/addrb[2]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0/addrb[3]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0/addrb[4]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0/addrb[5]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0/addrb[6]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache0/addrb[7]}]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+set_property port_width 1 [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tlast]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+set_property port_width 1 [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tvalid]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
+set_property port_width 1 [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list base_mb_i/PH_BL_FIFO_0/inst/ph_bl0/ph_remap/enb]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+set_property port_width 1 [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/enb]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe10]
+set_property port_width 1 [get_debug_ports u_ila_0/probe10]
+connect_debug_port u_ila_0/probe10 [get_nets [list base_mb_i/HighSpeed_PH_v1_0_0_start_to_read]]
+create_debug_port u_ila_0 probe
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe11]
+set_property port_width 1 [get_debug_ports u_ila_0/probe11]
+connect_debug_port u_ila_0/probe11 [get_nets [list base_mb_i/PH_BL_FIFO_0_ready_to_read]]
+set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
+set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
+set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
+connect_debug_port dbg_hub/clk [get_nets u_ila_0_clk_100]

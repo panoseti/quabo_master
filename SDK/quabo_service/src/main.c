@@ -506,15 +506,24 @@ int main()
 #endif
 #endif
 	/*******************************************************/
+	u8 test_data[256];
+	u16 index;
+	for(index=0;index<256;index++){
+		test_data[index] = index;
+		xil_printf("data:%d\r\n",test_data[index]);
+	}
+	/*******************************************************/
 	// now, we need to put remap_array to remap RAM first.
 	u8 remap_array_r[256];
 	//Remap_Init(test_w);
 	//when PH mode is implemented in FPGA, the order of remap table is different.
 	Remap_Reorder(remap_array);
-	Remap_Write(remap_array);
+	//Remap_Write(remap_array);
+	Remap_Write(test_data);
 	Remap_Read(remap_array_r);
 	char remap_check=0;
-	remap_check = Remap_Check(remap_array,remap_array_r);
+	//remap_check = Remap_Check(remap_array,remap_array_r);
+	remap_check = Remap_Check(test_data,remap_array_r);
 	if(remap_check < 0)
 		xil_printf("Remap check result: Incorrect!\n\r");
 	else
@@ -1616,11 +1625,15 @@ int PH_BL_Init(s16 * ph_baseline_array)
 		ph_baseline_array[i] = ph_baseline_array[i]>>3;
 		//xil_printf("i=%d, d=%x\r\n",i,ph_baseline_array[i]);
 	}
-	BL_Write(ph_baseline_array);
+	//BL_Write(ph_baseline_array);
+	u16 test_data[256];
+	for(i=0;i<256;i++)test_data[i] = i;
+	BL_Write(test_data);
 	u16 bl_data_r[256];
 	BL_Read(bl_data_r);
 	char bl_state;
-	bl_state = BL_Check(ph_baseline_array, bl_data_r);
+	//bl_state = BL_Check(ph_baseline_array, bl_data_r);
+	bl_state = BL_Check(test_data, bl_data_r);
 	if(bl_state < 0)
 	{
 		xil_printf("BL data check result: Incorrect!\n\r");

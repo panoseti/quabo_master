@@ -62,6 +62,7 @@ module bl_bram (
   dina,
   douta,
   clkb,
+  rstb,
   enb,
   web,
   addrb,
@@ -86,6 +87,8 @@ input wire [15 : 0] dina;
 output wire [15 : 0] douta;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB CLK" *)
 input wire clkb;
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB RST" *)
+input wire rstb;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB EN" *)
 input wire enb;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTB WE" *)
@@ -133,7 +136,7 @@ output wire [15 : 0] doutb;
     .C_WRITE_DEPTH_A(256),
     .C_READ_DEPTH_A(256),
     .C_ADDRA_WIDTH(8),
-    .C_HAS_RSTB(0),
+    .C_HAS_RSTB(1),
     .C_RST_PRIORITY_B("CE"),
     .C_RSTRAM_B(0),
     .C_INITB_VAL("0"),
@@ -150,7 +153,7 @@ output wire [15 : 0] doutb;
     .C_HAS_MEM_OUTPUT_REGS_A(1),
     .C_HAS_MEM_OUTPUT_REGS_B(0),
     .C_HAS_MUX_OUTPUT_REGS_A(1),
-    .C_HAS_MUX_OUTPUT_REGS_B(1),
+    .C_HAS_MUX_OUTPUT_REGS_B(0),
     .C_MUX_PIPELINE_STAGES(0),
     .C_HAS_SOFTECC_INPUT_REGS_A(0),
     .C_HAS_SOFTECC_OUTPUT_REGS_B(0),
@@ -184,7 +187,7 @@ output wire [15 : 0] doutb;
     .dina(dina),
     .douta(douta),
     .clkb(clkb),
-    .rstb(1'D0),
+    .rstb(rstb),
     .enb(enb),
     .regceb(1'D0),
     .web(web),

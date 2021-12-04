@@ -63,6 +63,7 @@ bl_bram your_instance_name (
   .dina(dina),    // input wire [15 : 0] dina
   .douta(douta),  // output wire [15 : 0] douta
   .clkb(clkb),    // input wire clkb
+  .rstb(rstb),    // input wire rstb
   .enb(enb),      // input wire enb
   .web(web),      // input wire [0 : 0] web
   .addrb(addrb),  // input wire [7 : 0] addrb
