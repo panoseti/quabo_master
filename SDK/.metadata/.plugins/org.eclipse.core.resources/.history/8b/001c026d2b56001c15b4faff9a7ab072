@@ -25,7 +25,8 @@
 #define HW_GTV08
 //DEfine this when remapping  the PH data
 #define PH_REMAP
-
+//time out for mac address
+#define MAC_TIMEOUT	20
 //define this when high speed mode is enable
 //#define HIGH_SPEED_MODE
 #define SUB_BL
@@ -711,7 +712,7 @@ int main()
 	//then it will receive arp response, and xemacif_input will deal with the arp response
 
 	SendHouseKeeping();
-	u8 mac_timeout = 20;
+	u8 mac_timeout = MAC_TIMEOUT;
 	while((tmp < 0) || (mac_timeout == 0))
 		{
 			xemacif_input(echo_netif);
@@ -721,7 +722,7 @@ int main()
 				tmp = etharp_find_addr(echo_netif, dst_ip_ptr, &dst_mac_ptr, &ip_ret_ptr);
 				SendHouseKeeping();
 				mac_timeout--;
-				xil_printf("looking for mac address of host computer...%d\r\n",20-mac_timeout);
+				xil_printf("looking for mac address of host computer...%d\r\n",MAC_TIMEOUT-mac_timeout);
 			}
 		}
 	if(mac_timeout == 0)
@@ -2257,28 +2258,10 @@ int GetMacAddress(struct netif *netif, ip4_addr_t *dst_ip_ptr, struct eth_addr *
 	}
 	char * arp_payload_ptr = hk_pbuf->payload;
 	memcpy(arp_payload_ptr, "look for mac address", 20);
-	struct udp_pcb *arp_pcb;
-	/* create a udp socket for the housekeeping data */
-	arp_pcb = udp_new();
-	if (!arp_pcb) {
-		xil_printf("Error creating PCB. Out of Memory\r\n");
-		return -1;
-	}
-	/* connect to the dst IP**************************/
-	err_t err;
-	err = udp_connect(arp_pcb, dst_ip_ptr, 60000);
-	if (err != ERR_OK)
-		xil_printf("error on udp_connect: %x\n\r", err);
-	err = udp_send(arp_pcb, arp_pbuf);
-	if (err != ERR_OK) {
-		xil_printf("Error on command udp_send: %d\r\n", err);
-		pbuf_free(hk_pbuf);
-		return;
-	}
 	ip4_addr_t ip_ret;
 	ip4_addr_t *ip_ret_ptr = &ip_ret;
-	u8 mac_timeout = 20;
-	u8 tmp = -1;
+	u8 mac_timeout = MAC_TIMEOUT;
+	u8 tmp;
 		while((tmp < 0) || (mac_timeout == 0))
 			{
 				xemacif_input(echo_netif);
@@ -2294,7 +2277,7 @@ int GetMacAddress(struct netif *netif, ip4_addr_t *dst_ip_ptr, struct eth_addr *
 						return;
 					}
 					mac_timeout--;
-					xil_printf("looking for mac address of host computer...%d\r\n",20-mac_timeout);
+					xil_printf("looking for mac address of host computer...%d\r\n",MAC_TIMEOUT-mac_timeout);
 				}
 			}
 	pbuf_free(hk_pbuf);

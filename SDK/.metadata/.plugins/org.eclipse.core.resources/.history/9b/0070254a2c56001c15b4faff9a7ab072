@@ -2278,7 +2278,7 @@ int GetMacAddress(struct netif *netif, ip4_addr_t *dst_ip_ptr, struct eth_addr *
 	ip4_addr_t ip_ret;
 	ip4_addr_t *ip_ret_ptr = &ip_ret;
 	u8 mac_timeout = 20;
-	u8 tmp = -1;
+	u8 tmp;
 		while((tmp < 0) || (mac_timeout == 0))
 			{
 				xemacif_input(echo_netif);

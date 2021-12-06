@@ -256,8 +256,6 @@ void ChangeStepper(u8 phase);
 void SendStepperData(int * statptr);
 //Get the firmware ID value, programmed at configuration
 
-//Get mac address for the specified IP address
-int GetMacAddress(struct netif *netif, ip4_addr_t *dst_ip_ptr, struct eth_addr *dst_mac_ptr);
 //The udp pcb for sending and receiving command and housekeeping
 struct udp_pcb *cmd_pcb;
 //The udp pcb for sending science
@@ -712,7 +710,7 @@ int main()
 
 	SendHouseKeeping();
 	u8 mac_timeout = 20;
-	while((tmp < 0) || (mac_timeout == 0))
+	while((tmp < 0) || (mac_timeout>0))
 		{
 			xemacif_input(echo_netif);
 			if (TcpFastTmrFlag)
@@ -724,7 +722,7 @@ int main()
 				xil_printf("looking for mac address of host computer...%d\r\n",20-mac_timeout);
 			}
 		}
-	if(mac_timeout == 0)
+	if(mac_timeout == )
 		xil_printf("Timeout of looking for mac address!\r\n");
 	//configure udp header for HS-IM packets
 	//configure udp header ram in fpga
@@ -2244,62 +2242,4 @@ void SendStepperData(int * statptr)
 	}
 	pbuf_free(hk_pbuf);
 	return;
-}
-
-//Get the mac address of the specified IP address
-int GetMacAddress(struct netif *netif, ip4_addr_t *dst_ip_ptr, struct eth_addr *dst_mac_ptr)
-{
-	struct pbuf *arp_pbuf;
-	arp_pbuf = pbuf_alloc(PBUF_TRANSPORT, 64, PBUF_RAM);
-	if (!arp_pbuf) {
-		xil_printf("error allocating pbuf to send\r\n");
-		return;
-	}
-	char * arp_payload_ptr = hk_pbuf->payload;
-	memcpy(arp_payload_ptr, "look for mac address", 20);
-	struct udp_pcb *arp_pcb;
-	/* create a udp socket for the housekeeping data */
-	arp_pcb = udp_new();
-	if (!arp_pcb) {
-		xil_printf("Error creating PCB. Out of Memory\r\n");
-		return -1;
-	}
-	/* connect to the dst IP**************************/
-	err_t err;
-	err = udp_connect(arp_pcb, dst_ip_ptr, 60000);
-	if (err != ERR_OK)
-		xil_printf("error on udp_connect: %x\n\r", err);
-	err = udp_send(arp_pcb, arp_pbuf);
-	if (err != ERR_OK) {
-		xil_printf("Error on command udp_send: %d\r\n", err);
-		pbuf_free(hk_pbuf);
-		return;
-	}
-	ip4_addr_t ip_ret;
-	ip4_addr_t *ip_ret_ptr = &ip_ret;
-	u8 mac_timeout = 20;
-	u8 tmp = -1;
-		while((tmp < 0) || (mac_timeout == 0))
-			{
-				xemacif_input(echo_netif);
-				if (TcpFastTmrFlag)
-				{
-					TcpFastTmrFlag = 0;
-					tmp = etharp_find_addr(netif, dst_ip_ptr, &dst_mac_ptr, &ip_ret_ptr);
-					//SendHouseKeeping();
-					err_t err = udp_send(arp_pcb, arp_pbuf);
-					if (err != ERR_OK) {
-						xil_printf("Error on command udp_send: %d\r\n", err);
-						pbuf_free(hk_pbuf);
-						return;
-					}
-					mac_timeout--;
-					xil_printf("looking for mac address of host computer...%d\r\n",20-mac_timeout);
-				}
-			}
-	pbuf_free(hk_pbuf);
-	if(mac_timeout == 0)
-		return -1;
-	else
-		return 0;
 }
