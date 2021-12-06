@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="0" key="selection"/>
+		<item value="ACQ_MODE_IM_8BIT" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="0"/>
-			<item value="shutter_light_sensor_status"/>
-			<item value="GPIO_MECH"/>
-			<item value="Set_MAROC_registers"/>
-			<item value="Set"/>
-			<item value="PH_Fifo"/>
-			<item value="tmp ="/>
-			<item value="remap_array"/>
+			<item value="ACQ_MODE_IM_8BIT"/>
+			<item value="ethpacketheader_key"/>
+			<item value="print_packet_info"/>
+			<item value="ip4_addr1"/>
+			<item value="im_ipaddr"/>
+			<item value="GetMacAddress"/>
+			<item value="udp_bind"/>
+			<item value="im_mac_ptr"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -24,7 +24,7 @@
 		<item value="312" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="452" key="DIALOG_HEIGHT"/>
-		<item value="1353" key="DIALOG_X_ORIGIN"/>
-		<item value="392" key="DIALOG_Y_ORIGIN"/>
+		<item value="1347" key="DIALOG_X_ORIGIN"/>
+		<item value="394" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

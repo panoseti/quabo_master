@@ -259,6 +259,8 @@ void SendStepperData(int * statptr);
 //Get mac address for the specified IP address
 int GetMacAddress(struct netif *netif, ip4_addr_t *dst_ip_ptr, struct eth_addr **dst_mac_ptr);
 int UdpSendData(ip4_addr_t *dst_ip_ptr, u16 port, char *d);
+//print the information of the packets
+void print_packet_info(EthPacketHeader_Keys ethpacketheader_key);
 //The udp pcb for sending and receiving command and housekeeping
 struct udp_pcb *cmd_pcb;
 //The udp pcb for sending science
@@ -385,6 +387,19 @@ u16 bl_w[256], bl_r[256];
 //u8 wegetdata = 0;
 struct ip4_addr host_ipaddr;
 u16_t host_cmdport = UDP_CMD_PORT;
+
+/**************************************************/
+// the next is used for configuring the ip and mac addresses for ph and im packets
+struct eth_addr ph_mac;
+struct eth_addr *ph_mac_ptr = &ph_mac;
+struct ip4_addr ph_ipaddr;
+ip4_addr_t *ph_ip_ptr = &ph_ipaddr;
+
+struct eth_addr im_mac;
+struct eth_addr *im_mac_ptr = &im_mac;
+struct ip4_addr im_ipaddr;
+ip4_addr_t *im_ip_ptr = &im_ipaddr;
+/**************************************************/
 int main()
 {
 #ifdef GOLD_COPY
@@ -538,7 +553,7 @@ int main()
 	UpdateGPIO();
 
 	struct ip4_addr ipaddr, netmask, gw;
-	//struct ip4_addr host_ipaddr;
+	struct ip4_addr host_ipaddr;
 
 	xil_printf("PANOSETI Quadrant board UDP\n\r");
 
@@ -706,62 +721,65 @@ int main()
 	if (err != ERR_OK)
 		xil_printf("error on udp_connect: %x\n\r", err);
 
+	//This is for getting dst mac address
 	struct eth_addr dst_mac;
 	struct eth_addr *dst_mac_ptr = &dst_mac;
 	ip4_addr_t *dst_ip_ptr = &host_ipaddr;
-	//This is for getting dst mac address
 	char mac_timeout;
 	mac_timeout = GetMacAddress(echo_netif, dst_ip_ptr, &dst_mac_ptr);
 	if(mac_timeout < 0)
 		xil_printf("Timeout of looking for mac address: %d\r\n", mac_timeout);
 	else
 		xil_printf("Get mac address successfully!\r\n");
+
+	//print board loc
+	xil_printf("board_loc = %x %x\r\n", (board_location & 0xff),
+										(board_location>>8));
 	//configure udp header for HS-IM packets
-	//configure udp header ram in fpga
+	//the default im mac/ip is the host mac/ip
+	char tmp;
+	memcpy(im_mac_ptr->addr,dst_mac_ptr->addr, 6);
+	im_ipaddr = host_ipaddr;
 	ethpacketheader_key.board_loc[0] = (board_location & 0xff);
 	ethpacketheader_key.board_loc[1] = (board_location>>8);
 	ethpacketheader_key.src_ip[2] = (board_location>>8);
 	ethpacketheader_key.src_ip[3] = (board_location & 0xff);
+	ethpacketheader_key.dst_ip[0] = ((u8_t*)(&(im_ip_ptr)->addr))[0];
+	ethpacketheader_key.dst_ip[1] = ((u8_t*)(&(im_ip_ptr)->addr))[1];
+	ethpacketheader_key.dst_ip[2] = ((u8_t*)(&(im_ip_ptr)->addr))[2];
+	ethpacketheader_key.dst_ip[3] = ((u8_t*)(&(im_ip_ptr)->addr))[3];
 	memcpy(ethpacketheader_key.src_mac, mac_ethernet_address, 6);
-	memcpy(ethpacketheader_key.dst_mac, dst_mac_ptr->addr, 6);
-	xil_printf("board_loc = %x %x\r\n", ethpacketheader_key.board_loc[0],
-									    ethpacketheader_key.board_loc[1]);
-	xil_printf("src_ip = %d.%d.%d.%d\r\n", ethpacketheader_key.src_ip[0],
-										   ethpacketheader_key.src_ip[1],
-										   ethpacketheader_key.src_ip[2],
-										   ethpacketheader_key.src_ip[3]);
-	xil_printf("src_mac = %x %x %x %x %x %x \r\n",ethpacketheader_key.src_mac[0],
-												  ethpacketheader_key.src_mac[1],
-												  ethpacketheader_key.src_mac[2],
-												  ethpacketheader_key.src_mac[3],
-												  ethpacketheader_key.src_mac[4],
-												  ethpacketheader_key.src_mac[5]);
-	xil_printf("dst_mac = %x %x %x %x %x %x \r\n",ethpacketheader_key.dst_mac[0],
-												  ethpacketheader_key.dst_mac[1],
-												  ethpacketheader_key.dst_mac[2],
-												  ethpacketheader_key.dst_mac[3],
-												  ethpacketheader_key.dst_mac[4],
-												  ethpacketheader_key.dst_mac[5]);
-	char tmp;
+	memcpy(ethpacketheader_key.dst_mac, im_mac_ptr->addr, 6);
 	tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR,&ethpacketheader_key);
 	if(tmp == 0)
 			xil_printf("udp header for HS-IM is configured successfully!\r\n");
 	else
 			xil_printf("fail to configure udp header!\r\n");
+	xil_printf("IM Packets info:\r\n");
+	print_packet_info(ethpacketheader_key);
 
 	//configure udp header for HS-PH packets
+	//the default ph mac/ip is the host mac/ip
+	memcpy(ph_mac_ptr->addr,dst_mac_ptr->addr, 6);
+	ph_ipaddr = host_ipaddr;
 	ethpacketheader_hsph.board_loc[0] = (board_location & 0xff);
 	ethpacketheader_hsph.board_loc[1] = (board_location>>8);
 	ethpacketheader_hsph.src_ip[2] = (board_location>>8);
 	ethpacketheader_hsph.src_ip[3] = (board_location & 0xff);
+	ethpacketheader_hsph.dst_ip[0] = ((u8_t*)(&(ph_ip_ptr)->addr))[0];
+	ethpacketheader_hsph.dst_ip[1] = ((u8_t*)(&(ph_ip_ptr)->addr))[1];
+	ethpacketheader_hsph.dst_ip[2] = ((u8_t*)(&(ph_ip_ptr)->addr))[2];
+	ethpacketheader_hsph.dst_ip[3] = ((u8_t*)(&(ph_ip_ptr)->addr))[3];
 	memcpy(ethpacketheader_hsph.src_mac, mac_ethernet_address, 6);
-	memcpy(ethpacketheader_hsph.dst_mac, dst_mac_ptr->addr, 6);
+	memcpy(ethpacketheader_hsph.dst_mac, ph_mac_ptr->addr, 6);
 
 	tmp = Panoseti_EthPacketHeader_Init(AXI_HS_PH_RAM_ADDR,&ethpacketheader_hsph);
 		if(tmp == 0)
 				xil_printf("udp header for HS-PH is configured successfully!\r\n");
 		else
 				xil_printf("fail to configure udp header!\r\n");
+	xil_printf("PH Packets info:\r\n");
+	print_packet_info(ethpacketheader_key);
 
 	//Set the HVs to 0.  Need to do this to make the VREF input of the AD5686 behave properly
 	Set_HV(HV_settings);
@@ -923,10 +941,48 @@ recv_callback(void *arg, struct udp_pcb *tpcb,struct pbuf *p, struct ip4_addr *a
 			shutter_command = (*(bptr+1)&0x01);
 			XGpio_DiscreteWrite(&Gpio_mech, GPIO_OUT_CHAN, (focus_limits_on <<23) | (shutter_command<<21) | (fan_speed<<17));
 		}
-		if((byte0 & 0x7f)==0x09)
+		if((byte0 & 0x7f)==0x09) //led flasher selection
 		{
 			led_flasher_sel = (*(bptr+1)&0x01);
 			UpdateGPIO();
+		}
+		if((byte0 & 0x7f)==0x0a) //ip addresses for ph and im packets
+		{
+			// the first 4 bytes are the ip address for ph packets
+			IP4_ADDR(&ph_ipaddr,*(bptr+1),*(bptr+2),*(bptr+3),*(bptr+4));
+			// the next 4 bytes are the ip address for im packets
+			IP4_ADDR(&im_ipaddr,*(bptr+5),*(bptr+6),*(bptr+7),*(bptr+8));
+			print_ip("ph_ip: ", ph_ip_ptr);
+			print_ip("im_ip: ", im_ip_ptr);
+			char mac_timeout;
+			u8 default_mac[6] = {0xff,0xff,0xff,0xff,0xff,0xff};
+			//get mac address for ph packets
+			mac_timeout = GetMacAddress(echo_netif, ph_ip_ptr, &ph_mac_ptr);
+			if(mac_timeout < 0)
+			{
+				xil_printf("Timeout of looking for mac address of ph packets: %d\r\n", mac_timeout);
+				memcpy(ph_mac_ptr->addr, default_mac, 6);
+			}
+			xil_printf("ph_mac = %x %x %x %x %x %x \r\n",	ph_mac_ptr->addr[0],
+															ph_mac_ptr->addr[1],
+															ph_mac_ptr->addr[2],
+															ph_mac_ptr->addr[3],
+															ph_mac_ptr->addr[4],
+															ph_mac_ptr->addr[5]);
+			//get mac address for im packets
+			mac_timeout = GetMacAddress(echo_netif, im_ip_ptr, &im_mac_ptr);
+			if(mac_timeout < 0)
+			{
+				xil_printf("Timeout of looking for mac address of im packets: %d\r\n", mac_timeout);
+				memcpy(im_mac_ptr->addr, default_mac, 6);
+			}
+			xil_printf("im_mac = %x %x %x %x %x %x \r\n",	im_mac_ptr->addr[0],
+															im_mac_ptr->addr[1],
+															im_mac_ptr->addr[2],
+															im_mac_ptr->addr[3],
+															im_mac_ptr->addr[4],
+															im_mac_ptr->addr[5]);
+
 		}
 		if ((byte0 & 0x80) == 0x80)  //Echo the packet
 		{
@@ -1188,6 +1244,12 @@ void Set_Acquisition(u16* dataptr)
 		//set acq_mode first
 		char tmp = -1;
 		SET_ACQ_MODE(AXI_HS_PH_RAM_ADDR, acq_mode);
+		//write the ip, mac and other info to ram
+		ethpacketheader_hsph.dst_ip[0] = ((u8_t*)(&(ph_ip_ptr)->addr))[0];
+		ethpacketheader_hsph.dst_ip[1] = ((u8_t*)(&(ph_ip_ptr)->addr))[1];
+		ethpacketheader_hsph.dst_ip[2] = ((u8_t*)(&(ph_ip_ptr)->addr))[2];
+		ethpacketheader_hsph.dst_ip[3] = ((u8_t*)(&(ph_ip_ptr)->addr))[3];
+		memcpy(ethpacketheader_hsph.dst_mac, ph_mac_ptr->addr, 6);
 		ethpacketheader_hsph.acqmode = acq_mode;
 		ethpacketheader_hsph.total_len = 556;
 		ethpacketheader_hsph.length = 536;
@@ -1203,6 +1265,12 @@ void Set_Acquisition(u16* dataptr)
 		//set acq_mode first
 		char tmp = -1;
 		SET_ACQ_MODE(AXI_HS_IM_RAM_ADDR, acq_mode);
+		//write the ip, mac and other info to ram
+		ethpacketheader_key.dst_ip[0] = ((u8_t*)(&(im_ip_ptr)->addr))[0];
+		ethpacketheader_key.dst_ip[1] = ((u8_t*)(&(im_ip_ptr)->addr))[1];
+		ethpacketheader_key.dst_ip[2] = ((u8_t*)(&(im_ip_ptr)->addr))[2];
+		ethpacketheader_key.dst_ip[3] = ((u8_t*)(&(im_ip_ptr)->addr))[3];
+		memcpy(ethpacketheader_key.dst_mac, im_mac_ptr->addr, 6);
 		ethpacketheader_key.acqmode = acq_mode;
 		ethpacketheader_key.total_len = 556;
 		ethpacketheader_key.length = 536;
@@ -1219,6 +1287,12 @@ void Set_Acquisition(u16* dataptr)
 		//configure 16 bit HS-IM
 		//set acq_mode first
 		SET_ACQ_MODE(AXI_HS_IM_RAM_ADDR, acq_mode);
+		//write the ip, mac and other info to ram
+		ethpacketheader_key.dst_ip[0] = ((u8_t*)(&(im_ip_ptr)->addr))[0];
+		ethpacketheader_key.dst_ip[1] = ((u8_t*)(&(im_ip_ptr)->addr))[1];
+		ethpacketheader_key.dst_ip[2] = ((u8_t*)(&(im_ip_ptr)->addr))[2];
+		ethpacketheader_key.dst_ip[3] = ((u8_t*)(&(im_ip_ptr)->addr))[3];
+		memcpy(ethpacketheader_key.dst_mac, im_mac_ptr->addr, 6);
 		ethpacketheader_key.acqmode = acq_mode;
 		ethpacketheader_key.total_len = 556;
 		ethpacketheader_key.length = 536;
@@ -1234,6 +1308,11 @@ void Set_Acquisition(u16* dataptr)
 		//configure HS-PH
 		//set acq_mode first
 		SET_ACQ_MODE(AXI_HS_PH_RAM_ADDR, ACQ_MODE_PH);
+		ethpacketheader_hsph.dst_ip[0] = ((u8_t*)(&(ph_ip_ptr)->addr))[0];
+		ethpacketheader_hsph.dst_ip[1] = ((u8_t*)(&(ph_ip_ptr)->addr))[1];
+		ethpacketheader_hsph.dst_ip[2] = ((u8_t*)(&(ph_ip_ptr)->addr))[2];
+		ethpacketheader_hsph.dst_ip[3] = ((u8_t*)(&(ph_ip_ptr)->addr))[3];
+		memcpy(ethpacketheader_hsph.dst_mac, ph_mac_ptr->addr, 6);
 		ethpacketheader_hsph.acqmode = ACQ_MODE_PH;
 		ethpacketheader_hsph.total_len = 556;
 		ethpacketheader_hsph.length = 536;
@@ -1248,6 +1327,12 @@ void Set_Acquisition(u16* dataptr)
 	{
 		char tmp = -1;
 		SET_ACQ_MODE(AXI_HS_IM_RAM_ADDR, acq_mode);
+		//write the ip, mac and other info to ram
+		ethpacketheader_key.dst_ip[0] = ((u8_t*)(&(im_ip_ptr)->addr))[0];
+		ethpacketheader_key.dst_ip[1] = ((u8_t*)(&(im_ip_ptr)->addr))[1];
+		ethpacketheader_key.dst_ip[2] = ((u8_t*)(&(im_ip_ptr)->addr))[2];
+		ethpacketheader_key.dst_ip[3] = ((u8_t*)(&(im_ip_ptr)->addr))[3];
+		memcpy(ethpacketheader_key.dst_mac, im_mac_ptr->addr, 6);
 		ethpacketheader_key.acqmode = acq_mode;
 		ethpacketheader_key.total_len = 300;
 		ethpacketheader_key.length = 280;
@@ -1266,6 +1351,12 @@ void Set_Acquisition(u16* dataptr)
 			//configure 8bit HS-IM
 			//set acq_mode first
 			SET_ACQ_MODE(AXI_HS_IM_RAM_ADDR, acq_mode);
+			//write the ip, mac and other info to ram
+			ethpacketheader_key.dst_ip[0] = ((u8_t*)(&(im_ip_ptr)->addr))[0];
+			ethpacketheader_key.dst_ip[1] = ((u8_t*)(&(im_ip_ptr)->addr))[1];
+			ethpacketheader_key.dst_ip[2] = ((u8_t*)(&(im_ip_ptr)->addr))[2];
+			ethpacketheader_key.dst_ip[3] = ((u8_t*)(&(im_ip_ptr)->addr))[3];
+			memcpy(ethpacketheader_key.dst_mac, im_mac_ptr->addr, 6);
 			ethpacketheader_key.acqmode = acq_mode;
 			ethpacketheader_key.total_len = 300;
 			ethpacketheader_key.length = 280;
@@ -1281,6 +1372,11 @@ void Set_Acquisition(u16* dataptr)
 			//configure HS-PH
 			//set acq_mode first
 			SET_ACQ_MODE(AXI_HS_PH_RAM_ADDR, ACQ_MODE_PH);
+			ethpacketheader_hsph.dst_ip[0] = ((u8_t*)(&(ph_ip_ptr)->addr))[0];
+			ethpacketheader_hsph.dst_ip[1] = ((u8_t*)(&(ph_ip_ptr)->addr))[1];
+			ethpacketheader_hsph.dst_ip[2] = ((u8_t*)(&(ph_ip_ptr)->addr))[2];
+			ethpacketheader_hsph.dst_ip[3] = ((u8_t*)(&(ph_ip_ptr)->addr))[3];
+			memcpy(ethpacketheader_hsph.dst_mac, ph_mac_ptr->addr, 6);
 			ethpacketheader_hsph.acqmode = ACQ_MODE_PH;
 			ethpacketheader_hsph.total_len = 556;
 			ethpacketheader_hsph.length = 536;
@@ -2257,7 +2353,7 @@ int GetMacAddress(struct netif *netif, ip4_addr_t *dst_ip_ptr, struct eth_addr *
 			{
 				TcpFastTmrFlag = 0;
 				tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
-				if(tmp == 0) break;
+				if(tmp >= 0) break;
 				int state = UdpSendData(dst_ip_ptr, 60000,"looking for mac address");
 				if(state < 0)
 				{
@@ -2265,7 +2361,7 @@ int GetMacAddress(struct netif *netif, ip4_addr_t *dst_ip_ptr, struct eth_addr *
 					return state;
 				}
 				mac_timeout--;
-				xil_printf("looking for mac address of host computer...%d\r\n",20-mac_timeout);
+				xil_printf("looking for mac address...%d\r\n",20-mac_timeout);
 			}
 	}
 	if(mac_timeout == 0)
@@ -2309,3 +2405,26 @@ int UdpSendData(ip4_addr_t *dst_ip_ptr, u16 port, char *d)
 	return 0;
 }
 
+void print_packet_info(EthPacketHeader_Keys ethpacketheader_key)
+{
+	xil_printf("-src_ip = %d.%d.%d.%d\r\n", 		ethpacketheader_key.src_ip[0],
+													ethpacketheader_key.src_ip[1],
+													ethpacketheader_key.src_ip[2],
+													ethpacketheader_key.src_ip[3]);
+	xil_printf("-dst_ip = %d.%d.%d.%d\r\n", 		ethpacketheader_key.dst_ip[0],
+													ethpacketheader_key.dst_ip[1],
+													ethpacketheader_key.dst_ip[2],
+													ethpacketheader_key.dst_ip[3]);
+	xil_printf("-src_mac = %x %x %x %x %x %x \r\n",	ethpacketheader_key.src_mac[0],
+											  	  	ethpacketheader_key.src_mac[1],
+													ethpacketheader_key.src_mac[2],
+													ethpacketheader_key.src_mac[3],
+													ethpacketheader_key.src_mac[4],
+													ethpacketheader_key.src_mac[5]);
+	xil_printf("-dst_mac = %x %x %x %x %x %x \r\n",	ethpacketheader_key.dst_mac[0],
+													ethpacketheader_key.dst_mac[1],
+													ethpacketheader_key.dst_mac[2],
+													ethpacketheader_key.dst_mac[3],
+													ethpacketheader_key.dst_mac[4],
+													ethpacketheader_key.dst_mac[5]);
+}
