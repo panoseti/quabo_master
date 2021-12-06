@@ -742,7 +742,7 @@ int main()
 												  ethpacketheader_key.dst_mac[3],
 												  ethpacketheader_key.dst_mac[4],
 												  ethpacketheader_key.dst_mac[5]);
-	char tmp;
+
 	tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR,&ethpacketheader_key);
 	if(tmp == 0)
 			xil_printf("udp header for HS-IM is configured successfully!\r\n");

@@ -709,7 +709,30 @@ int main()
 	struct eth_addr dst_mac;
 	struct eth_addr *dst_mac_ptr = &dst_mac;
 	ip4_addr_t *dst_ip_ptr = &host_ipaddr;
+	ip4_addr_t ip_ret;
+	ip4_addr_t *ip_ret_ptr = &ip_ret;
+	char tmp = -1;
 	//This is for getting dst mac address
+	//when we send out something out first time, MB will send arp packets,
+	//then it will receive arp response, and xemacif_input will deal with the arp response
+	/*
+	SendHouseKeeping();
+	u8 mac_timeout = 20;
+	while((tmp < 0) || (mac_timeout == 0))
+		{
+			xemacif_input(echo_netif);
+			if (TcpFastTmrFlag)
+			{
+				TcpFastTmrFlag = 0;
+				tmp = etharp_find_addr(echo_netif, dst_ip_ptr, &dst_mac_ptr, &ip_ret_ptr);
+				SendHouseKeeping();
+				mac_timeout--;
+				xil_printf("looking for mac address of host computer...%d\r\n",20-mac_timeout);
+			}
+		}
+	if(mac_timeout == 0)
+		xil_printf("Timeout of looking for mac address!\r\n");
+	*/
 	char mac_timeout;
 	mac_timeout = GetMacAddress(echo_netif, dst_ip_ptr, &dst_mac_ptr);
 	if(mac_timeout < 0)
@@ -742,7 +765,7 @@ int main()
 												  ethpacketheader_key.dst_mac[3],
 												  ethpacketheader_key.dst_mac[4],
 												  ethpacketheader_key.dst_mac[5]);
-	char tmp;
+
 	tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR,&ethpacketheader_key);
 	if(tmp == 0)
 			xil_printf("udp header for HS-IM is configured successfully!\r\n");
@@ -2257,7 +2280,7 @@ int GetMacAddress(struct netif *netif, ip4_addr_t *dst_ip_ptr, struct eth_addr *
 			{
 				TcpFastTmrFlag = 0;
 				tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
-				if(tmp == 0) break;
+				xil_printf("tmp=: %d\r\n", tmp);
 				int state = UdpSendData(dst_ip_ptr, 60000,"looking for mac address");
 				if(state < 0)
 				{
