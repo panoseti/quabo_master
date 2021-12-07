@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3.1_AR71948 (lin64) Build 2489853 Tue Mar 26 04:18:30 MDT 2019
-//Date        : Fri Dec  3 22:14:07 2021
+//Date        : Mon Dec  6 20:47:14 2021
 //Host        : wei-Berkeley running 64-bit Ubuntu 18.04.6 LTS
 //Command     : generate_target base_mb.bd
 //Design      : base_mb
@@ -266,6 +266,7 @@ module base_mb
   wire Net6;
   wire OBUFDS_FOR_CLK_0_O;
   wire OBUFDS_FOR_CLK_0_OB;
+  wire [28:0]PH_BL_FIFO_0_ph_elapsed_time;
   wire [31:0]PH_BL_FIFO_0_rdata_to_user;
   wire PH_BL_FIFO_0_ready_to_read;
   wire PPS_IO_0_pps_inside_out;
@@ -1188,7 +1189,7 @@ module base_mb
        (.aclk(microblaze_0_Clk),
         .aresetn(rst_clk_wiz_1_100M_1_peripheral_aresetn),
         .arst_for_imfifo(HighSpeed_PH_v1_0_0_arst_for_imfifo),
-        .elapsed_time(elapsed_time_gen_0_elapsed_time0),
+        .elapsed_time(PH_BL_FIFO_0_ph_elapsed_time),
         .m_axis_tdata(HighSpeed_PH_v1_0_0_m_axis_TDATA),
         .m_axis_tkeep(HighSpeed_PH_v1_0_0_m_axis_TKEEP),
         .m_axis_tlast(HighSpeed_PH_v1_0_0_m_axis_TLAST),
@@ -1241,6 +1242,7 @@ module base_mb
         .axi_str_rxd_tlast(maroc_dc_0_M01_AXIS_TLAST),
         .axi_str_rxd_tready(maroc_dc_0_M01_AXIS_TREADY),
         .axi_str_rxd_tvalid(maroc_dc_0_M01_AXIS_TVALID),
+        .ph_elapsed_time(PH_BL_FIFO_0_ph_elapsed_time),
         .rdata_to_user(PH_BL_FIFO_0_rdata_to_user),
         .ready_to_read(PH_BL_FIFO_0_ready_to_read),
         .s00_axi_aclk(microblaze_0_Clk),

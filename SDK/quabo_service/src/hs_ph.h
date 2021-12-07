@@ -47,4 +47,5 @@ char Remap_Check(unsigned char *remap_w, unsigned char *remap_r);
 char BL_Write(unsigned short *bl);
 char BL_Read(unsigned short *bl);
 char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+char BL_Switch(char s);
 #endif /* SRC_HS_PH_H_ */

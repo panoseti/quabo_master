@@ -406,7 +406,7 @@ int main()
 	xil_printf("*************Quabo GOLD Firmware*************\n\r");
 #else
 	//xil_printf("*************Quabo Firmware*************\n\r");
-	xil_printf("*************HS-PH Test Firmware V1.4*************\n\r");
+	xil_printf("*************HS-PH Test Firmware V1.6*************\n\r");
 #endif
  	volatile int delay;
  	//initialize baseline array to zero.  We'll fill it when commanded, after setting up the MAROCs
@@ -833,6 +833,10 @@ int main()
 		if ((acq_mode & 0xf) == ACQ_MODE_PH)
 		{//code1
 			//it's going to be implemented in FPGA
+			if ((acq_mode & 0x10) == 0)
+				BL_Switch(1);
+			else
+				BL_Switch(0);
 		}
 		else if ((acq_mode & 0xf) == ACQ_MODE_IM)
 		{
@@ -841,6 +845,10 @@ int main()
 		else if(((acq_mode & 0xf) == ACQ_MODE_HS_IM) || ((acq_mode & 0xf) == ACQ_MODE_HS_IM_8BIT))		//High Speed IM
 		{//code2
 			//it's going to be implemented in FPGA
+			if ((acq_mode & 0x10) == 0)
+				BL_Switch(1);
+			else
+				BL_Switch(0);
 		}
 		else if ((acq_mode & 0xf) == ACQ_MODE_IM_8BIT)
 		{
@@ -982,7 +990,22 @@ recv_callback(void *arg, struct udp_pcb *tpcb,struct pbuf *p, struct ip4_addr *a
 															im_mac_ptr->addr[3],
 															im_mac_ptr->addr[4],
 															im_mac_ptr->addr[5]);
-
+			//reply to the host computer
+			hk_pbuf = pbuf_alloc(PBUF_TRANSPORT, 12, PBUF_RAM);
+			if (!hk_pbuf) {
+				xil_printf("error allocating pbuf to send\r\n");
+				return;
+			}
+			char * hk_payload_ptr = hk_pbuf->payload;
+			memcpy(hk_payload_ptr, ph_mac_ptr->addr, 6);
+			memcpy(hk_payload_ptr+6, im_mac_ptr->addr, 6);
+			err_t err = udp_sendto(cmd_pcb, hk_pbuf, &host_ipaddr, host_cmdport);
+			if (err != ERR_OK) {
+				xil_printf("Error on command udp_send: %d\r\n", err);
+				pbuf_free(hk_pbuf);
+				return;
+				}
+			pbuf_free(hk_pbuf);
 		}
 		if ((byte0 & 0x80) == 0x80)  //Echo the packet
 		{
@@ -1720,9 +1743,11 @@ int PH_BL_Init(s16 * ph_baseline_array)
 		//xil_printf("i=%d, d=%x\r\n",i,ph_baseline_array[i]);
 	}
 	/*****For test*************************/
+	/*
 	u16 test_data[256];
 	for(i=0;i<256;i++)test_data[i] = i;
 	BL_Write(test_data);
+	*/
 	/**************************************/
 	BL_Write(ph_baseline_array);
 	u16 bl_data_r[256];
@@ -2335,12 +2360,12 @@ void SendStepperData(int * statptr)
 //Get the mac address of the specified IP address
 int GetMacAddress(struct netif *netif, ip4_addr_t *dst_ip_ptr, struct eth_addr **dst_mac_ptr)
 {
-
+	u16 port = 59999;
 	ip4_addr_t ip_ret;
 	ip4_addr_t *ip_ret_ptr = &ip_ret;
 	u8 mac_timeout = 20;
 	char tmp = -1;
-	int state = UdpSendData(dst_ip_ptr, 60000,"looking for mac address");
+	int state = UdpSendData(dst_ip_ptr, port,"looking for mac address");
 	if(state < 0)
 	{
 		xil_printf("UdpSendData failed: %d\r\n", state);
@@ -2354,7 +2379,7 @@ int GetMacAddress(struct netif *netif, ip4_addr_t *dst_ip_ptr, struct eth_addr *
 				TcpFastTmrFlag = 0;
 				tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
 				if(tmp >= 0) break;
-				int state = UdpSendData(dst_ip_ptr, 60000,"looking for mac address");
+				int state = UdpSendData(dst_ip_ptr, port,"looking for mac address");
 				if(state < 0)
 				{
 					xil_printf("UdpSendData failed: %d\r\n", state);

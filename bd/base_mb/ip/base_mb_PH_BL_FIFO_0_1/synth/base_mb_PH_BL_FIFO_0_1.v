@@ -47,7 +47,7 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: user.org:user:PH_BL_FIFO:2.9
+// IP VLNV: user.org:user:PH_BL_FIFO:3.0
 // IP Revision: 1
 
 (* X_CORE_INFO = "PH_BL_FIFO_v1_0,Vivado 2018.3.1_AR71948" *)
@@ -81,6 +81,7 @@ module base_mb_PH_BL_FIFO_0_1 (
   rdata_to_user,
   ready_to_read,
   arst_for_phfifo,
+  ph_elapsed_time,
   s00_axi_aclk,
   s00_axi_aresetn
 );
@@ -138,6 +139,7 @@ input wire start_to_read;
 output wire [31 : 0] rdata_to_user;
 output wire ready_to_read;
 input wire arst_for_phfifo;
+output wire [28 : 0] ph_elapsed_time;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_AXI_CLK, ASSOCIATED_BUSIF S00_AXI, ASSOCIATED_RESET s00_axi_aresetn, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN base_mb_clk_wiz_1_0_clk_100, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S00_AXI_CLK CLK" *)
 input wire s00_axi_aclk;
@@ -176,6 +178,7 @@ input wire s00_axi_aresetn;
     .rdata_to_user(rdata_to_user),
     .ready_to_read(ready_to_read),
     .arst_for_phfifo(arst_for_phfifo),
+    .ph_elapsed_time(ph_elapsed_time),
     .s00_axi_aclk(s00_axi_aclk),
     .s00_axi_aresetn(s00_axi_aresetn)
   );

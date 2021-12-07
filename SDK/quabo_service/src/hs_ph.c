@@ -53,7 +53,7 @@ char BL_Write(unsigned short *bl){
 	unsigned int tmp;
 	// enable writing first
 	tmp = 0;
-	tmp = (1<<AXI_BL_WEA_BIT) | (1<<AXI_BL_ENA_BIT);
+	tmp = (0<<AXI_BL_ENABLE_BIT)|(1<<AXI_BL_WEA_BIT) | (1<<AXI_BL_ENA_BIT);
 	Xil_Out32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG, tmp);
 	// write the remap data to remap RAM
 	unsigned short i;
@@ -61,11 +61,11 @@ char BL_Write(unsigned short *bl){
 	for(i=0;i<256;i++)
 	{
 		d = 65536 - *(bl+i); // this is the Complement of bl data.
-		tmp = (i<<AXI_BL_ADDR_BIT) | (d<<AXI_BL_DATA_IN_BIT) | (1<<AXI_BL_WEA_BIT) | (1<<AXI_BL_ENA_BIT);
+		tmp = (i<<AXI_BL_ADDR_BIT) | (d<<AXI_BL_DATA_IN_BIT) |(0<<AXI_BL_ENABLE_BIT)| (1<<AXI_BL_WEA_BIT) | (1<<AXI_BL_ENA_BIT);
 		Xil_Out32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG, tmp);
 	}
 	// disable writing
-	tmp = (1<<AXI_BL_ENABLE_BIT);
+	tmp = (0<<AXI_BL_ENABLE_BIT);
 	Xil_Out32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG, tmp);
 	return 0;
 }
@@ -87,7 +87,7 @@ char BL_Read(unsigned short *bl){
 		*(bl + i) = 65536 - Xil_In32(AXI_HS_PH_ADDR + AXI_BL_DATA_REG);
 	}
 	// disable writing
-	tmp = (1<<AXI_BL_ENABLE_BIT);
+	tmp = (0<<AXI_BL_ENABLE_BIT);
 	Xil_Out32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG, tmp);
 	return 0;
 }
@@ -103,6 +103,19 @@ char BL_Check(unsigned short *bl_w, unsigned short *bl_r)
 				return -1;
 		}
 		return 0;
+}
+
+//BL_Switch()
+//Description: It's used for turning on or off bl subtraction.
+//paramter: s--0-turn off bl subtraction
+//			   1-trun on bl subtraction
+char BL_Switch(char s)
+{
+	unsigned int tmp;
+	tmp = Xil_In32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG);
+	tmp =  (s<<AXI_BL_ENABLE_BIT);
+	Xil_Out32(AXI_HS_PH_ADDR + AXI_BL_CFG_REG, tmp);
+	return 0;
 }
 
 //Remap_Init()
@@ -122,8 +135,9 @@ char Remap_Init(unsigned char *remap){
 //paramter: remap--it's used for storing the remap data.
 char Remap_Reorder(unsigned char *remap)
 {
-	unsigned char tmp[4];
+	unsigned char tmp[256];
 	unsigned short i = 0;
+	//we read RxWord0 first, and then RxWord1, so we need to change this order here first.
 	for(i=0;i<64;i++)
 	{
 		tmp[2] = *(remap+i*4+0);
@@ -135,6 +149,12 @@ char Remap_Reorder(unsigned char *remap)
 		*(remap+i*4+2) = tmp[2];
 		*(remap+i*4+3) = tmp[3];
 	}
+	//then we need to change another order
+	//all the data are stored in the RAM, so we need to decide the seq for picking data up from the ram
+	//if remap[m] = n, it means the m_th data should be picked up from the ram at the n_th clk
+	memcpy(tmp, remap, 256);
+	for(i=0; i<256; i++)
+		remap[*(tmp+i)] = i;
 	return 0;
 }
 

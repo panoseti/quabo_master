@@ -25,6 +25,8 @@
         output wire [31:0]rdata_to_user,
         output wire ready_to_read,
         input wire arst_for_phfifo,
+        //elapsed_time
+        output wire [28:0] ph_elapsed_time,
 		// User ports ends
 		// Do not modify the ports beyond this line
 
@@ -138,7 +140,8 @@ PH_Cache ph_cache_01(
     .ph_cache_valid(ph_cache_valid),    //it means the last seriel ph_data is stored in the ph_cache
     .ph_cache_enb(ph_cache_enb),
     .ph_cache_raddr(ph_cache_raddr),            //8bits
-    .ph_cache_data(ph_cache_data)               //16bits
+    .ph_cache_data(ph_cache_data),              //16bits
+    .ph_elapsed_time(ph_elapsed_time)           //29bits
     );
     
 PH_BL ph_bl0(

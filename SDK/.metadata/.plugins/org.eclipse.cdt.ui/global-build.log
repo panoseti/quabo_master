@@ -41779,3 +41779,2079 @@ mb-size quabo_service.elf  |tee "quabo_service.elf.size"
  123626	   2236	 130674	 256536	  3ea18	quabo_service.elf
 Finished building: quabo_service.elf.size
  
+20:53:27 **** Auto Build of project standalone_bsp_0 ****
+make -k all 
+Running Make include in microblaze_0/libsrc/tmrctr_v4_5/src
+make -C microblaze_0/libsrc/tmrctr_v4_5/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/standalone_v6_8/src
+make -C microblaze_0/libsrc/standalone_v6_8/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/lwip202_v1_2/src
+make -C microblaze_0/libsrc/lwip202_v1_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+cp: cannot stat 'lwip-2.0.2/src/include/lwip': No such file or directory
+Makefile:44: recipe for target 'liblwip4_includes' failed
+make[1]: *** [liblwip4_includes] Error 1
+Makefile:25: recipe for target 'microblaze_0/libsrc/lwip202_v1_2/src/make.include' failed
+Running Make include in microblaze_0/libsrc/llfifo_v5_2/src
+make[1]: Target 'include' not remade because of errors.
+make -C microblaze_0/libsrc/llfifo_v5_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+make: *** [microblaze_0/libsrc/lwip202_v1_2/src/make.include] Error 2
+Running Make include in microblaze_0/libsrc/hwicap_v11_1/src
+make -C microblaze_0/libsrc/hwicap_v11_1/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/iic_v3_5/src
+make -C microblaze_0/libsrc/iic_v3_5/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/axiethernet_v5_8/src
+make -C microblaze_0/libsrc/axiethernet_v5_8/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/bram_v4_2/src
+make -C microblaze_0/libsrc/bram_v4_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/spi_v4_4/src
+make -C microblaze_0/libsrc/spi_v4_4/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/cpu_v2_8/src
+make -C microblaze_0/libsrc/cpu_v2_8/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/gpio_v4_3/src
+make -C microblaze_0/libsrc/gpio_v4_3/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/maroc_slow_control_v1_0/src
+make -C microblaze_0/libsrc/maroc_slow_control_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/intc_v3_8/src
+make -C microblaze_0/libsrc/intc_v3_8/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/maroc_dc_v1_0/src
+make -C microblaze_0/libsrc/maroc_dc_v1_0/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/sysmon_v7_5/src
+make -C microblaze_0/libsrc/sysmon_v7_5/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/wdttb_v4_3/src
+make -C microblaze_0/libsrc/wdttb_v4_3/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+make: Target 'all' not remade because of errors.
+20:53:28 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/casper_src/casper_tapcp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/casper_src/casper_tapcp.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/casper_src/casper_tapcp.d" -MT"src/casper_src/casper_tapcp.o" -o "src/casper_src/casper_tapcp.o" "../src/casper_src/casper_tapcp.c"
+../src/casper_src/casper_tapcp.c:737:1: warning: 'u32_to_hex' defined but not used [-Wunused-function]
+ u32_to_hex(const uint32_t u32, uint8_t *p, uint8_t do_zeros)
+ ^~~~~~~~~~
+Finished building: ../src/casper_src/casper_tapcp.c
+ 
+Building file: ../src/casper_src/casper_tftp.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/casper_src/casper_tftp.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/casper_src/casper_tftp.d" -MT"src/casper_src/casper_tftp.o" -o "src/casper_src/casper_tftp.o" "../src/casper_src/casper_tftp.c"
+Finished building: ../src/casper_src/casper_tftp.c
+ 
+Building file: ../src/casper_src/flash.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/casper_src/flash.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/casper_src/flash.d" -MT"src/casper_src/flash.o" -o "src/casper_src/flash.o" "../src/casper_src/flash.c"
+Finished building: ../src/casper_src/flash.c
+ 
+Building file: ../src/casper_src/gpio_spi_sel.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/casper_src/gpio_spi_sel.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/casper_src/gpio_spi_sel.d" -MT"src/casper_src/gpio_spi_sel.o" -o "src/casper_src/gpio_spi_sel.o" "../src/casper_src/gpio_spi_sel.c"
+Finished building: ../src/casper_src/gpio_spi_sel.c
+ 
+Building file: ../src/casper_src/icap.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/casper_src/icap.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/casper_src/icap.d" -MT"src/casper_src/icap.o" -o "src/casper_src/icap.o" "../src/casper_src/icap.c"
+Finished building: ../src/casper_src/icap.c
+ 
+Building file: ../src/casper_src/spi.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/casper_src/spi.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/casper_src/spi.d" -MT"src/casper_src/spi.o" -o "src/casper_src/spi.o" "../src/casper_src/spi.c"
+Finished building: ../src/casper_src/spi.c
+ 
+Building file: ../src/casper_src/tftp_server.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/casper_src/tftp_server.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/casper_src/tftp_server.d" -MT"src/casper_src/tftp_server.o" -o "src/casper_src/tftp_server.o" "../src/casper_src/tftp_server.c"
+Finished building: ../src/casper_src/tftp_server.c
+ 
+Building file: ../src/casper_src/tmrctr.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/casper_src/tmrctr.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/casper_src/tmrctr.d" -MT"src/casper_src/tmrctr.o" -o "src/casper_src/tmrctr.o" "../src/casper_src/tmrctr.c"
+Finished building: ../src/casper_src/tmrctr.c
+ 
+Building file: ../src/EthCore_Configuration.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/EthCore_Configuration.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/EthCore_Configuration.d" -MT"src/EthCore_Configuration.o" -o "src/EthCore_Configuration.o" "../src/EthCore_Configuration.c"
+../src/EthCore_Configuration.c:27:0: warning: "XPAR_AXIETHERNET_1_MCAST_EXTEND" redefined
+ #define XPAR_AXIETHERNET_1_MCAST_EXTEND    1U    //WEI
+ 
+In file included from ../../standalone_bsp_0/microblaze_0/include/xil_printf.h:12:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xil_io.h:61,
+                 from ../../standalone_bsp_0/microblaze_0/include/sleep.h:52,
+                 from ../src/EthCore_Configuration.c:2:
+../../standalone_bsp_0/microblaze_0/include/xparameters.h:575:0: note: this is the location of the previous definition
+ #define XPAR_AXIETHERNET_1_MCAST_EXTEND 0U
+ 
+Finished building: ../src/EthCore_Configuration.c
+ 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+Finished building: ../src/hs_ph.c
+ 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1079:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1457:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1727:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1731:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1636:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1635:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1633:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2091:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2355:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building file: ../src/packet_header.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/packet_header.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/packet_header.d" -MT"src/packet_header.o" -o "src/packet_header.o" "../src/packet_header.c"
+Finished building: ../src/packet_header.c
+ 
+Building file: ../src/platform.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/platform.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+../src/platform.c: In function 'platform_setup_interrupts':
+../src/platform.c:118:2: warning: implicit declaration of function 'init_gpio_spi_sel' [-Wimplicit-function-declaration]
+  init_gpio_spi_sel();
+  ^~~~~~~~~~~~~~~~~
+Finished building: ../src/platform.c
+ 
+Building file: ../src/platform_mb.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/platform_mb.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/platform_mb.d" -MT"src/platform_mb.o" -o "src/platform_mb.o" "../src/platform_mb.c"
+Finished building: ../src/platform_mb.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123626	   2236	 130674	 256536	  3ea18	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:16:28 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1079:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1457:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1727:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1731:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1636:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1635:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1633:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2091:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2355:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123626	   2236	 130674	 256536	  3ea18	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:19:15 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1079:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1457:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1727:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1731:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1636:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1635:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1633:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2091:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2355:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123622	   2236	 130670	 256528	  3ea10	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:19:20 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1079:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1457:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1727:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1731:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1636:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1635:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1633:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2091:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2355:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123626	   2236	 130674	 256536	  3ea18	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:39:56 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1088:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1466:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1736:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1740:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1645:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1644:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1642:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2100:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2364:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123778	   2236	 130674	 256688	  3eab0	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:40:15 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'recv_callback':
+../src/main.c:994:10: warning: unused variable 'err' [-Wunused-variable]
+    err_t err = udp_sendto(cmd_pcb, hk_pbuf, &host_ipaddr, host_cmdport);
+          ^~~
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1088:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1466:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1736:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1740:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1645:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1644:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1642:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2100:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2364:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123838	   2236	 130670	 256744	  3eae8	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:40:39 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1094:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1472:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1742:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1746:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1651:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1650:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1648:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2106:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2370:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123938	   2236	 130674	 256848	  3eb50	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:40:56 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1094:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1472:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1742:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1746:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1651:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1650:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1648:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2106:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2370:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123934	   2236	 130670	 256840	  3eb48	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:41:16 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1094:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1472:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1742:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1746:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1651:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1650:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1648:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2106:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2370:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123934	   2236	 130670	 256840	  3eb48	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:46:30 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1094:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1472:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1742:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1746:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1651:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1650:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1648:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2106:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2370:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123942	   2236	 130670	 256848	  3eb50	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:47:00 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1094:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1472:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1742:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1746:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1651:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1650:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1648:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2106:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2370:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+../src/main.c:2353:6: warning: unused variable 'port' [-Wunused-variable]
+  u16 port = 59999;
+      ^~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123950	   2236	 130670	 256856	  3eb58	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:47:06 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1094:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1472:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1742:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1746:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1651:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1650:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1648:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2106:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2370:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123950	   2236	 130670	 256856	  3eb58	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:56:21 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+Finished building: ../src/hs_ph.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123946	   2236	 130674	 256856	  3eb58	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:56:29 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+Finished building: ../src/hs_ph.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123942	   2236	 130670	 256848	  3eb50	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:59:14 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1098:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1476:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1746:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1750:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1655:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1654:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1652:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2110:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2374:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123942	   2236	 130670	 256848	  3eb50	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+21:59:30 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1102:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1480:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1750:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1754:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1659:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1658:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1656:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2114:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2378:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123942	   2236	 130670	 256848	  3eb50	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+22:00:39 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+Finished building: ../src/hs_ph.c
+ 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1102:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1480:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1750:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1754:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1659:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1658:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1656:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2114:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2378:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123942	   2236	 130670	 256848	  3eb50	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+22:02:07 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+../src/hs_ph.c: In function 'BL_Switch':
+../src/hs_ph.c:114:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Finished building: ../src/hs_ph.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123942	   2236	 130670	 256848	  3eb50	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+22:03:18 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+../src/hs_ph.c: In function 'BL_Switch':
+../src/hs_ph.c:114:15: warning: variable 'tmp' set but not used [-Wunused-but-set-variable]
+  unsigned int tmp;
+               ^~~
+../src/hs_ph.c:116:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Finished building: ../src/hs_ph.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123942	   2236	 130670	 256848	  3eb50	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+22:03:55 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+../src/hs_ph.c: In function 'BL_Switch':
+../src/hs_ph.c:117:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Finished building: ../src/hs_ph.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123942	   2236	 130670	 256848	  3eb50	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+22:04:15 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+Finished building: ../src/hs_ph.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 123942	   2236	 130670	 256848	  3eb50	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+22:05:26 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1102:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1480:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1750:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1754:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1659:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1658:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1656:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2114:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2378:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 124194	   2236	 130674	 257104	  3ec50	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+22:21:06 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/main.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'main':
+../src/main.c:694:20: warning: passing argument 2 of 'udp_recv' from incompatible pointer type [-Wincompatible-pointer-types]
+  udp_recv(cmd_pcb, recv_callback, NULL);
+                    ^~~~~~~~~~~~~
+In file included from ../src/main.c:44:0:
+../../standalone_bsp_0/microblaze_0/include/lwip/udp.h:123:18: note: expected 'udp_recv_fn {aka void (*)(void *, struct udp_pcb *, struct pbuf *, const struct ip4_addr *, short unsigned int)}' but argument is of type 'void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, u16_t) {aka void (*)(void *, struct udp_pcb *, struct pbuf *, struct ip4_addr *, short unsigned int)}'
+ void             udp_recv       (struct udp_pcb *pcb, udp_recv_fn recv,
+                  ^~~~~~~~
+../src/main.c:706:2: warning: "/*" within comment [-Wcomment]
+  /* connect to PC science port */
+   
+../src/main.c:711:2: warning: "/*" within comment [-Wcomment]
+  /*******************************************************/
+   
+../src/main.c: In function 'Set_MAROC_registers':
+../src/main.c:1102:6: warning: variable 'val2write' set but not used [-Wunused-but-set-variable]
+  u32 val2write;
+      ^~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'GetHouseKeeping':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:1480:7: note: in expansion of macro 'XSpi_ReadReg'
+  if ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0) return -1;
+       ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'PH_BL_Init':
+../src/main.c:1752:11: warning: pointer targets in passing argument 1 of 'BL_Write' differ in signedness [-Wpointer-sign]
+  BL_Write(ph_baseline_array);
+           ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:47:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Write(unsigned short *bl);
+      ^~~~~~~~
+../src/main.c:1756:22: warning: pointer targets in passing argument 1 of 'BL_Check' differ in signedness [-Wpointer-sign]
+  bl_state = BL_Check(ph_baseline_array, bl_data_r);
+                      ^~~~~~~~~~~~~~~~~
+In file included from ../src/main.c:64:0:
+../src/hs_ph.h:49:6: note: expected 'short unsigned int *' but argument is of type 's16 * {aka short int *}'
+ char BL_Check(unsigned short *bl_w, unsigned short *bl_r);
+      ^~~~~~~~
+../src/main.c:1659:6: warning: unused variable 'RxWord1' [-Wunused-variable]
+  u32 RxWord1;
+      ^~~~~~~
+../src/main.c:1658:6: warning: unused variable 'RxWord0' [-Wunused-variable]
+  u32 RxWord0;
+      ^~~~~~~
+../src/main.c:1656:6: warning: unused variable 'ReceiveLength' [-Wunused-variable]
+  u16 ReceiveLength;
+      ^~~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xspi.h:314:0,
+                 from ../src/main.c:47:
+../src/main.c: In function 'WR_int_callback':
+../../standalone_bsp_0/microblaze_0/include/xspi_l.h:98:12: warning: passing argument 1 of 'Xil_In32' makes integer from pointer without a cast [-Wint-conversion]
+  XSpi_In32((BaseAddress) + (RegOffset))
+            ^
+../src/main.c:2116:10: note: in expansion of macro 'XSpi_ReadReg'
+  while ((XSpi_ReadReg(&Spi, XSP_SR_OFFSET) & XSP_SR_TX_EMPTY_MASK) != 0);
+          ^~~~~~~~~~~~
+In file included from ../../standalone_bsp_0/microblaze_0/include/xgpio_l.h:83:0,
+                 from ../../standalone_bsp_0/microblaze_0/include/xgpio.h:132,
+                 from ../src/main.c:35:
+../../standalone_bsp_0/microblaze_0/include/xil_io.h:147:19: note: expected 'UINTPTR {aka unsigned int}' but argument is of type 'XSpi * {aka struct <anonymous> *}'
+ static INLINE u32 Xil_In32(UINTPTR Addr)
+                   ^~~~~~~~
+../src/main.c: In function 'GetMacAddress':
+../src/main.c:2380:60: warning: passing argument 4 of 'etharp_find_addr' from incompatible pointer type [-Wincompatible-pointer-types]
+     tmp = etharp_find_addr(netif, dst_ip_ptr, dst_mac_ptr, &ip_ret_ptr);
+                                                            ^
+In file included from ../../standalone_bsp_0/microblaze_0/include/netif/etharp.h:2:0,
+                 from ../src/main.c:65:
+../../standalone_bsp_0/microblaze_0/include/lwip/etharp.h:78:6: note: expected 'const ip4_addr_t ** {aka const struct ip4_addr **}' but argument is of type 'ip4_addr_t ** {aka struct ip4_addr **}'
+ s8_t etharp_find_addr(struct netif *netif, const ip4_addr_t *ipaddr,
+      ^~~~~~~~~~~~~~~~
+Finished building: ../src/main.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 124110	   2236	 130670	 257016	  3ebf8	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+22:24:01 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+Finished building: ../src/hs_ph.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 124114	   2236	 130674	 257024	  3ec00	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+22:24:11 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+Finished building: ../src/hs_ph.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 124110	   2236	 130670	 257016	  3ebf8	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+22:24:27 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+Finished building: ../src/hs_ph.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 124122	   2236	 130674	 257032	  3ec08	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+22:36:43 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+Finished building: ../src/hs_ph.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 124110	   2236	 130670	 257016	  3ebf8	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+23:19:29 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+Finished building: ../src/hs_ph.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 124110	   2236	 130670	 257016	  3ebf8	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 
+23:23:53 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+../src/hs_ph.c: In function 'Remap_Reorder':
+../src/hs_ph.c:156:6: error: expected expression before ')' token
+  for()
+      ^
+../src/hs_ph.c:156:6: error: expected expression before ')' token
+../src/hs_ph.c:159:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/hs_ph.o] Error 1
+src/subdir.mk:36: recipe for target 'src/hs_ph.o' failed
+23:25:43 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+../src/hs_ph.c: In function 'Remap_Reorder':
+../src/hs_ph.c:156:8: error: 'o' undeclared (first use in this function)
+  for(i=o; i<256; i++)
+        ^
+../src/hs_ph.c:156:8: note: each undeclared identifier is reported only once for each function it appears in
+src/subdir.mk:36: recipe for target 'src/hs_ph.o' failed
+make: *** [src/hs_ph.o] Error 1
+23:25:51 **** Auto Build of configuration Debug for project quabo_service ****
+make all 
+Building file: ../src/hs_ph.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -I../../standalone_bsp_0/microblaze_0/include -c -fmessage-length=0 -MT"src/hs_ph.o" -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -mxl-frequency -I../../standalone_bsp_0/microblaze_0/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/hs_ph.d" -MT"src/hs_ph.o" -o "src/hs_ph.o" "../src/hs_ph.c"
+Finished building: ../src/hs_ph.c
+ 
+Building target: quabo_service.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -L../../standalone_bsp_0/microblaze_0/lib -Wl,-T -Wl,../src/lscript.ld -L../../standalone_bsp_0/microblaze_0/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "quabo_service.elf"  ./src/casper_src/casper_tapcp.o ./src/casper_src/casper_tftp.o ./src/casper_src/csl.o ./src/casper_src/flash.o ./src/casper_src/gpio_spi_sel.o ./src/casper_src/icap.o ./src/casper_src/spi.o ./src/casper_src/tftp_server.o ./src/casper_src/tmrctr.o  ./src/EthCore_Configuration.o ./src/hs_ph.o ./src/main.o ./src/packet_header.o ./src/platform.o ./src/platform_mb.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+Finished building target: quabo_service.elf
+ 
+Invoking: MicroBlaze Print Size
+mb-size quabo_service.elf  |tee "quabo_service.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 124234	   2236	 130674	 257144	  3ec78	quabo_service.elf
+Finished building: quabo_service.elf.size
+ 

@@ -37,7 +37,9 @@ module PH_Cache(
     output reg ph_cache_valid,    //it means the last seriel ph_data is stored in the ph_cache
     input ph_cache_enb,
     input [7:0] ph_cache_raddr,
-    output [15:0] ph_cache_data
+    output [15:0] ph_cache_data,
+    //elapsed_time
+    output reg [28:0] ph_elapsed_time
     );
     
 //reg ph_ready;
@@ -199,6 +201,7 @@ begin
             ph_cache_sel    <= 0;
             //ph_ready        <= 0;
             ph_valid_reset  <= 0;
+            ph_elapsed_time <= 0;
         end
      else 
         begin
@@ -216,6 +219,7 @@ begin
                         ph_cache_sel    <= ph_cache_sel;
                         ph_valid_reset  <= 0;
                         //ph_ready        <= 0;
+                        ph_elapsed_time <= ph_elapsed_time;
                     end
                 ADC_LATENCE:
                     begin
@@ -239,6 +243,7 @@ begin
                         ph_cache_sel    <= ph_cache_sel;
                         //ph_ready        <= 1;
                         ph_valid_reset  <= 0;
+                        ph_elapsed_time <= ph_elapsed_time;
                     end
                 GET_PH_DATA:
                     begin
@@ -270,6 +275,7 @@ begin
                         ph_cache_sel    <= ph_cache_sel;
                         //ph_ready        <= 1;
                         ph_valid_reset  <= 0;
+                        ph_elapsed_time <= ph_elapsed_time;
                         
                     end
                  WEIRD_LEN:
@@ -285,6 +291,7 @@ begin
                         ph_cache_sel    <= ph_cache_sel;
                         //ph_ready        <= 1;
                         ph_valid_reset  <= 0;
+                        ph_elapsed_time <= ph_elapsed_time;
                     end
                  GET_TIME_INFO:// this time info is not useful here, so we just get it from fifo, and throw it.
                     begin
@@ -305,6 +312,7 @@ begin
                         */
                         //ph_ready        <= 1;
                         ph_valid_reset  <= 0;
+                        ph_elapsed_time <= ph_data_d2[28:0];
                     end
                  AXI_CTL:
                     begin
@@ -319,6 +327,7 @@ begin
                         ph_cache1_addr  <= axi_cache_raddr;
                         //ph_ready        <= 1;
                         ph_valid_reset  <= 1;
+                        ph_elapsed_time <= 0;
                     end
                  default:
                     begin
@@ -333,6 +342,7 @@ begin
                         ph_cache_sel    <= 0;
                         //ph_ready        <= 1;
                         ph_valid_reset  <= 0;
+                        ph_elapsed_time <= 0;
                     end
             endcase
         end

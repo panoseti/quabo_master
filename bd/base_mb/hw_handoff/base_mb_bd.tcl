@@ -533,7 +533,7 @@ proc create_root_design { parentCell } {
    }
   
   # Create instance: PH_BL_FIFO_0, and set properties
-  set PH_BL_FIFO_0 [ create_bd_cell -type ip -vlnv user.org:user:PH_BL_FIFO:2.9 PH_BL_FIFO_0 ]
+  set PH_BL_FIFO_0 [ create_bd_cell -type ip -vlnv user.org:user:PH_BL_FIFO:3.0 PH_BL_FIFO_0 ]
 
   # Create instance: PPS_IO_0, and set properties
   set block_name PPS_IO
@@ -1323,6 +1323,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net Net6 [get_bd_ports sd3_lss] [get_bd_pins StepDrive_ShutterCtr_0/sd3_lss]
   connect_bd_net -net OBUFDS_FOR_CLK_0_O [get_bd_ports sysclkout_p] [get_bd_pins OBUFDS_FOR_CLK_0/O]
   connect_bd_net -net OBUFDS_FOR_CLK_0_OB [get_bd_ports sysclkout_n] [get_bd_pins OBUFDS_FOR_CLK_0/OB]
+  connect_bd_net -net PH_BL_FIFO_0_ph_elapsed_time [get_bd_pins HighSpeed_PH_v1_0_0/elapsed_time] [get_bd_pins PH_BL_FIFO_0/ph_elapsed_time]
   connect_bd_net -net PH_BL_FIFO_0_rdata_to_user [get_bd_pins HighSpeed_PH_v1_0_0/rdata_to_user] [get_bd_pins PH_BL_FIFO_0/rdata_to_user]
   connect_bd_net -net PH_BL_FIFO_0_ready_to_read [get_bd_pins HighSpeed_PH_v1_0_0/ready_to_read] [get_bd_pins PH_BL_FIFO_0/ready_to_read]
   connect_bd_net -net PPS_IO_0_pps_inside_out [get_bd_ports SMA_J1] [get_bd_pins delay_0/dout] [get_bd_pins elapsed_time_gen_0/one_pps] [get_bd_pins flash_control_0/one_pps] [get_bd_pins maroc_dc_0/one_pps]
@@ -1389,7 +1390,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net clk_wiz_1_clk_out3 [get_bd_pins axi_quad_spi_0/ext_spi_clk] [get_bd_pins clk_wiz_1/clk_10] [get_bd_pins rst_clk_wiz_1_100M/slowest_sync_clk]
   connect_bd_net -net clk_wiz_1_locked [get_bd_pins clk_wiz_1/locked] [get_bd_pins rst_clk_wiz_1_100M/dcm_locked] [get_bd_pins rst_clk_wiz_1_100M_1/dcm_locked]
   connect_bd_net -net delay_1_dout [get_bd_pins PPS_IO_0/pps_inside_in] [get_bd_pins delay_1/dout]
-  connect_bd_net -net elapsed_time_gen_0_elapsed_time0 [get_bd_pins HighSpeed_IM_v1_0_0/elapsed_time] [get_bd_pins HighSpeed_PH_v1_0_0/elapsed_time] [get_bd_pins elapsed_time_gen_0/elapsed_time0] [get_bd_pins maroc_dc_0/elapsed_time_0]
+  connect_bd_net -net elapsed_time_gen_0_elapsed_time0 [get_bd_pins HighSpeed_IM_v1_0_0/elapsed_time] [get_bd_pins elapsed_time_gen_0/elapsed_time0] [get_bd_pins maroc_dc_0/elapsed_time_0]
   connect_bd_net -net elapsed_time_gen_0_elapsed_time1 [get_bd_pins elapsed_time_gen_0/elapsed_time1] [get_bd_pins maroc_dc_0/elapsed_time_1]
   connect_bd_net -net elapsed_time_gen_0_elapsed_time2 [get_bd_pins elapsed_time_gen_0/elapsed_time2] [get_bd_pins maroc_dc_0/elapsed_time_2]
   connect_bd_net -net elapsed_time_gen_0_elapsed_time3 [get_bd_pins elapsed_time_gen_0/elapsed_time3] [get_bd_pins maroc_dc_0/elapsed_time_3]

@@ -1099,34 +1099,28 @@
       }
     },
     "interface_nets": {
-      "mgt_clk_1": {
+      "eth_buf_S_AXI_2TEMAC": {
         "interface_ports": [
-          "mgt_clk",
-          "pcs_pma/gtrefclk_in"
+          "eth_buf/S_AXI_2TEMAC",
+          "mac/s_axi"
         ]
       },
-      "eth_buf_AXI_STR_RXD": {
+      "mac_gmii": {
         "interface_ports": [
-          "m_axis_rxd",
-          "eth_buf/AXI_STR_RXD"
+          "mac/gmii",
+          "pcs_pma/gmii_pcs_pma"
         ]
       },
-      "mac_m_axis_rx": {
+      "eth_buf_AXI_STR_RXS": {
         "interface_ports": [
-          "eth_buf/RX_AXIS_MAC",
-          "mac/m_axis_rx"
+          "m_axis_rxs",
+          "eth_buf/AXI_STR_RXS"
         ]
       },
-      "eth_buf_TX_AXIS_MAC": {
+      "s_axis_txc_1": {
         "interface_ports": [
-          "eth_buf/TX_AXIS_MAC",
-          "mac/s_axis_tx"
-        ]
-      },
-      "s_axi_1": {
-        "interface_ports": [
-          "s_axi",
-          "eth_buf/S_AXI"
+          "s_axis_txc",
+          "eth_buf/AXI_STR_TXC"
         ]
       },
       "pcs_pma_sfp": {
@@ -1141,28 +1135,34 @@
           "eth_buf/AXI_STR_TXD"
         ]
       },
-      "s_axis_txc_1": {
+      "s_axi_1": {
         "interface_ports": [
-          "s_axis_txc",
-          "eth_buf/AXI_STR_TXC"
+          "s_axi",
+          "eth_buf/S_AXI"
         ]
       },
-      "eth_buf_AXI_STR_RXS": {
+      "eth_buf_TX_AXIS_MAC": {
         "interface_ports": [
-          "m_axis_rxs",
-          "eth_buf/AXI_STR_RXS"
+          "eth_buf/TX_AXIS_MAC",
+          "mac/s_axis_tx"
         ]
       },
-      "mac_gmii": {
+      "mac_m_axis_rx": {
         "interface_ports": [
-          "mac/gmii",
-          "pcs_pma/gmii_pcs_pma"
+          "eth_buf/RX_AXIS_MAC",
+          "mac/m_axis_rx"
         ]
       },
-      "eth_buf_S_AXI_2TEMAC": {
+      "eth_buf_AXI_STR_RXD": {
         "interface_ports": [
-          "eth_buf/S_AXI_2TEMAC",
-          "mac/s_axi"
+          "m_axis_rxd",
+          "eth_buf/AXI_STR_RXD"
+        ]
+      },
+      "mgt_clk_1": {
+        "interface_ports": [
+          "mgt_clk",
+          "pcs_pma/gtrefclk_in"
         ]
       }
     },
