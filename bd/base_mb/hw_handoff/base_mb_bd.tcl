@@ -494,10 +494,16 @@ proc create_root_design { parentCell } {
  ] $GPIO
 
   # Create instance: HighSpeed_IM_v1_0_0, and set properties
-  set HighSpeed_IM_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_IM_v2_9:2.9 HighSpeed_IM_v1_0_0 ]
+  set HighSpeed_IM_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:3.3 HighSpeed_IM_v1_0_0 ]
+  set_property -dict [ list \
+   CONFIG.MODE_SEL {0} \
+ ] $HighSpeed_IM_v1_0_0
 
   # Create instance: HighSpeed_PH_v1_0_0, and set properties
-  set HighSpeed_PH_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_IM_v2_9:2.9 HighSpeed_PH_v1_0_0 ]
+  set HighSpeed_PH_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:3.3 HighSpeed_PH_v1_0_0 ]
+  set_property -dict [ list \
+   CONFIG.MODE_SEL {1} \
+ ] $HighSpeed_PH_v1_0_0
 
   # Create instance: IBUFDS_FOR_CLK_0, and set properties
   set block_name IBUFDS_FOR_CLK
@@ -533,7 +539,7 @@ proc create_root_design { parentCell } {
    }
   
   # Create instance: PH_BL_FIFO_0, and set properties
-  set PH_BL_FIFO_0 [ create_bd_cell -type ip -vlnv user.org:user:PH_BL_FIFO:3.0 PH_BL_FIFO_0 ]
+  set PH_BL_FIFO_0 [ create_bd_cell -type ip -vlnv user.org:user:PH_BL_FIFO:3.3 PH_BL_FIFO_0 ]
 
   # Create instance: PPS_IO_0, and set properties
   set block_name PPS_IO
@@ -1033,7 +1039,7 @@ proc create_root_design { parentCell } {
   set maroc_dc_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:maroc_dc:1.8 maroc_dc_0 ]
   set_property -dict [ list \
    CONFIG.C_M01_AXIS_TDATA_WIDTH {32} \
-   CONFIG.PCB_REV {1} \
+   CONFIG.PCB_REV {0} \
  ] $maroc_dc_0
 
   # Create instance: maroc_slow_control_0, and set properties
@@ -1217,6 +1223,20 @@ proc create_root_design { parentCell } {
    CONFIG.CONST_WIDTH {4} \
  ] $xlconstant_11
 
+  # Create instance: xlconstant_12, and set properties
+  set xlconstant_12 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_12 ]
+  set_property -dict [ list \
+   CONFIG.CONST_VAL {0x1234} \
+   CONFIG.CONST_WIDTH {32} \
+ ] $xlconstant_12
+
+  # Create instance: xlconstant_13, and set properties
+  set xlconstant_13 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_13 ]
+  set_property -dict [ list \
+   CONFIG.CONST_VAL {0x56} \
+   CONFIG.CONST_WIDTH {29} \
+ ] $xlconstant_13
+
   # Create instance: xlslice_0, and set properties
   set xlslice_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0 ]
   set_property -dict [ list \
@@ -1323,7 +1343,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net Net6 [get_bd_ports sd3_lss] [get_bd_pins StepDrive_ShutterCtr_0/sd3_lss]
   connect_bd_net -net OBUFDS_FOR_CLK_0_O [get_bd_ports sysclkout_p] [get_bd_pins OBUFDS_FOR_CLK_0/O]
   connect_bd_net -net OBUFDS_FOR_CLK_0_OB [get_bd_ports sysclkout_n] [get_bd_pins OBUFDS_FOR_CLK_0/OB]
-  connect_bd_net -net PH_BL_FIFO_0_ph_elapsed_time [get_bd_pins HighSpeed_PH_v1_0_0/elapsed_time] [get_bd_pins PH_BL_FIFO_0/ph_elapsed_time]
+  connect_bd_net -net PH_BL_FIFO_0_ph_elapsed_time1 [get_bd_pins HighSpeed_PH_v1_0_0/ph_elapsed_time] [get_bd_pins PH_BL_FIFO_0/ph_elapsed_time]
   connect_bd_net -net PH_BL_FIFO_0_rdata_to_user [get_bd_pins HighSpeed_PH_v1_0_0/rdata_to_user] [get_bd_pins PH_BL_FIFO_0/rdata_to_user]
   connect_bd_net -net PH_BL_FIFO_0_ready_to_read [get_bd_pins HighSpeed_PH_v1_0_0/ready_to_read] [get_bd_pins PH_BL_FIFO_0/ready_to_read]
   connect_bd_net -net PPS_IO_0_pps_inside_out [get_bd_ports SMA_J1] [get_bd_pins delay_0/dout] [get_bd_pins elapsed_time_gen_0/one_pps] [get_bd_pins flash_control_0/one_pps] [get_bd_pins maroc_dc_0/one_pps]
@@ -1390,7 +1410,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net clk_wiz_1_clk_out3 [get_bd_pins axi_quad_spi_0/ext_spi_clk] [get_bd_pins clk_wiz_1/clk_10] [get_bd_pins rst_clk_wiz_1_100M/slowest_sync_clk]
   connect_bd_net -net clk_wiz_1_locked [get_bd_pins clk_wiz_1/locked] [get_bd_pins rst_clk_wiz_1_100M/dcm_locked] [get_bd_pins rst_clk_wiz_1_100M_1/dcm_locked]
   connect_bd_net -net delay_1_dout [get_bd_pins PPS_IO_0/pps_inside_in] [get_bd_pins delay_1/dout]
-  connect_bd_net -net elapsed_time_gen_0_elapsed_time0 [get_bd_pins HighSpeed_IM_v1_0_0/elapsed_time] [get_bd_pins elapsed_time_gen_0/elapsed_time0] [get_bd_pins maroc_dc_0/elapsed_time_0]
+  connect_bd_net -net elapsed_time_gen_0_elapsed_time0 [get_bd_pins HighSpeed_IM_v1_0_0/im_elapsed_time] [get_bd_pins elapsed_time_gen_0/elapsed_time0] [get_bd_pins maroc_dc_0/elapsed_time_0]
   connect_bd_net -net elapsed_time_gen_0_elapsed_time1 [get_bd_pins elapsed_time_gen_0/elapsed_time1] [get_bd_pins maroc_dc_0/elapsed_time_1]
   connect_bd_net -net elapsed_time_gen_0_elapsed_time2 [get_bd_pins elapsed_time_gen_0/elapsed_time2] [get_bd_pins maroc_dc_0/elapsed_time_2]
   connect_bd_net -net elapsed_time_gen_0_elapsed_time3 [get_bd_pins elapsed_time_gen_0/elapsed_time3] [get_bd_pins maroc_dc_0/elapsed_time_3]
@@ -1461,6 +1481,8 @@ proc create_root_design { parentCell } {
   connect_bd_net -net xlconstant_0_dout [get_bd_pins axi_ethernet_0/signal_detect] [get_bd_pins axi_ethernet_1/signal_detect] [get_bd_pins xlconstant_0/dout]
   connect_bd_net -net xlconstant_10_dout [get_bd_pins AXI_Stream_Switch_3_1/s2_axis_tvalid] [get_bd_pins xlconstant_10/dout]
   connect_bd_net -net xlconstant_11_dout [get_bd_pins AXI_Stream_Switch_3_1/s2_axis_tkeep] [get_bd_pins xlconstant_11/dout]
+  connect_bd_net -net xlconstant_12_dout [get_bd_pins HighSpeed_IM_v1_0_0/ph_elapsed_time] [get_bd_pins xlconstant_12/dout]
+  connect_bd_net -net xlconstant_13_dout [get_bd_pins HighSpeed_PH_v1_0_0/im_elapsed_time] [get_bd_pins xlconstant_13/dout]
   connect_bd_net -net xlconstant_1_dout [get_bd_pins axi_timer_0/capturetrig0] [get_bd_pins axi_timer_0/capturetrig1] [get_bd_pins axi_timer_0/freeze] [get_bd_pins xlconstant_1/dout]
   connect_bd_net -net xlconstant_2_dout [get_bd_pins rst_clk_wiz_1_100M_1/aux_reset_in] [get_bd_pins rst_clk_wiz_1_100M_1/ext_reset_in] [get_bd_pins xlconstant_2/dout]
   connect_bd_net -net xlconstant_3_dout [get_bd_pins rst_clk_wiz_1_100M/ext_reset_in] [get_bd_pins xlconstant_3/dout]

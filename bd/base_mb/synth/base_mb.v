@@ -1,7 +1,7 @@
 //Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3.1_AR71948 (lin64) Build 2489853 Tue Mar 26 04:18:30 MDT 2019
-//Date        : Mon Dec  6 20:47:13 2021
+//Date        : Tue Dec  7 20:44:36 2021
 //Host        : wei-Berkeley running 64-bit Ubuntu 18.04.6 LTS
 //Command     : generate_target base_mb.bd
 //Design      : base_mb
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=120,numReposBlks=91,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=19,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
+(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=122,numReposBlks=93,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=19,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
 module base_mb
    (ADC_DIN_N,
     ADC_DIN_P,
@@ -266,7 +266,7 @@ module base_mb
   wire Net6;
   wire OBUFDS_FOR_CLK_0_O;
   wire OBUFDS_FOR_CLK_0_OB;
-  wire [28:0]PH_BL_FIFO_0_ph_elapsed_time;
+  wire [31:0]PH_BL_FIFO_0_ph_elapsed_time1;
   wire [31:0]PH_BL_FIFO_0_rdata_to_user;
   wire PH_BL_FIFO_0_ready_to_read;
   wire PPS_IO_0_pps_inside_out;
@@ -891,6 +891,8 @@ module base_mb
   wire [0:0]xlconstant_0_dout;
   wire [0:0]xlconstant_10_dout;
   wire [3:0]xlconstant_11_dout;
+  wire [31:0]xlconstant_12_dout;
+  wire [28:0]xlconstant_13_dout;
   wire [0:0]xlconstant_1_dout;
   wire [0:0]xlconstant_2_dout;
   wire [0:0]xlconstant_3_dout;
@@ -1157,12 +1159,13 @@ module base_mb
        (.aclk(microblaze_0_Clk),
         .aresetn(rst_clk_wiz_1_100M_1_peripheral_aresetn),
         .arst_for_imfifo(HighSpeed_IM_v1_0_0_arst_for_imfifo),
-        .elapsed_time(elapsed_time_gen_0_elapsed_time0),
+        .im_elapsed_time(elapsed_time_gen_0_elapsed_time0),
         .m_axis_tdata(HighSpeed_IM_v1_0_0_m_axis_TDATA),
         .m_axis_tkeep(HighSpeed_IM_v1_0_0_m_axis_TKEEP),
         .m_axis_tlast(HighSpeed_IM_v1_0_0_m_axis_TLAST),
         .m_axis_tready(HighSpeed_IM_v1_0_0_m_axis_TREADY),
         .m_axis_tvalid(HighSpeed_IM_v1_0_0_m_axis_TVALID),
+        .ph_elapsed_time(xlconstant_12_dout),
         .rdata_to_user(IM_FIFO_0_rdata_to_user),
         .ready_to_read(IM_FIFO_0_ready_to_read),
         .s_axi_packetheader_araddr(axi_interconnect_0_M05_AXI_ARADDR),
@@ -1189,12 +1192,13 @@ module base_mb
        (.aclk(microblaze_0_Clk),
         .aresetn(rst_clk_wiz_1_100M_1_peripheral_aresetn),
         .arst_for_imfifo(HighSpeed_PH_v1_0_0_arst_for_imfifo),
-        .elapsed_time(PH_BL_FIFO_0_ph_elapsed_time),
+        .im_elapsed_time(xlconstant_13_dout),
         .m_axis_tdata(HighSpeed_PH_v1_0_0_m_axis_TDATA),
         .m_axis_tkeep(HighSpeed_PH_v1_0_0_m_axis_TKEEP),
         .m_axis_tlast(HighSpeed_PH_v1_0_0_m_axis_TLAST),
         .m_axis_tready(HighSpeed_PH_v1_0_0_m_axis_TREADY),
         .m_axis_tvalid(HighSpeed_PH_v1_0_0_m_axis_TVALID),
+        .ph_elapsed_time(PH_BL_FIFO_0_ph_elapsed_time1),
         .rdata_to_user(PH_BL_FIFO_0_rdata_to_user),
         .ready_to_read(PH_BL_FIFO_0_ready_to_read),
         .s_axi_packetheader_araddr(microblaze_0_axi_periph_M11_AXI_ARADDR),
@@ -1242,7 +1246,7 @@ module base_mb
         .axi_str_rxd_tlast(maroc_dc_0_M01_AXIS_TLAST),
         .axi_str_rxd_tready(maroc_dc_0_M01_AXIS_TREADY),
         .axi_str_rxd_tvalid(maroc_dc_0_M01_AXIS_TVALID),
-        .ph_elapsed_time(PH_BL_FIFO_0_ph_elapsed_time),
+        .ph_elapsed_time(PH_BL_FIFO_0_ph_elapsed_time1),
         .rdata_to_user(PH_BL_FIFO_0_rdata_to_user),
         .ready_to_read(PH_BL_FIFO_0_ready_to_read),
         .s00_axi_aclk(microblaze_0_Clk),
@@ -2607,6 +2611,10 @@ module base_mb
        (.dout(xlconstant_10_dout));
   base_mb_xlconstant_9_1 xlconstant_11
        (.dout(xlconstant_11_dout));
+  base_mb_xlconstant_12_0 xlconstant_12
+       (.dout(xlconstant_12_dout));
+  base_mb_xlconstant_13_0 xlconstant_13
+       (.dout(xlconstant_13_dout));
   base_mb_xlconstant_2_0 xlconstant_2
        (.dout(xlconstant_2_dout));
   base_mb_xlconstant_2_1 xlconstant_3

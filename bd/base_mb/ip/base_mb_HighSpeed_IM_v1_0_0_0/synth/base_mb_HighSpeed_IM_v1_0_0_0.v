@@ -47,15 +47,16 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: user.org:user:HighSpeed_IM_v2_9:2.9
-// IP Revision: 5
+// IP VLNV: user.org:user:HighSpeed_Module:3.3
+// IP Revision: 1
 
 (* X_CORE_INFO = "HighSpeed_IM_v1_0,Vivado 2018.3.1_AR71948" *)
 (* CHECK_LICENSE_TYPE = "base_mb_HighSpeed_IM_v1_0_0_0,HighSpeed_IM_v1_0,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module base_mb_HighSpeed_IM_v1_0_0_0 (
-  elapsed_time,
+  im_elapsed_time,
+  ph_elapsed_time,
   aclk,
   aresetn,
   s_axi_packetheader_awaddr,
@@ -88,7 +89,8 @@ module base_mb_HighSpeed_IM_v1_0_0_0 (
   arst_for_imfifo
 );
 
-input wire [28 : 0] elapsed_time;
+input wire [28 : 0] im_elapsed_time;
+input wire [31 : 0] ph_elapsed_time;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclk, ASSOCIATED_BUSIF m_axis:m_axi_im_config:s_axi_im_config:s_axi_packetheader, ASSOCIATED_RESET aresetn, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN base_mb_clk_wiz_1_0_clk_100, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
 input wire aclk;
@@ -160,9 +162,11 @@ output wire arst_for_imfifo;
     .C_M_AXI_IM_Config_DATA_WIDTH(32),
     .C_M_AXI_IM_Config_TRANSACTIONS_NUM(4),
     .C_M_AXIS_TDATA_WIDTH(32),
-    .C_M_AXIS_START_COUNT(32)
+    .C_M_AXIS_START_COUNT(32),
+    .MODE_SEL(0)
   ) inst (
-    .elapsed_time(elapsed_time),
+    .im_elapsed_time(im_elapsed_time),
+    .ph_elapsed_time(ph_elapsed_time),
     .aclk(aclk),
     .aresetn(aresetn),
     .s_axi_packetheader_awaddr(s_axi_packetheader_awaddr),

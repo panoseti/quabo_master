@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Dec  6 20:47:15 2021" VIVADOVERSION="2018.3.1_AR71948">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec  7 20:44:38 2021" VIVADOVERSION="2018.3.1_AR71948">
 
   <SYSTEMINFO ARCH="kintex7" DEVICE="7k160t" NAME="bd_cb17" PACKAGE="fbg676" SPEEDGRADE="-1"/>
 
@@ -135,91 +135,6 @@
         <CONNECTION INSTANCE="pcs_pma" PORT="independent_clock_bufg"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="17" NAME="s_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_ARADDR">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_ARADDR"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="s_axi_arready" SIGIS="undef" SIGNAME="eth_buf_S_AXI_ARREADY">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_ARREADY"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="s_axi_arvalid" SIGIS="undef" SIGNAME="eth_buf_S_AXI_ARVALID">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_ARVALID"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="17" NAME="s_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_AWADDR">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_AWADDR"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="s_axi_awready" SIGIS="undef" SIGNAME="eth_buf_S_AXI_AWREADY">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_AWREADY"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="s_axi_awvalid" SIGIS="undef" SIGNAME="eth_buf_S_AXI_AWVALID">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_AWVALID"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="s_axi_bready" SIGIS="undef" SIGNAME="eth_buf_S_AXI_BREADY">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_BREADY"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="1" NAME="s_axi_bresp" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_BRESP">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_BRESP"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="s_axi_bvalid" SIGIS="undef" SIGNAME="eth_buf_S_AXI_BVALID">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_BVALID"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="31" NAME="s_axi_rdata" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_RDATA">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_RDATA"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="s_axi_rready" SIGIS="undef" SIGNAME="eth_buf_S_AXI_RREADY">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_RREADY"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="1" NAME="s_axi_rresp" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_RRESP">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_RRESP"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="s_axi_rvalid" SIGIS="undef" SIGNAME="eth_buf_S_AXI_RVALID">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_RVALID"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="31" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_WDATA">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_WDATA"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="s_axi_wready" SIGIS="undef" SIGNAME="eth_buf_S_AXI_WREADY">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_WREADY"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="3" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_WSTRB">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_WSTRB"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="s_axi_wvalid" SIGIS="undef" SIGNAME="eth_buf_S_AXI_WVALID">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_WVALID"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="I" NAME="sfp_rxn" SIGIS="undef" SIGNAME="pcs_pma_rxn">
       <CONNECTIONS>
         <CONNECTION INSTANCE="pcs_pma" PORT="rxn"/>
@@ -338,6 +253,91 @@
     <PORT DIR="O" NAME="m_axis_rxd_tvalid" SIGIS="undef" SIGNAME="eth_buf_AXI_STR_RXD_VALID">
       <CONNECTIONS>
         <CONNECTION INSTANCE="eth_buf" PORT="AXI_STR_RXD_VALID"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="17" NAME="s_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_ARADDR">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_ARADDR"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="s_axi_arready" SIGIS="undef" SIGNAME="eth_buf_S_AXI_ARREADY">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_ARREADY"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="s_axi_arvalid" SIGIS="undef" SIGNAME="eth_buf_S_AXI_ARVALID">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_ARVALID"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="17" NAME="s_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_AWADDR">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_AWADDR"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="s_axi_awready" SIGIS="undef" SIGNAME="eth_buf_S_AXI_AWREADY">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_AWREADY"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="s_axi_awvalid" SIGIS="undef" SIGNAME="eth_buf_S_AXI_AWVALID">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_AWVALID"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="s_axi_bready" SIGIS="undef" SIGNAME="eth_buf_S_AXI_BREADY">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_BREADY"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="1" NAME="s_axi_bresp" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_BRESP">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_BRESP"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="s_axi_bvalid" SIGIS="undef" SIGNAME="eth_buf_S_AXI_BVALID">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_BVALID"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="s_axi_rdata" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_RDATA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_RDATA"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="s_axi_rready" SIGIS="undef" SIGNAME="eth_buf_S_AXI_RREADY">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_RREADY"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="1" NAME="s_axi_rresp" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_RRESP">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_RRESP"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="s_axi_rvalid" SIGIS="undef" SIGNAME="eth_buf_S_AXI_RVALID">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_RVALID"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="31" NAME="s_axi_wdata" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_WDATA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_WDATA"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="s_axi_wready" SIGIS="undef" SIGNAME="eth_buf_S_AXI_WREADY">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_WREADY"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="3" NAME="s_axi_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="eth_buf_S_AXI_WSTRB">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_WSTRB"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="s_axi_wvalid" SIGIS="undef" SIGNAME="eth_buf_S_AXI_WVALID">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="eth_buf" PORT="S_AXI_WVALID"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
