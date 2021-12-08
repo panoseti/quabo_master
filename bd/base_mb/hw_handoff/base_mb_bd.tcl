@@ -65,7 +65,7 @@ set run_remote_bd_flow 1
 if { $run_remote_bd_flow == 1 } {
   # Set the reference directory for source file relative paths (by default 
   # the value is script directory path)
-  set origin_dir ./quabo_master/bd
+  set origin_dir ./bd
 
   # Use origin directory path location variable, if specified in the tcl shell
   if { [info exists ::origin_dir_loc] } {
@@ -494,13 +494,13 @@ proc create_root_design { parentCell } {
  ] $GPIO
 
   # Create instance: HighSpeed_IM_v1_0_0, and set properties
-  set HighSpeed_IM_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:3.3 HighSpeed_IM_v1_0_0 ]
+  set HighSpeed_IM_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:3.5 HighSpeed_IM_v1_0_0 ]
   set_property -dict [ list \
    CONFIG.MODE_SEL {0} \
  ] $HighSpeed_IM_v1_0_0
 
   # Create instance: HighSpeed_PH_v1_0_0, and set properties
-  set HighSpeed_PH_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:3.3 HighSpeed_PH_v1_0_0 ]
+  set HighSpeed_PH_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:3.5 HighSpeed_PH_v1_0_0 ]
   set_property -dict [ list \
    CONFIG.MODE_SEL {1} \
  ] $HighSpeed_PH_v1_0_0

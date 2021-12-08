@@ -538,6 +538,8 @@ int main()
 	//Remap_Init(test_w);
 	//when PH mode is implemented in FPGA, the order of remap table is different.
 	Remap_Reorder(remap_array);
+	u16 index;
+	for(index=0;index<256;index++)xil_printf("remap[%d]=%d\r\n",index,remap_array[index]);
 	Remap_Write(remap_array);
 	//Remap_Write(test_data);
 	Remap_Read(remap_array_r);

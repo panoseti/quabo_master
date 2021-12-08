@@ -207,6 +207,9 @@ wire [27:0] hs_im_state_8;
 wire [4:0] ram_dpra_8;
 wire port_sel_8;
 assign port_sel_8 = port_sel[1:1];
+generate
+if(MODE_SEL == 0) 
+    begin: IM_8BIT
 StateMachine_8#(
     .C_M_AXI_IM_Config_ADDR_WIDTH(C_M_AXI_IM_Config_ADDR_WIDTH),
     .C_M_AXI_IM_Config_DATA_WIDTH(C_M_AXI_IM_Config_DATA_WIDTH),
@@ -237,7 +240,18 @@ StateMachine_8#(
     .ready_to_read(ready_to_read),           //input wire  
     .rdata_to_user(rdata_to_user)            //input wire   
 );
-
+    end
+else
+    begin: PH_MODE
+        assign m_axis_tdata_8   = 32'b0;
+        assign m_axis_tvalid_8  = 1'b0;
+        assign m_axis_tkeep_8   = 4'b0;
+        assign m_axis_tlast_8   = 1'b0;
+        assign start_to_read_8  = 1'b0;
+        assign hs_im_state_8    = 28'b0;
+        assign ram_dpra_8       = 5'b0;
+    end
+endgenerate
 //using 16-bit mode or 8-bit mode depends on port_sel
 SignalSwitch#(
     .C_M_AXI_IM_Config_ADDR_WIDTH(C_M_AXI_IM_Config_ADDR_WIDTH),
@@ -245,7 +259,7 @@ SignalSwitch#(
 )SignalSwitch0(
     //port_sel for the selection of 16-bit mode or 8-bit mode
     .port_sel(port_sel),
-//16-bit mode signals
+//8-bit mode signals
     .m_axis_tdata_8(m_axis_tdata_8),
     .m_axis_tvalid_8(m_axis_tvalid_8),
     .m_axis_tkeep_8(m_axis_tkeep_8),
@@ -254,7 +268,7 @@ SignalSwitch#(
     .hs_im_state_8(hs_im_state_8),
     .ram_dpra_8(ram_dpra_8),
     .port_sel_8(port_sel_8),
-//8-bit mode signals
+//16-bit mode signals
     .m_axis_tdata_16(m_axis_tdata_16),
     .m_axis_tvalid_16(m_axis_tvalid_16),
     .m_axis_tkeep_16(m_axis_tkeep_16),

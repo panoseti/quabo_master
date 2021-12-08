@@ -892,15 +892,3 @@ set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 1 [current_design]
 
 
 
-
-
-
-
-
-
-connect_debug_port u_ila_0/probe1 [get_nets [list {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[0]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[1]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[2]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[3]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[4]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[5]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[6]} {base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/ph_cache_raddr[7]}]]
-
-
-
-connect_debug_port u_ila_0/probe9 [get_nets [list base_mb_i/PH_BL_FIFO_0/inst/ph_cache_01/enb]]
-

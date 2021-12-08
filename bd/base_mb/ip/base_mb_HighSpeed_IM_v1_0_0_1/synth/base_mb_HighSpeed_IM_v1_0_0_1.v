@@ -47,7 +47,7 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: user.org:user:HighSpeed_Module:3.3
+// IP VLNV: user.org:user:HighSpeed_Module:3.5
 // IP Revision: 1
 
 (* X_CORE_INFO = "HighSpeed_IM_v1_0,Vivado 2018.3.1_AR71948" *)

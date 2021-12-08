@@ -1,0 +1,172 @@
+#-----------------------------------------------------------
+# Vivado v2018.3.1_AR71948 (64-bit)
+# SW Build 2489853 on Tue Mar 26 04:18:30 MDT 2019
+# IP Build 2486929 on Tue Mar 26 06:44:21 MDT 2019
+# Start of session at: Tue Dec  7 21:42:23 2021
+# Process ID: 18970
+# Current directory: /media/wei/Samsung_T5/Panoseti/V0200/quabo_master
+# Command line: vivado
+# Log file: /media/wei/Samsung_T5/Panoseti/V0200/quabo_master/vivado.log
+# Journal file: /media/wei/Samsung_T5/Panoseti/V0200/quabo_master/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.xpr
+update_compile_order -fileset sources_1
+open_run synth_1 -name synth_1
+refresh_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+open_run impl_1
+open_bd_design {/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd}
+current_design synth_1
+create_debug_core u_ila_0 ila
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list base_mb_i/clk_wiz_1/inst/clk_100 ]]
+set_property port_width 32 [get_debug_ports u_ila_0/probe0]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[0]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[1]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[2]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[3]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[4]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[5]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[6]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[7]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[8]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[9]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[10]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[11]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[12]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[13]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[14]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[15]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[16]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[17]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[18]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[19]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[20]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[21]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[22]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[23]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[24]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[25]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[26]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[27]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[28]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[29]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[30]} {base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tdata[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe1]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tlast ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe2]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list base_mb_i/PH_BL_FIFO_0/inst/axi_str_rxd_tvalid ]]
+refresh_design
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+create_debug_core u_ila_0 ila
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list base_mb_i/clk_wiz_1/inst/clk_100 ]]
+set_property port_width 32 [get_debug_ports u_ila_0/probe0]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[0]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[1]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[2]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[3]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[4]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[5]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[6]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[7]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[8]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[9]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[10]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[11]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[12]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[13]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[14]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[15]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[16]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[17]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[18]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[19]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[20]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[21]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[22]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[23]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[24]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[25]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[26]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[27]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[28]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[29]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[30]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe1]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tlast ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe2]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tvalid ]]
+save_constraints
+delete_debug_core [get_debug_cores {u_ila_0 }]
+create_debug_core u_ila_0 ila
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list base_mb_i/clk_wiz_1/inst/clk_100 ]]
+set_property port_width 32 [get_debug_ports u_ila_0/probe0]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[0]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[1]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[2]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[3]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[4]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[5]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[6]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[7]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[8]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[9]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[10]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[11]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[12]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[13]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[14]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[15]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[16]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[17]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[18]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[19]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[20]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[21]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[22]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[23]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[24]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[25]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[26]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[27]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[28]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[29]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[30]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe1]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tlast ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe2]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tvalid ]]
+save_constraints
+delete_debug_core [get_debug_cores {u_ila_0 }]
+create_debug_core u_ila_0 ila
+set_property C_DATA_DEPTH 1024 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+set_property port_width 1 [get_debug_ports u_ila_0/clk]
+connect_debug_port u_ila_0/clk [get_nets [list base_mb_i/clk_wiz_1/inst/clk_100 ]]
+set_property port_width 32 [get_debug_ports u_ila_0/probe0]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[0]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[1]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[2]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[3]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[4]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[5]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[6]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[7]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[8]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[9]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[10]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[11]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[12]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[13]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[14]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[15]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[16]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[17]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[18]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[19]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[20]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[21]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[22]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[23]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[24]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[25]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[26]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[27]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[28]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[29]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[30]} {base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tdata[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe1]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tlast ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe2]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list base_mb_i/PH_BL_FIFO_0/axi_str_rxd_tvalid ]]
+save_constraints
+reset_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+current_design impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+open_bd_design {/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd}
+ipx::edit_ip_in_project -upgrade true -name HighSpeed_Module_v3_3_project -directory /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.tmp/HighSpeed_Module_v3_3_project /media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0/component.xml
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+ipx::merge_project_changes files [ipx::current_core]
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+set_property display_name {Mode Sel(0:IM 1:PH)} [ipgui::get_guiparamspec -name "MODE_SEL" -component [ipx::current_core] ]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+set_property previous_version_for_upgrade {user.org:user:HighSpeed_IM_v1_0:1.0 user.org:user:HighSpeed_IM_v1_1:1.1 user.org:user:HighSpeed_IM_v1_2:1.2 user.org:user:HighSpeed_IM_v2_0:2.0 user.org:user:HighSpeed_IM_v2_1:2.1 user.org:user:HighSpeed_IM_v2_2:2.2 user.org:user:HighSpeed_IM_v2_3:2.3 user.org:user:HighSpeed_IM_v2_4:2.4 user.org:user:HighSpeed_IM_v2_5:2.5 user.org:user:HighSpeed_IM_v2_6:2.6 user.org:user:HighSpeed_IM_v2_7:2.7 user.org:user:HighSpeed_IM_v2_8:2.8 user.org:user:HighSpeed_IM_v2_9:2.9 user.org:user:HighSpeed_IM_v3_0:3.0 user.org:user:HighSpeed_Module:3.1 user.org:user:HighSpeed_Module:3.2 user.org:user:HighSpeed_Module:3.3} [ipx::current_core]
+set_property core_revision 1 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+ipx::move_temp_component_back -component [ipx::current_core]
+close_project -delete
+update_ip_catalog -rebuild -repo_path /media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo
+report_ip_status -name ip_status 
+upgrade_ip [get_ips  {base_mb_HighSpeed_IM_v1_0_0_1 base_mb_HighSpeed_IM_v1_0_0_0}] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips {base_mb_HighSpeed_IM_v1_0_0_1 base_mb_HighSpeed_IM_v1_0_0_0}] -no_script -sync -force -quiet
+generate_target all [get_files  /media/wei/Samsung_T5/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd]
+export_ip_user_files -of_objects [get_files /media/wei/Samsung_T5/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /media/wei/Samsung_T5/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd] -directory /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.ip_user_files/sim_scripts -ip_user_files_dir /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.ip_user_files -ipstatic_source_dir /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.ip_user_files/ipstatic -lib_map_path [list {modelsim=/media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.cache/compile_simlib/modelsim} {questa=/media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.cache/compile_simlib/questa} {ies=/media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.cache/compile_simlib/ies} {xcelium=/media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.cache/compile_simlib/xcelium} {vcs=/media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.cache/compile_simlib/vcs} {riviera=/media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+ipx::edit_ip_in_project -upgrade true -name HighSpeed_Module_v3_4_project -directory /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.tmp/HighSpeed_Module_v3_4_project /media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0/component.xml
+update_compile_order -fileset sources_1
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+set_property previous_version_for_upgrade {user.org:user:HighSpeed_IM_v1_0:1.0 user.org:user:HighSpeed_IM_v1_1:1.1 user.org:user:HighSpeed_IM_v1_2:1.2 user.org:user:HighSpeed_IM_v2_0:2.0 user.org:user:HighSpeed_IM_v2_1:2.1 user.org:user:HighSpeed_IM_v2_2:2.2 user.org:user:HighSpeed_IM_v2_3:2.3 user.org:user:HighSpeed_IM_v2_4:2.4 user.org:user:HighSpeed_IM_v2_5:2.5 user.org:user:HighSpeed_IM_v2_6:2.6 user.org:user:HighSpeed_IM_v2_7:2.7 user.org:user:HighSpeed_IM_v2_8:2.8 user.org:user:HighSpeed_IM_v2_9:2.9 user.org:user:HighSpeed_IM_v3_0:3.0 user.org:user:HighSpeed_Module:3.1 user.org:user:HighSpeed_Module:3.2 user.org:user:HighSpeed_Module:3.3 user.org:user:HighSpeed_Module:3.4} [ipx::current_core]
+set_property core_revision 1 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+ipx::move_temp_component_back -component [ipx::current_core]
+close_project -delete
+update_ip_catalog -rebuild -repo_path /media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo
+upgrade_ip [get_ips  {base_mb_HighSpeed_IM_v1_0_0_1 base_mb_HighSpeed_IM_v1_0_0_0}] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips {base_mb_HighSpeed_IM_v1_0_0_1 base_mb_HighSpeed_IM_v1_0_0_0}] -no_script -sync -force -quiet
+generate_target all [get_files  /media/wei/Samsung_T5/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd]
+export_ip_user_files -of_objects [get_files /media/wei/Samsung_T5/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /media/wei/Samsung_T5/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd] -directory /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.ip_user_files/sim_scripts -ip_user_files_dir /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.ip_user_files -ipstatic_source_dir /media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.ip_user_files/ipstatic -lib_map_path [list {modelsim=/media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.cache/compile_simlib/modelsim} {questa=/media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.cache/compile_simlib/questa} {ies=/media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.cache/compile_simlib/ies} {xcelium=/media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.cache/compile_simlib/xcelium} {vcs=/media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.cache/compile_simlib/vcs} {riviera=/media/wei/Samsung_T5/Panoseti/V0200/build/quabo_V0200/quabo_V0200.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1

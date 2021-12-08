@@ -3,7 +3,7 @@
   <spirit:vendor>user.org</spirit:vendor>
   <spirit:library>user</spirit:library>
   <spirit:name>HighSpeed_Module</spirit:name>
-  <spirit:version>3.3</spirit:version>
+  <spirit:version>3.5</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
       <spirit:name>m_axis</spirit:name>
@@ -313,7 +313,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>4ef25ea1</spirit:value>
+            <spirit:value>7c394f45</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -335,7 +335,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>4ef25ea1</spirit:value>
+            <spirit:value>7c394f45</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -959,7 +959,7 @@
       <spirit:file>
         <spirit:name>hdl/HighSpeed_IM_v1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_8f4e17b6</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_c65b0b65</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1036,7 +1036,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>xgui/HighSpeed_Module_v3_3.tcl</spirit:name>
+        <spirit:name>xgui/HighSpeed_Module_v3_5.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
         <spirit:userFileType>CHECKSUM_f2f82af8</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
@@ -1096,7 +1096,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>MODE_SEL</spirit:name>
-      <spirit:displayName>Mode Sel</spirit:displayName>
+      <spirit:displayName>Mode Sel(0:IM 1:PH)</spirit:displayName>
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.MODE_SEL" spirit:choiceRef="choice_list_8af5a703">0</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
@@ -1108,7 +1108,7 @@
       <xilinx:taxonomies>
         <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>HighSpeed_IM_v3_3</xilinx:displayName>
+      <xilinx:displayName>HighSpeed_IM_v3_5</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
       <xilinx:upgrades>
@@ -1128,8 +1128,10 @@
         <xilinx:canUpgradeFrom>user.org:user:HighSpeed_IM_v3_0:3.0</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>user.org:user:HighSpeed_Module:3.1</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>user.org:user:HighSpeed_Module:3.2</xilinx:canUpgradeFrom>
+        <xilinx:canUpgradeFrom>user.org:user:HighSpeed_Module:3.3</xilinx:canUpgradeFrom>
+        <xilinx:canUpgradeFrom>user.org:user:HighSpeed_Module:3.4</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-08T04:44:08Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-08T07:36:31Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@7f5480ca_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0105/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@15f55e1f_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0105/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
@@ -2563,6 +2565,48 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@4456d671_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@4a479426_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@1f93ab93_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a6b3d32_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33a4cf02_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7134dc32_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3fbf0b29_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@558f9a59_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@14eb5dc2_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13d4b4c8_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7ee7a86f_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@243576fd_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4af6aae9_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73430c2_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@109b4522_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4711adc7_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54254872_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3e4e7dc7_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6d38de51_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a3c1ff5_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@31ebb29f_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4adf2376_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@41b8985e_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61e6ef9c_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4fd6dd5e_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@485ff1bf_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@34882b1a_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@61bd1dc3_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6bb2e5a9_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@49dcab79_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2fdd80cc_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@362e376_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b0ad003_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@67b56bb2_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@139f223e_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@8f88965_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1bde3018_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@749f44ef_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@9beefd6_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f740b83_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@13a47fdc_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5abd288_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@362b27f3_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3695148a_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2884352b_ARCHIVE_LOCATION">/media/wei/Samsung_T5/Panoseti/V0200/quabo_master/ip_repo/HighSpeed_IM_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
@@ -2570,10 +2614,10 @@
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="beda7df6"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="c75837e7"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="af84359a"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="74516a0d"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="2e49c185"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="79bb4a1d"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="aa3b94d9"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="ebaadffa"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="6bff777b"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

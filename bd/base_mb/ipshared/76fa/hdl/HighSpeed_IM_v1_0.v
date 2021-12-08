@@ -247,7 +247,7 @@ else
         assign m_axis_tvalid_8  = 1'b0;
         assign m_axis_tkeep_8   = 4'b0;
         assign m_axis_tlast_8   = 1'b0;
-        assign start_to_read_8  = 1'b0;
+        assign start_to_read    = 1'b0;
         assign hs_im_state_8    = 28'b0;
         assign ram_dpra_8       = 5'b0;
     end
@@ -259,7 +259,7 @@ SignalSwitch#(
 )SignalSwitch0(
     //port_sel for the selection of 16-bit mode or 8-bit mode
     .port_sel(port_sel),
-//8-bit mode signals
+//16-bit mode signals
     .m_axis_tdata_8(m_axis_tdata_8),
     .m_axis_tvalid_8(m_axis_tvalid_8),
     .m_axis_tkeep_8(m_axis_tkeep_8),
@@ -268,7 +268,7 @@ SignalSwitch#(
     .hs_im_state_8(hs_im_state_8),
     .ram_dpra_8(ram_dpra_8),
     .port_sel_8(port_sel_8),
-//16-bit mode signals
+//8-bit mode signals
     .m_axis_tdata_16(m_axis_tdata_16),
     .m_axis_tvalid_16(m_axis_tvalid_16),
     .m_axis_tkeep_16(m_axis_tkeep_16),
