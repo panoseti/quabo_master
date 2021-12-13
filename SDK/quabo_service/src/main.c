@@ -770,6 +770,7 @@ int main()
 			xil_printf("fail to configure udp header!\r\n");
 	xil_printf("IM Packets info:\r\n");
 	print_packet_info(ethpacketheader_key);
+	SET_PACKET_VER(AXI_HS_IM_RAM_ADDR, IM_PACKET_VER);
 
 	//configure udp header for HS-PH packets
 	//the default ph mac/ip is the host mac/ip
@@ -793,6 +794,7 @@ int main()
 				xil_printf("fail to configure udp header!\r\n");
 	xil_printf("PH Packets info:\r\n");
 	print_packet_info(ethpacketheader_key);
+	SET_PACKET_VER(AXI_HS_PH_RAM_ADDR, PH_PACKET_VER);
 
 	//Set the HVs to 0.  Need to do this to make the VREF input of the AD5686 behave properly
 	Set_HV(HV_settings);

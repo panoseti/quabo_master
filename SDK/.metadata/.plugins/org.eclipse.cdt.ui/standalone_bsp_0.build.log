@@ -1,4 +1,4 @@
-20:53:27 **** Auto Build of project standalone_bsp_0 ****
+22:53:35 **** Auto Build of project standalone_bsp_0 ****
 make -k all 
 Running Make include in microblaze_0/libsrc/tmrctr_v4_5/src
 make -C microblaze_0/libsrc/tmrctr_v4_5/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
@@ -10,10 +10,10 @@ cp: cannot stat 'lwip-2.0.2/src/include/lwip': No such file or directory
 Makefile:44: recipe for target 'liblwip4_includes' failed
 make[1]: *** [liblwip4_includes] Error 1
 Makefile:25: recipe for target 'microblaze_0/libsrc/lwip202_v1_2/src/make.include' failed
-Running Make include in microblaze_0/libsrc/llfifo_v5_2/src
 make[1]: Target 'include' not remade because of errors.
-make -C microblaze_0/libsrc/llfifo_v5_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
+Running Make include in microblaze_0/libsrc/llfifo_v5_2/src
 make: *** [microblaze_0/libsrc/lwip202_v1_2/src/make.include] Error 2
+make -C microblaze_0/libsrc/llfifo_v5_2/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
 Running Make include in microblaze_0/libsrc/hwicap_v11_1/src
 make -C microblaze_0/libsrc/hwicap_v11_1/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
 Running Make include in microblaze_0/libsrc/iic_v3_5/src
@@ -40,5 +40,5 @@ Running Make include in microblaze_0/libsrc/wdttb_v4_3/src
 make -C microblaze_0/libsrc/wdttb_v4_3/src -s include  "SHELL=/bin/sh" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-frequency -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra -g3"
 make: Target 'all' not remade because of errors.
 
-20:53:27 Build Finished (took 233ms)
+22:53:35 Build Finished (took 217ms)
 

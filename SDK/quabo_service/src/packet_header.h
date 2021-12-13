@@ -24,8 +24,8 @@
 #define IMFIFO_MB_CTRL(AXI_RAM_ADDR)			Xil_Out32(AXI_RAM_ADDR+0,0);
 #define IMFIFO_FPGA_CTRL_16BIT(AXI_RAM_ADDR)	Xil_Out32(AXI_RAM_ADDR+0,2);
 #define IMFIFO_FPGA_CTRL_8BIT(AXI_RAM_ADDR)		Xil_Out32(AXI_RAM_ADDR+0,4);
-#define SET_ACQ_MODE(AXI_RAM_ADDR,data)			Xil_Out32(AXI_RAM_ADDR+20,data);
-
+#define SET_ACQ_MODE(AXI_RAM_ADDR,data)			Xil_Out32(AXI_RAM_ADDR+20,((Xil_In32(AXI_RAM_ADDR+20)&0xff00)|data));
+#define SET_PACKET_VER(AXI_RAM_ADDR,data)		Xil_Out32(AXI_RAM_ADDR+20, ((Xil_In32(AXI_RAM_ADDR+20)&0xff)|data<<8));
 //because the length of the eth packet struct is 48 bytes
 #define EthPacketHeader_Word_Len	13
 
