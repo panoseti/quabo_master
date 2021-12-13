@@ -130,6 +130,8 @@ and slv_reg1 is the par_data_out (readback from the MAROCs)
 #define AXI_HS_IM_RAM_ADDR	0x44A80000
 #define AXI_HS_PH_RAM_ADDR	0x44A50000
 
+#define PH_PACKET_VER		1
+#define IM_PACKET_VER		0
 #define ADC_LATENCY_SKIP_VAL 10
  /* The interface to the maroc_dc module
 wire [2:0] adc_clk_phase_sel =  slave_reg8[13:11];
@@ -226,7 +228,7 @@ void SetupLTC2170(void);
 void SendHouseKeeping(void);
 
 //Initialize the ph_baseline array
-int PH_BL_Init(s16 * ph_baseline_array);
+int PH_BL_Init(u16 * ph_baseline_array);
 
 void InitXADC(void);
 
@@ -320,7 +322,7 @@ u8 hk_interval = 1;
 u8 shutter_light_sensor_status = 0;
 //We'll subtract off a fixed baseline from the PH data.  Reserve 64 * 4 u16 values
 // (it'd probably be OK to just use a single value for each ADC channel- 4 values total.  If RAM becomes a problem, and we need that 512B back, could reconsider)
-s16 ph_baseline_array[256];
+u16 ph_baseline_array[256];
 
 //Save the HV values so we can restore them after a BL_Init
 u16 HV_settings [4] = {0,0,0,0};
@@ -408,6 +410,17 @@ int main()
 	//xil_printf("*************Quabo Firmware*************\n\r");
 	xil_printf("*************HS-PH Test Firmware V2.0*************\n\r");
 #endif
+	/******************************for test****************************/
+	xil_printf("*************This is for test*************\n\r");
+	char test[4];
+	u32 testword = 0x06aa06bb;
+	test[0] = testword;
+	test[1] = testword>>8;
+	test[2] = testword>>16;
+	test[3] = testword>>24;
+	for (int i=0;i<4;i++)
+	xil_printf("test[i]=%d\r\n",test[i]);
+	/******************************************************************/
  	volatile int delay;
  	//initialize baseline array to zero.  We'll fill it when commanded, after setting up the MAROCs
  	for (delay = 0; delay < 256; delay++)ph_baseline_array[delay] = 0;
@@ -553,7 +566,7 @@ int main()
 	UpdateGPIO();
 
 	struct ip4_addr ipaddr, netmask, gw;
-	struct ip4_addr host_ipaddr;
+	//struct ip4_addr host_ipaddr;
 
 	xil_printf("PANOSETI Quadrant board UDP\n\r");
 
@@ -750,7 +763,7 @@ int main()
 	ethpacketheader_key.dst_ip[3] = ((u8_t*)(&(im_ip_ptr)->addr))[3];
 	memcpy(ethpacketheader_key.src_mac, mac_ethernet_address, 6);
 	memcpy(ethpacketheader_key.dst_mac, im_mac_ptr->addr, 6);
-	tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR,&ethpacketheader_key);
+	tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR,&ethpacketheader_key,IM_PACKET_VER);
 	if(tmp == 0)
 			xil_printf("udp header for HS-IM is configured successfully!\r\n");
 	else
@@ -773,7 +786,7 @@ int main()
 	memcpy(ethpacketheader_hsph.src_mac, mac_ethernet_address, 6);
 	memcpy(ethpacketheader_hsph.dst_mac, ph_mac_ptr->addr, 6);
 
-	tmp = Panoseti_EthPacketHeader_Init(AXI_HS_PH_RAM_ADDR,&ethpacketheader_hsph);
+	tmp = Panoseti_EthPacketHeader_Init(AXI_HS_PH_RAM_ADDR,&ethpacketheader_hsph,PH_PACKET_VER);
 		if(tmp == 0)
 				xil_printf("udp header for HS-PH is configured successfully!\r\n");
 		else
@@ -1277,7 +1290,7 @@ void Set_Acquisition(u16* dataptr)
 		ethpacketheader_hsph.total_len = 556;
 		ethpacketheader_hsph.length = 536;
 		//udp checksum part should be changed
-		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_PH_RAM_ADDR, &ethpacketheader_hsph);
+		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_PH_RAM_ADDR, &ethpacketheader_hsph, PH_PACKET_VER);
 		IMFIFO_MB_CTRL(AXI_HS_PH_RAM_ADDR);
 		xil_printf("High Speed PH MODE: %d\r\n", tmp);
 		Panoseti_IMFIFO_Reset(AXI_HS_PH_RAM_ADDR);
@@ -1298,7 +1311,7 @@ void Set_Acquisition(u16* dataptr)
 		ethpacketheader_key.total_len = 556;
 		ethpacketheader_key.length = 536;
 		//udp checksum part should be changed
-		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR, &ethpacketheader_key);
+		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR, &ethpacketheader_key, IM_PACKET_VER);
 		IMFIFO_MB_CTRL(AXI_HS_IM_RAM_ADDR);
 		xil_printf("16-BIT IM MODE: %d\r\n",tmp);
 		Panoseti_IMFIFO_Reset(AXI_HS_IM_RAM_ADDR);
@@ -1320,7 +1333,7 @@ void Set_Acquisition(u16* dataptr)
 		ethpacketheader_key.total_len = 556;
 		ethpacketheader_key.length = 536;
 		//udp checksum part should be changed
-		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR, &ethpacketheader_key);
+		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR, &ethpacketheader_key, IM_PACKET_VER);
 		//we use MB to initialize IM_FIFO, then switch to fpga for getting data at high speed
 		IMFIFO_MB_CTRL(AXI_HS_IM_RAM_ADDR);
 		//XLlFifo_RxReset(&PH_Fifo);
@@ -1340,7 +1353,7 @@ void Set_Acquisition(u16* dataptr)
 		ethpacketheader_hsph.total_len = 556;
 		ethpacketheader_hsph.length = 536;
 		//udp checksum part should be changed
-		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_PH_RAM_ADDR, &ethpacketheader_hsph);
+		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_PH_RAM_ADDR, &ethpacketheader_hsph, PH_PACKET_VER);
 		IMFIFO_MB_CTRL(AXI_HS_PH_RAM_ADDR);
 		xil_printf("High Speed PH MODE: %d \r\n", tmp);
 		Panoseti_IMFIFO_Reset(AXI_HS_PH_RAM_ADDR);
@@ -1360,7 +1373,7 @@ void Set_Acquisition(u16* dataptr)
 		ethpacketheader_key.total_len = 300;
 		ethpacketheader_key.length = 280;
 		//udp checksum part should be changed
-		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR, &ethpacketheader_key);
+		tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR, &ethpacketheader_key, IM_PACKET_VER);
 		//we use MB to initialize IM_FIFO, then switch to fpga for getting data at high speed
 		IMFIFO_MB_CTRL(AXI_HS_IM_RAM_ADDR);
 		//XLlFifo_RxReset(&PH_Fifo);
@@ -1384,7 +1397,7 @@ void Set_Acquisition(u16* dataptr)
 			ethpacketheader_key.total_len = 300;
 			ethpacketheader_key.length = 280;
 			//udp checksum part should be changed
-			tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR, &ethpacketheader_key);
+			tmp = Panoseti_EthPacketHeader_Init(AXI_HS_IM_RAM_ADDR, &ethpacketheader_key, IM_PACKET_VER);
 			//we use MB to initialize IM_FIFO, then switch to fpga for getting data at high speed
 			IMFIFO_MB_CTRL(AXI_HS_IM_RAM_ADDR);
 			//XLlFifo_RxReset(&PH_Fifo);
@@ -1404,7 +1417,7 @@ void Set_Acquisition(u16* dataptr)
 			ethpacketheader_hsph.total_len = 556;
 			ethpacketheader_hsph.length = 536;
 			//udp checksum part should be changed
-			tmp = Panoseti_EthPacketHeader_Init(AXI_HS_PH_RAM_ADDR, &ethpacketheader_hsph);
+			tmp = Panoseti_EthPacketHeader_Init(AXI_HS_PH_RAM_ADDR, &ethpacketheader_hsph, PH_PACKET_VER);
 			IMFIFO_MB_CTRL(AXI_HS_PH_RAM_ADDR);
 			xil_printf("High Speed PH MODE: %d\r\n", tmp);
 			Panoseti_IMFIFO_Reset(AXI_HS_PH_RAM_ADDR);
@@ -1650,13 +1663,13 @@ void SetupLTC2170(void)
 }
 
 //Initialize the ph_baseline array
-int PH_BL_Init(s16 * ph_baseline_array)
+int PH_BL_Init(u16 * ph_baseline_array)
 {
 	volatile int delay;
-	u16 ReceiveLength;
+	//u16 ReceiveLength;
 	u16 i;
-	u32 RxWord0;
-	u32 RxWord1;
+	//u32 RxWord0;
+	//u32 RxWord1;
 	//We need to turn off the stim generator. Store old value so we can restore
 	//Also turn off the HV by asserting hv_rstb
 	u8 old_stim_on = stim_on;

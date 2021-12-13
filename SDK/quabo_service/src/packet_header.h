@@ -65,7 +65,7 @@ typedef struct EthPacketHeader_Keys{
 	unsigned short total_len;
 	unsigned short length;
 } EthPacketHeader_Keys;
-char Panoseti_EthPacketHeader_Init(unsigned int baseaddr,EthPacketHeader_Keys *ethpacketheader_keys);
+char Panoseti_EthPacketHeader_Init(unsigned int baseaddr,EthPacketHeader_Keys *ethpacketheader_keys, unsigned char packet_ver);
 void Panoseti_WriteHeaderToRam(unsigned int baseaddr);
 char Panoseti_ReadHeaderFromRam(unsigned int baseaddr);
 unsigned int Panoseti_GetStateMachine(unsigned int baseaddr);

@@ -66,7 +66,7 @@ void Cal_IP_Checksum(){
 
 //cal the udp packet checksum
 //it's not the final result, and this value will be used in fpga
-void Cal_UDP_ChecksumPart(){
+void Cal_UDP_ChecksumPart(unsigned char packet_ver){
 	unsigned int checksum_sum = 0;
 	checksum_sum += ethpacketheader_user_ptr->src_ip[0] *256;
 	checksum_sum += ethpacketheader_user_ptr->src_ip[1];
@@ -85,6 +85,7 @@ void Cal_UDP_ChecksumPart(){
 	checksum_sum += ethpacketheader_user_ptr->board_loc[0] *256;
 	checksum_sum += ethpacketheader_user_ptr->board_loc[1];
 	checksum_sum +=	ethpacketheader_user_ptr->acqmode *256;
+	checksum_sum += packet_ver;
 
 	ethpacketheader_user_ptr->udp_checksum_part = checksum_sum;
 }
@@ -111,7 +112,7 @@ void EthPacketHeader_for_FPGA_Init(){
 	memcpy(ethpacketheader_ptr->board_loc, ethpacketheader_user_ptr->board_loc,4);				//*char
 }
 //config the packet header struct
-char Panoseti_EthPacketHeader_Init(unsigned int baseaddr,EthPacketHeader_Keys *ethpacketheader_keys)
+char Panoseti_EthPacketHeader_Init(unsigned int baseaddr,EthPacketHeader_Keys *ethpacketheader_keys, unsigned char packet_ver)
 {
 	memcpy(ethpacketheader_user_ptr->dst_mac, ethpacketheader_keys->dst_mac,6);
 	memcpy(ethpacketheader_user_ptr->src_mac, ethpacketheader_keys->src_mac,6);
@@ -124,7 +125,7 @@ char Panoseti_EthPacketHeader_Init(unsigned int baseaddr,EthPacketHeader_Keys *e
 	ethpacketheader_user_ptr->total_len = ethpacketheader_keys->total_len;
 	ethpacketheader_user_ptr->length = ethpacketheader_keys->length;
 	Cal_IP_Checksum();
-	Cal_UDP_ChecksumPart();
+	Cal_UDP_ChecksumPart(packet_ver);
 	EthPacketHeader_for_FPGA_Init();
 	//Wirte the parameters into ram in fpga
 	Panoseti_WriteHeaderToRam(baseaddr);
