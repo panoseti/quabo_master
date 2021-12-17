@@ -125,8 +125,8 @@ preplace inst axi_gpio_mech -pg 1 -lvl 8 -y 3530 -defaultsOSRD
 preplace inst maroc_dc_0 -pg 1 -lvl 13 -y 1820 -defaultsOSRD
 preplace inst axi_uartlite_0 -pg 1 -lvl 13 -y 1400 -defaultsOSRD
 preplace inst axi_hwicap_0 -pg 1 -lvl 13 -y 2900 -defaultsOSRD
-preplace inst maroc_slow_control_0 -pg 1 -lvl 13 -y 1080 -defaultsOSRD
 preplace inst wrc_board_quabo_Light_0 -pg 1 -lvl 8 -y 4160 -defaultsOSRD
+preplace inst maroc_slow_control_0 -pg 1 -lvl 13 -y 1080 -defaultsOSRD
 preplace inst GPIO -pg 1 -lvl 8 -y 3740 -defaultsOSRD
 preplace inst Bit_2_9 -pg 1 -lvl 13 -y 4830 -defaultsOSRD
 preplace inst delay_0 -pg 1 -lvl 13 -y 5290 -defaultsOSRD
@@ -137,10 +137,10 @@ preplace inst rst_clk_wiz_1_100M -pg 1 -lvl 4 -y 2800 -defaultsOSRD
 preplace inst axi_timer_1 -pg 1 -lvl 13 -y 2670 -defaultsOSRD
 preplace inst xlconcat_0 -pg 1 -lvl 4 -y 2540 -defaultsOSRD
 preplace inst IM_FIFO_0 -pg 1 -lvl 15 -y 2260 -defaultsOSRD
-preplace inst Bit_1_1 -pg 1 -lvl 13 -y 4730 -defaultsOSRD
 preplace inst Bit_29_24 -pg 1 -lvl 12 -y 3560 -defaultsOSRD
 preplace inst Bit_23_23 -pg 1 -lvl 15 -y 3280 -defaultsOSRD
 preplace inst pinout_three_state_0 -pg 1 -lvl 17 -y 3200 -defaultsOSRD
+preplace inst Bit_1_1 -pg 1 -lvl 13 -y 4730 -defaultsOSRD
 preplace inst xlconcat_2 -pg 1 -lvl 15 -y 3620 -defaultsOSRD
 preplace inst Bit_21_21 -pg 1 -lvl 15 -y 3080 -defaultsOSRD
 preplace inst flash_control_0 -pg 1 -lvl 15 -y 4900 -defaultsOSRD
