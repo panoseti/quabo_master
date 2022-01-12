@@ -408,18 +408,8 @@ int main()
 	xil_printf("*************Quabo GOLD Firmware*************\n\r");
 #else
 	//xil_printf("*************Quabo Firmware*************\n\r");
-	xil_printf("*************HS-PH Test Firmware V2.0*************\n\r");
+	xil_printf("*************HS-PH Test Firmware V3.0*************\n\r");
 #endif
-	/******************************for test****************************/
-	xil_printf("*************This is for test*************\n\r");
-	char test[4];
-	u32 testword = 0x06aa06bb;
-	test[0] = testword;
-	test[1] = testword>>8;
-	test[2] = testword>>16;
-	test[3] = testword>>24;
-	for (int i=0;i<4;i++)
-	xil_printf("test[i]=%d\r\n",test[i]);
 	/******************************************************************/
  	volatile int delay;
  	//initialize baseline array to zero.  We'll fill it when commanded, after setting up the MAROCs
@@ -887,9 +877,6 @@ recv_callback(void *arg, struct udp_pcb *tpcb,struct pbuf *p, struct ip4_addr *a
 		host_cmdport = port;
 		print_ip("remote_ip:",&host_ipaddr);
 		//xil_printf("port:%d\r\n",host_cmdport);
-		err = udp_connect(hk_pcb, addr, UDP_HK_PORT);
-		if (err != ERR_OK)
-			xil_printf("error on udp_connect: %x\n\r", err);
 		/************************************************************/
 		xil_printf("Got one, packet number %d\n\r", recvd_pkt_number);
 		//MicroBlaze is Little-Endian
@@ -1021,6 +1008,15 @@ recv_callback(void *arg, struct udp_pcb *tpcb,struct pbuf *p, struct ip4_addr *a
 				return;
 				}
 			pbuf_free(hk_pbuf);
+		}
+		if((byte0 & 0x7f) == 0x0b)
+		{
+			// the first 4 bytes are the ip address for hk packets
+			IP4_ADDR(&host_ipaddr,*(bptr+1),*(bptr+2),*(bptr+3),*(bptr+4));
+			print_ip("hk_ip: ", &host_ipaddr);
+			err = udp_connect(hk_pcb, &host_ipaddr, UDP_HK_PORT);
+			if (err != ERR_OK)
+				xil_printf("error on udp_connect: %x\n\r", err);
 		}
 		if ((byte0 & 0x80) == 0x80)  //Echo the packet
 		{

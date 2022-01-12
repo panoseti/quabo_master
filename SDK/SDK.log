@@ -8197,3 +8197,9 @@ Reason: ERROR: [Common 17-39] 'hsi::open_hw_design' failed due to earlier errors
 22:54:19 INFO  : XSCT server has started successfully.
 22:54:19 INFO  : Successfully done setting XSCT server connection channel  
 22:54:19 INFO  : Successfully done setting SDK workspace  
+00:29:08 INFO  : Registering command handlers for SDK TCF services
+00:29:09 INFO  : Launching XSCT server: xsct -n -interactive /data/home/weiliu/Projects/panoseti/V0200/tmp/quabo_master/SDK/temp_xsdb_launch_script.tcl
+00:29:11 INFO  : XSCT server has started successfully.
+00:29:11 INFO  : Successfully done setting XSCT server connection channel  
+00:29:11 INFO  : Successfully done setting SDK workspace  
+00:29:11 INFO  : Processing command line option -hwspec /data/home/weiliu/Projects/panoseti/V0200/tmp/quabo_master/SDK/base_mb_wrapper.hdf.
