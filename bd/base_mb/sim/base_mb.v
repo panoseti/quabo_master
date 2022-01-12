@@ -1,15 +1,15 @@
-//Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+//Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2018.3.1_AR71948 (lin64) Build 2489853 Tue Mar 26 04:18:30 MDT 2019
-//Date        : Fri Dec 17 13:47:07 2021
-//Host        : wei-Berkeley running 64-bit Ubuntu 18.04.6 LTS
+//Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
+//Date        : Tue Jan 11 15:05:53 2022
+//Host        : acme1 running 64-bit Ubuntu 16.04.2 LTS
 //Command     : generate_target base_mb.bd
 //Design      : base_mb
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=122,numReposBlks=93,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=19,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
+(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=123,numReposBlks=94,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=20,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
 module base_mb
    (ADC_DIN_N,
     ADC_DIN_P,
@@ -93,6 +93,7 @@ module base_mb
     sysclkin_p,
     sysclkout_n,
     sysclkout_p,
+    tai_inout,
     user_sfp_0_sfp_los_i,
     user_sfp_0_sfp_mod_def1_b,
     user_sfp_0_sfp_mod_def2_b,
@@ -182,6 +183,7 @@ module base_mb
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.SYSCLKIN_P CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.SYSCLKIN_P, CLK_DOMAIN base_mb_sysclkin_p, FREQ_HZ 100000000, INSERT_VIP 0, PHASE 0.000" *) input sysclkin_p;
   output sysclkout_n;
   output sysclkout_p;
+  inout [9:0]tai_inout;
   input user_sfp_0_sfp_los_i;
   inout user_sfp_0_sfp_mod_def1_b;
   inout user_sfp_0_sfp_mod_def2_b;
@@ -264,6 +266,7 @@ module base_mb
   wire Net4;
   wire Net5;
   wire Net6;
+  wire [9:0]Net7;
   wire OBUFDS_FOR_CLK_0_O;
   wire OBUFDS_FOR_CLK_0_OB;
   wire [31:0]PH_BL_FIFO_0_ph_elapsed_time1;
@@ -284,6 +287,7 @@ module base_mb
   wire StepDrive_ShutterCtr_0_sd0_sc;
   wire StepDrive_ShutterCtr_0_sd2_spare;
   wire StepDrive_ShutterCtr_0_shutter_status;
+  wire [9:0]TAI_IO_0_tai_inside_out;
   wire [31:0]axi_ethernet_0_fifo_AXI_STR_TXD_TDATA;
   wire [3:0]axi_ethernet_0_fifo_AXI_STR_TXD_TKEEP;
   wire axi_ethernet_0_fifo_AXI_STR_TXD_TLAST;
@@ -885,6 +889,7 @@ module base_mb
   wire wrc_board_quabo_Light_0_spi_mosi_o;
   wire wrc_board_quabo_Light_0_spi_ncs_o;
   wire wrc_board_quabo_Light_0_spi_sclk_o;
+  wire [9:0]wrc_board_quabo_Light_0_tm_tai_o;
   wire wrc_board_quabo_Light_0_uart_txd_o;
   wire [7:0]xlconcat_0_dout;
   wire [7:0]xlconcat_2_dout;
@@ -1187,7 +1192,8 @@ module base_mb
         .s_axi_packetheader_wready(axi_interconnect_0_M05_AXI_WREADY),
         .s_axi_packetheader_wstrb(axi_interconnect_0_M05_AXI_WSTRB),
         .s_axi_packetheader_wvalid(axi_interconnect_0_M05_AXI_WVALID),
-        .start_to_read(HighSpeed_IM_v1_0_0_start_to_read));
+        .start_to_read(HighSpeed_IM_v1_0_0_start_to_read),
+        .tai(TAI_IO_0_tai_inside_out));
   base_mb_HighSpeed_IM_v1_0_0_1 HighSpeed_PH_v1_0_0
        (.aclk(microblaze_0_Clk),
         .aresetn(rst_clk_wiz_1_100M_1_peripheral_aresetn),
@@ -1220,7 +1226,8 @@ module base_mb
         .s_axi_packetheader_wready(microblaze_0_axi_periph_M11_AXI_WREADY),
         .s_axi_packetheader_wstrb(microblaze_0_axi_periph_M11_AXI_WSTRB),
         .s_axi_packetheader_wvalid(microblaze_0_axi_periph_M11_AXI_WVALID),
-        .start_to_read(HighSpeed_PH_v1_0_0_start_to_read));
+        .start_to_read(HighSpeed_PH_v1_0_0_start_to_read),
+        .tai(TAI_IO_0_tai_inside_out));
   base_mb_IBUFDS_FOR_CLK_0_1 IBUFDS_FOR_CLK_0
        (.I(sysclkin_p_1),
         .IB(sysclkin_n_1),
@@ -1320,6 +1327,14 @@ module base_mb
         .shutter_command(Bit_21_21_Dout),
         .shutter_status(StepDrive_ShutterCtr_0_shutter_status),
         .step_drive(step_drive_0_drive_out));
+  base_mb_TAI_IO_0_0 TAI_IO_0
+       (.clk(microblaze_0_Clk),
+        .io_ctrl0(xlslice_0_Dout1),
+        .io_ctrl1(xlslice_1_Dout1),
+        .rst(rst_clk_wiz_1_100M_peripheral_aresetn),
+        .tai_inout(tai_inout[9:0]),
+        .tai_inside_in(wrc_board_quabo_Light_0_tm_tai_o),
+        .tai_inside_out(TAI_IO_0_tai_inside_out));
   base_mb_axi_ethernet_0_0 axi_ethernet_0
        (.axi_rxd_arstn(axi_ethernet_0_fifo_s2mm_prmry_reset_out_n),
         .axi_rxs_arstn(axi_ethernet_0_fifo_s2mm_prmry_reset_out_n),
@@ -2559,6 +2574,7 @@ module base_mb
         .spi_mosi_o(wrc_board_quabo_Light_0_spi_mosi_o),
         .spi_ncs_o(wrc_board_quabo_Light_0_spi_ncs_o),
         .spi_sclk_o(wrc_board_quabo_Light_0_spi_sclk_o),
+        .tm_tai_o(wrc_board_quabo_Light_0_tm_tai_o),
         .uart_rxd_i(uart_rxd_i_0_1),
         .uart_txd_o(wrc_board_quabo_Light_0_uart_txd_o));
   base_mb_xadc_wiz_0_0 xadc_wiz_0

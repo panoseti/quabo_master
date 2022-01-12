@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -47,10 +47,10 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: user.org:user:HighSpeed_Module:3.6
+// IP VLNV: user.org:user:HighSpeed_Module:3.7
 // IP Revision: 1
 
-(* X_CORE_INFO = "HighSpeed_IM_v1_0,Vivado 2018.3.1_AR71948" *)
+(* X_CORE_INFO = "HighSpeed_IM_v1_0,Vivado 2018.3" *)
 (* CHECK_LICENSE_TYPE = "base_mb_HighSpeed_IM_v1_0_0_1,HighSpeed_IM_v1_0,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
@@ -83,6 +83,7 @@ module base_mb_HighSpeed_IM_v1_0_0_1 (
   m_axis_tkeep,
   m_axis_tlast,
   m_axis_tready,
+  tai,
   rdata_to_user,
   ready_to_read,
   start_to_read,
@@ -148,6 +149,7 @@ output wire m_axis_tlast;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_axis, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN base_mb_clk_wiz_1_0_clk_100, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TREADY" *)
 input wire m_axis_tready;
+input wire [9 : 0] tai;
 input wire [31 : 0] rdata_to_user;
 input wire ready_to_read;
 output wire start_to_read;
@@ -193,6 +195,7 @@ output wire arst_for_imfifo;
     .m_axis_tkeep(m_axis_tkeep),
     .m_axis_tlast(m_axis_tlast),
     .m_axis_tready(m_axis_tready),
+    .tai(tai),
     .rdata_to_user(rdata_to_user),
     .ready_to_read(ready_to_read),
     .start_to_read(start_to_read),

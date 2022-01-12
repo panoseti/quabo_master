@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# IBUFDS_FOR_CLK, IM_FIFO, OBUFDS_FOR_CLK, PPS_IO, SPI_MUX, SPI_STARTUP, SPI_access, StepDrive_ShutterCtrl_Sel, delay, delay, elapsed_time_gen, firmware_ID_ROM, flash_control, in_buf_ds_1bit, in_buf_ds_4bit, in_buf_ds_1bit, pinout_three_state, step_drive, stim_gen
+# IBUFDS_FOR_CLK, IM_FIFO, OBUFDS_FOR_CLK, PPS_IO, SPI_MUX, SPI_STARTUP, SPI_access, StepDrive_ShutterCtrl_Sel, TAI_IO, delay, delay, elapsed_time_gen, firmware_ID_ROM, flash_control, in_buf_ds_1bit, in_buf_ds_4bit, in_buf_ds_1bit, pinout_three_state, step_drive, stim_gen
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -326,6 +326,7 @@ proc create_root_design { parentCell } {
   set sysclkin_p [ create_bd_port -dir I -type clk sysclkin_p ]
   set sysclkout_n [ create_bd_port -dir O sysclkout_n ]
   set sysclkout_p [ create_bd_port -dir O sysclkout_p ]
+  set tai_inout [ create_bd_port -dir IO -from 9 -to 0 tai_inout ]
   set user_sfp_0_sfp_los_i [ create_bd_port -dir I user_sfp_0_sfp_los_i ]
   set user_sfp_0_sfp_mod_def1_b [ create_bd_port -dir IO user_sfp_0_sfp_mod_def1_b ]
   set user_sfp_0_sfp_mod_def2_b [ create_bd_port -dir IO user_sfp_0_sfp_mod_def2_b ]
@@ -494,13 +495,13 @@ proc create_root_design { parentCell } {
  ] $GPIO
 
   # Create instance: HighSpeed_IM_v1_0_0, and set properties
-  set HighSpeed_IM_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:3.6 HighSpeed_IM_v1_0_0 ]
+  set HighSpeed_IM_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:3.7 HighSpeed_IM_v1_0_0 ]
   set_property -dict [ list \
    CONFIG.MODE_SEL {0} \
  ] $HighSpeed_IM_v1_0_0
 
   # Create instance: HighSpeed_PH_v1_0_0, and set properties
-  set HighSpeed_PH_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:3.6 HighSpeed_PH_v1_0_0 ]
+  set HighSpeed_PH_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:3.7 HighSpeed_PH_v1_0_0 ]
   set_property -dict [ list \
    CONFIG.MODE_SEL {1} \
  ] $HighSpeed_PH_v1_0_0
@@ -592,6 +593,17 @@ proc create_root_design { parentCell } {
      catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    } elseif { $StepDrive_ShutterCtr_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: TAI_IO_0, and set properties
+  set block_name TAI_IO
+  set block_cell_name TAI_IO_0
+  if { [catch {set TAI_IO_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $TAI_IO_0 eq "" } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
@@ -1119,7 +1131,7 @@ proc create_root_design { parentCell } {
    }
   
   # Create instance: wrc_board_quabo_Light_0, and set properties
-  set wrc_board_quabo_Light_0 [ create_bd_cell -type ip -vlnv user.org:user:wrc_board_quabo_Light:1.2 wrc_board_quabo_Light_0 ]
+  set wrc_board_quabo_Light_0 [ create_bd_cell -type ip -vlnv user.org:user:wrc_board_quabo_Light:1.3 wrc_board_quabo_Light_0 ]
   set_property -dict [ list \
    CONFIG.g_dpram_initf {../../../../quabo_master/ip_repo/wr-cores-Quabo/ram_init/wrc_phy16_sdb.bram} \
  ] $wrc_board_quabo_Light_0
@@ -1341,6 +1353,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net Net4 [get_bd_ports pps_inout_0] [get_bd_pins PPS_IO_0/pps_inout]
   connect_bd_net -net Net5 [get_bd_ports sd1_ss] [get_bd_pins StepDrive_ShutterCtr_0/sd1_ss]
   connect_bd_net -net Net6 [get_bd_ports sd3_lss] [get_bd_pins StepDrive_ShutterCtr_0/sd3_lss]
+  connect_bd_net -net Net7 [get_bd_ports tai_inout] [get_bd_pins TAI_IO_0/tai_inout]
   connect_bd_net -net OBUFDS_FOR_CLK_0_O [get_bd_ports sysclkout_p] [get_bd_pins OBUFDS_FOR_CLK_0/O]
   connect_bd_net -net OBUFDS_FOR_CLK_0_OB [get_bd_ports sysclkout_n] [get_bd_pins OBUFDS_FOR_CLK_0/OB]
   connect_bd_net -net PH_BL_FIFO_0_ph_elapsed_time1 [get_bd_pins HighSpeed_PH_v1_0_0/ph_elapsed_time] [get_bd_pins PH_BL_FIFO_0/ph_elapsed_time]
@@ -1361,6 +1374,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net StepDrive_ShutterCtr_0_sd0_sc [get_bd_ports sd0_sc] [get_bd_pins StepDrive_ShutterCtr_0/sd0_sc]
   connect_bd_net -net StepDrive_ShutterCtr_0_sd2_spare [get_bd_ports sd2_spare] [get_bd_pins StepDrive_ShutterCtr_0/sd2_spare]
   connect_bd_net -net StepDrive_ShutterCtr_0_shutter_status [get_bd_pins StepDrive_ShutterCtr_0/shutter_status] [get_bd_pins xlconcat_2/In5]
+  connect_bd_net -net TAI_IO_0_tai_inside_out [get_bd_pins HighSpeed_IM_v1_0_0/tai] [get_bd_pins HighSpeed_PH_v1_0_0/tai] [get_bd_pins TAI_IO_0/tai_inside_out]
   connect_bd_net -net axi_ethernet_0_fifo_axi_str_rxd_tready [get_bd_pins axi_ethernet_0/m_axis_rxd_tready] [get_bd_pins axi_ethernet_0_fifo/axi_str_rxd_tready]
   connect_bd_net -net axi_ethernet_0_fifo_interrupt [get_bd_pins axi_ethernet_0_fifo/interrupt] [get_bd_pins xlconcat_0/In2]
   connect_bd_net -net axi_ethernet_0_fifo_mm2s_cntrl_reset_out_n [get_bd_pins axi_ethernet_0/axi_txc_arstn] [get_bd_pins axi_ethernet_0_fifo/mm2s_cntrl_reset_out_n] [get_bd_pins axi_ethernet_1/axi_txc_arstn]
@@ -1442,7 +1456,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net maroc_trig2_0_1 [get_bd_ports maroc_trig2_0] [get_bd_pins maroc_dc_0/maroc_trig2]
   connect_bd_net -net maroc_trig3_0_1 [get_bd_ports maroc_trig3_0] [get_bd_pins maroc_dc_0/maroc_trig3]
   connect_bd_net -net mdm_1_debug_sys_rst [get_bd_pins mdm_1/Debug_SYS_Rst] [get_bd_pins rst_clk_wiz_1_100M/mb_debug_sys_rst]
-  connect_bd_net -net microblaze_0_Clk [get_bd_pins AXI_Stream_Switch_3_0/aclk] [get_bd_pins AXI_Stream_Switch_3_1/aclk] [get_bd_pins ETH_CORE_CTRL_0/clk] [get_bd_pins ETH_CORE_CTRL_1/clk] [get_bd_pins FIFO_for_AXIS_0/clk] [get_bd_pins GPIO/s_axi_aclk] [get_bd_pins HighSpeed_IM_v1_0_0/aclk] [get_bd_pins HighSpeed_PH_v1_0_0/aclk] [get_bd_pins IM_FIFO_0/clk] [get_bd_pins PH_BL_FIFO_0/s00_axi_aclk] [get_bd_pins PPS_IO_0/clk] [get_bd_pins SPI_STARTUP_0/clk] [get_bd_pins SPI_access_0/clk] [get_bd_pins StepDrive_ShutterCtr_0/clk] [get_bd_pins axi_ethernet_0/axis_clk] [get_bd_pins axi_ethernet_0/s_axi_lite_clk] [get_bd_pins axi_ethernet_0_fifo/s_axi_aclk] [get_bd_pins axi_ethernet_1/axis_clk] [get_bd_pins axi_ethernet_1/s_axi_lite_clk] [get_bd_pins axi_gpio_mech/s_axi_aclk] [get_bd_pins axi_hwicap_0/icap_clk] [get_bd_pins axi_hwicap_0/s_axi_aclk] [get_bd_pins axi_iic_0/s_axi_aclk] [get_bd_pins axi_intc_0/s_axi_aclk] [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/M04_ACLK] [get_bd_pins axi_interconnect_0/M05_ACLK] [get_bd_pins axi_interconnect_0/M06_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_quad_spi_0/s_axi_aclk] [get_bd_pins axi_quad_spi_1/ext_spi_clk] [get_bd_pins axi_quad_spi_1/s_axi_aclk] [get_bd_pins axi_spi_sel/s_axi_aclk] [get_bd_pins axi_timebase_wdt_0/s_axi_aclk] [get_bd_pins axi_timer_0/s_axi_aclk] [get_bd_pins axi_timer_1/s_axi_aclk] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins clk_wiz_1/clk_100] [get_bd_pins flash_control_0/clk] [get_bd_pins maroc_dc_0/m00_axis_aclk] [get_bd_pins maroc_dc_0/m01_axis_aclk] [get_bd_pins maroc_dc_0/s00_axi_aclk] [get_bd_pins maroc_slow_control_0/s00_axi_aclk] [get_bd_pins microblaze_0/Clk] [get_bd_pins microblaze_0_axi_periph/ACLK] [get_bd_pins microblaze_0_axi_periph/M00_ACLK] [get_bd_pins microblaze_0_axi_periph/M01_ACLK] [get_bd_pins microblaze_0_axi_periph/M02_ACLK] [get_bd_pins microblaze_0_axi_periph/M03_ACLK] [get_bd_pins microblaze_0_axi_periph/M04_ACLK] [get_bd_pins microblaze_0_axi_periph/M05_ACLK] [get_bd_pins microblaze_0_axi_periph/M06_ACLK] [get_bd_pins microblaze_0_axi_periph/M07_ACLK] [get_bd_pins microblaze_0_axi_periph/M08_ACLK] [get_bd_pins microblaze_0_axi_periph/M09_ACLK] [get_bd_pins microblaze_0_axi_periph/M10_ACLK] [get_bd_pins microblaze_0_axi_periph/M11_ACLK] [get_bd_pins microblaze_0_axi_periph/M12_ACLK] [get_bd_pins microblaze_0_axi_periph/M13_ACLK] [get_bd_pins microblaze_0_axi_periph/M14_ACLK] [get_bd_pins microblaze_0_axi_periph/M15_ACLK] [get_bd_pins microblaze_0_axi_periph/S00_ACLK] [get_bd_pins microblaze_0_axi_periph/S01_ACLK] [get_bd_pins microblaze_0_local_memory/LMB_Clk] [get_bd_pins rst_clk_wiz_1_100M_1/slowest_sync_clk] [get_bd_pins step_drive_0/clk] [get_bd_pins stim_gen_0/clk] [get_bd_pins xadc_wiz_0/s_axi_aclk]
+  connect_bd_net -net microblaze_0_Clk [get_bd_pins AXI_Stream_Switch_3_0/aclk] [get_bd_pins AXI_Stream_Switch_3_1/aclk] [get_bd_pins ETH_CORE_CTRL_0/clk] [get_bd_pins ETH_CORE_CTRL_1/clk] [get_bd_pins FIFO_for_AXIS_0/clk] [get_bd_pins GPIO/s_axi_aclk] [get_bd_pins HighSpeed_IM_v1_0_0/aclk] [get_bd_pins HighSpeed_PH_v1_0_0/aclk] [get_bd_pins IM_FIFO_0/clk] [get_bd_pins PH_BL_FIFO_0/s00_axi_aclk] [get_bd_pins PPS_IO_0/clk] [get_bd_pins SPI_STARTUP_0/clk] [get_bd_pins SPI_access_0/clk] [get_bd_pins StepDrive_ShutterCtr_0/clk] [get_bd_pins TAI_IO_0/clk] [get_bd_pins axi_ethernet_0/axis_clk] [get_bd_pins axi_ethernet_0/s_axi_lite_clk] [get_bd_pins axi_ethernet_0_fifo/s_axi_aclk] [get_bd_pins axi_ethernet_1/axis_clk] [get_bd_pins axi_ethernet_1/s_axi_lite_clk] [get_bd_pins axi_gpio_mech/s_axi_aclk] [get_bd_pins axi_hwicap_0/icap_clk] [get_bd_pins axi_hwicap_0/s_axi_aclk] [get_bd_pins axi_iic_0/s_axi_aclk] [get_bd_pins axi_intc_0/s_axi_aclk] [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/M04_ACLK] [get_bd_pins axi_interconnect_0/M05_ACLK] [get_bd_pins axi_interconnect_0/M06_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_quad_spi_0/s_axi_aclk] [get_bd_pins axi_quad_spi_1/ext_spi_clk] [get_bd_pins axi_quad_spi_1/s_axi_aclk] [get_bd_pins axi_spi_sel/s_axi_aclk] [get_bd_pins axi_timebase_wdt_0/s_axi_aclk] [get_bd_pins axi_timer_0/s_axi_aclk] [get_bd_pins axi_timer_1/s_axi_aclk] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins clk_wiz_1/clk_100] [get_bd_pins flash_control_0/clk] [get_bd_pins maroc_dc_0/m00_axis_aclk] [get_bd_pins maroc_dc_0/m01_axis_aclk] [get_bd_pins maroc_dc_0/s00_axi_aclk] [get_bd_pins maroc_slow_control_0/s00_axi_aclk] [get_bd_pins microblaze_0/Clk] [get_bd_pins microblaze_0_axi_periph/ACLK] [get_bd_pins microblaze_0_axi_periph/M00_ACLK] [get_bd_pins microblaze_0_axi_periph/M01_ACLK] [get_bd_pins microblaze_0_axi_periph/M02_ACLK] [get_bd_pins microblaze_0_axi_periph/M03_ACLK] [get_bd_pins microblaze_0_axi_periph/M04_ACLK] [get_bd_pins microblaze_0_axi_periph/M05_ACLK] [get_bd_pins microblaze_0_axi_periph/M06_ACLK] [get_bd_pins microblaze_0_axi_periph/M07_ACLK] [get_bd_pins microblaze_0_axi_periph/M08_ACLK] [get_bd_pins microblaze_0_axi_periph/M09_ACLK] [get_bd_pins microblaze_0_axi_periph/M10_ACLK] [get_bd_pins microblaze_0_axi_periph/M11_ACLK] [get_bd_pins microblaze_0_axi_periph/M12_ACLK] [get_bd_pins microblaze_0_axi_periph/M13_ACLK] [get_bd_pins microblaze_0_axi_periph/M14_ACLK] [get_bd_pins microblaze_0_axi_periph/M15_ACLK] [get_bd_pins microblaze_0_axi_periph/S00_ACLK] [get_bd_pins microblaze_0_axi_periph/S01_ACLK] [get_bd_pins microblaze_0_local_memory/LMB_Clk] [get_bd_pins rst_clk_wiz_1_100M_1/slowest_sync_clk] [get_bd_pins step_drive_0/clk] [get_bd_pins stim_gen_0/clk] [get_bd_pins xadc_wiz_0/s_axi_aclk]
   connect_bd_net -net miso_i_0_1 [get_bd_ports miso_i_0] [get_bd_pins SPI_STARTUP_0/miso_i]
   connect_bd_net -net or_trig0_0_1 [get_bd_ports or_trig0_0] [get_bd_pins maroc_dc_0/or_trig0]
   connect_bd_net -net or_trig1_0_1 [get_bd_ports or_trig1_0] [get_bd_pins maroc_dc_0/or_trig1]
@@ -1453,7 +1467,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net rst_clk_wiz_1_100M_bus_struct_reset [get_bd_pins microblaze_0_local_memory/SYS_Rst] [get_bd_pins rst_clk_wiz_1_100M/bus_struct_reset]
   connect_bd_net -net rst_clk_wiz_1_100M_interconnect_aresetn [get_bd_pins microblaze_0_axi_periph/ARESETN] [get_bd_pins rst_clk_wiz_1_100M/interconnect_aresetn]
   connect_bd_net -net rst_clk_wiz_1_100M_mb_reset [get_bd_pins microblaze_0/Reset] [get_bd_pins rst_clk_wiz_1_100M/mb_reset]
-  connect_bd_net -net rst_clk_wiz_1_100M_peripheral_aresetn [get_bd_pins AXI_Stream_Switch_3_0/aresetn] [get_bd_pins AXI_Stream_Switch_3_1/aresetn] [get_bd_pins FIFO_for_AXIS_0/rst] [get_bd_pins PPS_IO_0/rst] [get_bd_pins SPI_STARTUP_0/rst_n] [get_bd_pins axi_ethernet_0/s_axi_lite_resetn] [get_bd_pins axi_ethernet_0_fifo/s_axi_aresetn] [get_bd_pins axi_ethernet_1/s_axi_lite_resetn] [get_bd_pins axi_hwicap_0/s_axi_aresetn] [get_bd_pins axi_iic_0/s_axi_aresetn] [get_bd_pins axi_intc_0/s_axi_aresetn] [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/M04_ARESETN] [get_bd_pins axi_interconnect_0/M05_ARESETN] [get_bd_pins axi_interconnect_0/M06_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins axi_quad_spi_0/s_axi_aresetn] [get_bd_pins axi_quad_spi_1/s_axi_aresetn] [get_bd_pins axi_spi_sel/s_axi_aresetn] [get_bd_pins axi_timer_0/s_axi_aresetn] [get_bd_pins axi_timer_1/s_axi_aresetn] [get_bd_pins axi_uartlite_0/s_axi_aresetn] [get_bd_pins maroc_dc_0/m00_axis_aresetn] [get_bd_pins maroc_dc_0/m01_axis_aresetn] [get_bd_pins maroc_dc_0/s00_axi_aresetn] [get_bd_pins maroc_slow_control_0/s00_axi_aresetn] [get_bd_pins microblaze_0_axi_periph/M00_ARESETN] [get_bd_pins microblaze_0_axi_periph/M01_ARESETN] [get_bd_pins microblaze_0_axi_periph/M02_ARESETN] [get_bd_pins microblaze_0_axi_periph/M03_ARESETN] [get_bd_pins microblaze_0_axi_periph/M04_ARESETN] [get_bd_pins microblaze_0_axi_periph/M05_ARESETN] [get_bd_pins microblaze_0_axi_periph/M06_ARESETN] [get_bd_pins microblaze_0_axi_periph/M07_ARESETN] [get_bd_pins microblaze_0_axi_periph/M08_ARESETN] [get_bd_pins microblaze_0_axi_periph/S00_ARESETN] [get_bd_pins microblaze_0_axi_periph/S01_ARESETN] [get_bd_pins rst_clk_wiz_1_100M/peripheral_aresetn]
+  connect_bd_net -net rst_clk_wiz_1_100M_peripheral_aresetn [get_bd_pins AXI_Stream_Switch_3_0/aresetn] [get_bd_pins AXI_Stream_Switch_3_1/aresetn] [get_bd_pins FIFO_for_AXIS_0/rst] [get_bd_pins PPS_IO_0/rst] [get_bd_pins SPI_STARTUP_0/rst_n] [get_bd_pins TAI_IO_0/rst] [get_bd_pins axi_ethernet_0/s_axi_lite_resetn] [get_bd_pins axi_ethernet_0_fifo/s_axi_aresetn] [get_bd_pins axi_ethernet_1/s_axi_lite_resetn] [get_bd_pins axi_hwicap_0/s_axi_aresetn] [get_bd_pins axi_iic_0/s_axi_aresetn] [get_bd_pins axi_intc_0/s_axi_aresetn] [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/M04_ARESETN] [get_bd_pins axi_interconnect_0/M05_ARESETN] [get_bd_pins axi_interconnect_0/M06_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins axi_quad_spi_0/s_axi_aresetn] [get_bd_pins axi_quad_spi_1/s_axi_aresetn] [get_bd_pins axi_spi_sel/s_axi_aresetn] [get_bd_pins axi_timer_0/s_axi_aresetn] [get_bd_pins axi_timer_1/s_axi_aresetn] [get_bd_pins axi_uartlite_0/s_axi_aresetn] [get_bd_pins maroc_dc_0/m00_axis_aresetn] [get_bd_pins maroc_dc_0/m01_axis_aresetn] [get_bd_pins maroc_dc_0/s00_axi_aresetn] [get_bd_pins maroc_slow_control_0/s00_axi_aresetn] [get_bd_pins microblaze_0_axi_periph/M00_ARESETN] [get_bd_pins microblaze_0_axi_periph/M01_ARESETN] [get_bd_pins microblaze_0_axi_periph/M02_ARESETN] [get_bd_pins microblaze_0_axi_periph/M03_ARESETN] [get_bd_pins microblaze_0_axi_periph/M04_ARESETN] [get_bd_pins microblaze_0_axi_periph/M05_ARESETN] [get_bd_pins microblaze_0_axi_periph/M06_ARESETN] [get_bd_pins microblaze_0_axi_periph/M07_ARESETN] [get_bd_pins microblaze_0_axi_periph/M08_ARESETN] [get_bd_pins microblaze_0_axi_periph/S00_ARESETN] [get_bd_pins microblaze_0_axi_periph/S01_ARESETN] [get_bd_pins rst_clk_wiz_1_100M/peripheral_aresetn]
   connect_bd_net -net rx_0_1 [get_bd_ports J3pin5] [get_bd_pins axi_uartlite_0/rx]
   connect_bd_net -net sfp_los_i_0_1 [get_bd_ports user_sfp_0_sfp_los_i] [get_bd_pins wrc_board_quabo_Light_0/sfp_los_i]
   connect_bd_net -net sfp_rxn_i_0_1 [get_bd_ports user_sfp_0_sfp_rxn_i] [get_bd_pins wrc_board_quabo_Light_0/sfp_rxn_i]
@@ -1475,6 +1489,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net wrc_board_quabo_Light_0_spi_mosi_o [get_bd_pins SPI_STARTUP_0/wr_mosi_i] [get_bd_pins wrc_board_quabo_Light_0/spi_mosi_o]
   connect_bd_net -net wrc_board_quabo_Light_0_spi_ncs_o [get_bd_pins SPI_STARTUP_0/wr_ss_i] [get_bd_pins wrc_board_quabo_Light_0/spi_ncs_o]
   connect_bd_net -net wrc_board_quabo_Light_0_spi_sclk_o [get_bd_pins SPI_STARTUP_0/wr_sck_i] [get_bd_pins wrc_board_quabo_Light_0/spi_sclk_o]
+  connect_bd_net -net wrc_board_quabo_Light_0_tm_tai_o [get_bd_pins TAI_IO_0/tai_inside_in] [get_bd_pins wrc_board_quabo_Light_0/tm_tai_o]
   connect_bd_net -net wrc_board_quabo_Light_0_uart_txd_o [get_bd_ports J3pin4] [get_bd_pins wrc_board_quabo_Light_0/uart_txd_o]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins axi_intc_0/intr] [get_bd_pins xlconcat_0/dout]
   connect_bd_net -net xlconcat_2_dout [get_bd_pins axi_gpio_mech/gpio2_io_i] [get_bd_pins xlconcat_2/dout]
@@ -1492,9 +1507,9 @@ proc create_root_design { parentCell } {
   connect_bd_net -net xlconstant_8_dout [get_bd_pins AXI_Stream_Switch_3_1/s2_axis_tdata] [get_bd_pins xlconstant_8/dout]
   connect_bd_net -net xlconstant_9_dout [get_bd_pins AXI_Stream_Switch_3_1/s2_axis_tlast] [get_bd_pins xlconstant_9/dout]
   connect_bd_net -net xlslice_0_Dout [get_bd_ports HV_RSTb] [get_bd_pins Bit_0_0/Dout]
-  connect_bd_net -net xlslice_0_Dout1 [get_bd_pins PPS_IO_0/io_ctrl0] [get_bd_pins StepDrive_ShutterCtr_0/pos0] [get_bd_pins pinout_three_state_0/pos0] [get_bd_pins xlslice_0/Dout]
+  connect_bd_net -net xlslice_0_Dout1 [get_bd_pins PPS_IO_0/io_ctrl0] [get_bd_pins StepDrive_ShutterCtr_0/pos0] [get_bd_pins TAI_IO_0/io_ctrl0] [get_bd_pins pinout_three_state_0/pos0] [get_bd_pins xlslice_0/Dout]
   connect_bd_net -net xlslice_1_Dout [get_bd_pins Bit_1_1/Dout] [get_bd_pins stim_gen_0/enable]
-  connect_bd_net -net xlslice_1_Dout1 [get_bd_pins PPS_IO_0/io_ctrl1] [get_bd_pins StepDrive_ShutterCtr_0/pos1] [get_bd_pins pinout_three_state_0/pos1] [get_bd_pins xlslice_1/Dout]
+  connect_bd_net -net xlslice_1_Dout1 [get_bd_pins PPS_IO_0/io_ctrl1] [get_bd_pins StepDrive_ShutterCtr_0/pos1] [get_bd_pins TAI_IO_0/io_ctrl1] [get_bd_pins pinout_three_state_0/pos1] [get_bd_pins xlslice_1/Dout]
   connect_bd_net -net xlslice_2_Dout [get_bd_pins Bit_2_9/Dout] [get_bd_pins stim_gen_0/level]
   connect_bd_net -net xlslice_3_Dout [get_bd_ports J3pin1] [get_bd_pins xlslice_3/Dout]
   connect_bd_net -net xlslice_4_Dout [get_bd_pins Bit_10_13/Dout] [get_bd_pins stim_gen_0/rate]
