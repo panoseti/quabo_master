@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jan 11 17:39:39 2022" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Jan 11 21:58:22 2022" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintex7" DEVICE="7k160t" NAME="base_mb" PACKAGE="fbg676" SPEEDGRADE="-1"/>
 
@@ -23512,9 +23512,9 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M06_ACLK"/>
             <CONNECTION INSTANCE="PH_BL_FIFO_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="IM_FIFO_0" PORT="clk"/>
-            <CONNECTION INSTANCE="TAI_IO_0" PORT="clk"/>
             <CONNECTION INSTANCE="HighSpeed_IM_v1_0_0" PORT="aclk"/>
             <CONNECTION INSTANCE="HighSpeed_PH_v1_0_0" PORT="aclk"/>
+            <CONNECTION INSTANCE="TAI_IO_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="200000000" DIR="O" NAME="clk_200" SIGIS="clk" SIGNAME="clk_wiz_1_clk_200">
