@@ -407,8 +407,7 @@ int main()
 #ifdef GOLD_COPY
 	xil_printf("*************Quabo GOLD Firmware*************\n\r");
 #else
-	//xil_printf("*************Quabo Firmware*************\n\r");
-	xil_printf("*************HS-PH Test Firmware V3.0*************\n\r");
+	xil_printf("*************Quabo Firmware*************\n\r");
 #endif
 	/******************************************************************/
  	volatile int delay;
