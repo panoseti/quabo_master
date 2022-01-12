@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 06/02/2020 11:30:27 AM
+// Create Date: 06/08/2020 08:02:35 PM
 // Design Name: 
-// Module Name: StateMachine_16
+// Module Name: StateMachine_8
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module StateMachine_16#(
+module StateMachine_8#(
     parameter integer C_M_AXI_IM_Config_ADDR_WIDTH	= 32,
 	parameter integer C_M_AXI_IM_Config_DATA_WIDTH	= 32,
 	parameter MODE_SEL = 0
@@ -108,11 +108,10 @@ parameter [27:0]IDLE                   =   28'h0000000,
                 PUT_LAST                =   28'h8000000;
 
 
-
 //Receive data length from im_fifo
 parameter [31:0]  FIFO_RECV_TOTAL = 32'd1024;
 parameter [31:0]  FIFO_RECV_LEN = 32'd256;
-parameter [31:0]  FIFO_RECV_LEN_32BIT = 32'd128;
+parameter [31:0]  FIFO_RECV_LEN_32BIT = 32'd64;
 
 //ACQ_MODE here is a fixed value--0x02
 //parameter [7:0]   ACQ_MODE_HS_IM   = 8'h02;
@@ -143,7 +142,8 @@ reg [15:0] packet_no_reg0,
 
 //delay of the data from im_fifo
 reg [31:0] pixel_d0;
-
+reg [7:0] pixel_d1;
+reg [7:0] pixel_d2;
 //this is a reg for storing the received length of im_fifo 
 reg [31:0] fifo_recv_len;
 
@@ -152,8 +152,8 @@ reg [15:0] elapsed_time_reg0,
            elapsed_time_reg1,
            elapsed_time_reg2,
            elapsed_time_reg3;
-//this is for storing the tai time
-reg [31:0] tai_time_reg;
+ //this is a reg for storing tai time
+ reg [31:0] tai_time_reg;
 //This is for udp check sum, and it will be added to the sum of fake udp header part,
 //then we can get the whole 
 reg [31:0] udp_checksum;
@@ -388,7 +388,9 @@ always @(posedge aclk)
                elapsed_time_reg2   <= 16'b0;
                elapsed_time_reg3   <= 16'b0;
                tai_time_reg        <= 32'b0;
-               pixel_d0            <= 32'b0;
+               pixel_d0            <= 8'b0;
+               pixel_d1            <= 8'b0;
+               pixel_d2            <= 8'b0;
                udp_checksum        <= 32'b0;
                ip_checksum         <= 32'b0;
                checksum_fifo_rd_en <= 1'b0;  
@@ -413,6 +415,8 @@ always @(posedge aclk)
                             packet_no_reg0      <= 16'b0;
                             packet_no_reg1      <= 16'b0;
                             pixel_d0            <= 32'b0;
+                            pixel_d1            <= 8'b0;
+                            pixel_d2            <= 8'b0;
                             elapsed_time_reg    <= 32'b0;
                             elapsed_time_reg0   <= 16'b0;
                             elapsed_time_reg1   <= 16'b0;
@@ -444,7 +448,9 @@ always @(posedge aclk)
                            elapsed_time_reg2   <= 16'b0;
                            elapsed_time_reg3   <= 16'b0;
                            tai_time_reg        <= 32'b0;
-                           pixel_d0            <= 32'b0; 
+                           pixel_d0            <= 32'b0;
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0; 
                            udp_checksum        <= 32'b0;
                            ip_checksum         <= 32'b0;
                            checksum_fifo_rd_en <= 1'b0;
@@ -453,14 +459,14 @@ always @(posedge aclk)
 	                    end
 	               PREPARE_FOR_READING:
 	                   begin
-	                       start_to_read       <= 1'b1;
-	                       fifo_recv_len       <= FIFO_RECV_LEN;
+	                       start_to_read       <= 1'b1;                               //put data to tmp fifo, and calculate checksum_part(sum data)           
+	                       fifo_recv_len       <= FIFO_RECV_LEN;                      //im_fifo receive 256*4 bytes
 	                       //we dont care about the following signals until the hs_im_state goes to CORRECT_LEN
 	                       ram_dpra            <= 5'b0;
 	                       m_axis_tvalid       <= 1'b0;
                            m_axis_tdata        <= 32'b0;
                            m_axis_tkeep        <= 4'b0;
-                           m_axis_tlast        <= 1'b0;
+                           m_axis_tlast        <= 1'b0;  
                            packet_no           <= packet_no;
                            packet_no_reg0      <= {packet_no[7:0], 8'b0};
                            packet_no_reg1      <= {8'b0, packet_no[15:8]};
@@ -470,23 +476,25 @@ always @(posedge aclk)
                            elapsed_time_reg2   <= 16'b0;
                            elapsed_time_reg3   <= 16'b0;
                            tai_time_reg        <= 32'b0;
-                           pixel_d0            <= 32'b0; 
+                           pixel_d0            <= 32'b0;
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0; 
                            udp_checksum        <= 32'b0;
                            ip_checksum         <= 32'b0;
                            checksum_fifo_rd_en <= 1'b0;
                            checksum_fifo_wr_en <= 1'b0;
-                           checksum_fifo_din   <= 32'b0;
-	                   end
+                           checksum_fifo_din   <= 1'b0;      
+	                   end  
 	               READY_TO_READ:
 	                   begin
-	                       start_to_read       <= 1'b1;
-	                       fifo_recv_len       <= FIFO_RECV_LEN;
+	                       start_to_read       <= 1'b1;                               //put data to tmp fifo, and calculate checksum_part(sum data)           
+	                       fifo_recv_len       <= FIFO_RECV_LEN;                      //im_fifo receive 256*4 bytes
 	                       //we dont care about the following signals until the hs_im_state goes to CORRECT_LEN
 	                       ram_dpra            <= 5'b0;
 	                       m_axis_tvalid       <= 1'b0;
                            m_axis_tdata        <= 32'b0;
                            m_axis_tkeep        <= 4'b0;
-                           m_axis_tlast        <= 1'b0;
+                           m_axis_tlast        <= 1'b0;  
                            packet_no           <= packet_no;
                            packet_no_reg0      <= {packet_no[7:0], 8'b0};
                            packet_no_reg1      <= {8'b0, packet_no[15:8]};
@@ -496,19 +504,39 @@ always @(posedge aclk)
                            elapsed_time_reg2   <= 16'b0;
                            elapsed_time_reg3   <= 16'b0;
                            tai_time_reg        <= 32'b0;
-                           pixel_d0            <= 32'b0; 
+                           pixel_d0            <= 32'b0;
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0; 
                            udp_checksum        <= 32'b0;
                            ip_checksum         <= 32'b0;
                            checksum_fifo_rd_en <= 1'b0;
                            checksum_fifo_wr_en <= 1'b0;
-                           checksum_fifo_din   <= 32'b0;
+                           checksum_fifo_din   <= 1'b0;  
 	                   end
 	               GET_DATA_FROM_FIFO:
 	                   begin        
-	                       fifo_recv_len       <= fifo_recv_len - 1;
-	                       udp_checksum        <= udp_checksum + (rdata_to_user[7:0]<<8) + rdata_to_user[15:8];
-	                       pixel_d0            <= rdata_to_user; 
-	                       start_to_read       <= 1'b1;                          //put data to tmp fifo, and calculate checksum_part(sum data)            
+	                           begin
+	                               fifo_recv_len       <= fifo_recv_len - 1;
+	                               if(rdata_to_user < 256)
+	                                   begin
+	                                       pixel_d0        <= {24'b0,rdata_to_user[7:0]};
+	                                       if(fifo_recv_len[0:0] == 0)
+	                                           udp_checksum        <= udp_checksum + (rdata_to_user[7:0]<<8);
+	                                       else
+	                                           udp_checksum        <= udp_checksum + (rdata_to_user[7:0]);
+	                                   end
+	                               else
+	                                   begin
+	                                       pixel_d0        <= {24'b0,8'd255};
+	                                       if(fifo_recv_len[0:0] == 0)
+	                                           udp_checksum        <= udp_checksum + 16'hff00;
+	                                       else
+	                                           udp_checksum        <= udp_checksum + 8'hff;
+	                                   end
+	                               pixel_d1            <= pixel_d0[7:0];
+	                               pixel_d2            <= pixel_d1;     
+	                           end                                               //put data from im_fifo in a tmp fifo here, we need to use the data fro checksum
+	                       start_to_read       <= 1'b1;                          //put data to tmp fifo, and calculate checksum_part(sum data)       
 	                       ram_dpra            <= 5'b0;
 	                       m_axis_tvalid       <= 1'b0;
                            m_axis_tdata        <= 32'b0;
@@ -525,14 +553,18 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= 16'b0;
                            tai_time_reg        <= 32'b0;
                            checksum_fifo_rd_en <= 1'b0;
-                           checksum_fifo_wr_en <= fifo_recv_len[0:0];
-                           checksum_fifo_din   <= {rdata_to_user[15:0], pixel_d0[15:0]}; //put data from im_fifo in a tmp fifo here, we need to use the data for checksum
+                           checksum_fifo_wr_en <= (~fifo_recv_len[1:1]) & fifo_recv_len[0:0];
+                           if(rdata_to_user<256)
+                                checksum_fifo_din   <= {rdata_to_user[7:0], pixel_d0[7:0],pixel_d1[7:0],pixel_d2[7:0]};
+                           else
+                                checksum_fifo_din   <= {8'd255, pixel_d0[7:0],pixel_d1[7:0],pixel_d2[7:0]};
+                            
 	                   end
 	               GET_CHECKSUM_PART:
 	                   begin
 	                       fifo_recv_len       <= fifo_recv_len;
 	                       udp_checksum        <= udp_checksum + ram_qdpo;            //put data from im_fifo in a tmp fifo here, we need to use the data fro checksum
-	                       start_to_read       <= 1'b0;                               //put data to tmp fifo, and calculate checksum_part(sum data)          
+	                       start_to_read       <= 1'b0;                               //put data to tmp fifo, and calculate checksum_part(sum data)           
 	                       ram_dpra            <= 5'b0;
 	                       m_axis_tvalid       <= 1'b0;
                            m_axis_tdata        <= 32'b0;
@@ -548,8 +580,10 @@ always @(posedge aclk)
                            elapsed_time_reg1   <= {8'b0, elapsed_time_reg[15:8]};
                            elapsed_time_reg2   <= {elapsed_time_reg[23:16],8'b0};
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
-                           tai_time_reg        <= {22'b0, tai};
+                           tai_time_reg        <= {22'b0,tai};
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            checksum_fifo_rd_en <= 1'b0;
                            checksum_fifo_wr_en <= 1'b0;
                            checksum_fifo_din   <= 32'b0;
@@ -558,6 +592,33 @@ always @(posedge aclk)
 	                   begin
 	                       fifo_recv_len       <= fifo_recv_len;
 	                       udp_checksum        <= udp_checksum;            //put data from im_fifo in a tmp fifo here, we need to use the data fro checksum
+	                       start_to_read       <= 1'b0;                                       
+	                       ram_dpra            <= 5'b0;
+	                       m_axis_tvalid       <= 1'b0;
+                           m_axis_tdata        <= 32'b0;
+                           m_axis_tkeep        <= 4'b0;
+                           m_axis_tlast        <= 1'b0;  
+                           ip_checksum         <= 32'b0;
+                           packet_no           <= packet_no;
+                           packet_no_reg0      <= {packet_no[7:0], 8'b0};
+                           packet_no_reg1      <= {8'b0, packet_no[15:8]};
+                           elapsed_time_reg    <= elapsed_time_reg;
+                           elapsed_time_reg0   <= {elapsed_time_reg[7:0], 8'b0};
+                           elapsed_time_reg1   <= {8'b0, elapsed_time_reg[15:8]};
+                           elapsed_time_reg2   <= {elapsed_time_reg[23:16],8'b0};
+                           elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
+                           tai_time_reg        <= tai_time_reg;
+                           pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
+                           checksum_fifo_rd_en <= 1'b0;
+                           checksum_fifo_wr_en <= 1'b0;
+                           checksum_fifo_din   <= 32'b0;
+	                   end
+	               CAL_UDP_CHECKSUM1:
+	                   begin
+	                       fifo_recv_len       <= fifo_recv_len;
+	                       udp_checksum        <= udp_checksum + packet_no_reg0 + packet_no_reg1;            //put data from im_fifo in a tmp fifo here, we need to use the data fro checksum
 	                       start_to_read       <= 1'b0;                                          
 	                       ram_dpra            <= 5'b0;
 	                       m_axis_tvalid       <= 1'b0;
@@ -575,32 +636,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0; 
-                           checksum_fifo_rd_en <= 1'b0;
-                           checksum_fifo_wr_en <= 1'b0;
-                           checksum_fifo_din   <= 32'b0;
-	                   end
-	               CAL_UDP_CHECKSUM1:
-	                   begin
-	                       fifo_recv_len       <= fifo_recv_len;
-	                       udp_checksum        <= udp_checksum + packet_no_reg0 + packet_no_reg1+ {tai_time_reg[7:0],tai_time_reg[15:8]};            //put data from im_fifo in a tmp fifo here, we need to use the data fro checksum
-	                       start_to_read       <= 1'b0;                                        
-	                       ram_dpra            <= 5'b0;
-	                       m_axis_tvalid       <= 1'b0;
-                           m_axis_tdata        <= 32'b0;
-                           m_axis_tkeep        <= 4'b0;
-                           m_axis_tlast        <= 1'b0;  
-                           ip_checksum         <= 32'b0;
-                           packet_no           <= packet_no;
-                           packet_no_reg0      <= {packet_no[7:0], 8'b0};
-                           packet_no_reg1      <= {8'b0, packet_no[15:8]};
-                           elapsed_time_reg    <= elapsed_time_reg;
-                           elapsed_time_reg0   <= {elapsed_time_reg[7:0], 8'b0};
-                           elapsed_time_reg1   <= {8'b0, elapsed_time_reg[15:8]};
-                           elapsed_time_reg2   <= {elapsed_time_reg[23:16],8'b0};
-                           elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
-                           tai_time_reg        <= tai_time_reg;
-                           tai_time_reg        <= tai_time_reg;
-                           pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            checksum_fifo_rd_en <= 1'b0;
                            checksum_fifo_wr_en <= 1'b0;
                            checksum_fifo_din   <= 32'b0;
@@ -608,8 +645,8 @@ always @(posedge aclk)
 	               CAL_UDP_CHECKSUM2:
 	                   begin
 	                       fifo_recv_len       <= fifo_recv_len;
-	                       udp_checksum        <= udp_checksum + elapsed_time_reg0 + elapsed_time_reg1;            //put data from im_fifo in a tmp fifo here, we need to use the data fro checksum
-	                       start_to_read       <= 1'b0;                                      
+	                       udp_checksum        <= udp_checksum + elapsed_time_reg0 + elapsed_time_reg1 + tai_time_reg;            //put data from im_fifo in a tmp fifo here, we need to use the data fro checksum
+	                       start_to_read       <= 1'b0;                                         
 	                       ram_dpra            <= 5'd1;
 	                       m_axis_tvalid       <= 1'b0;
                            m_axis_tdata        <= 32'b0;
@@ -626,6 +663,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            checksum_fifo_rd_en <= 1'b0;
                            checksum_fifo_wr_en <= 1'b0;
                            checksum_fifo_din   <= 32'b0;
@@ -634,7 +673,7 @@ always @(posedge aclk)
 	                   begin
 	                       fifo_recv_len       <= fifo_recv_len;
 	                       udp_checksum        <= udp_checksum + elapsed_time_reg2 + elapsed_time_reg3;            //put data from im_fifo in a tmp fifo here, we need to use the data fro checksum
-	                       start_to_read       <= 1'b0;                                         
+	                       start_to_read       <= 1'b0;                                          
 	                       ram_dpra            <= 5'd2;
 	                       m_axis_tvalid       <= 1'b0;
                            m_axis_tdata        <= 32'b0;
@@ -651,13 +690,15 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            checksum_fifo_rd_en <= 1'b0;
                            checksum_fifo_wr_en <= 1'b0;
                            checksum_fifo_din   <= 32'b0;
 	                   end
 	               CAL_UDP_IP_CHECKSUM:
 	                   begin
-	                       start_to_read       <= 1'b0;                                        
+	                       start_to_read       <= 1'b0;                                          
 	                       fifo_recv_len       <= FIFO_RECV_LEN_32BIT;           //im_fifo receive 256*4 bytes
 	                       ram_dpra            <= 5'd2;                //keep the address, we need the third and forth byte read from the ram later
 	                       // data here is special, two bytes are from the ram, and the other two bytes are acq_mode and unused
@@ -675,6 +716,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= udp_checksum[31:16] + udp_checksum[15:0];//if we don't get the correct checksum, keep calculating
                            ip_checksum         <= ip_checksum;
                            checksum_fifo_rd_en <= 1'b0;
@@ -701,6 +744,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= udp_checksum;            //if we don't get the correct checksum, keep calculating
                            ip_checksum         <= ip_checksum[31:16] + ip_checksum[15:0];
                            checksum_fifo_rd_en <= 1'b0;
@@ -719,7 +764,7 @@ always @(posedge aclk)
 	                               ram_dpra            <= ram_dpra;
 	                               m_axis_tvalid       <= 1'b1;
 	                           end
-	                       start_to_read       <= 1'b0;                                           
+	                       start_to_read       <= 1'b0;                                       
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
                            m_axis_tdata        <= ram_qdpo;
                            m_axis_tkeep        <= 4'hf;
@@ -734,6 +779,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= udp_checksum;
                            ip_checksum         <= ip_checksum;
                            checksum_fifo_rd_en <= 1'b0;
@@ -750,7 +797,7 @@ always @(posedge aclk)
 	                           begin
 	                               ram_dpra            <= ram_dpra;
 	                           end
-	                       start_to_read       <= 1'b0;                                           
+	                       start_to_read       <= 1'b0;                                          
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
 	                       m_axis_tvalid       <= 1'b1;
                            m_axis_tdata        <= ram_qdpo;
@@ -766,6 +813,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= udp_checksum;
                            ip_checksum         <= ip_checksum;
                            checksum_fifo_rd_en <= 1'b0;
@@ -782,7 +831,7 @@ always @(posedge aclk)
 	                           begin
 	                               ram_dpra            <= ram_dpra;
 	                           end
-	                       start_to_read       <= 1'b0;                                          
+	                       start_to_read       <= 1'b0;                                           
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
 	                       m_axis_tvalid       <= 1'b1;
                            m_axis_tdata        <= ram_qdpo;
@@ -797,7 +846,9 @@ always @(posedge aclk)
                            elapsed_time_reg2   <= {elapsed_time_reg[23:16],8'b0};
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
-                           pixel_d0            <= 32'b0; 
+                           pixel_d0            <= 32'b0;
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0; 
                            udp_checksum        <= udp_checksum;
                            ip_checksum         <= ip_checksum;
                            checksum_fifo_rd_en <= 1'b0;
@@ -814,7 +865,7 @@ always @(posedge aclk)
 	                           begin
 	                               ram_dpra            <= ram_dpra;
 	                           end
-	                       start_to_read       <= 1'b0;                                      
+	                       start_to_read       <= 1'b0;                                          
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
 	                       m_axis_tvalid       <= 1'b1;
                            m_axis_tdata        <= ram_qdpo;
@@ -830,6 +881,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= udp_checksum;
                            ip_checksum         <= ip_checksum;
                            checksum_fifo_rd_en <= 1'b0;
@@ -846,7 +899,7 @@ always @(posedge aclk)
 	                           begin
 	                               ram_dpra            <= ram_dpra;
 	                           end
-	                       start_to_read       <= 1'b0;                                           
+	                       start_to_read       <= 1'b0;                                          
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
 	                       m_axis_tvalid       <= 1'b1;
                            m_axis_tdata        <= {packet_no[7:0], packet_no[15:8], ram_qdpo[15:0]};
@@ -862,6 +915,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= udp_checksum;
                            ip_checksum         <= ip_checksum;
                            checksum_fifo_rd_en <= 1'b0;
@@ -878,7 +933,7 @@ always @(posedge aclk)
 	                           begin
 	                               ram_dpra            <= ram_dpra;
 	                           end
-	                       start_to_read       <= 1'b0;                                            
+	                       start_to_read       <= 1'b0;                                           
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
 	                       m_axis_tvalid       <= 1'b1;
                            m_axis_tdata        <= ram_qdpo;
@@ -894,6 +949,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= udp_checksum;
                            ip_checksum         <= ip_checksum;
                            checksum_fifo_rd_en <= 1'b0;
@@ -906,7 +963,7 @@ always @(posedge aclk)
 	                           begin
 	                               ram_dpra            <= ram_dpra + 1;
 	                           end
-	                       start_to_read       <= 1'b0;                               	                               
+	                       start_to_read       <= 1'b0;                               
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
 	                       m_axis_tvalid       <= 1'b1;
                            m_axis_tdata        <= {ram_qdpo[31:16], ~ip_checksum[7:0],~ip_checksum[15:8]};
@@ -922,6 +979,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= udp_checksum;
                            ip_checksum         <= ip_checksum;
                            checksum_fifo_rd_en <= 1'b0;
@@ -938,7 +997,7 @@ always @(posedge aclk)
 	                           begin
 	                               ram_dpra            <= ram_dpra;
 	                           end
-	                       start_to_read       <= 1'b0;                                           
+	                       start_to_read       <= 1'b0;                                         
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
 	                       m_axis_tvalid       <= 1'b1;
                            m_axis_tdata        <= ram_qdpo;
@@ -954,6 +1013,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= udp_checksum;
                            ip_checksum         <= ip_checksum;
                            checksum_fifo_rd_en <= 1'b0;
@@ -961,38 +1022,6 @@ always @(posedge aclk)
                            checksum_fifo_din   <= 32'b0; 
                         end
                    PUT_DST_IP1_SRC_PORT:
-                        begin
-                           if(M_AXIS_TREADY == 1'b1)
-	                           begin
-	                               ram_dpra            <= ram_dpra + 1;
-	                           end
-	                       else
-	                           begin
-	                               ram_dpra            <= ram_dpra;
-	                           end
-	                       start_to_read       <= 1'b0;                                           
-	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
-	                       m_axis_tvalid       <= 1'b1;
-                           m_axis_tdata        <= ram_qdpo;
-                           m_axis_tkeep        <= 4'hf;
-                           m_axis_tlast        <= 1'b0;
-                           packet_no           <= packet_no;
-                           packet_no_reg0      <= {packet_no[7:0], 8'b0};
-                           packet_no_reg1      <= {8'b0, packet_no[15:8]};
-                           elapsed_time_reg    <= elapsed_time_reg;
-                           elapsed_time_reg0   <= {elapsed_time_reg[7:0], 8'b0};
-                           elapsed_time_reg1   <= {8'b0, elapsed_time_reg[15:8]};
-                           elapsed_time_reg2   <= {elapsed_time_reg[23:16],8'b0};
-                           elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
-                           tai_time_reg        <= tai_time_reg;
-                           pixel_d0            <= 32'b0; 
-                           udp_checksum        <= udp_checksum;
-                           ip_checksum         <= ip_checksum;
-                           checksum_fifo_rd_en <= 1'b0;
-                           checksum_fifo_wr_en <= 1'b0;
-                           checksum_fifo_din   <= 32'b0;
-                        end
-                   PUT_DST_PORT_LENGTH:
                         begin
                            if(M_AXIS_TREADY == 1'b1)
 	                           begin
@@ -1017,22 +1046,29 @@ always @(posedge aclk)
                            elapsed_time_reg2   <= {elapsed_time_reg[23:16],8'b0};
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
-                           pixel_d0            <= 32'b0; 
+                           pixel_d0            <= 32'b0;
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0; 
                            udp_checksum        <= udp_checksum;
                            ip_checksum         <= ip_checksum;
                            checksum_fifo_rd_en <= 1'b0;
                            checksum_fifo_wr_en <= 1'b0;
                            checksum_fifo_din   <= 32'b0;
                         end
-                   PUT_CHECKSUM_ACQMODE:
+                   PUT_DST_PORT_LENGTH:
                         begin
-	                       ram_dpra            <= ram_dpra;
+                           if(M_AXIS_TREADY == 1'b1)
+	                           begin
+	                               ram_dpra            <= ram_dpra + 1;
+	                           end
+	                       else
+	                           begin
+	                               ram_dpra            <= ram_dpra;
+	                           end
 	                       start_to_read       <= 1'b0;                                           
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
 	                       m_axis_tvalid       <= 1'b1;
-                           //m_axis_tdata        <= {8'h00, ACQ_MODE_HS_IM, ~udp_checksum[7:0], ~udp_checksum[15:8]};
-                           //m_axis_tdata        <= {8'h00, acq_mode, ~udp_checksum[7:0], ~udp_checksum[15:8]};
-                           m_axis_tdata        <= {packet_ver, acq_mode, ~udp_checksum[7:0], ~udp_checksum[15:8]}; // we also put packet version here
+                           m_axis_tdata        <= ram_qdpo;
                            m_axis_tkeep        <= 4'hf;
                            m_axis_tlast        <= 1'b0;
                            packet_no           <= packet_no;
@@ -1044,7 +1080,38 @@ always @(posedge aclk)
                            elapsed_time_reg2   <= {elapsed_time_reg[23:16],8'b0};
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
-                           pixel_d0            <= 32'b0; 
+                           pixel_d0            <= 32'b0;
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0; 
+                           udp_checksum        <= udp_checksum;
+                           ip_checksum         <= ip_checksum;
+                           checksum_fifo_rd_en <= 1'b0;
+                           checksum_fifo_wr_en <= 1'b0;
+                           checksum_fifo_din   <= 32'b0;
+                        end
+                   PUT_CHECKSUM_ACQMODE:
+                        begin
+	                       ram_dpra            <= ram_dpra;
+	                       start_to_read       <= 1'b0;                                          
+	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
+	                       m_axis_tvalid       <= 1'b1;
+                           //m_axis_tdata        <= {8'h00, ACQ_MODE_HS_IM, ~udp_checksum[7:0], ~udp_checksum[15:8]};
+                           //m_axis_tdata        <= {8'h00, acq_mode, ~udp_checksum[7:0], ~udp_checksum[15:8]};
+                           m_axis_tdata        <= {packet_ver, acq_mode, ~udp_checksum[7:0], ~udp_checksum[15:8]}; //we also put packet version here
+                           m_axis_tkeep        <= 4'hf;
+                           m_axis_tlast        <= 1'b0;
+                           packet_no           <= packet_no;
+                           packet_no_reg0      <= {packet_no[7:0], 8'b0};
+                           packet_no_reg1      <= {8'b0, packet_no[15:8]};
+                           elapsed_time_reg    <= elapsed_time_reg;
+                           elapsed_time_reg0   <= {elapsed_time_reg[7:0], 8'b0};
+                           elapsed_time_reg1   <= {8'b0, elapsed_time_reg[15:8]};
+                           elapsed_time_reg2   <= {elapsed_time_reg[23:16],8'b0};
+                           elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
+                           tai_time_reg        <= tai_time_reg;
+                           pixel_d0            <= 32'b0;
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0; 
                            udp_checksum        <= udp_checksum;
                            ip_checksum         <= ip_checksum;
                            checksum_fifo_rd_en <= 1'b0;
@@ -1061,7 +1128,7 @@ always @(posedge aclk)
 	                           begin
 	                               packet_no           <= packet_no;
 	                           end                                              //so we don't need hardware connection here
-	                       start_to_read       <= 1'b0;                                           
+	                       start_to_read       <= 1'b0;                                         
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
 	                       ram_dpra            <= ram_dpra;                //keep the address, we need the third and forth byte read from the ram later
 	                       m_axis_tdata        <= {ram_qdpo[15:0], packet_no}; 
@@ -1069,6 +1136,8 @@ always @(posedge aclk)
                            m_axis_tkeep        <= 4'hf;                    // all the four byes are valid
                            m_axis_tlast        <= 1'b0;                    // it's not the last byte transfer to the axis interface
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            packet_no_reg0      <= {packet_no[7:0], 8'b0};
                            packet_no_reg1      <= {8'b0, packet_no[15:8]};
                            elapsed_time_reg    <= elapsed_time_reg;
@@ -1085,7 +1154,7 @@ always @(posedge aclk)
 	                   end
 	               PUT_UTC:
 	                   begin
-	                       start_to_read       <= 1'b0;                                            
+	                       start_to_read       <= 1'b0;                                          
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
 	                       ram_dpra            <= 5'b0;                    // reset the ram_dpra for next cycle
 	                       m_axis_tdata        <= tai_time_reg; 
@@ -1102,6 +1171,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0;
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= 32'b0;
                            ip_checksum         <= 32'b0;
                            checksum_fifo_rd_en <= 1'b0;
@@ -1110,7 +1181,7 @@ always @(posedge aclk)
 	                   end
 	               PUT_NANOSEC:
 	                   begin
-	                       start_to_read       <= 1'b0;                                           
+	                       start_to_read       <= 1'b0;                                          
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
 	                       ram_dpra            <= 5'b0;                    // reset the ram_dpra for next cycle
 	                       m_axis_tdata        <= elapsed_time_reg; //time resolution here is 1ns
@@ -1127,6 +1198,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= 32'b0;
                            ip_checksum         <= 32'b0;
                            checksum_fifo_rd_en <= M_AXIS_TREADY;
@@ -1143,7 +1216,7 @@ always @(posedge aclk)
 	                           begin
 	                               fifo_recv_len       <= fifo_recv_len;
 	                           end
-	                       start_to_read       <= 1'b0;                                           
+	                       start_to_read       <= 1'b0;                                          
 	                       ram_dpra            <= 5'b0;                    // reset the ram_dpra for next cycle
 	                       m_axis_tdata        <= {pixel_data[15:0], 16'b0}; 
 	                       m_axis_tvalid       <= 1'b1;                    
@@ -1159,6 +1232,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= pixel_data; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= 32'b0;
                            ip_checksum         <= 32'b0;
                            checksum_fifo_rd_en <= M_AXIS_TREADY;
@@ -1175,7 +1250,7 @@ always @(posedge aclk)
 	                           begin
 	                               fifo_recv_len       <= fifo_recv_len;
 	                           end
-	                       start_to_read       <= 1'b0;                                            
+	                       start_to_read       <= 1'b0;                                          
 	                       ram_dpra            <= 5'b0;                    // reset the ram_dpra for next cycle
 	                       m_axis_tdata        <= {pixel_data[15:0],pixel_d0[31:16]}; 
 	                       m_axis_tvalid       <= 1'b1;                    
@@ -1191,6 +1266,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
                            pixel_d0            <= pixel_data; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= 32'b0;
                            ip_checksum         <= 32'b0;
                            checksum_fifo_rd_en <= M_AXIS_TREADY;
@@ -1199,7 +1276,7 @@ always @(posedge aclk)
 	                   end
 	               PUT_LAST:
 	                   begin
-	                       start_to_read       <= 1'b0;                                           
+	                       start_to_read       <= 1'b0;                                          
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
 	                       ram_dpra            <= 5'b0;                    // reset the ram_dpra for next cycle
 	                       m_axis_tdata        <= {16'b0, pixel_d0[31:16]}; 
@@ -1215,7 +1292,9 @@ always @(posedge aclk)
                            elapsed_time_reg2   <= {elapsed_time_reg[23:16],8'b0};
                            elapsed_time_reg3   <= {8'b0,elapsed_time_reg[31:24]};
                            tai_time_reg        <= tai_time_reg;
-                           pixel_d0            <= pixel_data; 
+                           pixel_d0            <= pixel_data;
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0; 
                            udp_checksum        <= 32'b0;
                            ip_checksum         <= 32'b0;
                            checksum_fifo_rd_en <= M_AXIS_TREADY;
@@ -1242,6 +1321,8 @@ always @(posedge aclk)
                            elapsed_time_reg3   <= 16'b0;
                            tai_time_reg        <= 32'b0;
                            pixel_d0            <= 32'b0; 
+                           pixel_d1            <= 8'b0;
+                           pixel_d2            <= 8'b0;
                            udp_checksum        <= 32'b0;
                            ip_checksum         <= 32'b0;
                            checksum_fifo_rd_en <= 1'b0;

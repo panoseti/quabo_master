@@ -582,7 +582,7 @@ always @(posedge aclk)
 	               CAL_UDP_CHECKSUM1:
 	                   begin
 	                       fifo_recv_len       <= fifo_recv_len;
-	                       udp_checksum        <= udp_checksum + packet_no_reg0 + packet_no_reg1+ {tai_time_reg[7:0],tai_time_reg[15:8]};            //put data from im_fifo in a tmp fifo here, we need to use the data fro checksum
+	                       udp_checksum        <= udp_checksum + packet_no_reg0 + packet_no_reg1+ tai_time_reg;            //put data from im_fifo in a tmp fifo here, we need to use the data fro checksum
 	                       start_to_read       <= 1'b0;                                        
 	                       ram_dpra            <= 5'b0;
 	                       m_axis_tvalid       <= 1'b0;

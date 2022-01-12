@@ -7,7 +7,7 @@
   <spirit:componentInstances>
     <spirit:componentInstance>
       <spirit:instanceName>base_mb_HighSpeed_IM_v1_0_0_0</spirit:instanceName>
-      <spirit:componentRef spirit:vendor="user.org" spirit:library="user" spirit:name="HighSpeed_Module" spirit:version="3.7"/>
+      <spirit:componentRef spirit:vendor="user.org" spirit:library="user" spirit:name="HighSpeed_Module" spirit:version="3.9"/>
       <spirit:configurableElementValues>
         <spirit:configurableElementValue spirit:referenceId="ADDRBLOCK_BASE_ADDRESS.S_AXI_IM_CONFIG.reg0">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="ADDRBLOCK_BASE_ADDRESS.S_AXI_PACKETHEADER.reg0">0</spirit:configurableElementValue>

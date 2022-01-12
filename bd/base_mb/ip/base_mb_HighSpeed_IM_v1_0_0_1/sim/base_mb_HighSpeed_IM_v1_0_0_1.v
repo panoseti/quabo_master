@@ -47,7 +47,7 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: user.org:user:HighSpeed_Module:3.7
+// IP VLNV: user.org:user:HighSpeed_Module:3.9
 // IP Revision: 1
 
 `timescale 1ns/1ps
