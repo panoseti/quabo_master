@@ -84,7 +84,7 @@ set_clock_latency -source -late 4.500 [get_clocks sysclk_in]
 set_false_path -from [get_pins base_mb_i/wrc_board_quabo_Light_0/U0/cmp_xwrc_board_quabo/cmp_board_common/cmp_xwr_core/WRPC/PPS_GEN/WRAPPED_PPSGEN/pps_out_o_reg/C] -to [get_pins base_mb_i/delay_1/inst/FDRE_inst/D]
 
 
-
+set_false_path -from [get_clocks base_mb_i/wrc_board_quabo_Light_0/U0/cmp_xwrc_board_quabo/cmp_xwrc_platform/gen_phy_kintex7.cmp_gtx/U_GTX_INST/I] -to [get_clocks clk_100_base_mb_clk_wiz_1_0]
 
 
 
