@@ -1,8 +1,8 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-//Date        : Wed Jan 12 15:18:59 2022
-//Host        : acme1 running 64-bit Ubuntu 16.04.2 LTS
+//Date        : Tue Nov 22 17:17:01 2022
+//Host        : wei-Berkeley running 64-bit Ubuntu 20.04.5 LTS
 //Command     : generate_target base_mb.bd
 //Design      : base_mb
 //Purpose     : IP block netlist

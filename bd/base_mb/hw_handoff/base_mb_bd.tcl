@@ -1051,7 +1051,7 @@ proc create_root_design { parentCell } {
   set maroc_dc_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:maroc_dc:1.8 maroc_dc_0 ]
   set_property -dict [ list \
    CONFIG.C_M01_AXIS_TDATA_WIDTH {32} \
-   CONFIG.PCB_REV {0} \
+   CONFIG.PCB_REV {1} \
  ] $maroc_dc_0
 
   # Create instance: maroc_slow_control_0, and set properties
