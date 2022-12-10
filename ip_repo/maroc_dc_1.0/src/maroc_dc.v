@@ -45,6 +45,7 @@ module maroc_dc #(
     output adc_clk_out,
     //from the other quadrants
     input ext_trig,
+    output pixel_trig,
     //Software trigger for the PH mode, so we can stop at a specific channel for monitor selection
     input sw_trig,
     //Signal to inhibit writing of data, to permit exercising control signals without having to read data from FIFO
@@ -679,6 +680,8 @@ module maroc_dc #(
     //(Not sure ORing 256 signals will meet timing...)
     //wire pulseheight_trigger = !inhibit_PH_write && ( |masked_chan_trig || |masked_or_trig || masked_ext_trig);
     
+    // The pixel_trig is used for triggering other 3 quabos on the same mobo
+    assign pixel_trig = (maroc_trig_remapped & (~mask[255:0])) || |(or_trig& (~mask[263:256]));
     //OR all of the raw signals together
     wire pulseheight_trigger_raw = |(maroc_trig_remapped & (~mask[255:0])) || |(or_trig& (~mask[263:256])) || (ext_trig && (~mask[264]));
     //Edge-detect the ORed Asynch trigger signal with all four clocks, for the elapsed-time counters

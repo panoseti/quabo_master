@@ -1,3 +1,9 @@
+v20.2(3):
+1) added two new commands:
+	a) read one ph frame out for calibration;
+    b) write calibration data back to fpga memory.
+2) fixed a bug in firmware, so we can use img and ph mode at the same time.
+
 v20.0(1):
 (1) Fast PH readout is implemented. This part is moved from microblaze software to FPGA, so it's much faster now.
 (2) 10-bit TAI time is added to IM and PH packets, which is from WR.

@@ -3,7 +3,7 @@
   <spirit:vendor>xilinx.com</spirit:vendor>
   <spirit:library>user</spirit:library>
   <spirit:name>maroc_dc</spirit:name>
-  <spirit:version>1.8</spirit:version>
+  <spirit:version>1.9</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
       <spirit:name>S00_AXI</spirit:name>
@@ -553,7 +553,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>19aa82a4</spirit:value>
+            <spirit:value>8ab1d4a6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -572,7 +572,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>19aa82a4</spirit:value>
+            <spirit:value>8ab1d4a6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -927,6 +927,19 @@
         <spirit:name>ext_trig</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_verilogsynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_verilogbehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>pixel_trig</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
@@ -1718,7 +1731,7 @@
       <spirit:file>
         <spirit:name>hdl/maroc_dc_v1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_e857c592</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_a8795b14</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1831,9 +1844,9 @@
     <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>xgui/maroc_dc_v1_8.tcl</spirit:name>
+        <spirit:name>xgui/maroc_dc_v1_9.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_cbecaeda</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_3ec213b1</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1953,8 +1966,8 @@
       <xilinx:taxonomies>
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>maroc_dc_v1.8</xilinx:displayName>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:displayName>maroc_dc_v1.9</xilinx:displayName>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>xilinx.com:user:maroc_dc:1.0</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>xilinx.com:user:maroc_dc:1.1</xilinx:canUpgradeFrom>
@@ -1964,8 +1977,9 @@
         <xilinx:canUpgradeFrom>xilinx.com:user:maroc_dc:1.5</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>xilinx.com:user:maroc_dc:1.6</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>xilinx.com:user:maroc_dc:1.7</xilinx:canUpgradeFrom>
+        <xilinx:canUpgradeFrom>xilinx.com:user:maroc_dc:1.8</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-09-14T04:33:46Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-12-08T03:38:33Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="xilinx.com:user:maroc_dc:1.0_ARCHIVE_LOCATION">c:/XilinxProjects/PANOSETI/QuadrantBoard/ip_repo/maroc_dc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@7fa71780_ARCHIVE_LOCATION">c:/XilinxProjects/PANOSETI/QuadrantBoard/ip_repo/maroc_dc_1.0</xilinx:tag>
@@ -2656,14 +2670,68 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@2b88e27e_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0118/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@79630edf_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0118/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@16662d96_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/Vivado_Project/Panoseti/V0118/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@19947cd6_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6b6570ba_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@fe41714_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65dfc036_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@70d69df2_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3c9eafa9_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@71d48f4f_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3584ec45_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ab6ba58_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@62c9fb7c_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2270e7f2_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@305c7eb1_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5d4179c8_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@58a408e_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@744d8c38_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@38ca2cd4_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35cc1bee_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7c228509_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2b3be85e_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@656a6a59_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@913e95a_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21a5eb68_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47be0d2b_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1a4b8a04_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@12d83eea_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1cb382d3_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d735a78_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6ebae899_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@543d44a4_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@72f7a883_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7098f6a2_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3ee92cd1_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@70774cf9_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5a458a97_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2293c897_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4c9c3bb7_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1093d4a2_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7e44919_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@759db5b9_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@78b21d8a_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@32586e84_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@764dede2_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1d7c5fd9_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37001bab_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1dbb29dd_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73d1bd07_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@688883a4_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4a27f253_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5f14f9ad_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6a3ca6b8_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4c726a19_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18b23c34_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5ec724e9_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@18b6c576_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2018.3.1_AR71948</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="26d302f7"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="4973dbbd"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="5fbaae06"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="f46976a8"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="d2f418f7"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="3e0436eb"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="fea02ac7"/>
     </xilinx:packagingInfo>

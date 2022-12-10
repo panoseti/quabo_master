@@ -47,12 +47,12 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: xilinx.com:user:maroc_dc:1.8
-// IP Revision: 2
+// IP VLNV: xilinx.com:user:maroc_dc:1.9
+// IP Revision: 5
 
 (* X_CORE_INFO = "maroc_dc_v1_0,Vivado 2018.3" *)
 (* CHECK_LICENSE_TYPE = "base_mb_maroc_dc_0_0,maroc_dc_v1_0,{}" *)
-(* CORE_GENERATION_INFO = "base_mb_maroc_dc_0_0,maroc_dc_v1_0,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=maroc_dc,x_ipVersion=1.8,x_ipCoreRevision=2,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=6,C_M00_AXIS_TDATA_WIDTH=32,C_M00_AXIS_START_COUNT=32,C_M01_AXIS_TDATA_WIDTH=32,C_M01_AXIS_START_COUNT=32,PCB_REV=1}" *)
+(* CORE_GENERATION_INFO = "base_mb_maroc_dc_0_0,maroc_dc_v1_0,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=maroc_dc,x_ipVersion=1.9,x_ipCoreRevision=5,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=6,C_M00_AXIS_TDATA_WIDTH=32,C_M00_AXIS_START_COUNT=32,C_M01_AXIS_TDATA_WIDTH=32,C_M01_AXIS_START_COUNT=32,PCB_REV=0}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module base_mb_maroc_dc_0_0 (
   hs_clk,
@@ -75,6 +75,7 @@ module base_mb_maroc_dc_0_0 (
   ref_clk,
   adc_clk_out,
   ext_trig,
+  pixel_trig,
   testpoint,
   ET_clk,
   ET_clk_1,
@@ -150,6 +151,7 @@ input wire frm_clk;
 input wire ref_clk;
 output wire adc_clk_out;
 input wire ext_trig;
+output wire pixel_trig;
 output wire [5 : 0] testpoint;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ET_clk, FREQ_HZ 250000000, PHASE 0.0, CLK_DOMAIN base_mb_clk_wiz_0_0_clk_out250_0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 ET_clk CLK" *)
@@ -250,7 +252,7 @@ input wire m01_axis_aresetn;
     .C_M00_AXIS_START_COUNT(32),  // Start count is the number of clock cycles the master will wait before initiating/issuing any transaction.
     .C_M01_AXIS_TDATA_WIDTH(32),  // Width of S_AXIS address bus. The slave accepts the read and write addresses of width C_M_AXIS_TDATA_WIDTH.
     .C_M01_AXIS_START_COUNT(32),  // Start count is the number of clock cycles the master will wait before initiating/issuing any transaction.
-    .PCB_REV(1)
+    .PCB_REV(0)
   ) inst (
     .hs_clk(hs_clk),
     .maroc_trig0(maroc_trig0),
@@ -272,6 +274,7 @@ input wire m01_axis_aresetn;
     .ref_clk(ref_clk),
     .adc_clk_out(adc_clk_out),
     .ext_trig(ext_trig),
+    .pixel_trig(pixel_trig),
     .testpoint(testpoint),
     .ET_clk(ET_clk),
     .ET_clk_1(ET_clk_1),

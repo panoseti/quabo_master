@@ -7,7 +7,7 @@
 //To save a few kB of code space, get rid of the InitRemap()
 #define USE_SIMPLE_INIT
 //Also ned to select whether it's the QFP or BGA version.  Comment this out for QFP
-#define REMAP_FOR_BGA
+//#define REMAP_FOR_BGA
 
 //In hw13, added a pin to select one of two IP addresses on J3, abandoned UART
 //#define READ_IP_ADDR_FROM_J3

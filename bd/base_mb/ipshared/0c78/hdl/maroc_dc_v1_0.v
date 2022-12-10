@@ -46,6 +46,7 @@
         output adc_clk_out,
         //from the other quadrants
         input ext_trig,
+        output pixel_trig,
         output [5:0] testpoint,
         //from the elapsed time module
         input ET_clk,
@@ -232,6 +233,8 @@ maroc_dc #(.REMAP_FOR_BGA(PCB_REV))
         .adc_clk_out(adc_clk_out),
         //from the other quadrants
         .ext_trig(ext_trig),
+        //to the other quadrants
+        .pixel_trig(pixel_trig),
         //To start things up in SW
         .sw_trig(sw_trig),
         //parameters from the AXI interface
