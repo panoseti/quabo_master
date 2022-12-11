@@ -1,0 +1,725 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Dec 10 21:06:49 2022
+# Process ID: 222542
+# Current directory: /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master
+# Command line: vivado
+# Log file: /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/vivado.log
+# Journal file: /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/quabo_proj.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/wei/Software/Vivado/2018.3/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 6524.266 ; gain = 214.273 ; free physical = 8265 ; free virtual = 36579
+update_compile_order -fileset sources_1
+update_module_reference base_mb_ext_trig_0_2
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo'.
+Adding cell -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - dlmb_bram_if_cntlr
+Adding cell -- xilinx.com:ip:lmb_v10:3.0 - dlmb_v10
+Adding cell -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - ilmb_bram_if_cntlr
+Adding cell -- xilinx.com:ip:lmb_v10:3.0 - ilmb_v10
+Adding cell -- xilinx.com:ip:blk_mem_gen:8.4 - lmb_bram
+Adding cell -- xilinx.com:module_ref:in_buf_ds_1bit:1.0 - in_buf_ds_1bit_0
+Adding cell -- xilinx.com:module_ref:in_buf_ds_4bit:1.0 - in_buf_ds_4bit_0
+Adding cell -- xilinx.com:module_ref:in_buf_ds_1bit:1.0 - in_buf_ds_adcbitclk
+Adding cell -- xilinx.com:module_ref:stim_gen:1.0 - stim_gen_0
+Adding cell -- xilinx.com:module_ref:SPI_MUX:1.0 - SPI_MUX_1
+Adding cell -- xilinx.com:module_ref:elapsed_time_gen:1.0 - elapsed_time_gen_0
+Adding cell -- xilinx.com:module_ref:SPI_STARTUP:1.0 - SPI_STARTUP_0
+Adding cell -- xilinx.com:module_ref:OBUFDS_FOR_CLK:1.0 - OBUFDS_FOR_CLK_0
+Adding cell -- xilinx.com:module_ref:PPS_IO:1.0 - PPS_IO_0
+Adding cell -- xilinx.com:module_ref:flash_control:1.0 - flash_control_0
+Adding cell -- xilinx.com:module_ref:firmware_ID_ROM:1.0 - firmware_ID_ROM_0
+Adding cell -- xilinx.com:module_ref:delay:1.0 - delay_0
+Adding cell -- xilinx.com:module_ref:SPI_access:1.0 - SPI_access_0
+Adding cell -- xilinx.com:module_ref:delay:1.0 - delay_1
+Adding cell -- xilinx.com:module_ref:IBUFDS_FOR_CLK:1.0 - IBUFDS_FOR_CLK_0
+Adding cell -- xilinx.com:module_ref:step_drive:1.0 - step_drive_0
+Adding cell -- xilinx.com:module_ref:pinout_three_state:1.0 - pinout_three_state_0
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_3_0
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_29_24
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_21_21
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_19_23
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_24_27
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_23_23
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_28_28
+Adding cell -- user.org:user:ETH_CORE_CTRL:2.1 - ETH_CORE_CTRL_0
+Adding cell -- user.org:user:ETH_CORE_CTRL:2.1 - ETH_CORE_CTRL_1
+Adding cell -- user.org:user:FIFO_for_AXIS:1.4 - FIFO_for_AXIS_0
+Adding cell -- xilinx.com:ip:axi_ethernet:7.1 - axi_ethernet_0
+Adding cell -- xilinx.com:ip:axi_fifo_mm_s:4.2 - axi_ethernet_0_fifo
+Adding cell -- xilinx.com:ip:axi_ethernet:7.1 - axi_ethernet_1
+Adding cell -- xilinx.com:ip:axi_gpio:2.0 - GPIO
+Adding cell -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_mech
+Adding cell -- xilinx.com:ip:axi_gpio:2.0 - axi_spi_sel
+Adding cell -- xilinx.com:ip:axi_hwicap:3.0 - axi_hwicap_0
+Adding cell -- xilinx.com:ip:axi_iic:2.0 - axi_iic_0
+Adding cell -- xilinx.com:ip:axi_intc:4.1 - axi_intc_0
+Adding cell -- xilinx.com:ip:axi_interconnect:2.1 - axi_interconnect_0
+Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding cell -- xilinx.com:ip:axi_quad_spi:3.2 - axi_quad_spi_0
+Adding cell -- xilinx.com:ip:axi_quad_spi:3.2 - axi_quad_spi_1
+Adding cell -- xilinx.com:ip:axi_timebase_wdt:3.0 - axi_timebase_wdt_0
+Adding cell -- xilinx.com:ip:axi_timer:2.0 - axi_timer_0
+Adding cell -- xilinx.com:ip:axi_timer:2.0 - axi_timer_1
+Adding cell -- xilinx.com:ip:axi_uartlite:2.0 - axi_uartlite_0
+Adding cell -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+Adding cell -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_1
+Adding cell -- xilinx.com:user:maroc_slow_control:1.0 - maroc_slow_control_0
+Adding cell -- xilinx.com:ip:mdm:3.2 - mdm_1
+Adding cell -- xilinx.com:ip:microblaze:11.0 - microblaze_0
+WARNING: [xilinx.com:ip:microblaze:11.0-19] /microblaze_0: When using frequency optimization it is highly recommended to enable the branch target cache, in order to improve computational performance.
+Adding cell -- xilinx.com:ip:axi_interconnect:2.1 - microblaze_0_axi_periph
+Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_clk_wiz_1_100M
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_clk_wiz_1_100M_1
+Adding cell -- xilinx.com:ip:xadc_wiz:3.3 - xadc_wiz_0
+Adding cell -- xilinx.com:ip:xlconcat:2.1 - xlconcat_0
+Adding cell -- xilinx.com:ip:xlconcat:2.1 - xlconcat_2
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_0
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_1
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_7
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_2
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_3
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_4
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_5
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_6
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_0_0
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_1_1
+Adding cell -- xilinx.com:ip:xlslice:1.0 - xlslice_3
+Adding cell -- xilinx.com:ip:xlslice:1.0 - xlslice_0
+Adding cell -- xilinx.com:ip:xlslice:1.0 - xlslice_1
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_2_9
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_10_13
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_16_18
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_14_14
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_15_15
+Adding cell -- user.org:user:AXI_Stream_Switch_3:1.2 - AXI_Stream_Switch_3_0
+Adding cell -- xilinx.com:module_ref:StepDrive_ShutterCtrl_Sel:1.0 - StepDrive_ShutterCtr_0
+Adding cell -- xilinx.com:ip:xlslice:1.0 - Bit_29_29
+Adding cell -- user.org:user:AXI_Stream_Switch_3:1.2 - AXI_Stream_Switch_3_1
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_8
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_9
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_10
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_11
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_12
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_13
+Adding cell -- user.org:user:PH_BL_FIFO:3.3 - PH_BL_FIFO_0
+Adding cell -- user.org:user:wrc_board_quabo_Light:1.3 - wrc_board_quabo_Light_0
+Adding cell -- user.org:user:HighSpeed_Module:3.9 - HighSpeed_IM_v1_0_0
+Adding cell -- user.org:user:HighSpeed_Module:3.9 - HighSpeed_PH_v1_0_0
+Adding cell -- xilinx.com:module_ref:TAI_IO:1.0 - TAI_IO_0
+Adding cell -- xilinx.com:module_ref:IM_FIFO:1.0 - IM_FIFO_0
+Adding cell -- xilinx.com:module_ref:ext_trig:1.0 - ext_trig_0
+Adding cell -- xilinx.com:user:maroc_dc:1.9 - maroc_dc_0
+WARNING: [BD 41-1731] Type mismatch between connected pins: /in_buf_ds_1bit_0/outp(undef) and /maroc_dc_0/frm_clk(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /in_buf_ds_adcbitclk/outp(undef) and /maroc_dc_0/bit_clk(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /BIT_CLK_P(clk) and /in_buf_ds_adcbitclk/in_p(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /BIT_CLK_N(clk) and /in_buf_ds_adcbitclk/in_n(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_wiz_0/clk_62m5(clk) and /elapsed_time_gen_0/clk_62m5(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_wiz_0/clk_out250_1(clk) and /elapsed_time_gen_0/clk_250_1(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_wiz_0/clk_out250_1(clk) and /maroc_dc_0/ET_clk_1(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_wiz_0/clk_out250_2(clk) and /elapsed_time_gen_0/clk_250_2(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_wiz_0/clk_out250_2(clk) and /maroc_dc_0/ET_clk_2(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_wiz_0/clk_out250_3(clk) and /elapsed_time_gen_0/clk_250_3(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_wiz_0/clk_out250_3(clk) and /maroc_dc_0/ET_clk_3(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_wiz_0/clk_out250_0(clk) and /elapsed_time_gen_0/clk_250(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /IBUFDS_FOR_CLK_0/O(undef) and /clk_wiz_0/clk_in1(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /IBUFDS_FOR_CLK_0/O(undef) and /clk_wiz_1/clk_in1(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /sysclkin_p(clk) and /IBUFDS_FOR_CLK_0/I(undef)
+Successfully read diagram <base_mb> from BD file </home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd>
+WARNING: [BD 41-1731] Type mismatch between connected pins: /c_counter_binary_0/THRESH0(data) and /c_shift_ram_0/CE(ce)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /pcs_pma/gt0_qplloutclk_out(undef) and /gt0_qplloutclk_out(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /pcs_pma/gt0_qplloutrefclk_out(undef) and /gt0_qplloutrefclk_out(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /c_counter_binary_0/THRESH0(data) and /c_shift_ram_0/CE(ce)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /gt0_qplloutclk_in(clk) and /pcs_pma/gt0_qplloutclk_in(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /gt0_qplloutrefclk_in(clk) and /pcs_pma/gt0_qplloutrefclk_in(undef)
+Upgrading '/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd'
+INFO: [IP_Flow 19-1972] Upgraded base_mb_ext_trig_0_2 from ext_trig_v1_0 1.0 to ext_trig_v1_0 1.0
+Wrote  : </home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd> 
+Wrote  : </home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/ui/bd_c2e9b563.ui> 
+ipx::edit_ip_in_project -upgrade true -name maroc_dc_v1_9_project -directory /home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/quabo_proj.tmp/maroc_dc_v1_9_project /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0/component.xml
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/wei/Software/Vivado/2018.3/Vivado/2018.3/data/ip'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo'.
+INFO: [IP_Flow 19-795] Syncing license key meta-data
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0/src/MUX_16b_16to1_sync.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0/src/async_edge_detect.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0/src/bin_counter.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0/src/delay_hold.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0/src/im_mode_state_machine.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0/src/maroc_dc.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0/hdl/maroc_dc_v1_0_S00_AXI.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0/src/ph_state_machine.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0/src/qdata_rx.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0/src/sync_it.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0/hdl/maroc_dc_v1_0.v:]
+ipx::edit_ip_in_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 7402.020 ; gain = 0.000 ; free physical = 8018 ; free virtual = 36352
+update_compile_order -fileset sources_1
+set_property core_revision 6 [ipx::current_core]
+ipx::update_source_project_archive -component [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+ipx::move_temp_component_back -component [ipx::current_core]
+close_project -delete
+update_ip_catalog -rebuild -repo_path /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo
+INFO: [IP_Flow 19-725] Reloaded user IP repository '/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo'
+report_ip_status -name ip_status 
+upgrade_ip -vlnv xilinx.com:user:maroc_dc:1.9 [get_ips  base_mb_maroc_dc_0_0] -log ip_upgrade.log
+Upgrading '/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd'
+INFO: [IP_Flow 19-3422] Upgraded base_mb_maroc_dc_0_0 (maroc_dc_v1.9 1.9) from revision 5 to revision 6
+WARNING: [BD 41-1731] Type mismatch between connected pins: /in_buf_ds_adcbitclk/outp(undef) and /maroc_dc_0_upgraded_ipi/bit_clk(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /in_buf_ds_1bit_0/outp(undef) and /maroc_dc_0_upgraded_ipi/frm_clk(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_wiz_0/clk_out250_1(clk) and /maroc_dc_0_upgraded_ipi/ET_clk_1(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_wiz_0/clk_out250_2(clk) and /maroc_dc_0_upgraded_ipi/ET_clk_2(undef)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_wiz_0/clk_out250_3(clk) and /maroc_dc_0_upgraded_ipi/ET_clk_3(undef)
+Wrote  : </home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd> 
+INFO: [Coretcl 2-1525] Wrote upgrade log to '/home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/ip_upgrade.log'.
+export_ip_user_files -of_objects [get_ips base_mb_maroc_dc_0_0] -no_script -sync -force -quiet
+generate_target all [get_files  /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd]
+CRITICAL WARNING: [BD 41-967] AXI interface pin /PH_BL_FIFO_0/axi_str_rxd is not associated to any clock pin. It may not work correctly.
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /axi_intc_0/intr
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /axi_intc_0/intr
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /axi_intc_0/intr
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /axi_intc_0/intr
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /axi_intc_0/intr
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /axi_intc_0/intr
+INFO: [xilinx.com:ip:c_shift_ram:12.0-913] /c_shift_ram_0 Width has been set to manual on the GUI. It will not be updated during validation with a propagated value.
+INFO: [xilinx.com:ip:c_shift_ram:12.0-913] /c_shift_ram_0 Width has been set to manual on the GUI. It will not be updated during validation with a propagated value.
+INFO: [xilinx.com:ip:c_shift_ram:12.0-913] /c_shift_ram_0 Width has been set to manual on the GUI. It will not be updated during validation with a propagated value.
+INFO: [xilinx.com:ip:c_shift_ram:12.0-913] /c_shift_ram_0 Width has been set to manual on the GUI. It will not be updated during validation with a propagated value.
+INFO: [xilinx.com:ip:c_shift_ram:12.0-913] /c_shift_ram_0 Width has been set to manual on the GUI. It will not be updated during validation with a propagated value.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_local_memory/dlmb_bram_if_cntlr/LMB_Rst (associated clock /microblaze_0_local_memory/dlmb_bram_if_cntlr/LMB_Clk) is connected to reset source /rst_clk_wiz_1_100M/bus_struct_reset (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/bus_struct_reset.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_local_memory/dlmb_v10/SYS_Rst (associated clock /microblaze_0_local_memory/dlmb_v10/LMB_Clk) is connected to reset source /rst_clk_wiz_1_100M/bus_struct_reset (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/bus_struct_reset.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_local_memory/ilmb_bram_if_cntlr/LMB_Rst (associated clock /microblaze_0_local_memory/ilmb_bram_if_cntlr/LMB_Clk) is connected to reset source /rst_clk_wiz_1_100M/bus_struct_reset (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/bus_struct_reset.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_local_memory/ilmb_v10/SYS_Rst (associated clock /microblaze_0_local_memory/ilmb_v10/LMB_Clk) is connected to reset source /rst_clk_wiz_1_100M/bus_struct_reset (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/bus_struct_reset.
+CRITICAL WARNING: [BD 41-1344] Reset pin /PPS_IO_0/rst (associated clock /PPS_IO_0/clk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /FIFO_for_AXIS_0/rst (associated clock /FIFO_for_AXIS_0/clk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_ethernet_0/s_axi_lite_resetn (associated clock /axi_ethernet_0/s_axi_lite_clk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_ethernet_0_fifo/s_axi_aresetn (associated clock /axi_ethernet_0_fifo/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_ethernet_1/s_axi_lite_resetn (associated clock /axi_ethernet_1/s_axi_lite_clk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_spi_sel/s_axi_aresetn (associated clock /axi_spi_sel/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_hwicap_0/s_axi_aresetn (associated clock /axi_hwicap_0/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_iic_0/s_axi_aresetn (associated clock /axi_iic_0/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_intc_0/s_axi_aresetn (associated clock /axi_intc_0/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/ARESETN (associated clock /axi_interconnect_0/ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/interconnect_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/S00_ARESETN (associated clock /axi_interconnect_0/S00_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M00_ARESETN (associated clock /axi_interconnect_0/M00_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M01_ARESETN (associated clock /axi_interconnect_0/M01_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M02_ARESETN (associated clock /axi_interconnect_0/M02_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M03_ARESETN (associated clock /axi_interconnect_0/M03_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M04_ARESETN (associated clock /axi_interconnect_0/M04_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M05_ARESETN (associated clock /axi_interconnect_0/M05_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M06_ARESETN (associated clock /axi_interconnect_0/M06_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_quad_spi_0/s_axi_aresetn (associated clock /axi_quad_spi_0/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_quad_spi_1/s_axi_aresetn (associated clock /axi_quad_spi_1/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_timer_0/s_axi_aresetn (associated clock /axi_timer_0/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_timer_1/s_axi_aresetn (associated clock /axi_timer_1/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_uartlite_0/s_axi_aresetn (associated clock /axi_uartlite_0/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /maroc_slow_control_0/s00_axi_aresetn (associated clock /maroc_slow_control_0/s00_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0/Reset (associated clock /microblaze_0/Clk) is connected to reset source /rst_clk_wiz_1_100M/mb_reset (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/mb_reset.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/ARESETN (associated clock /microblaze_0_axi_periph/ACLK) is connected to reset source /rst_clk_wiz_1_100M/interconnect_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/interconnect_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/S00_ARESETN (associated clock /microblaze_0_axi_periph/S00_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/S01_ARESETN (associated clock /microblaze_0_axi_periph/S01_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M00_ARESETN (associated clock /microblaze_0_axi_periph/M00_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M01_ARESETN (associated clock /microblaze_0_axi_periph/M01_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M02_ARESETN (associated clock /microblaze_0_axi_periph/M02_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M03_ARESETN (associated clock /microblaze_0_axi_periph/M03_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M04_ARESETN (associated clock /microblaze_0_axi_periph/M04_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M05_ARESETN (associated clock /microblaze_0_axi_periph/M05_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M06_ARESETN (associated clock /microblaze_0_axi_periph/M06_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M07_ARESETN (associated clock /microblaze_0_axi_periph/M07_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M08_ARESETN (associated clock /microblaze_0_axi_periph/M08_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /AXI_Stream_Switch_3_0/aresetn (associated clock /AXI_Stream_Switch_3_0/aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /AXI_Stream_Switch_3_1/aresetn (associated clock /AXI_Stream_Switch_3_1/aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /TAI_IO_0/rst (associated clock /TAI_IO_0/clk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /maroc_dc_0/s00_axi_aresetn (associated clock /maroc_dc_0/s00_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /maroc_dc_0/m00_axis_aresetn (associated clock /maroc_dc_0/m00_axis_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /maroc_dc_0/m01_axis_aresetn (associated clock /maroc_dc_0/m01_axis_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+WARNING: [xilinx.com:ip:axi_intc:4.1-6] /axi_intc_0: Property SENSITIVITY = "NULL" for interrupt input 5 not recognized - using default interrupt type Rising Edge. Please change this manually if necessary.
+INFO: [xilinx.com:ip:axi_hwicap:3.0-1] /axi_hwicap_0 
+                    ##########################################################################################
+                    Clocks connected to AXI HWICAP are same. Configuring AXI HWICAP in SYNC mode ..........
+                    ##########################################################################################
+INFO: [xilinx.com:ip:axi_quad_spi:3.2-1] /axi_quad_spi_0 
+                  ##############################################################################
+                  INFO: AXI Quad SPI core's AXI Lite Clock and EXT SPI CLK are are asynchronous.
+                  ##############################################################################
+INFO: [xilinx.com:ip:axi_quad_spi:3.2-1] /axi_quad_spi_1 
+                   #######################################################################################
+                   INFO: AXI Quad SPI core's AXI Lite Clock and EXT SPI CLK are synchronous to each other.
+                   ########################################################################################
+WARNING: [BD 41-927] Following properties on pin /stim_gen_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /SPI_STARTUP_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /PPS_IO_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /flash_control_0/hs_clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_0_0_clk_250 
+WARNING: [BD 41-927] Following properties on pin /flash_control_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /delay_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_0_0_clk_62m5 
+WARNING: [BD 41-927] Following properties on pin /SPI_access_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /delay_1/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_0_0_clk_62m5 
+WARNING: [BD 41-927] Following properties on pin /step_drive_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /ETH_CORE_CTRL_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /ETH_CORE_CTRL_1/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /FIFO_for_AXIS_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /xadc_wiz_0/s_axi_aclk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /StepDrive_ShutterCtr_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /TAI_IO_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /IM_FIFO_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+Wrote  : </home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd> 
+VHDL Output written to : /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/synth/base_mb.v
+VHDL Output written to : /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/sim/base_mb.v
+VHDL Output written to : /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/hdl/base_mb_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mdm_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_clk_wiz_1_100M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_uartlite_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/dlmb_v10 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/ilmb_v10 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/dlmb_bram_if_cntlr .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/ilmb_bram_if_cntlr .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/lmb_bram .
+Exporting to file /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/ip/base_mb_axi_ethernet_0_0/bd_0/hw_handoff/base_mb_axi_ethernet_0_0.hwh
+Generated Block Design Tcl file /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/ip/base_mb_axi_ethernet_0_0/bd_0/hw_handoff/base_mb_axi_ethernet_0_0_bd.tcl
+Generated Hardware Definition File /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/ip/base_mb_axi_ethernet_0_0/bd_0/synth/base_mb_axi_ethernet_0_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_ethernet_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_ethernet_0_fifo .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_intc_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_iic_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconcat_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_quad_spi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block maroc_slow_control_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block maroc_dc_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block GPIO .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_0_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_clk_wiz_1_100M_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xadc_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block stim_gen_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_1_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_2_9 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_3 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_3 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block in_buf_ds_4bit_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block in_buf_ds_1bit_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block elapsed_time_gen_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block in_buf_ds_adcbitclk .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timebase_wdt_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_10_13 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block wrc_board_quabo_Light_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_14_14 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block SPI_MUX_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block SPI_access_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_15_15 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_4 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_5 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_6 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block flash_control_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_16_18 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_19_23 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_24_27 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_mech .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_3_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconcat_2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_21_21 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_23_23 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_28_28 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_quad_spi_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block SPI_STARTUP_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_hwicap_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_spi_sel .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timer_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_7 .
+Exporting to file /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/ip/base_mb_axi_ethernet_1_0/bd_0/hw_handoff/base_mb_axi_ethernet_1_0.hwh
+Generated Block Design Tcl file /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/ip/base_mb_axi_ethernet_1_0/bd_0/hw_handoff/base_mb_axi_ethernet_1_0_bd.tcl
+Generated Hardware Definition File /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/ip/base_mb_axi_ethernet_1_0/bd_0/synth/base_mb_axi_ethernet_1_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_ethernet_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block OBUFDS_FOR_CLK_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block FIFO_for_AXIS_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ETH_CORE_CTRL_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ETH_CORE_CTRL_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block PPS_IO_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block firmware_ID_ROM_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_29_24 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block delay_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block delay_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block IBUFDS_FOR_CLK_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block step_drive_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pinout_three_state_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block HighSpeed_IM_v1_0_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block AXI_Stream_Switch_3_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block StepDrive_ShutterCtr_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block IM_FIFO_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_29_29 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block HighSpeed_PH_v1_0_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block AXI_Stream_Switch_3_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_8 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_9 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_10 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_11 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block PH_BL_FIFO_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_12 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_13 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block TAI_IO_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ext_trig_0 .
+Exporting to file /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/hw_handoff/base_mb.hwh
+Generated Block Design Tcl file /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/hw_handoff/base_mb_bd.tcl
+Generated Hardware Definition File /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/synth/base_mb.hwdef
+generate_target: Time (s): cpu = 00:00:52 ; elapsed = 00:00:19 . Memory (MB): peak = 7456.930 ; gain = 54.910 ; free physical = 7560 ; free virtual = 36042
+export_ip_user_files -of_objects [get_files /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd] -directory /home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/quabo_proj.ip_user_files/sim_scripts -ip_user_files_dir /home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/quabo_proj.ip_user_files -ipstatic_source_dir /home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/quabo_proj.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/quabo_proj.cache/compile_simlib/modelsim} {questa=/home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/quabo_proj.cache/compile_simlib/questa} {ies=/home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/quabo_proj.cache/compile_simlib/ies} {xcelium=/home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/quabo_proj.cache/compile_simlib/xcelium} {vcs=/home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/quabo_proj.cache/compile_simlib/vcs} {riviera=/home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/quabo_proj.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+update_module_reference base_mb_ext_trig_0_2
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo'.
+Upgrading '/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd'
+INFO: [IP_Flow 19-1972] Upgraded base_mb_ext_trig_0_2 from ext_trig_v1_0 1.0 to ext_trig_v1_0 1.0
+Wrote  : </home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd> 
+update_module_reference: Time (s): cpu = 00:00:36 ; elapsed = 00:00:05 . Memory (MB): peak = 7853.066 ; gain = 186.109 ; free physical = 7581 ; free virtual = 36070
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 12
+CRITICAL WARNING: [BD 41-967] AXI interface pin /PH_BL_FIFO_0/axi_str_rxd is not associated to any clock pin. It may not work correctly.
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /axi_intc_0/intr
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /axi_intc_0/intr
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /axi_intc_0/intr
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /axi_intc_0/intr
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /axi_intc_0/intr
+WARNING: [BD 41-1284] Cannot set parameter SUGGESTED_PRIORITY on port /axi_intc_0/intr
+INFO: [xilinx.com:ip:c_shift_ram:12.0-913] /c_shift_ram_0 Width has been set to manual on the GUI. It will not be updated during validation with a propagated value.
+INFO: [xilinx.com:ip:c_shift_ram:12.0-913] /c_shift_ram_0 Width has been set to manual on the GUI. It will not be updated during validation with a propagated value.
+INFO: [xilinx.com:ip:c_shift_ram:12.0-913] /c_shift_ram_0 Width has been set to manual on the GUI. It will not be updated during validation with a propagated value.
+INFO: [xilinx.com:ip:c_shift_ram:12.0-913] /c_shift_ram_0 Width has been set to manual on the GUI. It will not be updated during validation with a propagated value.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_local_memory/dlmb_bram_if_cntlr/LMB_Rst (associated clock /microblaze_0_local_memory/dlmb_bram_if_cntlr/LMB_Clk) is connected to reset source /rst_clk_wiz_1_100M/bus_struct_reset (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/bus_struct_reset.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_local_memory/dlmb_v10/SYS_Rst (associated clock /microblaze_0_local_memory/dlmb_v10/LMB_Clk) is connected to reset source /rst_clk_wiz_1_100M/bus_struct_reset (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/bus_struct_reset.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_local_memory/ilmb_bram_if_cntlr/LMB_Rst (associated clock /microblaze_0_local_memory/ilmb_bram_if_cntlr/LMB_Clk) is connected to reset source /rst_clk_wiz_1_100M/bus_struct_reset (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/bus_struct_reset.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_local_memory/ilmb_v10/SYS_Rst (associated clock /microblaze_0_local_memory/ilmb_v10/LMB_Clk) is connected to reset source /rst_clk_wiz_1_100M/bus_struct_reset (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/bus_struct_reset.
+CRITICAL WARNING: [BD 41-1344] Reset pin /PPS_IO_0/rst (associated clock /PPS_IO_0/clk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /FIFO_for_AXIS_0/rst (associated clock /FIFO_for_AXIS_0/clk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_ethernet_0/s_axi_lite_resetn (associated clock /axi_ethernet_0/s_axi_lite_clk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_ethernet_0_fifo/s_axi_aresetn (associated clock /axi_ethernet_0_fifo/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_ethernet_1/s_axi_lite_resetn (associated clock /axi_ethernet_1/s_axi_lite_clk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_spi_sel/s_axi_aresetn (associated clock /axi_spi_sel/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_hwicap_0/s_axi_aresetn (associated clock /axi_hwicap_0/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_iic_0/s_axi_aresetn (associated clock /axi_iic_0/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_intc_0/s_axi_aresetn (associated clock /axi_intc_0/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/ARESETN (associated clock /axi_interconnect_0/ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/interconnect_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/S00_ARESETN (associated clock /axi_interconnect_0/S00_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M00_ARESETN (associated clock /axi_interconnect_0/M00_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M01_ARESETN (associated clock /axi_interconnect_0/M01_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M02_ARESETN (associated clock /axi_interconnect_0/M02_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M03_ARESETN (associated clock /axi_interconnect_0/M03_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M04_ARESETN (associated clock /axi_interconnect_0/M04_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M05_ARESETN (associated clock /axi_interconnect_0/M05_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_interconnect_0/M06_ARESETN (associated clock /axi_interconnect_0/M06_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_quad_spi_0/s_axi_aresetn (associated clock /axi_quad_spi_0/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_quad_spi_1/s_axi_aresetn (associated clock /axi_quad_spi_1/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_timer_0/s_axi_aresetn (associated clock /axi_timer_0/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_timer_1/s_axi_aresetn (associated clock /axi_timer_1/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /axi_uartlite_0/s_axi_aresetn (associated clock /axi_uartlite_0/s_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /maroc_slow_control_0/s00_axi_aresetn (associated clock /maroc_slow_control_0/s00_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0/Reset (associated clock /microblaze_0/Clk) is connected to reset source /rst_clk_wiz_1_100M/mb_reset (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/mb_reset.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/ARESETN (associated clock /microblaze_0_axi_periph/ACLK) is connected to reset source /rst_clk_wiz_1_100M/interconnect_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/interconnect_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/S00_ARESETN (associated clock /microblaze_0_axi_periph/S00_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/S01_ARESETN (associated clock /microblaze_0_axi_periph/S01_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M00_ARESETN (associated clock /microblaze_0_axi_periph/M00_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M01_ARESETN (associated clock /microblaze_0_axi_periph/M01_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M02_ARESETN (associated clock /microblaze_0_axi_periph/M02_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M03_ARESETN (associated clock /microblaze_0_axi_periph/M03_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M04_ARESETN (associated clock /microblaze_0_axi_periph/M04_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M05_ARESETN (associated clock /microblaze_0_axi_periph/M05_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M06_ARESETN (associated clock /microblaze_0_axi_periph/M06_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M07_ARESETN (associated clock /microblaze_0_axi_periph/M07_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /microblaze_0_axi_periph/M08_ARESETN (associated clock /microblaze_0_axi_periph/M08_ACLK) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /AXI_Stream_Switch_3_0/aresetn (associated clock /AXI_Stream_Switch_3_0/aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /AXI_Stream_Switch_3_1/aresetn (associated clock /AXI_Stream_Switch_3_1/aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /TAI_IO_0/rst (associated clock /TAI_IO_0/clk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /maroc_dc_0/s00_axi_aresetn (associated clock /maroc_dc_0/s00_axi_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /maroc_dc_0/m00_axis_aresetn (associated clock /maroc_dc_0/m00_axis_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+CRITICAL WARNING: [BD 41-1344] Reset pin /maroc_dc_0/m01_axis_aresetn (associated clock /maroc_dc_0/m01_axis_aclk) is connected to reset source /rst_clk_wiz_1_100M/peripheral_aresetn (synchronous to clock source /clk_wiz_1/clk_10).
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_clk_wiz_1_100M_1/peripheral_aresetn.
+WARNING: [xilinx.com:ip:axi_intc:4.1-6] /axi_intc_0: Property SENSITIVITY = "NULL" for interrupt input 5 not recognized - using default interrupt type Rising Edge. Please change this manually if necessary.
+INFO: [xilinx.com:ip:axi_hwicap:3.0-1] /axi_hwicap_0 
+                    ##########################################################################################
+                    Clocks connected to AXI HWICAP are same. Configuring AXI HWICAP in SYNC mode ..........
+                    ##########################################################################################
+INFO: [xilinx.com:ip:axi_quad_spi:3.2-1] /axi_quad_spi_0 
+                  ##############################################################################
+                  INFO: AXI Quad SPI core's AXI Lite Clock and EXT SPI CLK are are asynchronous.
+                  ##############################################################################
+INFO: [xilinx.com:ip:axi_quad_spi:3.2-1] /axi_quad_spi_1 
+                   #######################################################################################
+                   INFO: AXI Quad SPI core's AXI Lite Clock and EXT SPI CLK are synchronous to each other.
+                   ########################################################################################
+WARNING: [BD 41-927] Following properties on pin /stim_gen_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /SPI_STARTUP_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /PPS_IO_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /flash_control_0/hs_clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_0_0_clk_250 
+WARNING: [BD 41-927] Following properties on pin /flash_control_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /delay_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_0_0_clk_62m5 
+WARNING: [BD 41-927] Following properties on pin /SPI_access_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /delay_1/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_0_0_clk_62m5 
+WARNING: [BD 41-927] Following properties on pin /step_drive_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /ETH_CORE_CTRL_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /ETH_CORE_CTRL_1/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /FIFO_for_AXIS_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /xadc_wiz_0/s_axi_aclk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /StepDrive_ShutterCtr_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /TAI_IO_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+WARNING: [BD 41-927] Following properties on pin /IM_FIFO_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=base_mb_clk_wiz_1_0_clk_100 
+Wrote  : </home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/base_mb.bd> 
+VHDL Output written to : /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/synth/base_mb.v
+VHDL Output written to : /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/sim/base_mb.v
+VHDL Output written to : /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/hdl/base_mb_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block mdm_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_clk_wiz_1_100M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_uartlite_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/dlmb_v10 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/ilmb_v10 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/dlmb_bram_if_cntlr .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/ilmb_bram_if_cntlr .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_local_memory/lmb_bram .
+Exporting to file /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/ip/base_mb_axi_ethernet_0_0/bd_0/hw_handoff/base_mb_axi_ethernet_0_0.hwh
+Generated Block Design Tcl file /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/ip/base_mb_axi_ethernet_0_0/bd_0/hw_handoff/base_mb_axi_ethernet_0_0_bd.tcl
+Generated Hardware Definition File /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/ip/base_mb_axi_ethernet_0_0/bd_0/synth/base_mb_axi_ethernet_0_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_ethernet_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_ethernet_0_fifo .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_intc_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timer_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_iic_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconcat_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_quad_spi_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block maroc_slow_control_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block maroc_dc_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block GPIO .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_0_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_clk_wiz_1_100M_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xadc_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block stim_gen_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_1_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_2_9 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_3 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_3 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block in_buf_ds_4bit_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block in_buf_ds_1bit_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block elapsed_time_gen_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block in_buf_ds_adcbitclk .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timebase_wdt_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_10_13 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block wrc_board_quabo_Light_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_14_14 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block SPI_MUX_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block SPI_access_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_15_15 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_4 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_5 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_6 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block flash_control_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_16_18 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_19_23 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_24_27 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_mech .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_3_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconcat_2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_21_21 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_23_23 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_28_28 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_quad_spi_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block SPI_STARTUP_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_hwicap_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_spi_sel .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_timer_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_7 .
+Exporting to file /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/ip/base_mb_axi_ethernet_1_0/bd_0/hw_handoff/base_mb_axi_ethernet_1_0.hwh
+Generated Block Design Tcl file /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/ip/base_mb_axi_ethernet_1_0/bd_0/hw_handoff/base_mb_axi_ethernet_1_0_bd.tcl
+Generated Hardware Definition File /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/ip/base_mb_axi_ethernet_1_0/bd_0/synth/base_mb_axi_ethernet_1_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_ethernet_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block OBUFDS_FOR_CLK_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block FIFO_for_AXIS_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ETH_CORE_CTRL_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ETH_CORE_CTRL_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block PPS_IO_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block firmware_ID_ROM_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_29_24 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block delay_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block delay_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block IBUFDS_FOR_CLK_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block step_drive_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block pinout_three_state_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block HighSpeed_IM_v1_0_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block AXI_Stream_Switch_3_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block microblaze_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block StepDrive_ShutterCtr_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block IM_FIFO_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Bit_29_29 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block HighSpeed_PH_v1_0_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block AXI_Stream_Switch_3_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_8 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_9 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_10 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_11 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block PH_BL_FIFO_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_12 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconstant_13 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block TAI_IO_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ext_trig_0 .
+Exporting to file /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/hw_handoff/base_mb.hwh
+Generated Block Design Tcl file /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/hw_handoff/base_mb_bd.tcl
+Generated Hardware Definition File /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/bd/base_mb/synth/base_mb.hwdef
+[Sat Dec 10 21:12:34 2022] Launched synth_1...
+Run output will be captured here: /home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/quabo_proj.runs/synth_1/runme.log
+[Sat Dec 10 21:12:34 2022] Launched impl_1...
+Run output will be captured here: /home/wei/Projects/Vivado_Proj/Panoseti/V0200/build/quabo_proj/quabo_proj.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:45 ; elapsed = 00:00:16 . Memory (MB): peak = 8085.180 ; gain = 0.000 ; free physical = 7686 ; free virtual = 36026
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Dec 10 22:14:36 2022...

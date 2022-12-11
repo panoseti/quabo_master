@@ -28,10 +28,10 @@ module ext_trig(
 
 wire ext_trig;
 IOBUF #(
-   .DRIVE(12), // Specify the output drive strength
+   .DRIVE(16), // Specify the output drive strength
    .IBUF_LOW_PWR("TRUE"),  // Low Power - "TRUE", High Performance = "FALSE"
    .IOSTANDARD("DEFAULT"), // Specify the I/O standard
-   .SLEW("SLOW") // Specify the output slew rateIOBUF_PPS(
+   .SLEW("FAST") // Specify the output slew rateIOBUF_PPS(
 )IOBUF_EXT_TRIG(
 .I(1'b0),
 .O(ext_trig),

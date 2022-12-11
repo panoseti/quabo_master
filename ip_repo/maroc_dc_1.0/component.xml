@@ -1967,7 +1967,7 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>maroc_dc_v1.9</xilinx:displayName>
-      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreRevision>6</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>xilinx.com:user:maroc_dc:1.0</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>xilinx.com:user:maroc_dc:1.1</xilinx:canUpgradeFrom>
@@ -1979,7 +1979,7 @@
         <xilinx:canUpgradeFrom>xilinx.com:user:maroc_dc:1.7</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>xilinx.com:user:maroc_dc:1.8</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2022-12-08T03:38:33Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-12-11T05:08:33Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="xilinx.com:user:maroc_dc:1.0_ARCHIVE_LOCATION">c:/XilinxProjects/PANOSETI/QuadrantBoard/ip_repo/maroc_dc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@7fa71780_ARCHIVE_LOCATION">c:/XilinxProjects/PANOSETI/QuadrantBoard/ip_repo/maroc_dc_1.0</xilinx:tag>
@@ -2724,6 +2724,11 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@18b23c34_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@5ec724e9_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@18b6c576_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4caa9393_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@21ba70c7_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@33a15394_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@651ada72_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ade086e_ARCHIVE_LOCATION">/home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/ip_repo/maroc_dc_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
