@@ -33,12 +33,12 @@ IOBUF #(
    .IOSTANDARD("DEFAULT"), // Specify the I/O standard
    .SLEW("FAST") // Specify the output slew rateIOBUF_PPS(
 )IOBUF_EXT_TRIG(
-.I(1'b0),
+.I(1'b1),
 .O(ext_trig),
 .T(~pixel_trig_maroc), //high-input; low-output
 .IO(ext_trig_io)
 );
 
-assign ext_trig_maroc = ~ext_trig;    
+assign ext_trig_maroc = ext_trig;    
 
 endmodule

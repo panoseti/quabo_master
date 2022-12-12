@@ -684,7 +684,7 @@ set_property PACKAGE_PIN H26 [get_ports {board_loc[9]}]
 
 set_property IOSTANDARD LVCMOS33 [get_ports ext_trig_io_0]
 set_property PACKAGE_PIN D25 [get_ports ext_trig_io_0]
-set_property PULLUP true [get_ports ext_trig_io_0]
+set_property PULLDOWN true [get_ports ext_trig_io_0]
 
 #set_property IOSTANDARD LVCMOS33 [get_ports {gpio_out[*]}]
 #set_property PACKAGE_PIN C22 [get_ports {gpio_out[0]}]
