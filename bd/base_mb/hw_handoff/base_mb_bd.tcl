@@ -1060,7 +1060,7 @@ proc create_root_design { parentCell } {
    }
   
   # Create instance: maroc_dc_0, and set properties
-  set maroc_dc_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:maroc_dc:1.9 maroc_dc_0 ]
+  set maroc_dc_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:maroc_dc:2.1 maroc_dc_0 ]
   set_property -dict [ list \
    CONFIG.C_M01_AXIS_TDATA_WIDTH {32} \
    CONFIG.PCB_REV {0} \

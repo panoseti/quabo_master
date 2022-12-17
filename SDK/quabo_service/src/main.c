@@ -217,7 +217,9 @@ void SetStepper(s16 steps);
 
 //Set channel Mask- a 1 in any bit position masks that channel
 void SetChannelMask(u8* data_ptr);
-
+//Set GOE Masks- a 1 in any bit position masks that channel
+// only two channels are valid.
+void SetGOEMask(u8* data_ptr);
 //Read the HK ADC, and values from temp sensor, etc.  Put results in u16 array.  If SPI is busy, return -1
 int GetHouseKeeping(void);
 void GetTMP125(void);
@@ -1034,6 +1036,10 @@ recv_callback(void *arg, struct udp_pcb *tpcb,struct pbuf *p, struct ip4_addr *a
 			Status = Write_BL((u16*)(bptr+2));
 			if(Status < 0)xil_printf("BL data can't be written into FPGA memory\r\n");
 		}
+		if((byte0 & 0x7f) == 0x0e)
+		{
+			SetGOEMask(bptr+4);
+		}
 		if ((byte0 & 0x80) == 0x80)  //Echo the packet
 		{
 			//struct pbuf *hk_pbuf;
@@ -1499,9 +1505,19 @@ void SetChannelMask(u8* data_ptr)
 			data_ptr+=4;
 		}
 	u32 regval = Xil_In32(MAROC_DC + 32);
-	Xil_Out32(MAROC_DC + 32, (regval & 0xfffffe00) | ((*data_ptr) & 0x1ff));
+	memcpy(&val, data_ptr,4);
+	//Xil_Out32(MAROC_DC + 32, (regval & 0xfffffe00) | ((*data_ptr) & 0x1ff));
+	Xil_Out32(MAROC_DC + 32, (regval & 0xfffffe00) | ((val) & 0x1ff));
 }
 
+//Set GOE Mask- a 1 in any bit position masks that channel
+void SetGOEMask(u8* data_ptr)
+{
+	u32 val;
+	u32 regval = Xil_In32(MAROC_DC + 44);
+	memcpy(&val, data_ptr,4);
+	Xil_Out32(MAROC_DC + 44, (regval & 0xfffffffc) | ((val) & 0x3));
+}
 //Read the HK ADC, and values from temp sensor, etc.  Put results in u16 array
 int GetHouseKeeping(void)
 {

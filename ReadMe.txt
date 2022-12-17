@@ -1,3 +1,11 @@
+v20.4(5):
+1) added any trigger.
+   when one quabo gets a ph event, other three quabos will be triggered by the ANYTRIG pin.
+   You should set bit8 in CHANMASK_8 to 0 to enable this function.
+2) two or three pixels trigger a ph event.
+   You need to set bit0 or bit1 in GOEMASK to 0 in config file.
+   The two bits are set to 2'b11 by default. 
+
 v20.2(3):
 1) added two new commands:
 	a) read one ph frame out for calibration;

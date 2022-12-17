@@ -8255,3 +8255,17 @@ Reason: ERROR: [Common 17-39] 'hsi::open_hw_design' failed due to earlier errors
 15:27:25 INFO  : Successfully done setting SDK workspace  
 15:27:25 INFO  : Restoring global repository preferences: 
 		 /home/wei/Projects/Vivado_Proj/swe_backend/vivado_swe/MicroBlaze_LwIP/MicroBlaze_LwIP.sdk/drivers
+11:52:54 INFO  : Registering command handlers for SDK TCF services
+11:52:55 INFO  : Launching XSCT server: xsct -n -interactive /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/SDK/temp_xsdb_launch_script.tcl
+11:52:57 INFO  : XSCT server has started successfully.
+11:52:57 INFO  : Successfully done setting XSCT server connection channel  
+11:52:58 INFO  : Successfully done setting SDK workspace  
+11:52:58 INFO  : Restoring global repository preferences: 
+		 /home/wei/Projects/Vivado_Proj/swe_backend/vivado_swe/MicroBlaze_LwIP/MicroBlaze_LwIP.sdk/drivers
+14:32:11 INFO  : Registering command handlers for SDK TCF services
+14:32:12 INFO  : Launching XSCT server: xsct -n -interactive /home/wei/Projects/Vivado_Proj/Panoseti/V0200/quabo_master/SDK/temp_xsdb_launch_script.tcl
+14:32:14 INFO  : XSCT server has started successfully.
+14:32:14 INFO  : Successfully done setting XSCT server connection channel  
+14:32:14 INFO  : Successfully done setting SDK workspace  
+14:32:14 INFO  : Restoring global repository preferences: 
+		 /home/wei/Projects/Vivado_Proj/swe_backend/vivado_swe/MicroBlaze_LwIP/MicroBlaze_LwIP.sdk/drivers
