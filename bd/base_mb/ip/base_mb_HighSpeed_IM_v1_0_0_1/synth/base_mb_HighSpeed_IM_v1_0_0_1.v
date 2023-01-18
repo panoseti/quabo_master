@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -47,7 +47,7 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: user.org:user:HighSpeed_Module:3.9
+// IP VLNV: user.org:user:HighSpeed_Module:4.0
 // IP Revision: 1
 
 (* X_CORE_INFO = "HighSpeed_IM_v1_0,Vivado 2018.3" *)

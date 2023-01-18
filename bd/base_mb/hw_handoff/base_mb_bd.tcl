@@ -496,13 +496,13 @@ proc create_root_design { parentCell } {
  ] $GPIO
 
   # Create instance: HighSpeed_IM_v1_0_0, and set properties
-  set HighSpeed_IM_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:3.9 HighSpeed_IM_v1_0_0 ]
+  set HighSpeed_IM_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:4.0 HighSpeed_IM_v1_0_0 ]
   set_property -dict [ list \
    CONFIG.MODE_SEL {0} \
  ] $HighSpeed_IM_v1_0_0
 
   # Create instance: HighSpeed_PH_v1_0_0, and set properties
-  set HighSpeed_PH_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:3.9 HighSpeed_PH_v1_0_0 ]
+  set HighSpeed_PH_v1_0_0 [ create_bd_cell -type ip -vlnv user.org:user:HighSpeed_Module:4.0 HighSpeed_PH_v1_0_0 ]
   set_property -dict [ list \
    CONFIG.MODE_SEL {1} \
  ] $HighSpeed_PH_v1_0_0

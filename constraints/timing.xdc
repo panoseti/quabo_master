@@ -49,7 +49,7 @@ set_false_path -from [get_clocks -of_objects [get_pins base_mb_i/wrc_board_quabo
 set_false_path -from [get_pins base_mb_i/maroc_dc_0/inst/USR_LOGIC/QDATA_RX/IDDR_FRAME/C] -to [get_pins base_mb_i/maroc_dc_0/inst/USR_LOGIC/adc_frame_axi_sync_reg/D]
 #This is from the 100MHz axi_clk to the 200MHz clock used for the IM counters.  These outputs are held during the reading of the values
 #set_false_path -from [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_1/inst/mmcm_adv_inst/CLKOUT0]] -to [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_1/inst/mmcm_adv_inst/CLKOUT1]]
-set_max_delay -datapath_only -from [get_clocks [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_1/inst/mmcm_adv_inst/CLKOUT0]]] -to [get_clocks [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_1/inst/mmcm_adv_inst/CLKOUT1]]] 10.0
+set_max_delay -datapath_only -from [get_clocks [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_1/inst/mmcm_adv_inst/CLKOUT0]]] -to [get_clocks [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_1/inst/mmcm_adv_inst/CLKOUT1]]] 10.000
 
 #These are deep within the WR core
 set_false_path -from [get_clocks -of_objects [get_pins base_mb_i/wrc_board_quabo_Light_0/U0/cmp_xwrc_board_quabo/cmp_xwrc_platform/gen_default_plls.gen_kintex7_default_plls.cmp_dmtd_clk_pll/CLKOUT0]] -to [get_clocks -of_objects [get_pins base_mb_i/wrc_board_quabo_Light_0/U0/cmp_xwrc_board_quabo/cmp_xwrc_platform/gen_default_plls.gen_kintex7_default_plls.cmp_sys_clk_pll/CLKOUT0]]
@@ -86,6 +86,7 @@ set_false_path -from [get_pins base_mb_i/wrc_board_quabo_Light_0/U0/cmp_xwrc_boa
 
 
 set_false_path -from [get_clocks base_mb_i/wrc_board_quabo_Light_0/U0/cmp_xwrc_board_quabo/cmp_xwrc_platform/gen_phy_kintex7.cmp_gtx/U_GTX_INST/I] -to [get_clocks clk_100_base_mb_clk_wiz_1_0]
+
 
 
 

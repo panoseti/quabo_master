@@ -80,6 +80,7 @@ XSpi_Config *ConfigPtr;	/* Pointer to Configuration data */
 //XLlFifo IM_Fifo;
 //A pointer to one or the other
 //XLlFifo Current_Fifo;
+#define XPAR_AXI_ETHERNET_0_BASEADDR 0x40C00000U
 #define XPAR_AXI_ETHERNET_1_BASEADDR 0x40C40000U
 //There is dual-channel GPIO; chan 1 is output, 2 is input
 XGpio Gpio;
