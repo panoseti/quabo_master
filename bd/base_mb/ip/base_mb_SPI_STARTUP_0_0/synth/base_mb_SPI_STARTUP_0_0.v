@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:SPI_STARTUP:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "SPI_STARTUP,Vivado 2018.3.1_AR71948" *)
+(* X_CORE_INFO = "SPI_STARTUP,Vivado 2018.3" *)
 (* CHECK_LICENSE_TYPE = "base_mb_SPI_STARTUP_0_0,SPI_STARTUP,{}" *)
-(* CORE_GENERATION_INFO = "base_mb_SPI_STARTUP_0_0,SPI_STARTUP,{x_ipProduct=Vivado 2018.3.1_AR71948,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=SPI_STARTUP,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
+(* CORE_GENERATION_INFO = "base_mb_SPI_STARTUP_0_0,SPI_STARTUP,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=SPI_STARTUP,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module base_mb_SPI_STARTUP_0_0 (

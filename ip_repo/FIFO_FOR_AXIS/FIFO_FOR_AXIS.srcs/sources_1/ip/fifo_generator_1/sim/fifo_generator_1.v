@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2020 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -62,7 +62,9 @@ module fifo_generator_1 (
   rd_en,
   dout,
   full,
-  empty
+  empty,
+  wr_rst_busy,
+  rd_rst_busy
 );
 
 input wire rst;
@@ -84,12 +86,14 @@ output wire [37 : 0] dout;
 output wire full;
 (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_read:1.0 FIFO_READ EMPTY" *)
 output wire empty;
+output wire wr_rst_busy;
+output wire rd_rst_busy;
 
   fifo_generator_v13_2_3 #(
     .C_COMMON_CLOCK(0),
     .C_SELECT_XPM(0),
     .C_COUNT_TYPE(0),
-    .C_DATA_COUNT_WIDTH(11),
+    .C_DATA_COUNT_WIDTH(8),
     .C_DEFAULT_VALUE("BlankString"),
     .C_DIN_WIDTH(38),
     .C_DOUT_RST_VAL("0"),
@@ -121,17 +125,17 @@ output wire empty;
     .C_OVERFLOW_LOW(0),
     .C_PRELOAD_LATENCY(0),
     .C_PRELOAD_REGS(1),
-    .C_PRIM_FIFO_TYPE("2kx18"),
+    .C_PRIM_FIFO_TYPE("512x72"),
     .C_PROG_EMPTY_THRESH_ASSERT_VAL(4),
     .C_PROG_EMPTY_THRESH_NEGATE_VAL(5),
     .C_PROG_EMPTY_TYPE(0),
-    .C_PROG_FULL_THRESH_ASSERT_VAL(2047),
-    .C_PROG_FULL_THRESH_NEGATE_VAL(2046),
+    .C_PROG_FULL_THRESH_ASSERT_VAL(255),
+    .C_PROG_FULL_THRESH_NEGATE_VAL(254),
     .C_PROG_FULL_TYPE(0),
-    .C_RD_DATA_COUNT_WIDTH(11),
-    .C_RD_DEPTH(2048),
+    .C_RD_DATA_COUNT_WIDTH(8),
+    .C_RD_DEPTH(256),
     .C_RD_FREQ(1),
-    .C_RD_PNTR_WIDTH(11),
+    .C_RD_PNTR_WIDTH(8),
     .C_UNDERFLOW_LOW(0),
     .C_USE_DOUT_RST(1),
     .C_USE_ECC(0),
@@ -142,14 +146,14 @@ output wire empty;
     .C_USE_FWFT_DATA_COUNT(0),
     .C_VALID_LOW(0),
     .C_WR_ACK_LOW(0),
-    .C_WR_DATA_COUNT_WIDTH(11),
-    .C_WR_DEPTH(2048),
+    .C_WR_DATA_COUNT_WIDTH(8),
+    .C_WR_DEPTH(256),
     .C_WR_FREQ(1),
-    .C_WR_PNTR_WIDTH(11),
+    .C_WR_PNTR_WIDTH(8),
     .C_WR_RESPONSE_LATENCY(1),
     .C_MSGON_VAL(1),
     .C_ENABLE_RST_SYNC(1),
-    .C_EN_SAFETY_CKT(0),
+    .C_EN_SAFETY_CKT(1),
     .C_ERROR_INJECTION_TYPE(0),
     .C_SYNCHRONIZER_STAGE(2),
     .C_INTERFACE_TYPE(0),
@@ -301,12 +305,12 @@ output wire empty;
     .din(din),
     .wr_en(wr_en),
     .rd_en(rd_en),
-    .prog_empty_thresh(11'B0),
-    .prog_empty_thresh_assert(11'B0),
-    .prog_empty_thresh_negate(11'B0),
-    .prog_full_thresh(11'B0),
-    .prog_full_thresh_assert(11'B0),
-    .prog_full_thresh_negate(11'B0),
+    .prog_empty_thresh(8'B0),
+    .prog_empty_thresh_assert(8'B0),
+    .prog_empty_thresh_negate(8'B0),
+    .prog_full_thresh(8'B0),
+    .prog_full_thresh_assert(8'B0),
+    .prog_full_thresh_negate(8'B0),
     .int_clk(1'D0),
     .injectdbiterr(1'D0),
     .injectsbiterr(1'D0),
@@ -327,8 +331,8 @@ output wire empty;
     .prog_empty(),
     .sbiterr(),
     .dbiterr(),
-    .wr_rst_busy(),
-    .rd_rst_busy(),
+    .wr_rst_busy(wr_rst_busy),
+    .rd_rst_busy(rd_rst_busy),
     .m_aclk(1'D0),
     .s_aclk(1'D0),
     .s_aresetn(1'D0),

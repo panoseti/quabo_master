@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -48,9 +48,9 @@
 
 
 // IP VLNV: user.org:user:ETH_CORE_CTRL:2.1
-// IP Revision: 4
+// IP Revision: 10
 
-(* X_CORE_INFO = "ETH_CORE_CTRL,Vivado 2018.3.1_AR71948" *)
+(* X_CORE_INFO = "ETH_CORE_CTRL,Vivado 2018.3" *)
 (* CHECK_LICENSE_TYPE = "base_mb_ETH_CORE_CTRL_0_1,ETH_CORE_CTRL,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

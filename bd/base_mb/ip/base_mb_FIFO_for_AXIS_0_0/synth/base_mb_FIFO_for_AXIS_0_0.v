@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -48,9 +48,9 @@
 
 
 // IP VLNV: user.org:user:FIFO_for_AXIS:1.4
-// IP Revision: 1
+// IP Revision: 4
 
-(* X_CORE_INFO = "FIFO_for_AXIS,Vivado 2018.3.1_AR71948" *)
+(* X_CORE_INFO = "FIFO_for_AXIS,Vivado 2018.3" *)
 (* CHECK_LICENSE_TYPE = "base_mb_FIFO_for_AXIS_0_0,FIFO_for_AXIS,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

@@ -48,7 +48,7 @@
 
 
 // IP VLNV: user.org:user:HighSpeed_Module:4.0
-// IP Revision: 1
+// IP Revision: 3
 
 `timescale 1ns/1ps
 

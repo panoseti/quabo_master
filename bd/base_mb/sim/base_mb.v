@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-//Date        : Tue Jan 17 15:54:54 2023
+//Date        : Sat Jan 21 16:31:54 2023
 //Host        : wei-Berkeley running 64-bit Ubuntu 20.04.5 LTS
 //Command     : generate_target base_mb.bd
 //Design      : base_mb
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=124,numReposBlks=95,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=21,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
+(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=125,numReposBlks=96,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=22,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
 module base_mb
    (ADC_DIN_N,
     ADC_DIN_P,
@@ -229,11 +229,10 @@ module base_mb
   wire ETH_CORE_CTRL_1_m_axis_txc_TLAST;
   wire ETH_CORE_CTRL_1_m_axis_txc_TREADY;
   wire ETH_CORE_CTRL_1_m_axis_txc_TVALID;
-  wire [31:0]ETH_CORE_CTRL_1_m_axis_txd_TDATA;
-  wire [3:0]ETH_CORE_CTRL_1_m_axis_txd_TKEEP;
-  wire ETH_CORE_CTRL_1_m_axis_txd_TLAST;
-  wire ETH_CORE_CTRL_1_m_axis_txd_TREADY;
-  wire ETH_CORE_CTRL_1_m_axis_txd_TVALID;
+  wire [31:0]ETH_CORE_CTRL_1_m_axis_txd_tdata;
+  wire [3:0]ETH_CORE_CTRL_1_m_axis_txd_tkeep;
+  wire ETH_CORE_CTRL_1_m_axis_txd_tlast;
+  wire ETH_CORE_CTRL_1_m_axis_txd_tvalid;
   wire [31:0]FIFO_for_AXIS_0_m_axis_TDATA;
   wire [3:0]FIFO_for_AXIS_0_m_axis_TKEEP;
   wire FIFO_for_AXIS_0_m_axis_TLAST;
@@ -315,6 +314,7 @@ module base_mb
   wire axi_ethernet_0_pma_reset_out;
   wire axi_ethernet_0_rxuserclk2_out;
   wire axi_ethernet_0_rxuserclk_out;
+  wire axi_ethernet_0_s_axis_txd_tready;
   wire axi_ethernet_0_sfp_RXN;
   wire axi_ethernet_0_sfp_RXP;
   wire axi_ethernet_0_sfp_TXN;
@@ -1119,11 +1119,11 @@ module base_mb
         .m_axis_txc_tlast(ETH_CORE_CTRL_1_m_axis_txc_TLAST),
         .m_axis_txc_tready(ETH_CORE_CTRL_1_m_axis_txc_TREADY),
         .m_axis_txc_tvalid(ETH_CORE_CTRL_1_m_axis_txc_TVALID),
-        .m_axis_txd_tdata(ETH_CORE_CTRL_1_m_axis_txd_TDATA),
-        .m_axis_txd_tkeep(ETH_CORE_CTRL_1_m_axis_txd_TKEEP),
-        .m_axis_txd_tlast(ETH_CORE_CTRL_1_m_axis_txd_TLAST),
-        .m_axis_txd_tready(ETH_CORE_CTRL_1_m_axis_txd_TREADY),
-        .m_axis_txd_tvalid(ETH_CORE_CTRL_1_m_axis_txd_TVALID),
+        .m_axis_txd_tdata(ETH_CORE_CTRL_1_m_axis_txd_tdata),
+        .m_axis_txd_tkeep(ETH_CORE_CTRL_1_m_axis_txd_tkeep),
+        .m_axis_txd_tlast(ETH_CORE_CTRL_1_m_axis_txd_tlast),
+        .m_axis_txd_tready(axi_ethernet_0_s_axis_txd_tready),
+        .m_axis_txd_tvalid(ETH_CORE_CTRL_1_m_axis_txd_tvalid),
         .rst(axi_ethernet_0_fifo_mm2s_prmry_reset_out_n),
         .s_axis_txd_tdata(AXI_Stream_Switch_3_0_M0_AXIS_TDATA),
         .s_axis_txd_tkeep(AXI_Stream_Switch_3_0_M0_AXIS_TKEEP),
@@ -1389,11 +1389,11 @@ module base_mb
         .s_axis_txc_tlast(ETH_CORE_CTRL_1_m_axis_txc_TLAST),
         .s_axis_txc_tready(ETH_CORE_CTRL_1_m_axis_txc_TREADY),
         .s_axis_txc_tvalid(ETH_CORE_CTRL_1_m_axis_txc_TVALID),
-        .s_axis_txd_tdata(ETH_CORE_CTRL_1_m_axis_txd_TDATA),
-        .s_axis_txd_tkeep(ETH_CORE_CTRL_1_m_axis_txd_TKEEP),
-        .s_axis_txd_tlast(ETH_CORE_CTRL_1_m_axis_txd_TLAST),
-        .s_axis_txd_tready(ETH_CORE_CTRL_1_m_axis_txd_TREADY),
-        .s_axis_txd_tvalid(ETH_CORE_CTRL_1_m_axis_txd_TVALID),
+        .s_axis_txd_tdata(ETH_CORE_CTRL_1_m_axis_txd_tdata),
+        .s_axis_txd_tkeep(ETH_CORE_CTRL_1_m_axis_txd_tkeep),
+        .s_axis_txd_tlast(ETH_CORE_CTRL_1_m_axis_txd_tlast),
+        .s_axis_txd_tready(axi_ethernet_0_s_axis_txd_tready),
+        .s_axis_txd_tvalid(ETH_CORE_CTRL_1_m_axis_txd_tvalid),
         .sfp_rxn(axi_ethernet_0_sfp_RXN),
         .sfp_rxp(axi_ethernet_0_sfp_RXP),
         .sfp_txn(axi_ethernet_0_sfp_TXN),
@@ -1932,6 +1932,10 @@ module base_mb
         .clk_200(clk_wiz_1_clk_out2),
         .clk_in1(IBUFDS_FOR_CLK_0_O),
         .locked(clk_wiz_1_locked));
+  base_mb_debug_0_0 debug_0
+       (.clk(microblaze_0_Clk),
+        .rst(rst_clk_wiz_1_100M_peripheral_aresetn),
+        .valid(axi_ethernet_0_s_axis_txd_tready));
   base_mb_delay_0_0 delay_0
        (.clk(clk_wiz_0_clk_62m5),
         .din(PPS_IO_0_pps_inside_out1),

@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:StepDrive_ShutterCtrl_Sel:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "StepDrive_ShutterCtrl_Sel,Vivado 2018.3.1_AR71948" *)
+(* X_CORE_INFO = "StepDrive_ShutterCtrl_Sel,Vivado 2018.3" *)
 (* CHECK_LICENSE_TYPE = "base_mb_StepDrive_ShutterCtr_0_0,StepDrive_ShutterCtrl_Sel,{}" *)
-(* CORE_GENERATION_INFO = "base_mb_StepDrive_ShutterCtr_0_0,StepDrive_ShutterCtrl_Sel,{x_ipProduct=Vivado 2018.3.1_AR71948,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=StepDrive_ShutterCtrl_Sel,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,POS0=00,POS1=01}" *)
+(* CORE_GENERATION_INFO = "base_mb_StepDrive_ShutterCtr_0_0,StepDrive_ShutterCtrl_Sel,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=StepDrive_ShutterCtrl_Sel,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,POS0=00,POS1=01}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module base_mb_StepDrive_ShutterCtr_0_0 (

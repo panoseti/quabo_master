@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:ip:xlslice:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "xlslice_v1_0_1_xlslice,Vivado 2018.3.1_AR71948" *)
+(* X_CORE_INFO = "xlslice_v1_0_1_xlslice,Vivado 2018.3" *)
 (* CHECK_LICENSE_TYPE = "base_mb_Bit_24_27_0,xlslice_v1_0_1_xlslice,{}" *)
-(* CORE_GENERATION_INFO = "base_mb_Bit_24_27_0,xlslice_v1_0_1_xlslice,{x_ipProduct=Vivado 2018.3.1_AR71948,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlslice,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DIN_WIDTH=32,DIN_FROM=28,DIN_TO=28}" *)
+(* CORE_GENERATION_INFO = "base_mb_Bit_24_27_0,xlslice_v1_0_1_xlslice,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlslice,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DIN_WIDTH=32,DIN_FROM=28,DIN_TO=28}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module base_mb_Bit_24_27_0 (
   Din,

@@ -712,12 +712,12 @@ always @(posedge aclk)
 	                       if(M_AXIS_TREADY == 1'b1)
 	                           begin
 	                               ram_dpra            <= ram_dpra + 1;
-	                               m_axis_tvalid       <= 1'b1;
+	                               m_axis_tvalid       <= 1'b0;
 	                           end
 	                       else
 	                           begin
 	                               ram_dpra            <= ram_dpra;
-	                               m_axis_tvalid       <= 1'b0;
+	                               m_axis_tvalid       <= 1'b1;
 	                           end
 	                       start_to_read       <= 1'b0;                                           
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
