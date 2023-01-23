@@ -411,10 +411,10 @@ preplace netloc Net5 1 17 1 N
 preplace netloc Net6 1 17 1 N
 preplace netloc microblaze_0_axi_periph_M10_AXI 1 7 1 2010
 preplace netloc AXI_Stream_Switch_3_1_M0_AXIS 1 9 1 3180
-preplace netloc AXI_Stream_Switch_3_0_M0_AXIS 1 10 2 NJ 840 3850
 preplace netloc Net7 1 11 7 NJ 4590 NJ 4590 5440J 4490 NJ 4490 NJ 4490 NJ 4490 NJ
 preplace netloc SPI_MUX_1_spi_ck 1 15 3 NJ 3820 N 3820 7450
 preplace netloc wrc_board_quabo_Light_0_plldac_din_o 1 8 7 2770J 3720 NJ 3720 NJ 3720 NJ 3720 4680J 3650 5420 3800 5840
+preplace netloc AXI_Stream_Switch_3_0_M0_AXIS 1 10 2 NJ 840 3850
 preplace netloc Net8 1 14 4 5840J 2020 NJ 2020 NJ 2020 7460J
 preplace netloc clk_wiz_1_clk_out2 1 2 11 30J 2320 NJ 2320 NJ 2320 NJ 2320 NJ 2320 1920J 1870 NJ 1870 NJ 1870 NJ 1870 NJ 1870 4430
 preplace netloc BIT_CLK_P_1 1 0 12 -570J 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 2080J 1400 NJ 1400 NJ 1400 NJ 1400 3800J

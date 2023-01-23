@@ -1099,16 +1099,10 @@
       }
     },
     "interface_nets": {
-      "eth_buf_S_AXI_2TEMAC": {
+      "mgt_clk_1": {
         "interface_ports": [
-          "eth_buf/S_AXI_2TEMAC",
-          "mac/s_axi"
-        ]
-      },
-      "s_axi_1": {
-        "interface_ports": [
-          "s_axi",
-          "eth_buf/S_AXI"
+          "mgt_clk",
+          "pcs_pma/gtrefclk_in"
         ]
       },
       "eth_buf_TX_AXIS_MAC": {
@@ -1123,10 +1117,16 @@
           "eth_buf/AXI_STR_RXD"
         ]
       },
-      "mgt_clk_1": {
+      "s_axi_1": {
         "interface_ports": [
-          "mgt_clk",
-          "pcs_pma/gtrefclk_in"
+          "s_axi",
+          "eth_buf/S_AXI"
+        ]
+      },
+      "eth_buf_S_AXI_2TEMAC": {
+        "interface_ports": [
+          "eth_buf/S_AXI_2TEMAC",
+          "mac/s_axi"
         ]
       },
       "s_axis_txd_1": {

@@ -1199,13 +1199,21 @@ always @(posedge aclk)
 	                   end
 	               PUT_LAST:
 	                   begin
+	                       if(M_AXIS_TREADY == 1'b1)
+	                           begin
+	                               m_axis_tlast        <= 1'b1; 
+	                           end
+	                       else
+	                           begin
+	                               m_axis_tlast        <= 1'b0; 
+	                           end
 	                       start_to_read       <= 1'b0;                                           
 	                       fifo_recv_len       <= fifo_recv_len;           //im_fifo receive 256*4 bytes
 	                       ram_dpra            <= 5'b0;                    // reset the ram_dpra for next cycle
 	                       m_axis_tdata        <= {16'b0, pixel_d0[31:16]}; 
 	                       m_axis_tvalid       <= 1'b1;                    
                            m_axis_tkeep        <= 4'h3;                    // all the four byes are valid
-                           m_axis_tlast        <= 1'b1;                    // it's not the last byte transfer to the axis interface
+                           //m_axis_tlast        <= 1'b1;                    // it's not the last byte transfer to the axis interface
                            packet_no           <= packet_no;               // packet_no plus 1
                            packet_no_reg0      <= {packet_no[7:0], 8'b0};
                            packet_no_reg1      <= {8'b0, packet_no[15:8]};

@@ -3237,3 +3237,70 @@ java.io.FileNotFoundException: /home/wei/Projects/Vivado_Proj/Panoseti/quabo/qua
 	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2283)
 	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$4.run(IDEWorkbenchAdvisor.java:456)
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
+!SESSION 2023-01-22 12:30:00.117 -----------------------------------------------
+eclipse.buildId=2018.3
+java.version=1.8.0_112
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.ui 2 0 2023-01-22 12:30:08.802
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2023-01-22 12:30:08.803
+!MESSAGE Commands should really have a category: plug-in='com.xilinx.sdk.appwiz', id='com.xilinx.sdk.app.commands.ChangeAtfBuiltReferences', categoryId='com.xilinx.sdk.app.commands.category'
+
+!ENTRY org.eclipse.ui 2 0 2023-01-22 12:30:09.510
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2023-01-22 12:30:09.510
+!MESSAGE Commands should really have a category: plug-in='com.xilinx.sdk.appwiz', id='com.xilinx.sdk.app.commands.ChangeAtfBuiltReferences', categoryId='com.xilinx.sdk.app.commands.category'
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-01-22 12:30:16.296
+!MESSAGE XSCT Command: [set sdk::sdk_chan tcfchan#0], Thread: Thread-16
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-01-22 12:30:16.296
+!MESSAGE XSCT Command: [::hsi::utils::init_repo], Thread: Worker-10
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-01-22 12:30:16.301
+!MESSAGE XSCT command with result: [set sdk::sdk_chan tcfchan#0], Result: [null, tcfchan#0]. Thread: Thread-16
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-01-22 12:30:16.302
+!MESSAGE XSCT Command: [setws /home/wei/Projects/Vivado_Proj/Panoseti/quabo/quabo_master/SDK], Thread: Thread-16
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-01-22 12:30:16.527
+!MESSAGE XSCT command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-10
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-01-22 12:30:16.528
+!MESSAGE XSCT command with result: [setws /home/wei/Projects/Vivado_Proj/Panoseti/quabo/quabo_master/SDK], Result: [null, ]. Thread: Thread-16
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-01-22 12:30:16.533
+!MESSAGE XSCT Command: [::hsi::utils::add_repo "/home/wei/Projects/Vivado_Proj/swe_backend/vivado_swe/MicroBlaze_LwIP/MicroBlaze_LwIP.sdk/drivers"], Thread: Worker-10
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-01-22 12:30:16.545
+!MESSAGE XSCT command with result: [::hsi::utils::add_repo "/home/wei/Projects/Vivado_Proj/swe_backend/vivado_swe/MicroBlaze_LwIP/MicroBlaze_LwIP.sdk/drivers"], Result: [null, ]. Thread: Worker-10
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-01-22 12:30:16.556
+!MESSAGE XSCT Command: [::hsi::utils::openhw /home/wei/Projects/Vivado_Proj/Panoseti/quabo/quabo_master/SDK/base_mb_wrapper_hw_platform_2/system.hdf], Thread: Worker-7
+
+!ENTRY com.xilinx.sdk.utils 0 0 2023-01-22 12:30:18.050
+!MESSAGE XSCT command with result: [::hsi::utils::openhw /home/wei/Projects/Vivado_Proj/Panoseti/quabo/quabo_master/SDK/base_mb_wrapper_hw_platform_2/system.hdf], Result: [null, ]. Thread: Worker-7
+
+!ENTRY org.eclipse.ui.ide 4 4 2023-01-22 17:17:45.358
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 4 1 2023-01-22 17:17:45.359
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 4 568 2023-01-22 17:17:45.359
+!MESSAGE Could not write metadata for '/RemoteSystemsTempFiles'.
+!STACK 0
+java.io.FileNotFoundException: /home/wei/Projects/Vivado_Proj/Panoseti/quabo/quabo_master/SDK/.metadata/.plugins/org.eclipse.core.resources/.projects/RemoteSystemsTempFiles/.markers (No such file or directory)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:162)
+	at org.eclipse.core.internal.localstore.SafeFileOutputStream.<init>(SafeFileOutputStream.java:51)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSave(SaveManager.java:1657)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSave(SaveManager.java:1739)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1199)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2283)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$4.run(IDEWorkbenchAdvisor.java:456)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
