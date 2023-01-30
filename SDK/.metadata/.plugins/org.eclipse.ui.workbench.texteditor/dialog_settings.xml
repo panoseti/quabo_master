@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="SetChannelMask" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="SetChannelMask"/>
 			<item value="port_sel"/>
 			<item value="Xil_In"/>
 			<item value="reg_val"/>
@@ -15,7 +16,6 @@
 			<item value="XPAR_AXI_ETHERNET_0_BASEADDR"/>
 			<item value="SetGOEMask"/>
 			<item value="0x0e"/>
-			<item value="SetChannelMask"/>
 		</list>
 		<list key="replacehistory">
 		</list>

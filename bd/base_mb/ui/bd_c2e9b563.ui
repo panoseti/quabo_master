@@ -227,9 +227,9 @@ preplace netloc maroc_dc_0_pixel_trig 1 13 1 5380
 preplace netloc axi_ethernet_0_fifo_AXI_STR_TXD 1 8 2 N 460 3180
 preplace netloc axi_ethernet_0_mmcm_locked_out 1 12 2 4670 -140 5270
 preplace netloc ext_trig_0_ext_trig_maroc 1 12 3 4650 2290 NJ 2290 5830
+preplace netloc microblaze_0_ilmb_1 1 6 1 N
 preplace netloc xlconstant_6_dout 1 8 1 2630
 preplace netloc xlslice_7_Dout 1 13 2 NJ 5250 5910
-preplace netloc microblaze_0_ilmb_1 1 6 1 N
 preplace netloc xlconstant_5_dout 1 8 5 NJ 4010 NJ 4010 3440J 4060 NJ 4060 4380
 preplace netloc PPS_IO_0_pps_inside_out1 1 12 2 4650 4560 5240
 preplace netloc microblaze_0_axi_periph_M00_AXI 1 7 6 2010 1550 NJ 1550 NJ 1550 NJ 1550 NJ 1550 4480J
@@ -343,8 +343,8 @@ preplace netloc elapsed_time_gen_0_elapsed_time3 1 12 1 4580
 preplace netloc axi_quad_spi_1_sck_o 1 11 3 3980J 3480 NJ 3480 5250
 preplace netloc xlconcat_2_dout 1 8 8 NJ 3560 NJ 3560 NJ 3560 NJ 3560 4630J 3510 NJ 3510 5870 3370 6550
 preplace netloc sfp_los_i_0_1 1 0 9 NJ 4290 NJ 4290 NJ 4290 NJ 4290 NJ 4290 NJ 4290 NJ 4290 2040J 4480 2600
-preplace netloc axi_interconnect_0_M04_AXI 1 12 1 4470
 preplace netloc xlslice_0_Dout1 1 10 7 3460 4460 N 4460 4670J 3160 5430 3210 N 3210 N 3210 6950
+preplace netloc axi_interconnect_0_M04_AXI 1 12 1 4470
 preplace netloc axi_ethernet_0_s_axis_txd_tready 1 12 2 4400 590 5420J
 preplace netloc Bit_23_23_Dout 1 15 2 6560 3230 6940
 preplace netloc axi_quad_spi_0_ss_o 1 8 10 2670J 3360 NJ 3360 NJ 3360 3840J 3460 NJ 3460 NJ 3460 5850J 3340 6590J 3280 NJ 3280 7490J
@@ -408,8 +408,8 @@ preplace netloc Net4 1 13 5 5440J 4170 NJ 4170 NJ 4170 NJ 4170 NJ
 preplace netloc in_n_0_1 1 0 12 NJ 2390 NJ 2390 NJ 2390 NJ 2390 NJ 2390 NJ 2390 NJ 2390 1980J 2110 2730J 2080 NJ 2080 NJ 2080 NJ
 preplace netloc ETH_CORE_CTRL_1_m_axis_txd_tlast 1 12 1 4460
 preplace netloc Net5 1 17 1 N
-preplace netloc Net6 1 17 1 N
 preplace netloc microblaze_0_axi_periph_M10_AXI 1 7 1 2010
+preplace netloc Net6 1 17 1 N
 preplace netloc AXI_Stream_Switch_3_1_M0_AXIS 1 9 1 3180
 preplace netloc Net7 1 11 7 NJ 4590 NJ 4590 5440J 4490 NJ 4490 NJ 4490 NJ 4490 NJ
 preplace netloc SPI_MUX_1_spi_ck 1 15 3 NJ 3820 N 3820 7450

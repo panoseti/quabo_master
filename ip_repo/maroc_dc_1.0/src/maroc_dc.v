@@ -945,9 +945,14 @@ module maroc_dc #(
     wire [255:0] maroc_trig_remapped_masked;
  
     assign maroc_trig_remapped_masked = maroc_trig_remapped & (~mask[255:0]);
-
-    assign GOE2 = (fullsum > 1);
-    assign GOE3 = (fullsum > 2);
+    
+    reg [7:0]fullsum_reg;
+    always @(posedge axi_clk)
+        begin
+            fullsum_reg <= fullsum;
+        end   
+    assign GOE2 = (fullsum_reg > 8'b00000001)?1:0;
+    assign GOE3 = (fullsum_reg > 8'b00000010)?1:0;
     /*
     wire [1:0]goe_out;
     GEN_GOE goe2_3 (
@@ -958,10 +963,10 @@ module maroc_dc #(
     assign GOE3 = goe_out[1:1];
     */
     // The pixel_trig is used for triggering other 3 quabos on the same mobo
-    assign pixel_trig = |(maroc_trig_remapped_masked) || |(or_trig& (~mask[263:256])) || (GOE2 && (~mask[265])) || (GOE3 && (~mask[266]));
+    assign pixel_trig = (maroc_trig_remapped_masked) || |(or_trig& (~mask[263:256])) || (GOE2 & (~mask[265])) || (GOE3 & (~mask[266]));
     //OR all of the raw signals together
     //wire pulseheight_trigger_raw = |(maroc_trig_remapped & (~mask[255:0])) || |(or_trig& (~mask[263:256])) || (ext_trig && (~mask[264])) || (GOE2 && (~mask[265])) || (GOE3 && (~mask[266]));
-    wire pulseheight_trigger_raw = pixel_trig || (ext_trig && (~mask[264]));
+    wire pulseheight_trigger_raw = pixel_trig || (ext_trig & (~mask[264]));
     //Edge-detect the ORed Asynch trigger signal with all four clocks, for the elapsed-time counters
     wire PH_trig_sync0;
             async_edge_detect ED_ET0(
