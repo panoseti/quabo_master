@@ -56,16 +56,21 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module base_mb_ext_trig_0_2 (
+  clk,
   pixel_trig_maroc,
   ext_trig_maroc,
   ext_trig_io
 );
 
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN base_mb_clk_wiz_1_0_clk_100, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
+input wire clk;
 input wire pixel_trig_maroc;
 output wire ext_trig_maroc;
 inout wire ext_trig_io;
 
   ext_trig inst (
+    .clk(clk),
     .pixel_trig_maroc(pixel_trig_maroc),
     .ext_trig_maroc(ext_trig_maroc),
     .ext_trig_io(ext_trig_io)

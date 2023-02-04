@@ -21,11 +21,34 @@
 
 
 module ext_trig(
+    input clk,
     input pixel_trig_maroc,
     output ext_trig_maroc,
     inout ext_trig_io
     );
 
+wire Q1;
+FDPE #(
+        .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
+    ) FDPE_ED0 (
+       .Q(Q1),      // 1-bit Data output
+       .C(clk),      // 1-bit Clock input
+       .CE(1'b1),    // 1-bit Clock enable input
+       .PRE(pixel_trig_maroc),  // 1-bit Asynchronous set input
+       .D(1'b0)       // 1-bit Data input
+    );
+    
+wire pixel_trig_maroc_reg;
+   FDRE #(
+      .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
+   ) FDRE_ED0 (
+      .Q(Q1),      // 1-bit Data output
+      .C(clk),      // 1-bit Clock input
+      .CE(1'b1),    // 1-bit Clock enable input
+      .R(1'b0),      // 1-bit Synchronous reset input
+      .D(pixel_trig_maroc_reg)       // 1-bit Data input
+   );   
+   
 wire ext_trig;
 
 IOBUF #(
@@ -36,26 +59,10 @@ IOBUF #(
 )IOBUF_EXT_TRIG(
 .I(1'b1),
 .O(ext_trig),
-.T(~pixel_trig_maroc), //high-input; low-output
+.T(~pixel_trig_maroc_reg), //high-input; low-output
 .IO(ext_trig_io)
 );
-
-/*
-IOBUF_INTERMDISABLE #(
-    .DRIVE(16), // Specify the output drive strength
-    .IBUF_LOW_PWR("FALSE"),  // Low Power - "TRUE", High Performance = "FALSE" 
-    .IOSTANDARD("LVCMOS33"), // Specify the I/O standard
-    .SLEW("FAST"),          // Specify the output slew rate
-    .USE_IBUFDISABLE("TRUE") // Use IBUFDISABLE function, "TRUE" or "FALSE" 
- ) IOBUF_INTERMDISABLE_inst (
-      .O(ext_trig),     // Buffer output
-      .IO(ext_trig_io),   // Buffer inout port (connect directly to top-level port)
-      .I(1'b1),     // Buffer input
-      .IBUFDISABLE(1'b1), // Input disable input, high=disable
-      .INTERMDISABLE(1'b1), // Input termination disable input
-      .T(~pixel_trig_maroc)      // 3-state enable input, high=input, low=output
-   );
-*/   
+ 
 assign ext_trig_maroc = ext_trig;    
 
 endmodule

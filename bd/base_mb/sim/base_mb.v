@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-//Date        : Mon Jan 30 09:47:15 2023
+//Date        : Fri Feb  3 14:17:15 2023
 //Host        : wei-Berkeley running 64-bit Ubuntu 20.04.5 LTS
 //Command     : generate_target base_mb.bd
 //Design      : base_mb
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=125,numReposBlks=96,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=22,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
+(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=124,numReposBlks=95,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=21,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
 module base_mb
    (ADC_DIN_N,
     ADC_DIN_P,
@@ -1932,10 +1932,6 @@ module base_mb
         .clk_200(clk_wiz_1_clk_out2),
         .clk_in1(IBUFDS_FOR_CLK_0_O),
         .locked(clk_wiz_1_locked));
-  base_mb_debug_0_0 debug_0
-       (.clk(microblaze_0_Clk),
-        .rst(rst_clk_wiz_1_100M_peripheral_aresetn),
-        .valid(axi_ethernet_0_s_axis_txd_tready));
   base_mb_delay_0_0 delay_0
        (.clk(clk_wiz_0_clk_62m5),
         .din(PPS_IO_0_pps_inside_out1),
@@ -1956,7 +1952,8 @@ module base_mb
         .elapsed_time3(elapsed_time_gen_0_elapsed_time3),
         .one_pps(PPS_IO_0_pps_inside_out));
   base_mb_ext_trig_0_2 ext_trig_0
-       (.ext_trig_io(ext_trig_io_0),
+       (.clk(microblaze_0_Clk),
+        .ext_trig_io(ext_trig_io_0),
         .ext_trig_maroc(ext_trig_0_ext_trig_maroc),
         .pixel_trig_maroc(maroc_dc_0_pixel_trig));
   base_mb_firmware_ID_ROM_0_0 firmware_ID_ROM_0
