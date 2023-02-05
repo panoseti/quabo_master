@@ -681,8 +681,8 @@ module maroc_dc #(
     //wire pulseheight_trigger = !inhibit_PH_write && ( |masked_chan_trig || |masked_or_trig || masked_ext_trig);
     
     // add two new signals for new triggers
+    /*
     wire GOE2, GOE3;
-    
     wire [7:0] fullsum;
     assign fullsum = chan_trig_pulse[0] +
         chan_trig_pulse[1] +
@@ -941,28 +941,28 @@ module maroc_dc #(
         chan_trig_pulse[254] +
         chan_trig_pulse[255];
     
-    
-    wire [255:0] maroc_trig_remapped_masked;
- 
-    assign maroc_trig_remapped_masked = maroc_trig_remapped & (~mask[255:0]);
-      
     assign GOE2 = (fullsum > 8'b00000001)?1:0;
     assign GOE3 = (fullsum > 8'b00000010)?1:0;
-    reg GOE2_REG, GOE3_REG;
-    always @(posedge axi_clk)
-        begin
-            GOE2_REG <= GOE2;
-            GOE3_REG <= GOE3;
-        end
-    /*
+    */
+    
+    wire GOE2, GOE3;
     wire [1:0]goe_out;
     GEN_GOE goe2_3 (
-        .a(maroc_trig_remapped),      // input wire [7 : 0] a
+        .a(chan_trig_pulse),      // input wire [7 : 0] a
         .spo(goe_out)  // output wire [1 : 0] spo
     );
     assign GOE2 = goe_out[0:0];
     assign GOE3 = goe_out[1:1];
-    */
+    
+    reg GOE2_REG, GOE3_REG;
+    always @(posedge hs_clk)
+        begin
+            GOE2_REG <= GOE2;
+            GOE3_REG <= GOE3;
+        end
+   
+    wire [255:0] maroc_trig_remapped_masked;
+    assign maroc_trig_remapped_masked = maroc_trig_remapped & (~mask[255:0]);
     // The pixel_trig is used for triggering other 3 quabos on the same mobo
     assign pixel_trig = (maroc_trig_remapped_masked) || |(or_trig& (~mask[263:256])) || (GOE2_REG & (~mask[265])) || (GOE3_REG & (~mask[266]));
     //OR all of the raw signals together
