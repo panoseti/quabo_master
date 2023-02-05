@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 02/04/2023 05:10:54 PM
+// Create Date: 02/04/2023 04:50:13 PM
 // Design Name: 
-// Module Name: goe_lut_stage3
+// Module Name: goe_lut_stage1
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,19 +20,25 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module goe_lut_stage3(
-    input [9:0] a,
-    output [3:0] spo
+module goe_lut_stage1(
+    input [85:0] a,
+    output [29:0] spo
     );
+ 
+genvar gg;
+generate
+   for (gg=0; gg < 14; gg=gg+1)
+   begin: STAGE1   
+       basic_lut_stage1 stage(
+            .a(a[(6*gg+5):(6*gg)]),
+            .spo(spo[(2*gg+1):2*gg])
+       );
+   end
+endgenerate
 
-
-basic_lut_stage1 stage3_0(
-    .a(a[5:0]),
-    .spo(spo[1:0])
+basic_lut_stage1 stage(
+    .a({4'b0, a[85:84]}),
+    .spo(spo[29:28])
 );
-
-basic_lut_stage1 stage3_1(
-    .a({2'b0, a[9:6]}),
-    .spo(spo[3:2])
-);
+   
 endmodule

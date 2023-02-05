@@ -42,11 +42,11 @@ wire pixel_trig_maroc_reg;
    FDRE #(
       .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
    ) FDRE_ED0 (
-      .Q(Q1),      // 1-bit Data output
+      .Q(pixel_trig_maroc_reg),      // 1-bit Data output
       .C(clk),      // 1-bit Clock input
       .CE(1'b1),    // 1-bit Clock enable input
       .R(1'b0),      // 1-bit Synchronous reset input
-      .D(pixel_trig_maroc_reg)       // 1-bit Data input
+      .D(Q1)       // 1-bit Data input
    );   
    
 wire ext_trig;
