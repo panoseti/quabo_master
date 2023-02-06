@@ -957,8 +957,8 @@ module maroc_dc #(
         .a(chan_trig_pulse),
         .spo(goe_out)
     );
-    assign GOE2 = goe_out[0:0];
-    assign GOE3 = goe_out[1:1];
+    assign GOE2 = (goe_out==(2'b10))?1:0;
+    assign GOE3 = (goe_out==(2'b11))?1:0;
     
     reg GOE2_REG, GOE3_REG;
     always @(posedge hs_clk)
