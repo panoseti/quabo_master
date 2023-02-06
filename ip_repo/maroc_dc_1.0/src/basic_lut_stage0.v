@@ -26,7 +26,7 @@ module basic_lut_stage0(
     );
 
    LUT6 #(
-      .INIT(64'h0fffefee9fee9e996)  // Specify LUT Contents
+      .INIT(64'hfffefee9fee9e996)  // Specify LUT Contents
    ) LUT6_2_pix (
       .O(spo[0:0]),   // LUT general output
       .I0(a[0:0]), // LUT input
@@ -38,7 +38,7 @@ module basic_lut_stage0(
    );
    
    LUT6 #(
-      .INIT(64'h1fffefee7fee7e768)  // Specify LUT Contents
+      .INIT(64'hfffffffefffefee8)  // Specify LUT Contents
    ) LUT6_3_pix (
       .O(spo[1:1]),   // LUT general output
       .I0(a[0:0]), // LUT input

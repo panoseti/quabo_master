@@ -1,3 +1,8 @@
+v20.6(7):
+1) added async logic for anytrigger mode, so the anytrigger signal will last for 10us(100MHz).
+   therefore, the other 3 quabos will not miss the anytrigger signal.
+2) registered the 256 pixel signals, and used LUT to speed up the logic for the timing requirement.
+
 v20.4(5):
 1) added any trigger.
    when one quabo gets a ph event, other three quabos will be triggered by the ANYTRIG pin.

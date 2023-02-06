@@ -1151,16 +1151,16 @@
           "eth_buf/S_AXI"
         ]
       },
-      "s_axis_txc_1": {
-        "interface_ports": [
-          "s_axis_txc",
-          "eth_buf/AXI_STR_TXC"
-        ]
-      },
       "eth_buf_AXI_STR_RXD": {
         "interface_ports": [
           "m_axis_rxd",
           "eth_buf/AXI_STR_RXD"
+        ]
+      },
+      "s_axis_txc_1": {
+        "interface_ports": [
+          "s_axis_txc",
+          "eth_buf/AXI_STR_TXC"
         ]
       },
       "mac_gmii": {
