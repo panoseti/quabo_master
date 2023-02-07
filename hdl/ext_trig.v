@@ -26,7 +26,7 @@ module ext_trig(
     output ext_trig_maroc,
     inout ext_trig_io
     );
-
+/*
 wire Q1;
 FDPE #(
         .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
@@ -48,7 +48,61 @@ wire pixel_trig_maroc_reg;
       .R(1'b0),      // 1-bit Synchronous reset input
       .D(Q1)       // 1-bit Data input
    );   
+*/
+/*
+wire ag0_o, ag1_o;
+wire Q1, Q2;
+
+   FDRE #(
+      .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
+   ) FDRE_ED0 (
+      .Q(Q1),      // 1-bit Data output
+      .C(clk),      // 1-bit Clock input
+      .CE(1'b1),    // 1-bit Clock enable input
+      .R(1'b0),      // 1-bit Synchronous reset input
+      .D(~ag0_o)       // 1-bit Data input
+   ); 
    
+      FDRE #(
+      .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
+   ) FDRE_ED1 (
+      .Q(Q2),      // 1-bit Data output
+      .C(clk),      // 1-bit Clock input
+      .CE(1'b1),    // 1-bit Clock enable input
+      .R(1'b0),      // 1-bit Synchronous reset input
+      .D(Q1)       // 1-bit Data input
+   ); 
+assign ag0_o = (~pixel_trig_maroc) & (~ag1_o);
+assign ag1_o = (~ag0_o) & (~Q2);
+
+wire pixel_trig_maroc_reg;
+assign pixel_trig_maroc_reg = ~ag0_o;
+*/
+
+wire Q1,Q2;
+FDPE #(
+        .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
+    ) FDPE_ED0 (
+       .Q(Q1),      // 1-bit Data output
+       .C(clk),      // 1-bit Clock input
+       .CE(Q2),    // 1-bit Clock enable input
+       .PRE(pixel_trig_maroc),  // 1-bit Asynchronous set input
+       .D(1'b0)       // 1-bit Data input
+    );
+
+   FDRE #(
+      .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
+   ) FDRE_ED0 (
+      .Q(Q2),      // 1-bit Data output
+      .C(clk),      // 1-bit Clock input
+      .CE(1'b1),    // 1-bit Clock enable input
+      .R(1'b0),      // 1-bit Synchronous reset input
+      .D(Q1)       // 1-bit Data input
+   );   
+   
+wire pixel_trig_maroc_reg;
+assign pixel_trig_maroc_reg = Q1;
+    
 wire ext_trig;
 
 IOBUF #(
