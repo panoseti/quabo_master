@@ -2306,6 +2306,7 @@ int set_focus(u16 target, int* statptr)
 	XGpio_DiscreteWrite(&Gpio_mech, GPIO_OUT_CHAN, (focus_limits_on <<23) | (shutter_command<<21) | (fan_speed<<17));
 	//Read from flash where the stage was left. If no stored value, return is -1
 	int position = get_stored_focus();
+	xil_printf("position = %d\n", position);
 	u8 last_phase = 0;
 	if (position != -1) last_phase = position & 0x3;
 	//We'll return that value in the statptr array, and report it back to the host
@@ -2463,7 +2464,11 @@ void store_focus(int position)
 //Must turn on limit before using, else it always returns 1
 u8 focus_limit_dark(void)
 {
-	return ((XGpio_DiscreteRead(&Gpio_mech, GPIO_IN_CHAN) & 0x2) == 2);
+	// with the new optical stop design, we inverted the output here.
+	if((XGpio_DiscreteRead(&Gpio_mech, GPIO_IN_CHAN) & 0x2) == 2)
+		return 0; // return 1;
+	else
+		return 1; // return 0;
 }
 
 //Send the results of the focus motor operation
