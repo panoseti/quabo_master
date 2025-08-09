@@ -1,3 +1,9 @@
+v20.8(9):
+1) added sw_pps command for the situation with WR and GNSS.
+2) the nanosec counter values are limited to 249999999.
+3) the output for controlling the optical stop is inverted for the new optical stop design.
+Note: DO NOT use the new version of firmware to control the old optical stop design!!! 
+
 v20.6(7):
 1) added async logic for anytrigger mode, so the anytrigger signal will last for 10us(100MHz).
    therefore, the other 3 quabos will not miss the anytrigger signal.
