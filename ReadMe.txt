@@ -1,5 +1,5 @@
 v20.8(9):
-1) added sw_pps command for the situation with WR and GNSS.
+1) added sw_pps command for the situation without WR and GNSS.
 2) the nanosec counter values are limited to 249999999.
 3) the output for controlling the optical stop is inverted for the new optical stop design.
 Note: DO NOT use the new version of firmware to control the old optical stop design!!! 
