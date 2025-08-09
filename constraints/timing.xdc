@@ -92,7 +92,7 @@ set_false_path -from [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_1/inst/
 set_false_path -from [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_1/inst/mmcm_adv_inst/CLKOUT1]] -to [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT3]]
 set_false_path -from [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_1/inst/mmcm_adv_inst/CLKOUT1]] -to [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT4]]
 
-
+set_false_path -from [get_ports pps_inout_0] -to [get_pins base_mb_i/dsync_0/inst/sync0_reg/D]
 
 
 

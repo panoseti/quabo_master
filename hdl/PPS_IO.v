@@ -21,11 +21,11 @@
 
 
 module PPS_IO(
-    input clk,
     input rst,
     input io_ctrl0,
     input io_ctrl1,
     input pps_inside_in,
+    input pps_sw_in,
     output pps_inside_out,
     inout pps_inout
     );
@@ -34,6 +34,9 @@ module PPS_IO(
  wire io_ctrl;
  assign io_ctrl = io_ctrl0 | io_ctrl1;
  
+ // we can use sw pps of wr pps
+ wire pps_in = pps_inside_in | pps_sw_in;
+ 
  wire pps_inside_out_tmp;
  IOBUF #(
     .DRIVE(12), // Specify the output drive strength
@@ -41,12 +44,12 @@ module PPS_IO(
     .IOSTANDARD("DEFAULT"), // Specify the I/O standard
     .SLEW("SLOW") // Specify the output slew rateIOBUF_PPS(
 )IOBUF_PPS(
-.I(pps_inside_in),
+.I(pps_in),
 .O(pps_inside_out_tmp),
 .T(io_ctrl), //high-input; low-output
 .IO(pps_inout)
 );
 
-assign pps_inside_out = io_ctrl? pps_inside_out_tmp:pps_inside_in;
+assign pps_inside_out = io_ctrl? pps_inside_out_tmp:pps_in;
 
 endmodule

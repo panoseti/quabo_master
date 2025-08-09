@@ -1,15 +1,15 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-//Date        : Mon Feb  6 15:53:06 2023
-//Host        : panoseti running 64-bit Ubuntu 20.04.5 LTS
+//Date        : Fri Aug  8 13:56:59 2025
+//Host        : acme1 running 64-bit Ubuntu 16.04.2 LTS
 //Command     : generate_target base_mb.bd
 //Design      : base_mb
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=124,numReposBlks=95,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=21,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
+(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=124,numReposBlks=95,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=20,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
 module base_mb
    (ADC_DIN_N,
     ADC_DIN_P,
@@ -207,6 +207,7 @@ module base_mb
   wire [0:0]BIT_CLK_N_1;
   wire [0:0]BIT_CLK_P_1;
   wire [4:0]Bit_16_19_Dout;
+  wire [0:0]Bit_16_19_Dout1;
   wire [3:0]Bit_19_24_Dout;
   wire [0:0]Bit_21_21_Dout;
   wire [0:0]Bit_23_23_Dout;
@@ -275,7 +276,6 @@ module base_mb
   wire [31:0]PH_BL_FIFO_0_rdata_to_user;
   wire PH_BL_FIFO_0_ready_to_read;
   wire PPS_IO_0_pps_inside_out;
-  wire PPS_IO_0_pps_inside_out1;
   wire [3:0]SC_DIN_0_1;
   wire SPI_MUX_1_spi_ck;
   wire SPI_MUX_1_spi_mosi;
@@ -487,7 +487,7 @@ module base_mb
   wire clk_wiz_1_clk_out2;
   wire clk_wiz_1_clk_out3;
   wire clk_wiz_1_locked;
-  wire delay_1_dout;
+  wire dsync_0_dout;
   wire [28:0]elapsed_time_gen_0_elapsed_time0;
   wire [28:0]elapsed_time_gen_0_elapsed_time1;
   wire [28:0]elapsed_time_gen_0_elapsed_time2;
@@ -1092,6 +1092,9 @@ module base_mb
   base_mb_xlslice_1_0 Bit_2_9
        (.Din(axi_gpio_0_gpio_io_o),
         .Dout(xlslice_2_Dout));
+  base_mb_Bit_16_18_1 Bit_30_30
+       (.Din(axi_gpio_0_gpio_io_o),
+        .Dout(Bit_16_19_Dout1));
   base_mb_Bit_0_15_0 Bit_3_0
        (.Din(axi_gpio_0_gpio_io_o1),
         .Dout(Bit_3_0_Dout));
@@ -1284,12 +1287,12 @@ module base_mb
         .s00_axi_wvalid(axi_interconnect_0_M06_AXI_WVALID),
         .start_to_read(HighSpeed_PH_v1_0_0_start_to_read));
   base_mb_PPS_IO_0_0 PPS_IO_0
-       (.clk(microblaze_0_Clk),
-        .io_ctrl0(xlslice_0_Dout1),
+       (.io_ctrl0(xlslice_0_Dout1),
         .io_ctrl1(xlslice_1_Dout1),
         .pps_inout(pps_inout_0),
-        .pps_inside_in(delay_1_dout),
-        .pps_inside_out(PPS_IO_0_pps_inside_out1),
+        .pps_inside_in(wrc_board_quabo_Light_0_pps_o),
+        .pps_inside_out(PPS_IO_0_pps_inside_out),
+        .pps_sw_in(Bit_16_19_Dout1),
         .rst(rst_clk_wiz_1_100M_peripheral_aresetn));
   base_mb_SPI_MUX_1_0 SPI_MUX_1
        (.sel(xlslice_5_Dout),
@@ -1932,14 +1935,10 @@ module base_mb
         .clk_200(clk_wiz_1_clk_out2),
         .clk_in1(IBUFDS_FOR_CLK_0_O),
         .locked(clk_wiz_1_locked));
-  base_mb_delay_0_0 delay_0
-       (.clk(clk_wiz_0_clk_62m5),
-        .din(PPS_IO_0_pps_inside_out1),
-        .dout(PPS_IO_0_pps_inside_out));
-  base_mb_delay_0_1 delay_1
-       (.clk(clk_wiz_0_clk_62m5),
-        .din(wrc_board_quabo_Light_0_pps_o),
-        .dout(delay_1_dout));
+  base_mb_dsync_0_0 dsync_0
+       (.clk(microblaze_0_Clk),
+        .din(PPS_IO_0_pps_inside_out),
+        .dout(dsync_0_dout));
   base_mb_elapsed_time_gen_0_0 elapsed_time_gen_0
        (.clk_250(clk_wiz_0_clk_out250_0),
         .clk_250_1(clk_wiz_0_clk_out250_1),
@@ -1964,7 +1963,7 @@ module base_mb
         .flash_dac(flash_control_0_flash_dac),
         .hs_clk(clk_wiz_0_clk_320),
         .level(Bit_16_19_Dout),
-        .one_pps(PPS_IO_0_pps_inside_out),
+        .one_pps(dsync_0_dout),
         .pulse_n(flash_control_0_pulse_n),
         .pulse_p(flash_control_0_pulse_p),
         .rate(xlslice_7_Dout),
@@ -2017,7 +2016,7 @@ module base_mb
         .maroc_trig1(maroc_trig1_0_1),
         .maroc_trig2(maroc_trig2_0_1),
         .maroc_trig3(maroc_trig3_0_1),
-        .one_pps(PPS_IO_0_pps_inside_out),
+        .one_pps(dsync_0_dout),
         .or_trig0(or_trig0_0_1),
         .or_trig1(or_trig1_0_1),
         .or_trig2(or_trig2_0_1),

@@ -255,6 +255,9 @@ void get_FWID(void);
 //Get the shutter status, including shutter_status and light_sensor_status
 void Get_shutter_status(void);
 
+//send software pps
+void Software_PPS(void);
+
 int set_focus(u16 target, int* statptr);
 int move_stepper(int steps, u8 last_phase, u8 limit_override);
 int get_stored_focus(void);
@@ -292,6 +295,7 @@ u8 stim_rate = 0;
 u8 stim_on = 0;
 u8 hv_rstb = 0;
 u8 led_flasher_sel = 1;
+u8 pps_sw = 0;
 // spi_sel = 0 is for WR control, = 1 for MB control
 u8 spi_sel = 0;
 // Set to 1 to arm the WR interrupt logic
@@ -1041,6 +1045,10 @@ recv_callback(void *arg, struct udp_pcb *tpcb,struct pbuf *p, struct ip4_addr *a
 		{
 			SetGOEMask(bptr+4);
 		}
+		if((byte0 & 0x7f) == 0x0f)
+		{
+			Software_PPS();
+		}
 		if ((byte0 & 0x80) == 0x80)  //Echo the packet
 		{
 			//struct pbuf *hk_pbuf;
@@ -1557,7 +1565,7 @@ int GetHouseKeeping(void)
 //Update the GPIO that controls the stim, hv_enable, etc
 void UpdateGPIO(void)
 {
-	XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHAN, ((led_flasher_sel << 29)|(ET_clk_reset<<28) | (flash_width<<24) | (flash_level<<19) | (flash_rate<<16) |
+	XGpio_DiscreteWrite(&Gpio, GPIO_OUT_CHAN, ((pps_sw << 30)|(led_flasher_sel << 29)|(ET_clk_reset<<28) | (flash_width<<24) | (flash_level<<19) | (flash_rate<<16) |
 			(wr_int_arm<<15)|(spi_sel<<14)|(stim_rate<<10) | (stim_level<<2) | (stim_on<<1) | hv_rstb ));
 }
 
@@ -2599,4 +2607,13 @@ void print_packet_info(EthPacketHeader_Keys ethpacketheader_key)
 													ethpacketheader_key.dst_mac[3],
 													ethpacketheader_key.dst_mac[4],
 													ethpacketheader_key.dst_mac[5]);
+}
+
+void Software_PPS(void)
+{
+	pps_sw = 1;
+	UpdateGPIO();
+	for (int delay = 0; delay < 1000; delay++);
+	pps_sw = 0;
+	UpdateGPIO();
 }

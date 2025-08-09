@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2023 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2025 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -55,33 +55,31 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module base_mb_PPS_IO_0_0 (
-  clk,
   rst,
   io_ctrl0,
   io_ctrl1,
   pps_inside_in,
+  pps_sw_in,
   pps_inside_out,
   pps_inout
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN base_mb_clk_wiz_1_0_clk_100, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
-input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
 input wire rst;
 input wire io_ctrl0;
 input wire io_ctrl1;
 input wire pps_inside_in;
+input wire pps_sw_in;
 output wire pps_inside_out;
 inout wire pps_inout;
 
   PPS_IO inst (
-    .clk(clk),
     .rst(rst),
     .io_ctrl0(io_ctrl0),
     .io_ctrl1(io_ctrl1),
     .pps_inside_in(pps_inside_in),
+    .pps_sw_in(pps_sw_in),
     .pps_inside_out(pps_inside_out),
     .pps_inout(pps_inout)
   );

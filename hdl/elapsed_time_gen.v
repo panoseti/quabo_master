@@ -51,7 +51,10 @@ reg [28:0] ET0_counter = 0;
 reg [28:0] ET0_reg = 0;
 always @ (posedge clk_250) begin
     if (counter_reset_0) ET0_counter <= 0;
-    else ET0_counter <= ET0_counter + 1;
+    else if(ET0_counter == 249999999)
+        ET0_counter <= 0;
+    else 
+        ET0_counter <= ET0_counter + 1;
     ET0_reg <= ET0_counter;
 end
 
@@ -78,7 +81,10 @@ reg [28:0] ET1_counter = 0;
 reg [28:0] ET1_reg = 0;
 always @ (posedge clk_250_1) begin
     if (counter_reset_1) ET1_counter <= 0;
-    else ET1_counter <= ET1_counter + 1;
+    else if(ET1_counter == 249999999)
+        ET1_counter <= 0;
+    else
+        ET1_counter <= ET1_counter + 1;
     ET1_reg <= ET1_counter;
 end
 //PHASE 2
@@ -96,7 +102,10 @@ reg [28:0] ET2_counter = 0;
 reg [28:0] ET2_reg = 0;
 always @ (posedge clk_250_2) begin
     if (counter_reset_2) ET2_counter <= 0;
-    else ET2_counter <= ET2_counter + 1;
+    else if(ET2_counter == 249999999)
+        ET2_counter <= 0;
+    else
+        ET2_counter <= ET2_counter + 1;
     ET2_reg <= ET2_counter;
 end
 //PHASE 3
@@ -114,7 +123,10 @@ reg [28:0] ET3_counter = 0;
 reg [28:0] ET3_reg = 0;
 always @ (posedge clk_250_3) begin
     if (counter_reset_3) ET3_counter <= 0;
-    else ET3_counter <= ET3_counter + 1;
+    else if(ET3_counter == 249999999)
+        ET3_counter <= 0;
+    else
+        ET3_counter <= ET3_counter + 1;
     ET3_reg <= ET3_counter;
 end
 
