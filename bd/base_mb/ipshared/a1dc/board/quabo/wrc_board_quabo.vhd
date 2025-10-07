@@ -172,7 +172,7 @@ entity wrc_board_quabo is
     --clk_ext_10m_p_i : in std_logic;
     --clk_ext_10m_n_i : in std_logic;
     clk_ext_10m : in std_logic;
---pps_i	  : in	 std_logic;
+    pps_i	  : in	 std_logic;
 	pps_o	  : out   std_logic;
 --	abscal_tx_o : out std_logic;
 --	abscal_rx_o : out std_logic;
@@ -295,7 +295,7 @@ architecture top of wrc_board_quabo is
   
   --signal clk_ext_10m_p_i :  std_logic;
   --signal clk_ext_10m_n_i :  std_logic;
-  signal pps_i           :  std_logic;
+  -- signal pps_i           :  std_logic;
 begin  -- architecture top
 
   -----------------------------------------------------------------------------
@@ -324,7 +324,7 @@ begin  -- architecture top
   -----------------------------------------------------------------------------
   -- The WR PTP core board package (WB Slave + WB Master)
   -----------------------------------------------------------------------------
-  pps_i          <= '0';
+  -- pps_i          <= '0';
   wrs_tx_data_i  <= (31 downto 0 => '0');
   wrs_tx_valid_i <= '0';
   wrs_tx_last_i  <= '0';
@@ -360,7 +360,7 @@ begin  -- architecture top
   cmp_xwrc_board_quabo : xwrc_board_quabo
     generic map (
       g_simulation                => g_simulation,
-      g_with_external_clock_input => FALSE,   -- RR changed
+      g_with_external_clock_input => TRUE,   -- RR changed it to FALSE; Wei changed it to TRUE for GNSS timing support.
       g_dpram_initf               => g_dpram_initf,
       g_fabric_iface              => STREAMERS)--PLAIN)
     port map (

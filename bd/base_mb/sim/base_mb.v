@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-//Date        : Fri Aug  8 13:56:59 2025
+//Date        : Mon Oct  6 15:38:18 2025
 //Host        : acme1 running 64-bit Ubuntu 16.04.2 LTS
 //Command     : generate_target base_mb.bd
 //Design      : base_mb
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=124,numReposBlks=95,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=20,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
+(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=125,numReposBlks=96,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=21,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
 module base_mb
    (ADC_DIN_N,
     ADC_DIN_P,
@@ -39,6 +39,8 @@ module base_mb
     SPI_SS,
     adc_clk_out,
     board_loc,
+    clk_10_n,
+    clk_10_p,
     clk_125m_gtx_n_i_0,
     clk_125m_gtx_p_i_0,
     clk_20m_vcxo_i_0,
@@ -125,11 +127,13 @@ module base_mb
   input [3:0]SC_DIN;
   output [3:0]SC_DOUT;
   output [3:0]SC_RSTb;
-  output SMA_J1;
+  input SMA_J1;
   output SPI_CK;
   output [3:0]SPI_SS;
   output adc_clk_out;
   input [9:0]board_loc;
+  input clk_10_n;
+  input clk_10_p;
   input clk_125m_gtx_n_i_0;
   input clk_125m_gtx_p_i_0;
   input clk_20m_vcxo_i_0;
@@ -254,8 +258,11 @@ module base_mb
   wire HighSpeed_PH_v1_0_0_m_axis_TVALID;
   wire HighSpeed_PH_v1_0_0_start_to_read;
   wire IBUFDS_FOR_CLK_0_O;
+  wire IBUFDS_FOR_CLK_1_O;
+  wire IB_0_1;
   wire [31:0]IM_FIFO_0_rdata_to_user;
   wire IM_FIFO_0_ready_to_read;
+  wire I_0_1;
   wire [0:0]In0_0_1;
   wire [0:0]In1_0_1;
   wire [0:0]In2_0_1;
@@ -868,6 +875,7 @@ module base_mb
   wire [1:0]or_trig2_0_1;
   wire [1:0]or_trig3_0_1;
   wire pinout_three_state_0_d_io;
+  wire pps_i_0_1;
   wire [0:0]rst_clk_wiz_1_100M_1_peripheral_aresetn;
   wire [0:0]rst_clk_wiz_1_100M_bus_struct_reset;
   wire [0:0]rst_clk_wiz_1_100M_interconnect_aresetn;
@@ -927,6 +935,8 @@ module base_mb
   assign CK_R[3:0] = maroc_dc_0_CK_R;
   assign D_R[3:0] = maroc_dc_0_D_R;
   assign HV_RSTb[0] = xlslice_0_Dout;
+  assign IB_0_1 = clk_10_n;
+  assign I_0_1 = clk_10_p;
   assign In0_0_1 = focus_down_lim[0];
   assign In1_0_1 = focus_up_lim[0];
   assign In2_0_1 = shutter_down_lim[0];
@@ -942,7 +952,6 @@ module base_mb
   assign SC_DIN_0_1 = SC_DIN[3:0];
   assign SC_DOUT[3:0] = maroc_slow_control_0_SC_DOUT;
   assign SC_RSTb[3:0] = maroc_slow_control_0_SC_RSTb;
-  assign SMA_J1 = PPS_IO_0_pps_inside_out;
   assign SPI_CK = SPI_MUX_1_spi_ck;
   assign SPI_SS[3:0] = axi_quad_spi_0_ss_o;
   assign adc_clk_out = maroc_dc_0_adc_clk_out;
@@ -985,6 +994,7 @@ module base_mb
   assign or_trig3_0_1 = or_trig3_0[1:0];
   assign pll20dac_cs_n_o_0 = wrc_board_quabo_Light_0_pll20dac_cs_n_o;
   assign pll25dac_cs_n_o_0 = wrc_board_quabo_Light_0_pll25dac_cs_n_o;
+  assign pps_i_0_1 = SMA_J1;
   assign rx_0_1 = J3pin5;
   assign sd0_sc = StepDrive_ShutterCtr_0_sd0_sc;
   assign sd2_spare = StepDrive_ShutterCtr_0_sd2_spare;
@@ -1236,6 +1246,10 @@ module base_mb
         .s_axi_packetheader_wvalid(microblaze_0_axi_periph_M11_AXI_WVALID),
         .start_to_read(HighSpeed_PH_v1_0_0_start_to_read),
         .tai(TAI_IO_0_tai_inside_out));
+  base_mb_IBUFDS_FOR_CLK_0_0 IBUFDS_FOR_10MHz
+       (.I(I_0_1),
+        .IB(IB_0_1),
+        .O(IBUFDS_FOR_CLK_1_O));
   base_mb_IBUFDS_FOR_CLK_0_1 IBUFDS_FOR_CLK_0
        (.I(sysclkin_p_1),
         .IB(sysclkin_n_1),
@@ -2562,13 +2576,14 @@ module base_mb
        (.clk_125m_gtx_n_i(clk_125m_gtx_n_i_0_1),
         .clk_125m_gtx_p_i(clk_125m_gtx_p_i_0_1),
         .clk_20m_vcxo_i(clk_20m_vcxo_i_0_1),
-        .clk_ext_10m(xlconstant_4_dout),
+        .clk_ext_10m(IBUFDS_FOR_CLK_1_O),
         .clk_sys_o(wrc_board_quabo_Light_0_clk_sys_o1),
         .onewire_b(onewire_b_0),
         .pll20dac_cs_n_o(wrc_board_quabo_Light_0_pll20dac_cs_n_o),
         .pll25dac_cs_n_o(wrc_board_quabo_Light_0_pll25dac_cs_n_o),
         .plldac_din_o(wrc_board_quabo_Light_0_plldac_din_o),
         .plldac_sclk_o(wrc_board_quabo_Light_0_plldac_sclk_o),
+        .pps_i(pps_i_0_1),
         .pps_o(wrc_board_quabo_Light_0_pps_o),
         .reset_i(xlconstant_4_dout),
         .sfp_los_i(sfp_los_i_0_1),

@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# IBUFDS_FOR_CLK, IM_FIFO, OBUFDS_FOR_CLK, PPS_IO, SPI_MUX, SPI_STARTUP, SPI_access, StepDrive_ShutterCtrl_Sel, TAI_IO, dsync, elapsed_time_gen, ext_trig, firmware_ID_ROM, flash_control, in_buf_ds_1bit, in_buf_ds_4bit, in_buf_ds_1bit, pinout_three_state, step_drive, stim_gen
+# IBUFDS_FOR_CLK, IBUFDS_FOR_CLK, IM_FIFO, OBUFDS_FOR_CLK, PPS_IO, SPI_MUX, SPI_STARTUP, SPI_access, StepDrive_ShutterCtrl_Sel, TAI_IO, dsync, elapsed_time_gen, ext_trig, firmware_ID_ROM, flash_control, in_buf_ds_1bit, in_buf_ds_4bit, in_buf_ds_1bit, pinout_three_state, step_drive, stim_gen
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -283,11 +283,13 @@ proc create_root_design { parentCell } {
   set SC_DIN [ create_bd_port -dir I -from 3 -to 0 SC_DIN ]
   set SC_DOUT [ create_bd_port -dir O -from 3 -to 0 SC_DOUT ]
   set SC_RSTb [ create_bd_port -dir O -from 3 -to 0 SC_RSTb ]
-  set SMA_J1 [ create_bd_port -dir O SMA_J1 ]
+  set SMA_J1 [ create_bd_port -dir I SMA_J1 ]
   set SPI_CK [ create_bd_port -dir O SPI_CK ]
   set SPI_SS [ create_bd_port -dir O -from 3 -to 0 SPI_SS ]
   set adc_clk_out [ create_bd_port -dir O adc_clk_out ]
   set board_loc [ create_bd_port -dir I -from 9 -to 0 board_loc ]
+  set clk_10_n [ create_bd_port -dir I clk_10_n ]
+  set clk_10_p [ create_bd_port -dir I clk_10_p ]
   set clk_125m_gtx_n_i_0 [ create_bd_port -dir I clk_125m_gtx_n_i_0 ]
   set clk_125m_gtx_p_i_0 [ create_bd_port -dir I clk_125m_gtx_p_i_0 ]
   set clk_20m_vcxo_i_0 [ create_bd_port -dir I clk_20m_vcxo_i_0 ]
@@ -516,6 +518,17 @@ proc create_root_design { parentCell } {
    CONFIG.MODE_SEL {1} \
  ] $HighSpeed_PH_v1_0_0
 
+  # Create instance: IBUFDS_FOR_10MHz, and set properties
+  set block_name IBUFDS_FOR_CLK
+  set block_cell_name IBUFDS_FOR_10MHz
+  if { [catch {set IBUFDS_FOR_10MHz [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $IBUFDS_FOR_10MHz eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: IBUFDS_FOR_CLK_0, and set properties
   set block_name IBUFDS_FOR_CLK
   set block_cell_name IBUFDS_FOR_CLK_0
@@ -1061,7 +1074,7 @@ proc create_root_design { parentCell } {
   set maroc_dc_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:maroc_dc:2.1 maroc_dc_0 ]
   set_property -dict [ list \
    CONFIG.C_M01_AXIS_TDATA_WIDTH {32} \
-   CONFIG.PCB_REV {0} \
+   CONFIG.PCB_REV {1} \
  ] $maroc_dc_0
 
   # Create instance: maroc_slow_control_0, and set properties
@@ -1141,7 +1154,7 @@ proc create_root_design { parentCell } {
    }
   
   # Create instance: wrc_board_quabo_Light_0, and set properties
-  set wrc_board_quabo_Light_0 [ create_bd_cell -type ip -vlnv user.org:user:wrc_board_quabo_Light:1.3 wrc_board_quabo_Light_0 ]
+  set wrc_board_quabo_Light_0 [ create_bd_cell -type ip -vlnv user.org:user:wrc_board_quabo_Light:1.5 wrc_board_quabo_Light_0 ]
   set_property -dict [ list \
    CONFIG.g_dpram_initf {../../../../quabo_master/ip_repo/wr-cores-Quabo/ram_init/wrc_phy16_sdb.bram} \
  ] $wrc_board_quabo_Light_0
@@ -1354,8 +1367,11 @@ proc create_root_design { parentCell } {
   connect_bd_net -net HighSpeed_PH_v1_0_0_arst_for_imfifo [get_bd_pins HighSpeed_PH_v1_0_0/arst_for_imfifo] [get_bd_pins PH_BL_FIFO_0/arst_for_phfifo]
   connect_bd_net -net HighSpeed_PH_v1_0_0_start_to_read [get_bd_pins HighSpeed_PH_v1_0_0/start_to_read] [get_bd_pins PH_BL_FIFO_0/start_to_read]
   connect_bd_net -net IBUFDS_FOR_CLK_0_O [get_bd_pins IBUFDS_FOR_CLK_0/O] [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins clk_wiz_1/clk_in1]
+  connect_bd_net -net IBUFDS_FOR_CLK_1_O [get_bd_pins IBUFDS_FOR_10MHz/O] [get_bd_pins wrc_board_quabo_Light_0/clk_ext_10m]
+  connect_bd_net -net IB_0_1 [get_bd_ports clk_10_n] [get_bd_pins IBUFDS_FOR_10MHz/IB]
   connect_bd_net -net IM_FIFO_0_rdata_to_user [get_bd_pins HighSpeed_IM_v1_0_0/rdata_to_user] [get_bd_pins IM_FIFO_0/rdata_to_user]
   connect_bd_net -net IM_FIFO_0_ready_to_read [get_bd_pins HighSpeed_IM_v1_0_0/ready_to_read] [get_bd_pins IM_FIFO_0/ready_to_read]
+  connect_bd_net -net I_0_1 [get_bd_ports clk_10_p] [get_bd_pins IBUFDS_FOR_10MHz/I]
   connect_bd_net -net In0_0_1 [get_bd_ports focus_down_lim] [get_bd_pins xlconcat_2/In0]
   connect_bd_net -net In1_0_1 [get_bd_ports focus_up_lim] [get_bd_pins xlconcat_2/In1]
   connect_bd_net -net In2_0_1 [get_bd_ports shutter_down_lim] [get_bd_pins xlconcat_2/In2]
@@ -1375,7 +1391,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net PH_BL_FIFO_0_ph_elapsed_time1 [get_bd_pins HighSpeed_PH_v1_0_0/ph_elapsed_time] [get_bd_pins PH_BL_FIFO_0/ph_elapsed_time]
   connect_bd_net -net PH_BL_FIFO_0_rdata_to_user [get_bd_pins HighSpeed_PH_v1_0_0/rdata_to_user] [get_bd_pins PH_BL_FIFO_0/rdata_to_user]
   connect_bd_net -net PH_BL_FIFO_0_ready_to_read [get_bd_pins HighSpeed_PH_v1_0_0/ready_to_read] [get_bd_pins PH_BL_FIFO_0/ready_to_read]
-  connect_bd_net -net PPS_IO_0_pps_inside_out [get_bd_ports SMA_J1] [get_bd_pins PPS_IO_0/pps_inside_out] [get_bd_pins dsync_0/din] [get_bd_pins elapsed_time_gen_0/one_pps]
+  connect_bd_net -net PPS_IO_0_pps_inside_out [get_bd_pins PPS_IO_0/pps_inside_out] [get_bd_pins dsync_0/din] [get_bd_pins elapsed_time_gen_0/one_pps]
   connect_bd_net -net SC_DIN_0_1 [get_bd_ports SC_DIN] [get_bd_pins maroc_slow_control_0/SC_DIN]
   connect_bd_net -net SPI_MUX_1_spi_ck [get_bd_ports SPI_CK] [get_bd_pins SPI_MUX_1/spi_ck]
   connect_bd_net -net SPI_MUX_1_spi_mosi [get_bd_ports MOSI] [get_bd_pins SPI_MUX_1/spi_mosi]
@@ -1481,6 +1497,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net or_trig2_0_1 [get_bd_ports or_trig2_0] [get_bd_pins maroc_dc_0/or_trig2]
   connect_bd_net -net or_trig3_0_1 [get_bd_ports or_trig3_0] [get_bd_pins maroc_dc_0/or_trig3]
   connect_bd_net -net pinout_three_state_0_d_io [get_bd_ports focus_limits_on] [get_bd_pins pinout_three_state_0/d_io]
+  connect_bd_net -net pps_i_0_1 [get_bd_ports SMA_J1] [get_bd_pins wrc_board_quabo_Light_0/pps_i]
   connect_bd_net -net rst_clk_wiz_1_100M_1_peripheral_aresetn [get_bd_pins GPIO/s_axi_aresetn] [get_bd_pins HighSpeed_IM_v1_0_0/aresetn] [get_bd_pins HighSpeed_PH_v1_0_0/aresetn] [get_bd_pins IM_FIFO_0/rst] [get_bd_pins PH_BL_FIFO_0/s00_axi_aresetn] [get_bd_pins axi_gpio_mech/s_axi_aresetn] [get_bd_pins axi_timebase_wdt_0/s_axi_aresetn] [get_bd_pins microblaze_0_axi_periph/M09_ARESETN] [get_bd_pins microblaze_0_axi_periph/M10_ARESETN] [get_bd_pins microblaze_0_axi_periph/M11_ARESETN] [get_bd_pins microblaze_0_axi_periph/M12_ARESETN] [get_bd_pins microblaze_0_axi_periph/M13_ARESETN] [get_bd_pins microblaze_0_axi_periph/M14_ARESETN] [get_bd_pins microblaze_0_axi_periph/M15_ARESETN] [get_bd_pins rst_clk_wiz_1_100M_1/peripheral_aresetn] [get_bd_pins xadc_wiz_0/s_axi_aresetn]
   connect_bd_net -net rst_clk_wiz_1_100M_bus_struct_reset [get_bd_pins microblaze_0_local_memory/SYS_Rst] [get_bd_pins rst_clk_wiz_1_100M/bus_struct_reset]
   connect_bd_net -net rst_clk_wiz_1_100M_interconnect_aresetn [get_bd_pins microblaze_0_axi_periph/ARESETN] [get_bd_pins rst_clk_wiz_1_100M/interconnect_aresetn]
@@ -1519,7 +1536,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net xlconstant_1_dout [get_bd_pins axi_timer_0/capturetrig0] [get_bd_pins axi_timer_0/capturetrig1] [get_bd_pins axi_timer_0/freeze] [get_bd_pins xlconstant_1/dout]
   connect_bd_net -net xlconstant_2_dout [get_bd_pins rst_clk_wiz_1_100M_1/aux_reset_in] [get_bd_pins rst_clk_wiz_1_100M_1/ext_reset_in] [get_bd_pins xlconstant_2/dout]
   connect_bd_net -net xlconstant_3_dout [get_bd_pins rst_clk_wiz_1_100M/ext_reset_in] [get_bd_pins xlconstant_3/dout]
-  connect_bd_net -net xlconstant_4_dout [get_bd_pins wrc_board_quabo_Light_0/clk_ext_10m] [get_bd_pins wrc_board_quabo_Light_0/reset_i] [get_bd_pins xlconstant_4/dout]
+  connect_bd_net -net xlconstant_4_dout [get_bd_pins wrc_board_quabo_Light_0/reset_i] [get_bd_pins xlconstant_4/dout]
   connect_bd_net -net xlconstant_5_dout [get_bd_pins wrc_board_quabo_Light_0/sfp_mod_def0_i] [get_bd_pins xlconstant_5/dout]
   connect_bd_net -net xlconstant_6_dout [get_bd_pins wrc_board_quabo_Light_0/sfp_tx_fault_i] [get_bd_pins xlconstant_6/dout]
   connect_bd_net -net xlconstant_8_dout [get_bd_pins AXI_Stream_Switch_3_1/s2_axis_tdata] [get_bd_pins xlconstant_8/dout]

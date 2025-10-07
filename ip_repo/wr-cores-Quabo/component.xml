@@ -3,7 +3,7 @@
   <spirit:vendor>user.org</spirit:vendor>
   <spirit:library>user</spirit:library>
   <spirit:name>wrc_board_quabo_Light</spirit:name>
-  <spirit:version>1.3</spirit:version>
+  <spirit:version>1.5</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
       <spirit:name>sfp</spirit:name>
@@ -196,7 +196,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>0073c606</spirit:value>
+            <spirit:value>acd6f9d8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -212,7 +212,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>0073c606</spirit:value>
+            <spirit:value>acd6f9d8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -587,6 +587,19 @@
       </spirit:port>
       <spirit:port>
         <spirit:name>clk_ext_10m</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>pps_i</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1350,7 +1363,7 @@
       <spirit:file>
         <spirit:name>board/quabo/wrc_board_quabo.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_26516673</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_5a866be1</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -2052,7 +2065,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>xgui/wrc_board_quabo_Light_v1_3.tcl</spirit:name>
+        <spirit:name>xgui/wrc_board_quabo_Light_v1_5.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
         <spirit:userFileType>CHECKSUM_c64e2842</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
@@ -2068,7 +2081,7 @@
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>wrc_for_quabo_v1_3(wr_core_v4.2)</spirit:description>
+  <spirit:description>wrc_for_quabo_v1_5(wr_core_v4.2)</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>g_dpram_initf</spirit:name>
@@ -2093,14 +2106,16 @@
       <xilinx:taxonomies>
         <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>wrc_for_quabo_v1_2</xilinx:displayName>
+      <xilinx:displayName>wrc_for_quabo_v1_5</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>user.org:user:wrc_board_quabo_Light:1.1</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>user.org:user:wrc_board_quabo_Light:1.2</xilinx:canUpgradeFrom>
+        <xilinx:canUpgradeFrom>user.org:user:wrc_board_quabo_Light:1.3</xilinx:canUpgradeFrom>
+        <xilinx:canUpgradeFrom>user.org:user:wrc_board_quabo_Light:1.4</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2022-01-11T22:54:13Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2025-10-05T20:20:34Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@529e3652_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/WR_Project/WR_Reference_Design/wr-cores-acme1-vivado-Streamers-light/wr-cores-Quabo</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@7e6a5939_ARCHIVE_LOCATION">/media/wei/DATA/LW/Project/WR_Project/WR_Reference_Design/wr-cores-acme1-vivado-Streamers-light/wr-cores-Quabo</xilinx:tag>
@@ -2614,13 +2629,48 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@194c5088_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti/V0200/tmp/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@2a74b245_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti/V0200/tmp/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@26f472ac_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti/V0200/tmp/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6cec0399_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b1a0fc6_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7cd5eb46_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d19e112_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@787f078c_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@51be80c2_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1877c27b_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@231e98cd_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@676dcd53_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b6ec00d_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@35a42408_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@15ae25f7_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@fc2179_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@39692d79_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3398a5ed_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5003a05f_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7b626b02_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@65d97cc0_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@38eaab27_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d58520a_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@563a0a3a_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@37db1df2_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@17450a65_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@12a48221_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ce85f0d_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1b894699_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2e45dd42_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1f3dda55_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@167c763c_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7f10066a_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2ffb71c9_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3d6bc37f_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c2e5f36_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@9085fb3_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@52df61de_ARCHIVE_LOCATION">/data/home/weiliu/Projects/panoseti_firmware/quabo_master/ip_repo/wr-cores-Quabo</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="dd39bb1a"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="1977a9af"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="be7dd945"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="f68933fa"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="59c6cafc"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="6029db69"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="7cc1b723"/>
     </xilinx:packagingInfo>
