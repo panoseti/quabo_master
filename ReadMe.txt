@@ -1,3 +1,7 @@
+v21.0(1):
+1) enabled GM mode on the WR core. (slave mode by default.)
+2) connect external 10MHz and 1PPS from SMA connectors on the Quabo.
+
 v20.8(9):
 1) added sw_pps command for the situation with WR and GNSS.
 2) the nanosec counter values are limited to 249999999.
