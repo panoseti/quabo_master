@@ -1,3 +1,7 @@
+v21.2(3):
+1) WR core outputs the status signals for the external 10MHz and 1PPS.
+2) added EXT_10MHz_STATUS and EXT_1PPS_STATUS to HK packets.
+
 v21.0(1):
 1) enabled GM mode on the WR core. (slave mode by default.)
 2) connect external 10MHz and 1PPS from SMA connectors on the Quabo.

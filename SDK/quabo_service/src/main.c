@@ -7,7 +7,7 @@
 //To save a few kB of code space, get rid of the InitRemap()
 #define USE_SIMPLE_INIT
 //Also ned to select whether it's the QFP or BGA version.  Comment this out for QFP
-#define REMAP_FOR_BGA
+//#define REMAP_FOR_BGA
 
 //In hw13, added a pin to select one of two IP addresses on J3, abandoned UART
 //#define READ_IP_ADDR_FROM_J3
@@ -1590,12 +1590,13 @@ void GetTMP125(void)
 	tmp125_val = (SPI_RxBuf[1]>>5) + (SPI_RxBuf[0]<<3);
 }
 
-// not only shutter status here, but also pll_locked
+// not only shutter status here, but also pll_locked and 1pps detect
 void Get_shutter_status(void)
 {
 	//bit5 is shutter_status;
 	//bit6 is light_sensor_status;
-	//bit8 is pll_locked
+	//bit8 is pll_locked;(10MHz detected)
+	//bit9 is 1PPS_detected;
 	shutter_light_sensor_status =((XGpio_DiscreteRead(&Gpio_mech, GPIO_IN_CHAN))>>5) & (0x01b);
 }
 //Send the housekeeping data
