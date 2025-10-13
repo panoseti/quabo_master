@@ -7,7 +7,7 @@
   <spirit:componentInstances>
     <spirit:componentInstance>
       <spirit:instanceName>base_mb_wrc_board_quabo_Light_0_2</spirit:instanceName>
-      <spirit:componentRef spirit:vendor="user.org" spirit:library="user" spirit:name="wrc_board_quabo_Light" spirit:version="1.7"/>
+      <spirit:componentRef spirit:vendor="user.org" spirit:library="user" spirit:name="wrc_board_quabo_Light" spirit:version="1.8"/>
       <spirit:configurableElementValues>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.RESET_I.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.RESET_I.POLARITY">ACTIVE_LOW</spirit:configurableElementValue>

@@ -1596,7 +1596,7 @@ void Get_shutter_status(void)
 	//bit5 is shutter_status;
 	//bit6 is light_sensor_status;
 	//bit8 is pll_locked
-	shutter_light_sensor_status =((XGpio_DiscreteRead(&Gpio_mech, GPIO_IN_CHAN))>>5) & (0x0b);
+	shutter_light_sensor_status =((XGpio_DiscreteRead(&Gpio_mech, GPIO_IN_CHAN))>>5) & (0x01b);
 }
 //Send the housekeeping data
 void SendHouseKeeping(void)

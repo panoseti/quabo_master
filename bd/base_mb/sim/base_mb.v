@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-//Date        : Sun Oct 12 21:20:34 2025
+//Date        : Mon Oct 13 12:23:47 2025
 //Host        : acme1 running 64-bit Ubuntu 16.04.2 LTS
 //Command     : generate_target base_mb.bd
 //Design      : base_mb
@@ -892,6 +892,7 @@ module base_mb
   wire sysclkin_p_1;
   wire uart_rxd_i_0_1;
   wire wrc_board_quabo_Light_0_clk_sys_o1;
+  wire wrc_board_quabo_Light_0_ext_pps_detect;
   wire wrc_board_quabo_Light_0_pll20dac_cs_n_o;
   wire wrc_board_quabo_Light_0_pll25dac_cs_n_o;
   wire wrc_board_quabo_Light_0_pll_locked_o;
@@ -906,7 +907,7 @@ module base_mb
   wire [9:0]wrc_board_quabo_Light_0_tm_tai_o;
   wire wrc_board_quabo_Light_0_uart_txd_o;
   wire [7:0]xlconcat_0_dout;
-  wire [8:0]xlconcat_2_dout;
+  wire [9:0]xlconcat_2_dout;
   wire [0:0]xlconstant_0_dout;
   wire [0:0]xlconstant_10_dout;
   wire [3:0]xlconstant_11_dout;
@@ -2579,6 +2580,7 @@ module base_mb
         .clk_20m_vcxo_i(clk_20m_vcxo_i_0_1),
         .clk_ext_10m(IBUFDS_FOR_CLK_1_O),
         .clk_sys_o(wrc_board_quabo_Light_0_clk_sys_o1),
+        .ext_pps_detect(wrc_board_quabo_Light_0_ext_pps_detect),
         .onewire_b(onewire_b_0),
         .pll20dac_cs_n_o(wrc_board_quabo_Light_0_pll20dac_cs_n_o),
         .pll25dac_cs_n_o(wrc_board_quabo_Light_0_pll25dac_cs_n_o),
@@ -2646,6 +2648,7 @@ module base_mb
         .In6(StepDrive_ShutterCtr_0_light_sensor_status),
         .In7(In7_0_1),
         .In8(wrc_board_quabo_Light_0_pll_locked_o),
+        .In9(wrc_board_quabo_Light_0_ext_pps_detect),
         .dout(xlconcat_2_dout));
   base_mb_xlconstant_0_0 xlconstant_0
        (.dout(xlconstant_0_dout));

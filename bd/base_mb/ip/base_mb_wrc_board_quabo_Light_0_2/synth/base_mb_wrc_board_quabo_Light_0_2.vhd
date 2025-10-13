@@ -46,7 +46,7 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: user.org:user:wrc_board_quabo_Light:1.7
+-- IP VLNV: user.org:user:wrc_board_quabo_Light:1.8
 -- IP Revision: 2
 
 LIBRARY ieee;
@@ -86,7 +86,8 @@ ENTITY base_mb_wrc_board_quabo_Light_0_2 IS
     pps_o : OUT STD_LOGIC;
     clk_sys_o : OUT STD_LOGIC;
     tm_tai_o : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
-    pll_locked_o : OUT STD_LOGIC
+    pll_locked_o : OUT STD_LOGIC;
+    ext_pps_detect : OUT STD_LOGIC
   );
 END base_mb_wrc_board_quabo_Light_0_2;
 
@@ -130,7 +131,8 @@ ARCHITECTURE base_mb_wrc_board_quabo_Light_0_2_arch OF base_mb_wrc_board_quabo_L
       pps_o : OUT STD_LOGIC;
       clk_sys_o : OUT STD_LOGIC;
       tm_tai_o : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
-      pll_locked_o : OUT STD_LOGIC
+      pll_locked_o : OUT STD_LOGIC;
+      ext_pps_detect : OUT STD_LOGIC
     );
   END COMPONENT wrc_board_quabo;
   ATTRIBUTE X_CORE_INFO : STRING;
@@ -198,6 +200,7 @@ BEGIN
       pps_o => pps_o,
       clk_sys_o => clk_sys_o,
       tm_tai_o => tm_tai_o,
-      pll_locked_o => pll_locked_o
+      pll_locked_o => pll_locked_o,
+      ext_pps_detect => ext_pps_detect
     );
 END base_mb_wrc_board_quabo_Light_0_2_arch;

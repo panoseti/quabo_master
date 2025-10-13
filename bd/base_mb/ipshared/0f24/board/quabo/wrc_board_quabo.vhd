@@ -512,6 +512,6 @@ begin
     end if;
 end process;   
 
-ext_pps_detect <= '0' when ext_clk_counter > THRESHOLD else '1';
+ext_pps_detect <= '1' when ext_clk_counter > THRESHOLD else '0';
 
 end architecture top;
