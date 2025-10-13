@@ -1590,11 +1590,13 @@ void GetTMP125(void)
 	tmp125_val = (SPI_RxBuf[1]>>5) + (SPI_RxBuf[0]<<3);
 }
 
+// not only shutter status here, but also pll_locked
 void Get_shutter_status(void)
 {
 	//bit5 is shutter_status;
 	//bit6 is light_sensor_status;
-	shutter_light_sensor_status =((XGpio_DiscreteRead(&Gpio_mech, GPIO_IN_CHAN))>>5) & (0x03);
+	//bit8 is pll_locked
+	shutter_light_sensor_status =((XGpio_DiscreteRead(&Gpio_mech, GPIO_IN_CHAN))>>5) & (0x0b);
 }
 //Send the housekeeping data
 void SendHouseKeeping(void)

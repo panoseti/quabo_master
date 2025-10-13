@@ -815,7 +815,7 @@ proc create_root_design { parentCell } {
    CONFIG.C_ALL_INPUTS_2 {1} \
    CONFIG.C_ALL_OUTPUTS {1} \
    CONFIG.C_DOUT_DEFAULT {0x00200000} \
-   CONFIG.C_GPIO2_WIDTH {8} \
+   CONFIG.C_GPIO2_WIDTH {9} \
    CONFIG.C_IS_DUAL {1} \
  ] $axi_gpio_mech
 
@@ -1154,7 +1154,7 @@ proc create_root_design { parentCell } {
    }
   
   # Create instance: wrc_board_quabo_Light_0, and set properties
-  set wrc_board_quabo_Light_0 [ create_bd_cell -type ip -vlnv user.org:user:wrc_board_quabo_Light:1.5 wrc_board_quabo_Light_0 ]
+  set wrc_board_quabo_Light_0 [ create_bd_cell -type ip -vlnv user.org:user:wrc_board_quabo_Light:1.7 wrc_board_quabo_Light_0 ]
   set_property -dict [ list \
    CONFIG.g_dpram_initf {../../../../quabo_master/ip_repo/wr-cores-Quabo/ram_init/wrc_phy16_sdb.bram} \
  ] $wrc_board_quabo_Light_0
@@ -1188,7 +1188,7 @@ proc create_root_design { parentCell } {
   # Create instance: xlconcat_2, and set properties
   set xlconcat_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_2 ]
   set_property -dict [ list \
-   CONFIG.NUM_PORTS {8} \
+   CONFIG.NUM_PORTS {9} \
  ] $xlconcat_2
 
   # Create instance: xlconstant_0, and set properties
@@ -1516,6 +1516,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net wrc_board_quabo_Light_0_clk_sys_o1 [get_bd_pins OBUFDS_FOR_CLK_0/I] [get_bd_pins wrc_board_quabo_Light_0/clk_sys_o]
   connect_bd_net -net wrc_board_quabo_Light_0_pll20dac_cs_n_o [get_bd_ports pll20dac_cs_n_o_0] [get_bd_pins SPI_access_0/go] [get_bd_pins wrc_board_quabo_Light_0/pll20dac_cs_n_o]
   connect_bd_net -net wrc_board_quabo_Light_0_pll25dac_cs_n_o [get_bd_ports pll25dac_cs_n_o_0] [get_bd_pins wrc_board_quabo_Light_0/pll25dac_cs_n_o]
+  connect_bd_net -net wrc_board_quabo_Light_0_pll_locked_o [get_bd_pins wrc_board_quabo_Light_0/pll_locked_o] [get_bd_pins xlconcat_2/In8]
   connect_bd_net -net wrc_board_quabo_Light_0_plldac_din_o [get_bd_pins SPI_MUX_1/spi_mosi0] [get_bd_pins wrc_board_quabo_Light_0/plldac_din_o]
   connect_bd_net -net wrc_board_quabo_Light_0_plldac_sclk_o [get_bd_pins SPI_MUX_1/spi_ck0] [get_bd_pins wrc_board_quabo_Light_0/plldac_sclk_o]
   connect_bd_net -net wrc_board_quabo_Light_0_pps_o [get_bd_pins PPS_IO_0/pps_inside_in] [get_bd_pins wrc_board_quabo_Light_0/pps_o]

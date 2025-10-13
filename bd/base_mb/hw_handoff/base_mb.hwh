@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Oct  6 15:38:21 2025" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Oct 12 21:20:37 2025" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintex7" DEVICE="7k160t" NAME="base_mb" PACKAGE="fbg676" SPEEDGRADE="-1"/>
 
@@ -14968,7 +14968,7 @@
             <REGISTER NAME="GPIO2_DATA">
               <PROPERTY NAME="DESCRIPTION" VALUE="Channel-2 AXI GPIO Data register"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0x8"/>
-              <PROPERTY NAME="SIZE" VALUE="8"/>
+              <PROPERTY NAME="SIZE" VALUE="9"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
@@ -14981,14 +14981,14 @@
                   <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
                   <PROPERTY NAME="READ_ACTION" VALUE=""/>
                   <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="9"/>
                 </FIELD>
               </FIELDS>
             </REGISTER>
             <REGISTER NAME="GPIO2_TRI">
               <PROPERTY NAME="DESCRIPTION" VALUE="Channel-2 AXI GPIO 3-State Control register"/>
               <PROPERTY NAME="ADDRESS_OFFSET" VALUE="0xC"/>
-              <PROPERTY NAME="SIZE" VALUE="8"/>
+              <PROPERTY NAME="SIZE" VALUE="9"/>
               <PROPERTY NAME="ACCESS" VALUE="read-write"/>
               <PROPERTY NAME="IS_ENABLED" VALUE="true"/>
               <PROPERTY NAME="RESET_VALUE" VALUE="0x0"/>
@@ -15001,7 +15001,7 @@
                   <PROPERTY NAME="WRITE_CONSTRAINT" VALUE="0"/>
                   <PROPERTY NAME="READ_ACTION" VALUE=""/>
                   <PROPERTY NAME="BIT_OFFSET" VALUE="0"/>
-                  <PROPERTY NAME="BIT_WIDTH" VALUE="8"/>
+                  <PROPERTY NAME="BIT_WIDTH" VALUE="9"/>
                 </FIELD>
               </FIELDS>
             </REGISTER>
@@ -15093,7 +15093,7 @@
         <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="9"/>
         <PARAMETER NAME="C_S_AXI_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_GPIO_WIDTH" VALUE="32"/>
-        <PARAMETER NAME="C_GPIO2_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="C_GPIO2_WIDTH" VALUE="9"/>
         <PARAMETER NAME="C_ALL_INPUTS" VALUE="0"/>
         <PARAMETER NAME="C_ALL_INPUTS_2" VALUE="1"/>
         <PARAMETER NAME="C_ALL_OUTPUTS" VALUE="1"/>
@@ -15216,7 +15216,7 @@
             <CONNECTION INSTANCE="Bit_23_23" PORT="Din"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="7" NAME="gpio2_io_i" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_2_dout">
+        <PORT DIR="I" LEFT="8" NAME="gpio2_io_i" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_2_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="xlconcat_2" PORT="dout"/>
           </CONNECTIONS>
@@ -29181,7 +29181,7 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/wrc_board_quabo_Light_0" HWVERSION="1.5" INSTANCE="wrc_board_quabo_Light_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="wrc_board_quabo_Light" VLNV="user.org:user:wrc_board_quabo_Light:1.5">
+    <MODULE COREREVISION="2" FULLNAME="/wrc_board_quabo_Light_0" HWVERSION="1.7" INSTANCE="wrc_board_quabo_Light_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="wrc_board_quabo_Light" VLNV="user.org:user:wrc_board_quabo_Light:1.7">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="g_dpram_initf" VALUE="../../../../quabo_master/ip_repo/wr-cores-Quabo/ram_init/wrc_phy16_sdb.bram"/>
@@ -29336,6 +29336,11 @@
         <PORT DIR="O" LEFT="9" NAME="tm_tai_o" RIGHT="0" SIGIS="undef" SIGNAME="wrc_board_quabo_Light_0_tm_tai_o">
           <CONNECTIONS>
             <CONNECTION INSTANCE="TAI_IO_0" PORT="tai_inside_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="pll_locked_o" SIGIS="undef" SIGNAME="wrc_board_quabo_Light_0_pll_locked_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_2" PORT="In8"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -29908,8 +29913,8 @@
         <PARAMETER NAME="IN29_WIDTH" VALUE="1"/>
         <PARAMETER NAME="IN30_WIDTH" VALUE="1"/>
         <PARAMETER NAME="IN31_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="dout_width" VALUE="8"/>
-        <PARAMETER NAME="NUM_PORTS" VALUE="8"/>
+        <PARAMETER NAME="dout_width" VALUE="9"/>
+        <PARAMETER NAME="NUM_PORTS" VALUE="9"/>
         <PARAMETER NAME="Component_Name" VALUE="base_mb_xlconcat_2_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
@@ -29954,7 +29959,12 @@
             <CONNECTION INSTANCE="External_Ports" PORT="PCBrev_n"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="7" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_2_dout">
+        <PORT DIR="I" LEFT="0" NAME="In8" RIGHT="0" SIGIS="undef" SIGNAME="wrc_board_quabo_Light_0_pll_locked_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="wrc_board_quabo_Light_0" PORT="pll_locked_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="8" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_2_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_gpio_mech" PORT="gpio2_io_i"/>
           </CONNECTIONS>
