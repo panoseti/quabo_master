@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-//Date        : Mon Oct 13 14:48:36 2025
+//Date        : Thu Nov 27 14:54:49 2025
 //Host        : acme1 running 64-bit Ubuntu 16.04.2 LTS
 //Command     : generate_target base_mb.bd
 //Design      : base_mb
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=125,numReposBlks=96,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=21,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
+(* CORE_GENERATION_INFO = "base_mb,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=base_mb,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=126,numReposBlks=97,numNonXlnxBlks=9,numHierBlks=29,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=22,numPkgbdBlks=0,bdsource=USER,da_aeth_cnt=2,da_axi4_cnt=29,da_board_cnt=6,da_clkrst_cnt=3,da_mb_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "base_mb.hwdef" *) 
 module base_mb
    (ADC_DIN_N,
     ADC_DIN_P,
@@ -211,13 +211,13 @@ module base_mb
   wire [0:0]BIT_CLK_N_1;
   wire [0:0]BIT_CLK_P_1;
   wire [4:0]Bit_16_19_Dout;
-  wire [0:0]Bit_16_19_Dout1;
   wire [3:0]Bit_19_24_Dout;
   wire [0:0]Bit_21_21_Dout;
   wire [0:0]Bit_23_23_Dout;
   wire [0:0]Bit_28_28_Dout;
   wire [5:0]Bit_29_24_Dout;
   wire [0:0]Bit_29_29_Dout;
+  wire [0:0]Bit_30_30_Dout;
   wire [3:0]Bit_3_0_Dout;
   wire [31:0]ETH_CORE_CTRL_0_m_axis_txc_TDATA;
   wire [3:0]ETH_CORE_CTRL_0_m_axis_txc_TKEEP;
@@ -494,6 +494,7 @@ module base_mb
   wire clk_wiz_1_clk_out2;
   wire clk_wiz_1_clk_out3;
   wire clk_wiz_1_locked;
+  wire delay_0_dout;
   wire dsync_0_dout;
   wire [28:0]elapsed_time_gen_0_elapsed_time0;
   wire [28:0]elapsed_time_gen_0_elapsed_time1;
@@ -1104,9 +1105,9 @@ module base_mb
   base_mb_xlslice_1_0 Bit_2_9
        (.Din(axi_gpio_0_gpio_io_o),
         .Dout(xlslice_2_Dout));
-  base_mb_Bit_16_18_1 Bit_30_30
+  base_mb_Bit_10_13_0 Bit_30_30
        (.Din(axi_gpio_0_gpio_io_o),
-        .Dout(Bit_16_19_Dout1));
+        .Dout(Bit_30_30_Dout));
   base_mb_Bit_0_15_0 Bit_3_0
        (.Din(axi_gpio_0_gpio_io_o1),
         .Dout(Bit_3_0_Dout));
@@ -1306,9 +1307,9 @@ module base_mb
        (.io_ctrl0(xlslice_0_Dout1),
         .io_ctrl1(xlslice_1_Dout1),
         .pps_inout(pps_inout_0),
-        .pps_inside_in(wrc_board_quabo_Light_0_pps_o),
+        .pps_inside_in(delay_0_dout),
         .pps_inside_out(PPS_IO_0_pps_inside_out),
-        .pps_sw_in(Bit_16_19_Dout1),
+        .pps_sw_in(Bit_30_30_Dout),
         .rst(rst_clk_wiz_1_100M_peripheral_aresetn));
   base_mb_SPI_MUX_1_0 SPI_MUX_1
        (.sel(xlslice_5_Dout),
@@ -1951,6 +1952,10 @@ module base_mb
         .clk_200(clk_wiz_1_clk_out2),
         .clk_in1(IBUFDS_FOR_CLK_0_O),
         .locked(clk_wiz_1_locked));
+  base_mb_delay_0_0 delay_0
+       (.clk(clk_wiz_0_clk_62m5),
+        .din(wrc_board_quabo_Light_0_pps_o),
+        .dout(delay_0_dout));
   base_mb_dsync_0_0 dsync_0
        (.clk(microblaze_0_Clk),
         .din(PPS_IO_0_pps_inside_out),

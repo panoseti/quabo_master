@@ -53,7 +53,7 @@
 `timescale 1ns/1ps
 
 (* DowngradeIPIdentifiedWarnings = "yes" *)
-module base_mb_Bit_16_18_1 (
+module base_mb_Bit_10_13_0 (
   Din,
   Dout
 );

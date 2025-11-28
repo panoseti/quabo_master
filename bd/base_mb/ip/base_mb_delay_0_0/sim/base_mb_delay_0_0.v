@@ -47,27 +47,28 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: xilinx.com:ip:xlslice:1.0
+// IP VLNV: xilinx.com:module_ref:delay:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "xlslice_v1_0_1_xlslice,Vivado 2018.3" *)
-(* CHECK_LICENSE_TYPE = "base_mb_Bit_16_18_1,xlslice_v1_0_1_xlslice,{}" *)
-(* CORE_GENERATION_INFO = "base_mb_Bit_16_18_1,xlslice_v1_0_1_xlslice,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlslice,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DIN_WIDTH=32,DIN_FROM=30,DIN_TO=30}" *)
+`timescale 1ns/1ps
+
+(* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
-module base_mb_Bit_16_18_1 (
-  Din,
-  Dout
+module base_mb_delay_0_0 (
+  clk,
+  din,
+  dout
 );
 
-input wire [31 : 0] Din;
-output wire [0 : 0] Dout;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 62500000, PHASE 0.0, CLK_DOMAIN base_mb_clk_wiz_0_0_clk_62m5, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
+input wire clk;
+input wire din;
+output wire dout;
 
-  xlslice_v1_0_1_xlslice #(
-    .DIN_WIDTH(32),
-    .DIN_FROM(30),
-    .DIN_TO(30)
-  ) inst (
-    .Din(Din),
-    .Dout(Dout)
+  delay inst (
+    .clk(clk),
+    .din(din),
+    .dout(dout)
   );
 endmodule

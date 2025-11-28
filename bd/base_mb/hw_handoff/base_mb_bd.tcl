@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# IBUFDS_FOR_CLK, IBUFDS_FOR_CLK, IM_FIFO, OBUFDS_FOR_CLK, PPS_IO, SPI_MUX, SPI_STARTUP, SPI_access, StepDrive_ShutterCtrl_Sel, TAI_IO, dsync, elapsed_time_gen, ext_trig, firmware_ID_ROM, flash_control, in_buf_ds_1bit, in_buf_ds_4bit, in_buf_ds_1bit, pinout_three_state, step_drive, stim_gen
+# IBUFDS_FOR_CLK, IBUFDS_FOR_CLK, IM_FIFO, OBUFDS_FOR_CLK, PPS_IO, SPI_MUX, SPI_STARTUP, SPI_access, StepDrive_ShutterCtrl_Sel, TAI_IO, delay, dsync, elapsed_time_gen, ext_trig, firmware_ID_ROM, flash_control, in_buf_ds_1bit, in_buf_ds_4bit, in_buf_ds_1bit, pinout_three_state, step_drive, stim_gen
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -982,6 +982,17 @@ proc create_root_design { parentCell } {
    CONFIG.USE_RESET {false} \
  ] $clk_wiz_1
 
+  # Create instance: delay_0, and set properties
+  set block_name delay
+  set block_cell_name delay_0
+  if { [catch {set delay_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $delay_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: dsync_0, and set properties
   set block_name dsync
   set block_cell_name dsync_0
@@ -1074,7 +1085,7 @@ proc create_root_design { parentCell } {
   set maroc_dc_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:maroc_dc:2.1 maroc_dc_0 ]
   set_property -dict [ list \
    CONFIG.C_M01_AXIS_TDATA_WIDTH {32} \
-   CONFIG.PCB_REV {0} \
+   CONFIG.PCB_REV {1} \
  ] $maroc_dc_0
 
   # Create instance: maroc_slow_control_0, and set properties
@@ -1350,13 +1361,13 @@ proc create_root_design { parentCell } {
   connect_bd_net -net BIT_CLK_N_1 [get_bd_ports BIT_CLK_N] [get_bd_pins in_buf_ds_adcbitclk/in_n]
   connect_bd_net -net BIT_CLK_P_1 [get_bd_ports BIT_CLK_P] [get_bd_pins in_buf_ds_adcbitclk/in_p]
   connect_bd_net -net Bit_16_19_Dout [get_bd_pins Bit_19_23/Dout] [get_bd_pins flash_control_0/level]
-  connect_bd_net -net Bit_16_19_Dout1 [get_bd_pins Bit_30_30/Dout] [get_bd_pins PPS_IO_0/pps_sw_in]
   connect_bd_net -net Bit_19_24_Dout [get_bd_pins Bit_24_27/Dout] [get_bd_pins flash_control_0/width]
   connect_bd_net -net Bit_21_21_Dout [get_bd_pins Bit_21_21/Dout] [get_bd_pins StepDrive_ShutterCtr_0/shutter_command]
   connect_bd_net -net Bit_23_23_Dout [get_bd_pins Bit_23_23/Dout] [get_bd_pins pinout_three_state_0/d_in]
   connect_bd_net -net Bit_28_28_Dout [get_bd_pins Bit_28_28/Dout] [get_bd_pins clk_wiz_0/reset]
   connect_bd_net -net Bit_29_24_Dout [get_bd_pins Bit_29_24/Dout] [get_bd_pins firmware_ID_ROM_0/addr]
   connect_bd_net -net Bit_29_29_Dout [get_bd_ports LED_FLASHER_SEL] [get_bd_pins Bit_29_29/Dout]
+  connect_bd_net -net Bit_30_30_Dout [get_bd_pins Bit_30_30/Dout] [get_bd_pins PPS_IO_0/pps_sw_in]
   connect_bd_net -net Bit_3_0_Dout [get_bd_pins Bit_3_0/Dout] [get_bd_pins step_drive_0/drive_in]
   connect_bd_net -net ETH_CORE_CTRL_1_m_axis_txd_tdata [get_bd_pins ETH_CORE_CTRL_1/m_axis_txd_tdata] [get_bd_pins axi_ethernet_0/s_axis_txd_tdata]
   connect_bd_net -net ETH_CORE_CTRL_1_m_axis_txd_tkeep [get_bd_pins ETH_CORE_CTRL_1/m_axis_txd_tkeep] [get_bd_pins axi_ethernet_0/s_axis_txd_tkeep]
@@ -1447,7 +1458,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net clk_125m_gtx_p_i_0_1 [get_bd_ports clk_125m_gtx_p_i_0] [get_bd_pins wrc_board_quabo_Light_0/clk_125m_gtx_p_i]
   connect_bd_net -net clk_20m_vcxo_i_0_1 [get_bd_ports clk_20m_vcxo_i_0] [get_bd_pins wrc_board_quabo_Light_0/clk_20m_vcxo_i]
   connect_bd_net -net clk_wiz_0_clk_320 [get_bd_pins clk_wiz_0/clk_250] [get_bd_pins flash_control_0/hs_clk]
-  connect_bd_net -net clk_wiz_0_clk_62m5 [get_bd_pins clk_wiz_0/clk_62m5] [get_bd_pins elapsed_time_gen_0/clk_62m5]
+  connect_bd_net -net clk_wiz_0_clk_62m5 [get_bd_pins clk_wiz_0/clk_62m5] [get_bd_pins delay_0/clk] [get_bd_pins elapsed_time_gen_0/clk_62m5]
   connect_bd_net -net clk_wiz_0_clk_out250_0 [get_bd_pins clk_wiz_0/clk_out250_0] [get_bd_pins elapsed_time_gen_0/clk_250] [get_bd_pins maroc_dc_0/ET_clk]
   connect_bd_net -net clk_wiz_0_clk_out250_1 [get_bd_pins clk_wiz_0/clk_out250_1] [get_bd_pins elapsed_time_gen_0/clk_250_1] [get_bd_pins maroc_dc_0/ET_clk_1]
   connect_bd_net -net clk_wiz_0_clk_out250_2 [get_bd_pins clk_wiz_0/clk_out250_2] [get_bd_pins elapsed_time_gen_0/clk_250_2] [get_bd_pins maroc_dc_0/ET_clk_2]
@@ -1455,6 +1466,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net clk_wiz_1_clk_out2 [get_bd_pins axi_ethernet_0/ref_clk] [get_bd_pins axi_ethernet_1/ref_clk] [get_bd_pins clk_wiz_1/clk_200] [get_bd_pins maroc_dc_0/hs_clk] [get_bd_pins maroc_dc_0/ref_clk]
   connect_bd_net -net clk_wiz_1_clk_out3 [get_bd_pins axi_quad_spi_0/ext_spi_clk] [get_bd_pins clk_wiz_1/clk_10] [get_bd_pins rst_clk_wiz_1_100M/slowest_sync_clk]
   connect_bd_net -net clk_wiz_1_locked [get_bd_pins clk_wiz_1/locked] [get_bd_pins rst_clk_wiz_1_100M/dcm_locked] [get_bd_pins rst_clk_wiz_1_100M_1/dcm_locked]
+  connect_bd_net -net delay_0_dout [get_bd_pins PPS_IO_0/pps_inside_in] [get_bd_pins delay_0/dout]
   connect_bd_net -net dsync_0_dout [get_bd_pins dsync_0/dout] [get_bd_pins flash_control_0/one_pps] [get_bd_pins maroc_dc_0/one_pps]
   connect_bd_net -net elapsed_time_gen_0_elapsed_time0 [get_bd_pins HighSpeed_IM_v1_0_0/im_elapsed_time] [get_bd_pins elapsed_time_gen_0/elapsed_time0] [get_bd_pins maroc_dc_0/elapsed_time_0]
   connect_bd_net -net elapsed_time_gen_0_elapsed_time1 [get_bd_pins elapsed_time_gen_0/elapsed_time1] [get_bd_pins maroc_dc_0/elapsed_time_1]
@@ -1520,7 +1532,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net wrc_board_quabo_Light_0_pll_locked_o [get_bd_pins wrc_board_quabo_Light_0/pll_locked_o] [get_bd_pins xlconcat_2/In8]
   connect_bd_net -net wrc_board_quabo_Light_0_plldac_din_o [get_bd_pins SPI_MUX_1/spi_mosi0] [get_bd_pins wrc_board_quabo_Light_0/plldac_din_o]
   connect_bd_net -net wrc_board_quabo_Light_0_plldac_sclk_o [get_bd_pins SPI_MUX_1/spi_ck0] [get_bd_pins wrc_board_quabo_Light_0/plldac_sclk_o]
-  connect_bd_net -net wrc_board_quabo_Light_0_pps_o [get_bd_pins PPS_IO_0/pps_inside_in] [get_bd_pins wrc_board_quabo_Light_0/pps_o]
+  connect_bd_net -net wrc_board_quabo_Light_0_pps_o [get_bd_pins delay_0/din] [get_bd_pins wrc_board_quabo_Light_0/pps_o]
   connect_bd_net -net wrc_board_quabo_Light_0_sfp_txn_o [get_bd_ports user_sfp_0_sfp_txn_o] [get_bd_pins wrc_board_quabo_Light_0/sfp_txn_o]
   connect_bd_net -net wrc_board_quabo_Light_0_sfp_txp_o [get_bd_ports user_sfp_0_sfp_txp_o] [get_bd_pins wrc_board_quabo_Light_0/sfp_txp_o]
   connect_bd_net -net wrc_board_quabo_Light_0_spi_mosi_o [get_bd_pins SPI_STARTUP_0/wr_mosi_i] [get_bd_pins wrc_board_quabo_Light_0/spi_mosi_o]

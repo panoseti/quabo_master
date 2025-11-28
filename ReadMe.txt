@@ -1,3 +1,6 @@
+v21.4(5):
+1) added a buffer for the 1PPS from WR core, so that the 1PPS will be transferred to all the quabos at almost the same time.
+
 v21.2(3):
 1) WR core outputs the status signals for the external 10MHz and 1PPS.
 2) added EXT_10MHz_STATUS and EXT_1PPS_STATUS to HK packets.

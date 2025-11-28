@@ -70,8 +70,10 @@ set_false_path -from [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_0/inst/
 set_false_path -from [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT4]] -to [get_clocks -of_objects [get_pins base_mb_i/clk_wiz_1/inst/mmcm_adv_inst/CLKOUT0]]
 
 #delay from the sysclk_in from Mobo through the output driver and the Mobo PCB to another Quabo
-set_input_delay -clock [get_clocks sysclk_in] -min -add_delay 7.000 [get_ports pps_inout_0]
-set_input_delay -clock [get_clocks sysclk_in] -max -add_delay 9.500 [get_ports pps_inout_0]
+#set_input_delay -clock [get_clocks sysclk_in] -min -add_delay 7.000 [get_ports pps_inout_0]
+#set_input_delay -clock [get_clocks sysclk_in] -max -add_delay 9.500 [get_ports pps_inout_0]
+set_input_delay -clock [get_clocks sysclk_in] -min -add_delay 2.500 [get_ports pps_inout_0]
+set_input_delay -clock [get_clocks sysclk_in] -max -add_delay 6.500 [get_ports pps_inout_0]
 
 
 set_clock_latency -source -early 3.000 [get_clocks sysclk_in]

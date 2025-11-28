@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Oct 13 14:48:39 2025" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 27 14:54:53 2025" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintex7" DEVICE="7k160t" NAME="base_mb" PACKAGE="fbg676" SPEEDGRADE="-1"/>
 
@@ -1285,7 +1285,7 @@
         <PARAMETER NAME="DIN_WIDTH" VALUE="32"/>
         <PARAMETER NAME="DIN_FROM" VALUE="30"/>
         <PARAMETER NAME="DIN_TO" VALUE="30"/>
-        <PARAMETER NAME="Component_Name" VALUE="base_mb_Bit_16_18_1"/>
+        <PARAMETER NAME="Component_Name" VALUE="base_mb_Bit_10_13_0"/>
         <PARAMETER NAME="DOUT_WIDTH" VALUE="1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
@@ -3119,9 +3119,9 @@
             <CONNECTION INSTANCE="xlslice_1" PORT="Dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="pps_inside_in" SIGIS="undef" SIGNAME="wrc_board_quabo_Light_0_pps_o">
+        <PORT DIR="I" NAME="pps_inside_in" SIGIS="undef" SIGNAME="delay_0_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="wrc_board_quabo_Light_0" PORT="pps_o"/>
+            <CONNECTION INSTANCE="delay_0" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="pps_sw_in" SIGIS="undef" SIGNAME="Bit_30_30_Dout">
@@ -22923,6 +22923,7 @@
         </PORT>
         <PORT CLKFREQUENCY="62500000" DIR="O" NAME="clk_62m5" SIGIS="clk" SIGNAME="clk_wiz_0_clk_62m5">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="delay_0" PORT="clk"/>
             <CONNECTION INSTANCE="elapsed_time_gen_0" PORT="clk_62m5"/>
           </CONNECTIONS>
         </PORT>
@@ -23631,6 +23632,31 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/delay_0" HWVERSION="1.0" INSTANCE="delay_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="delay" VLNV="xilinx.com:module_ref:delay:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="base_mb_delay_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="62500000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_62m5">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_62m5"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="din" SIGIS="undef" SIGNAME="wrc_board_quabo_Light_0_pps_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="wrc_board_quabo_Light_0" PORT="pps_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="dout" SIGIS="undef" SIGNAME="delay_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="PPS_IO_0" PORT="pps_inside_in"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/dsync_0" HWVERSION="1.0" INSTANCE="dsync_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="dsync" VLNV="xilinx.com:module_ref:dsync:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -23911,7 +23937,7 @@
         <PARAMETER NAME="C_M00_AXIS_START_COUNT" VALUE="32"/>
         <PARAMETER NAME="C_M01_AXIS_TDATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_M01_AXIS_START_COUNT" VALUE="32"/>
-        <PARAMETER NAME="PCB_REV" VALUE="0"/>
+        <PARAMETER NAME="PCB_REV" VALUE="1"/>
         <PARAMETER NAME="Component_Name" VALUE="base_mb_maroc_dc_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_S00_AXI_BASEADDR" VALUE="0x44A30000"/>
@@ -29325,7 +29351,7 @@
         </PORT>
         <PORT DIR="O" NAME="pps_o" SIGIS="undef" SIGNAME="wrc_board_quabo_Light_0_pps_o">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="PPS_IO_0" PORT="pps_inside_in"/>
+            <CONNECTION INSTANCE="delay_0" PORT="din"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="clk_sys_o" SIGIS="undef" SIGNAME="wrc_board_quabo_Light_0_clk_sys_o">
